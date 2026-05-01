@@ -65,13 +65,13 @@ public class ManagerFloatingBtn : MonoBehaviour
     }
     void Start()
     {
-        BtnCenter.onClick.Invoke();
+        // BtnCenter.onClick.Invoke();
         Evolvebtn.onClick.Invoke();
         shopbtn.onClick.Invoke();
         equipementbtn.onClick.Invoke();
         deathbtn.onClick.Invoke();
         BtnCenter.onClick.Invoke();
-        shopbtn.onClick.Invoke();
+        // shopbtn.onClick.Invoke();
         LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
         CheckFirsts();
     }

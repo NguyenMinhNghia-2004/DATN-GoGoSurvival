@@ -6,6 +6,7 @@ public class ManagerSoundSwipe : MonoBehaviour
 {
     public AudioSource Swiping;
     public SelectMapManager Manager;
+    public BooleanManager BoolM;
 
     [Header("BooleanManager")]
     internal bool Checl1 = true;
@@ -19,7 +20,7 @@ public class ManagerSoundSwipe : MonoBehaviour
     {
         if(Manager.Title.text == "1.wild Streets" && Checl1 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl2 = true;
             Checl3 = true;
             Checl4 = true;
@@ -29,7 +30,7 @@ public class ManagerSoundSwipe : MonoBehaviour
         }
         if (Manager.Title.text == "2.Jungle War" && Checl2 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl1 = true;
             Checl3 = true;
             Checl4 = true;
@@ -39,7 +40,7 @@ public class ManagerSoundSwipe : MonoBehaviour
         }
         if (Manager.Title.text == "3.wild Road" && Checl3 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl1 = true;
             Checl2 = true;
             Checl4 = true;
@@ -49,7 +50,7 @@ public class ManagerSoundSwipe : MonoBehaviour
         }
         if (Manager.Title.text == "4.desert boombs" && Checl4 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl1 = true;
             Checl2 = true;
             Checl3 = true;
@@ -59,7 +60,7 @@ public class ManagerSoundSwipe : MonoBehaviour
         }
         if (Manager.Title.text == "5.Enemy Streets" && Checl5 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl1 = true;
             Checl2 = true;
             Checl3 = true;
@@ -69,7 +70,7 @@ public class ManagerSoundSwipe : MonoBehaviour
         }
         if (Manager.Title.text == "6.container  Soliders" && Checl6 == true)
         {
-            Swiping.Play();
+            if (BoolM != null && BoolM.Sound) Swiping.Play();
             Checl1 = true;
             Checl2 = true;
             Checl3 = true;

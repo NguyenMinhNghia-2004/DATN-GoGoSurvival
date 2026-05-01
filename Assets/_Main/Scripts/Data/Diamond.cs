@@ -10,6 +10,7 @@ public class Diamond : MonoBehaviour
     public GameObject Boolean;
     public GameObject Flasher;
     private AudioSource Audio;
+    private BooleanManager BoolM;
     internal bool FollowPlayer = false;
     internal bool StartMove = true;
     internal bool AddOnce = true;
@@ -21,6 +22,8 @@ public class Diamond : MonoBehaviour
         Manager = GameObject.Find("GameManager");
         Audio = GetComponent<AudioSource>();
         Audio.volume = 0.5f;
+        if (Boolean != null)
+            BoolM = Boolean.GetComponent<BooleanManager>();
     }
     void FixedUpdate()
     {
@@ -71,7 +74,7 @@ public class Diamond : MonoBehaviour
             {
                 Manager.GetComponent<GameManager>().ValureLevel += 0.15f;
             Instantiate(Flasher, transform.position, transform.rotation);
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             StartCoroutine(Destroy());
             }
             if (other.CompareTag("RoadDetections"))

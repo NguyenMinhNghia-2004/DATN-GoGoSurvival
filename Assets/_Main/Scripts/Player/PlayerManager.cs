@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
                 if (Manager.SpawnObject == true)
                 {
                     (Instantiate(Bolts, SpawenShoot.transform.position, Quaternion.identity) as GameObject).transform.SetParent(ContainerWap.transform);
-                    EffectArrow.Play();
+                    if (Bool.Sound) EffectArrow.Play();
                 }
             }
         }
@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (other.CompareTag("Enemy"))
             {
-                AudioHeat.Play();
+                if (Bool.Sound) AudioHeat.Play();
                 Manager.Health -= 0.5f;
             }
         }

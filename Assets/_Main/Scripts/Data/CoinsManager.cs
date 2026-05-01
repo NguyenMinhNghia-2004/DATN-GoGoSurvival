@@ -8,6 +8,7 @@ public class CoinsManager : MonoBehaviour
     public GameObject Manager;
     public GameObject UIManager;
     private AudioSource Effect;
+    private BooleanManager BoolM;
     internal bool MoveOn = false;
     public bool WorkOn = true;
     void Start()
@@ -17,6 +18,9 @@ public class CoinsManager : MonoBehaviour
         UIManager = GameObject.Find("UI");
         Effect = GetComponent<AudioSource>();
         Effect.volume = 0.5f;
+        GameObject controller = GameObject.Find("Controller");
+        if (controller != null)
+            BoolM = controller.GetComponent<BooleanManager>();
     }
     void Update()
     {
@@ -38,7 +42,7 @@ public class CoinsManager : MonoBehaviour
     }
     IEnumerator FlashingLed()
     {
-        Effect.Play();
+        if (BoolM != null && BoolM.Sound) Effect.Play();
         yield return new WaitForEndOfFrame();
         Manager.GetComponent<GameManager>().FillingFlash.SetActive(true);
         yield return new WaitForSeconds(0.005f);

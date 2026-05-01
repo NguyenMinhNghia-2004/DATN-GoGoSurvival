@@ -7,6 +7,7 @@ public class GunManager : MonoBehaviour
     [Header("Manager Player")]
     public GameObject Player;
     public AudioSource Audio;
+    public BooleanManager Bool;
 
     [Header("Localisation PosDeb")]
     public GameObject Pos0;
@@ -38,7 +39,7 @@ public class GunManager : MonoBehaviour
     IEnumerator SpaweningBolt()
     {
         yield return new WaitForEndOfFrame();
-        Audio.Play();
+        if (Bool != null && Bool.Sound) Audio.Play();
         (Instantiate(Bullet0, Pos0.transform.position, transform.rotation) as GameObject).transform.SetParent(ContainerBolt.transform);
         (Instantiate(Bullet1, Pos1.transform.position, transform.rotation) as GameObject).transform.SetParent(ContainerBolt.transform);
         (Instantiate(Bullet2, Pos2.transform.position, transform.rotation) as GameObject).transform.SetParent(ContainerBolt.transform);

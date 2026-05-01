@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject BloodLocalisation;
     public GameObject UImanager;
     private AudioSource Audio;
+    private BooleanManager BoolM;
 
     public GameObject Bolt;
     private Transform Player;
@@ -35,6 +36,9 @@ public class EnemyManager : MonoBehaviour
         ValueAdd = Random.Range(1, 100);
         Diamond = Random.Range(1, 3);
         Audio = GetComponent<AudioSource>();
+        GameObject controller = GameObject.Find("Controller");
+        if (controller != null)
+            BoolM = controller.GetComponent<BooleanManager>();
     }
 
     void Update()
@@ -88,7 +92,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (other.CompareTag("Bolt"))
         {
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             Bolt.SetActive(true);
             Bolt.GetComponent<TextMeshProUGUI>().color = Color.red;
             Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
@@ -99,7 +103,7 @@ public class EnemyManager : MonoBehaviour
         }
         if (other.CompareTag("ball"))
         {
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             Bolt.SetActive(true);
             Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
             this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
@@ -109,7 +113,7 @@ public class EnemyManager : MonoBehaviour
         }        
         if (other.CompareTag("Fire"))
         {
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             Bolt.SetActive(true);
             Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
             this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
@@ -119,7 +123,7 @@ public class EnemyManager : MonoBehaviour
         }
         if (other.CompareTag("Spiner"))
         {
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             Bolt.SetActive(true);
             Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
             this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
@@ -129,7 +133,7 @@ public class EnemyManager : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            Audio.Play();
+            if (BoolM != null && BoolM.Sound) Audio.Play();
             FollowPlayer = false;
         }
     }

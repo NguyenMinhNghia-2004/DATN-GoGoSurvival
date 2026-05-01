@@ -29,11 +29,20 @@ public class SettingManager : MonoBehaviour
 
     void Start()
     {
-        
-    }
-    void Update()
-    {
-        
+        if (BoolM.Sound)
+            SoundActive();
+        else
+            SoundInActive();
+
+        if (BoolM.Music)
+            MusicActive();
+        else
+            MusicInactiveActive();
+
+        if (BoolM.Vibration)
+            VibrationActive();
+        else
+            VibrationInactiveActive();
     }
 
     public void SoundActive()
