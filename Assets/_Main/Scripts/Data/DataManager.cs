@@ -21,8 +21,18 @@ public class DataManager : MonoBehaviour
     // Phase 1: Direct wrapping around PlayerPrefs for easy centralized testing offline
     // Phase 2 will replace PlayerPrefs inside here with UGS Cloud Save logic
 
-    public int GetCoins() => PlayerPrefs.GetInt("coins", 0);
-    public void SetCoins(int value) => PlayerPrefs.SetInt("coins", value);
+    public long GetCoins()
+    {
+        int hi = PlayerPrefs.GetInt("coins_hi", 0);
+        int lo = PlayerPrefs.GetInt("coins_lo", 0);
+        return ((long)hi << 32) | (uint)lo;
+    }
+
+    public void SetCoins(long value)
+    {
+        PlayerPrefs.SetInt("coins_hi", (int)(value >> 32));
+        PlayerPrefs.SetInt("coins_lo", (int)(value & 0xFFFFFFFF));
+    }
 
     public int GetGems() => PlayerPrefs.GetInt("gems", 0);
     public void SetGems(int value) => PlayerPrefs.SetInt("gems", value);
@@ -44,6 +54,15 @@ public class DataManager : MonoBehaviour
 
     public string GetCheckEvolve() => PlayerPrefs.GetString("CheckEvolve", "");
     public void SetCheckEvolve(string value) => PlayerPrefs.SetString("CheckEvolve", value);
+
+    public int GetEnergy() => PlayerPrefs.GetInt("energy", 30);
+    public void SetEnergy(int value) => PlayerPrefs.SetInt("energy", value);
+
+    public string GetEnergyTimestamp() => PlayerPrefs.GetString("energy_ts", "");
+    public void SetEnergyTimestamp(string value) => PlayerPrefs.SetString("energy_ts", value);
+
+    public bool IsFirstPlay() => !PlayerPrefs.HasKey("first_play_done");
+    public void SetFirstPlayDone() => PlayerPrefs.SetInt("first_play_done", 1);
 
     public void SaveData()
     {

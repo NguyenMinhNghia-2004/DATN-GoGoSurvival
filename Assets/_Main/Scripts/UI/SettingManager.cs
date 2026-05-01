@@ -26,71 +26,63 @@ public class SettingManager : MonoBehaviour
     public GameObject VIconActive;
     public GameObject VIconInactive;
 
-
-    void Start()
+    private void OnEnable()
     {
-        if (BoolM.Sound)
-            SoundActive();
-        else
-            SoundInActive();
+        SyncUI();
+        if (BoolM != null)
+            BoolM.OnSettingsChanged += SyncUI;
+    }
 
-        if (BoolM.Music)
-            MusicActive();
-        else
-            MusicInactiveActive();
+    private void OnDisable()
+    {
+        if (BoolM != null)
+            BoolM.OnSettingsChanged -= SyncUI;
+    }
 
-        if (BoolM.Vibration)
-            VibrationActive();
-        else
-            VibrationInactiveActive();
+    private void SyncUI()
+    {
+        // Sound
+        SActiveBtn.SetActive(BoolM.Sound);
+        SInactiveBtn.SetActive(!BoolM.Sound);
+        SIconActive.SetActive(BoolM.Sound);
+        SIconInactive.SetActive(!BoolM.Sound);
+
+        // Music
+        MActiveBtn.SetActive(BoolM.Music);
+        MInactiveBtn.SetActive(!BoolM.Music);
+        MIconActive.SetActive(BoolM.Music);
+        MIconInactive.SetActive(!BoolM.Music);
+
+        // Vibration
+        VActiveBtn.SetActive(BoolM.Vibration);
+        VInactiveBtn.SetActive(!BoolM.Vibration);
+        VIconActive.SetActive(BoolM.Vibration);
+        VIconInactive.SetActive(!BoolM.Vibration);
     }
 
     public void SoundActive()
     {
-        SActiveBtn.SetActive(true);
-        SInactiveBtn.SetActive(false);
-        SIconActive.SetActive(true);
-        SIconInactive.SetActive(false);
-        BoolM.Sound = true;
+        BoolM.SetSound(true);
     }
     public void SoundInActive()
     {
-        SActiveBtn.SetActive(false);
-        SInactiveBtn.SetActive(true);
-        SIconActive.SetActive(false);
-        SIconInactive.SetActive(true);
-        BoolM.Sound = false;
+        BoolM.SetSound(false);
     }
     public void MusicActive()
     {
-        MActiveBtn.SetActive(true);
-        MInactiveBtn.SetActive(false);
-        MIconActive.SetActive(true);
-        MIconInactive.SetActive(false);
-        BoolM.Music = true;
+        BoolM.SetMusic(true);
     }
     public void MusicInactiveActive()
     {
-        MActiveBtn.SetActive(false);
-        MInactiveBtn.SetActive(true);
-        MIconActive.SetActive(false);
-        MIconInactive.SetActive(true);
-        BoolM.Music = false;
+        BoolM.SetMusic(false);
     }
     public void VibrationActive()
     {
-        VActiveBtn.SetActive(true);
-        VInactiveBtn.SetActive(false);
-        VIconActive.SetActive(true);
-        VIconInactive.SetActive(false);
-        BoolM.Vibration = true;
+        BoolM.SetVibration(true);
     }
     public void VibrationInactiveActive()
     {
-        VActiveBtn.SetActive(false);
-        VInactiveBtn.SetActive(true);
-        VIconActive.SetActive(false);
-        VIconInactive.SetActive(true);
-        BoolM.Vibration = false;
+        BoolM.SetVibration(false);
     }
 }
+

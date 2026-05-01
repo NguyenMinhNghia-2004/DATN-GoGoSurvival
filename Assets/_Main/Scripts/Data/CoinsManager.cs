@@ -57,9 +57,17 @@ public class CoinsManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(FollowPlayer());
-            UIManager.GetComponent<ManagerMecanique>().CoinsInt += 1;
+            if (CurrencyManager.Instance != null)
+            {
+                CurrencyManager.Instance.AddCoins(1);
+                UIManager.GetComponent<ManagerMecanique>().CoinsInt = CurrencyManager.Instance.Coins;
+            }
+            else
+            {
+                UIManager.GetComponent<ManagerMecanique>().CoinsInt += 1;
+                DataManager.Instance.SetCoins(UIManager.GetComponent<ManagerMecanique>().CoinsInt);
+            }
             Manager.GetComponent<GameManager>().CurrentCurrency += 1;
-            DataManager.Instance.SetCoins(UIManager.GetComponent<ManagerMecanique>().CoinsInt);
             StartCoroutine(FlashingLed());
         }
     }

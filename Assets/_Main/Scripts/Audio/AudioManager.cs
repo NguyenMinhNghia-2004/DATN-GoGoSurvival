@@ -17,11 +17,13 @@ public class AudioManager : MonoBehaviour
 
     private bool wasMusicActive;
     private bool wasInGamePlay;
+    private bool hasStartedMusic;
 
     void Start()
     {
         wasMusicActive = BoolM.Music;
         wasInGamePlay = false;
+        hasStartedMusic = false;
     }
 
     void Update()
@@ -35,23 +37,23 @@ public class AudioManager : MonoBehaviour
             if (isInGamePlay)
             {
                 Music.SetActive(false);
+                hasStartedMusic = false;
             }
             else
             {
                 Music.SetActive(true);
-                if (!wasMusicActive || wasInGamePlay)
+                AudioSource musicSource = Music.GetComponent<AudioSource>();
+                if (musicSource != null && !musicSource.isPlaying)
                 {
-                    AudioSource musicSource = Music.GetComponent<AudioSource>();
-                    if (musicSource != null && !musicSource.isPlaying)
-                    {
-                        musicSource.Play();
-                    }
+                    musicSource.Play();
+                    hasStartedMusic = true;
                 }
             }
         }
         else
         {
             Music.SetActive(false);
+            hasStartedMusic = false;
         }
         wasMusicActive = BoolM.Music;
         wasInGamePlay = isInGamePlay;
@@ -59,3 +61,4 @@ public class AudioManager : MonoBehaviour
         Vibration.SetActive(BoolM.Vibration);
     }
 }
+

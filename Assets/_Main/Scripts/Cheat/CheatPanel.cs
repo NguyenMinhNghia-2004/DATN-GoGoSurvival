@@ -113,6 +113,7 @@ namespace MyGame.Scripts.CheatManagement
                 case CheatOption.SetHealth:
                 case CheatOption.SetScore:
                 case CheatOption.SpeedEnemy:
+                case CheatOption.SetEnergy:
                     SetInputFieldCount(1);
                     break;
                 case CheatOption.PlayerPrefs:
@@ -174,6 +175,11 @@ namespace MyGame.Scripts.CheatManagement
                         CheatSpeedEnemy(speed);
                     break;
 
+                case CheatOption.SetEnergy:
+                    if (int.TryParse(inputValues[0].text, out int energy))
+                        CheatSetEnergy(energy);
+                    break;
+
                 case CheatOption.KillAllEnemies:
                     CheatKillAllEnemies();
                     break;
@@ -201,7 +207,10 @@ namespace MyGame.Scripts.CheatManagement
 
         private void CheatSetCoins(int value)
         {
-            DataManager.Instance.SetCoins(value);
+            if (CurrencyManager.Instance != null)
+                CurrencyManager.Instance.SetCoins(value);
+            else
+                DataManager.Instance.SetCoins(value);
             if (mecanique != null)
                 mecanique.CoinsInt = value;
             ShowToast($"Coins = {value}");
@@ -209,10 +218,22 @@ namespace MyGame.Scripts.CheatManagement
 
         private void CheatSetGems(int value)
         {
-            DataManager.Instance.SetGems(value);
+            if (CurrencyManager.Instance != null)
+                CurrencyManager.Instance.SetGems(value);
+            else
+                DataManager.Instance.SetGems(value);
             if (mecanique != null)
                 mecanique.GemsInt = value;
             ShowToast($"Gems = {value}");
+        }
+
+        private void CheatSetEnergy(int value)
+        {
+            if (CurrencyManager.Instance != null)
+                CurrencyManager.Instance.SetEnergy(value);
+            else
+                DataManager.Instance.SetEnergy(value);
+            ShowToast($"Energy = {value}");
         }
 
         private void CheatSetFlash(int value)
@@ -290,8 +311,18 @@ namespace MyGame.Scripts.CheatManagement
 
         private void CheatResetData()
         {
-            DataManager.Instance.SetCoins(0);
-            DataManager.Instance.SetGems(0);
+            if (CurrencyManager.Instance != null)
+            {
+                CurrencyManager.Instance.SetCoins(0);
+                CurrencyManager.Instance.SetGems(0);
+                CurrencyManager.Instance.SetEnergy(CurrencyManager.MAX_ENERGY);
+            }
+            else
+            {
+                DataManager.Instance.SetCoins(0);
+                DataManager.Instance.SetGems(0);
+                DataManager.Instance.SetEnergy(CurrencyManager.MAX_ENERGY);
+            }
             DataManager.Instance.SetFlash(0);
             DataManager.Instance.SetCurrentScore(1);
             DataManager.Instance.SetScore(0f);
@@ -372,6 +403,7 @@ namespace MyGame.Scripts.CheatManagement
         SetHealth,
         SetScore,
         SpeedEnemy,
+        SetEnergy,
         KillAllEnemies,
         FullHealth,
         GodMode,

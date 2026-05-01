@@ -28,7 +28,7 @@ public class ManagerMecanique : MonoBehaviour
     [Header("Int Manager")]
     internal int FlashInt;
     internal int GemsInt;
-    internal int CoinsInt;
+    internal long CoinsInt;
     internal int LevelInt;
 
     [Header("Floating Manager")]
@@ -37,8 +37,16 @@ public class ManagerMecanique : MonoBehaviour
     void Start()
     {
         FlashInt = DataManager.Instance.GetFlash();
-        GemsInt = DataManager.Instance.GetGems();
-        CoinsInt = DataManager.Instance.GetCoins();
+        if (CurrencyManager.Instance != null)
+        {
+            GemsInt = CurrencyManager.Instance.Gems;
+            CoinsInt = CurrencyManager.Instance.Coins;
+        }
+        else
+        {
+            GemsInt = DataManager.Instance.GetGems();
+            CoinsInt = DataManager.Instance.GetCoins();
+        }
         LevelInt = DataManager.Instance.GetCurrentScore();
         LevelLevel = DataManager.Instance.GetScore();
         FlashTime.text = "";
@@ -54,7 +62,7 @@ public class ManagerMecanique : MonoBehaviour
     {
         Flash.text = FlashInt + "/100";
         Gems.text = GemsInt + "";
-        Coins.text = CoinsInt + "";
+        Coins.text = CurrencyManager.FormatNumber(CoinsInt);
     }
     void LevelScore()
     {
@@ -74,3 +82,4 @@ public class ManagerMecanique : MonoBehaviour
         DataManager.Instance.SetFlash(FlashInt);
     }
 }
+

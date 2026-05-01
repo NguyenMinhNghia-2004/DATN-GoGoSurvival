@@ -59,8 +59,16 @@ public class DiamondVip : MonoBehaviour
             Manager.GetComponent<GameManager>().ValureLevel += Checking;
             if(Green == true)
             {
-                UIManager.GetComponent<ManagerMecanique>().GemsInt += 1;
-                DataManager.Instance.SetGems(UIManager.GetComponent<ManagerMecanique>().GemsInt);
+                if (CurrencyManager.Instance != null)
+                {
+                    CurrencyManager.Instance.AddGems(1);
+                    UIManager.GetComponent<ManagerMecanique>().GemsInt = CurrencyManager.Instance.Gems;
+                }
+                else
+                {
+                    UIManager.GetComponent<ManagerMecanique>().GemsInt += 1;
+                    DataManager.Instance.SetGems(UIManager.GetComponent<ManagerMecanique>().GemsInt);
+                }
             }
             StartCoroutine(FlashingLed());
         }
