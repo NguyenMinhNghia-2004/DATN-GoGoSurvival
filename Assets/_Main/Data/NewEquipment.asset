@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca696d1db116b7447aa04ef9a1453dbe, type: 3}
+  m_Name: NewEquipment
+  m_EditorClassIdentifier: 
+  equipId: 
+  equipName: 
+  icon: {fileID: 0}
+  description: 
+  slot: 0
+  rarity: 0
+  attackBonus: 0
+  hpBonus: 0
+  speedBonus: 0
+  cooldownReduction: 0
+  maxEnhanceLevel: 10
+  enhanceBonusPerLevel: 0.05
+  enhanceCostCoins: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  enhanceCostGems: 00000000000000000000000000000000000000000000000000000000000000000000000000000000

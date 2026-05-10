@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a315313885b82114a8de6ddce29ebec4, type: 3}
+  m_Name: Forcefield
+  m_EditorClassIdentifier: 
+  skillId: forcefield
+  skillName: Forcefield
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Generates a dissolving forcefield
+  - Adds area size + damage
+  - Adds area size + damage
+  - Adds area size + damage
+  - Adds area size + damage
+  - This is my domain
+  category: 0
+  maxLevel: 5
+  atkMultiplier:
+  - 1
+  - 1.5
+  - 2
+  - 2.25
+  - 2.5
+  - 2.5
+  cooldown:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  duration:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  radius:
+  - 1.5
+  - 2
+  - 2.5
+  - 3
+  - 3.5
+  projectileCount: 0100000001000000010000000100000001000000
+  passiveStatType: 0
+  passiveValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  behaviorClassName: 
+  evolutionPartner: {fileID: 11400000, guid: 6693a76af851a5a4392c25b0c3a05dc8, type: 2}
+  evolvedForm: {fileID: 11400000, guid: 33e7519d6f139ab45b478c739f7651df, type: 2}

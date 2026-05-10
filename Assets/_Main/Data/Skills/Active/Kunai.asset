@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a315313885b82114a8de6ddce29ebec4, type: 3}
+  m_Name: Kunai
+  m_EditorClassIdentifier: 
+  skillId: kunai
+  skillName: Kunai
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Throws kunai
+  - +1 kunai, adds damage
+  - +1 kunai, adds damage
+  - +1 kunai, adds damage
+  - +1 kunai, adds damage
+  - In and out like a ghost
+  category: 0
+  maxLevel: 5
+  atkMultiplier:
+  - 1.5
+  - 2
+  - 3
+  - 4
+  - 5.5
+  - 5.5
+  cooldown:
+  - 0.8
+  - 0.7
+  - 0.6
+  - 0.5
+  - 0.4
+  duration:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  radius:
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  projectileCount: 0100000002000000030000000400000005000000
+  passiveStatType: 0
+  passiveValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  behaviorClassName: 
+  evolutionPartner: {fileID: 11400000, guid: 6c7b47656a17b1648aff3f4438a2e58c, type: 2}
+  evolvedForm: {fileID: 11400000, guid: f788c95d0134bdd4c8552664fa730317, type: 2}

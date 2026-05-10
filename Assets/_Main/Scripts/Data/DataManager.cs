@@ -64,6 +64,13 @@ public class DataManager : MonoBehaviour
     public bool IsFirstPlay() => !PlayerPrefs.HasKey("first_play_done");
     public void SetFirstPlayDone() => PlayerPrefs.SetInt("first_play_done", 1);
 
+    // ---- Equipment System ----
+    public string GetEquipmentInventory() => PlayerPrefs.GetString("equip_inventory", "");
+    public void SetEquipmentInventory(string json) => PlayerPrefs.SetString("equip_inventory", json);
+
+    public string GetEquipmentSlots() => PlayerPrefs.GetString("equip_slots", "");
+    public void SetEquipmentSlots(string json) => PlayerPrefs.SetString("equip_slots", json);
+
     public void SaveData()
     {
         PlayerPrefs.Save();

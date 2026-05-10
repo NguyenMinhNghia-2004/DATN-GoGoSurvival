@@ -1,148 +1,274 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
-using static UnityEngine.GraphicsBuffer;
 
+/// <summary>
+/// Quản lý 1 enemy instance. Refactored:
+/// - Thêm HP system (scale theo wave)
+/// - TakeDamage() API cho skill behaviors mới
+/// - Cache tất cả GetComponent/Find calls
+/// - Gộp 4 OnTrigger blocks trùng lặp thành 1
+/// - Giữ backward-compatible với tag cũ (Bolt, ball, Fire, Spiner)
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemy Data (optional - nếu có SO)")]
+    [SerializeField] private EnemyData enemyData;
+
     [Header("Manager Enemy")]
     public GameObject Manager;
     public GameObject HitEffect;
     public GameObject BloodLocalisation;
     public GameObject UImanager;
-    private AudioSource Audio;
-    private BooleanManager BoolM;
+    public GameObject Bolt; // Damage text popup
 
-    public GameObject Bolt;
-    private Transform Player;
-    internal bool FollowPlayer = true;
-    internal int ValueAdd;
-    internal int Diamond;
-
-    [Header("Diamond")]
+    [Header("Diamond Drops")]
     public GameObject BlueDiamond;
     public GameObject RedDiamond;
     public GameObject GreenDiamond;
 
+    [Header("HP Settings (dùng nếu không có EnemyData SO)")]
+    [SerializeField] private float defaultHP = 100f;
+
+    // ---- Cached References ----
+    private AudioSource audioSource;
+    private BooleanManager boolM;
+    private GameManager gameManager;
+    private UIManager uiManager;
+    private Transform playerTransform;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private TextMeshProUGUI damageText;
+
+    // ---- Runtime State ----
+    private float maxHP;
+    private float currentHP;
+    private int diamondType;
+    private bool followPlayer = true;
+    private bool isDead;
+
+    // ---- Public Properties ----
+    public float CurrentHP => currentHP;
+    public float MaxHP => maxHP;
+    public bool IsDead => isDead;
+
+    // ============================================================
+    // Lifecycle
+    // ============================================================
+
     void Start()
     {
+        // Cache references (1 lần duy nhất, không gọi lại trong Update)
         Manager = GameObject.Find("GameManager");
         UImanager = GameObject.Find("UI");
         BloodLocalisation = GameObject.Find("BloodManager");
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        ValueAdd = Random.Range(1, 100);
-        Diamond = Random.Range(1, 3);
-        Audio = GetComponent<AudioSource>();
-        GameObject controller = GameObject.Find("Controller");
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
+        if (Bolt != null)
+            damageText = Bolt.GetComponent<TextMeshProUGUI>();
+
+        if (Manager != null)
+            gameManager = Manager.GetComponent<GameManager>();
+
+        if (UImanager != null)
+            uiManager = UImanager.GetComponent<UIManager>();
+
+        var controller = GameObject.Find("Controller");
         if (controller != null)
-            BoolM = controller.GetComponent<BooleanManager>();
+            boolM = controller.GetComponent<BooleanManager>();
+
+        // Khởi tạo HP
+        InitializeHP();
+
+        diamondType = Random.Range(1, 4); // 1-3
     }
 
     void Update()
     {
-        if(FollowPlayer == true)
+        if (isDead) return;
+
+        // Follow player
+        if (followPlayer && playerTransform != null && gameManager != null)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, Player.position, Manager.GetComponent<GameManager>().SpeedEnemy * Time.deltaTime);
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = Player.transform.position.x < this.transform.position.x;
+            float speed = enemyData != null
+                ? enemyData.GetMoveSpeed(GetCurrentWave())
+                : gameManager.SpeedEnemy;
+
+            transform.position = Vector2.MoveTowards(
+                transform.position, playerTransform.position, speed * Time.deltaTime);
+
+            if (spriteRenderer != null)
+                spriteRenderer.flipX = playerTransform.position.x < transform.position.x;
         }
-        if(UImanager.GetComponent<UIManager>().DestroyEnemys == true)
+
+        // Check destroy signal
+        if (uiManager != null && uiManager.DestroyEnemys)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 
-    IEnumerator AnimationController()
+    // ============================================================
+    // HP System (MỚI)
+    // ============================================================
+
+    private void InitializeHP()
+    {
+        int wave = GetCurrentWave();
+
+        if (enemyData != null)
+        {
+            maxHP = enemyData.GetHP(wave);
+        }
+        else
+        {
+            // Fallback: dùng defaultHP + scale đơn giản
+            maxHP = defaultHP * (1f + 0.15f * (wave - 1));
+        }
+
+        currentHP = maxHP;
+    }
+
+    /// <summary>
+    /// Gây damage cho enemy. Gọi bởi skill behaviors mới.
+    /// </summary>
+    public void TakeDamage(float damage)
+    {
+        if (isDead) return;
+
+        currentHP -= damage;
+
+        // Hiển thị damage text
+        ShowDamageText(damage);
+
+        // Play hit SFX
+        if (boolM != null && boolM.Sound && audioSource != null)
+            audioSource.Play();
+
+        // Spawn hit effect
+        if (HitEffect != null && BloodLocalisation != null)
+        {
+            var fx = Instantiate(HitEffect, transform.position, transform.rotation);
+            fx.transform.SetParent(BloodLocalisation.transform);
+        }
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        // Play death animation
+        if (animator != null)
+            animator.Play("ZombieDeath");
+
+        // Update kill count
+        if (gameManager != null)
+            gameManager.CurrentKilled += 1;
+
+        // Drop diamond + destroy sau animation
+        StartCoroutine(DeathSequence());
+    }
+
+    private void ShowDamageText(float damage)
+    {
+        if (Bolt == null || damageText == null) return;
+
+        Bolt.SetActive(true);
+        damageText.color = Color.red;
+        damageText.text = Mathf.RoundToInt(damage).ToString();
+    }
+
+    // ============================================================
+    // Death & Drops
+    // ============================================================
+
+    private IEnumerator DeathSequence()
     {
         yield return new WaitForSeconds(0.5f);
-        if(Diamond == 1)
+
+        // Drop diamond
+        DropDiamond();
+
+        // Add EXP to GameManager
+        if (gameManager != null && enemyData != null)
         {
-            (Instantiate(BlueDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
+            gameManager.ValureLevel += enemyData.expReward;
         }
-        if (Diamond == 2)
-        {
-            (Instantiate(RedDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-        }
-        if (Diamond == 3)
-        {
-            (Instantiate(GreenDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-        }
-        Destroy(this.gameObject);
+
+        Destroy(gameObject);
     }
-    IEnumerator BallController()
+
+    private void DropDiamond()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (Diamond == 1)
+        if (BloodLocalisation == null) return;
+
+        GameObject diamondPrefab = diamondType switch
         {
-            (Instantiate(BlueDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-        }
-        if (Diamond == 2)
+            1 => BlueDiamond,
+            2 => RedDiamond,
+            3 => GreenDiamond,
+            _ => BlueDiamond
+        };
+
+        if (diamondPrefab != null)
         {
-            (Instantiate(RedDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
+            var diamond = Instantiate(diamondPrefab, transform.position, transform.rotation);
+            diamond.transform.SetParent(BloodLocalisation.transform);
         }
-        if (Diamond == 3)
-        {
-            (Instantiate(GreenDiamond, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-        }
-        Destroy(this.gameObject);
     }
+
+    // ============================================================
+    // Collision (backward compatible với tags cũ)
+    // ============================================================
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bolt"))
+        if (isDead) return;
+
+        // Gộp 4 blocks trùng lặp cũ (Bolt, ball, Fire, Spiner) thành 1
+        if (other.CompareTag("Bolt") || other.CompareTag("ball") ||
+            other.CompareTag("Fire") || other.CompareTag("Spiner"))
         {
-            if (BoolM != null && BoolM.Sound) Audio.Play();
-            Bolt.SetActive(true);
-            Bolt.GetComponent<TextMeshProUGUI>().color = Color.red;
-            Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
-            this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
-            (Instantiate(HitEffect, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-            Manager.GetComponent<GameManager>().CurrentKilled += 1;
-            StartCoroutine(AnimationController());
+            // Dùng damage cố định cho hệ thống cũ (backward compatible)
+            float dmg = maxHP; // 1-hit kill giống cũ cho đến khi full migrate
+            TakeDamage(dmg);
         }
-        if (other.CompareTag("ball"))
-        {
-            if (BoolM != null && BoolM.Sound) Audio.Play();
-            Bolt.SetActive(true);
-            Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
-            this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
-            (Instantiate(HitEffect, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-            Manager.GetComponent<GameManager>().CurrentKilled += 1;
-            StartCoroutine(BallController());
-        }        
-        if (other.CompareTag("Fire"))
-        {
-            if (BoolM != null && BoolM.Sound) Audio.Play();
-            Bolt.SetActive(true);
-            Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
-            this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
-            (Instantiate(HitEffect, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-            Manager.GetComponent<GameManager>().CurrentKilled += 1;
-            StartCoroutine(BallController());
-        }
-        if (other.CompareTag("Spiner"))
-        {
-            if (BoolM != null && BoolM.Sound) Audio.Play();
-            Bolt.SetActive(true);
-            Bolt.GetComponent<TextMeshProUGUI>().text = "" + ValueAdd;
-            this.gameObject.GetComponent<Animator>().Play("ZombieDeath");
-            (Instantiate(HitEffect, transform.position, transform.rotation) as GameObject).transform.SetParent(BloodLocalisation.transform);
-            Manager.GetComponent<GameManager>().CurrentKilled += 1;
-            StartCoroutine(AnimationController());
-        }
+
         if (other.CompareTag("Player"))
         {
-            if (BoolM != null && BoolM.Sound) Audio.Play();
-            FollowPlayer = false;
+            if (boolM != null && boolM.Sound && audioSource != null)
+                audioSource.Play();
+            followPlayer = false;
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            FollowPlayer = true;
-
+            followPlayer = true;
         }
+    }
+
+    // ============================================================
+    // Helpers
+    // ============================================================
+
+    private int GetCurrentWave()
+    {
+        if (gameManager != null)
+            return Mathf.Max(1, gameManager.CurrentReload + 1);
+        return 1;
     }
 }

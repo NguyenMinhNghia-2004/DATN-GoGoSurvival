@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a315313885b82114a8de6ddce29ebec4, type: 3}
+  m_Name: Soccer Ball
+  m_EditorClassIdentifier: 
+  skillId: soccer_ball
+  skillName: Soccer Ball
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Throws 1 football that bounces
+  - +1 football
+  - Increases flight speed + damage
+  - Increases flight speed + damage
+  - +1 football
+  - Quantum entanglement
+  category: 0
+  maxLevel: 5
+  atkMultiplier:
+  - 1
+  - 1
+  - 4
+  - 5
+  - 5
+  - 8
+  cooldown:
+  - 2.5
+  - 2.5
+  - 2
+  - 1.8
+  - 1.5
+  duration:
+  - 5
+  - 5
+  - 5
+  - 6
+  - 7
+  radius:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  projectileCount: 0100000002000000020000000200000003000000
+  passiveStatType: 0
+  passiveValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  behaviorClassName: 
+  evolutionPartner: {fileID: 11400000, guid: 3428b2bdb3471984c87565307353e6e0, type: 2}
+  evolvedForm: {fileID: 11400000, guid: 6a148ff2d689cf6449333f9f396c68f6, type: 2}

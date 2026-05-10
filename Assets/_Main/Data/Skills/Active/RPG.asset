@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a315313885b82114a8de6ddce29ebec4, type: 3}
+  m_Name: RPG
+  m_EditorClassIdentifier: 
+  skillId: rpg
+  skillName: RPG
+  icon: {fileID: 0}
+  levelDescriptions:
+  - Fires an explosive rocket
+  - Rocket damage doubled
+  - +1 rocket
+  - Adds more rocket damage
+  - +1 rocket
+  - Death and destruction
+  category: 0
+  maxLevel: 5
+  atkMultiplier:
+  - 2
+  - 4
+  - 4
+  - 6
+  - 6
+  - 20
+  cooldown:
+  - 3.5
+  - 3.5
+  - 3
+  - 2.5
+  - 2
+  duration:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  radius:
+  - 2
+  - 2
+  - 2.5
+  - 3
+  - 3.5
+  projectileCount: 0100000001000000020000000200000003000000
+  passiveStatType: 0
+  passiveValues:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  skillPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  behaviorClassName: 
+  evolutionPartner: {fileID: 11400000, guid: a22c0425f291ced418518196de4110de, type: 2}
+  evolvedForm: {fileID: 11400000, guid: 443a05d56d8e0d34ba6e4a82356a468f, type: 2}
