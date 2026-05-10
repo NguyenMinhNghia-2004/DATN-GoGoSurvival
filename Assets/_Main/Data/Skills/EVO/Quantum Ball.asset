@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: quantum_ball
   skillName: Quantum Ball
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c7a8ddfeb676f6c46a6cf1beea4343b7, type: 3}
   levelDescriptions:
   - Quantum entanglement. Balls teleport between enemies.
   - 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: one_ton_iron
   skillName: 1-Ton Iron
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ec433bc08869cd64280a2fd0f70b89f9, type: 3}
   levelDescriptions:
   - Toughest in the world. 8 dumbells fly out infinitely.
   - 

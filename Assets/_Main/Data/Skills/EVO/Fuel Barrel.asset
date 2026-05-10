@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: fuel_barrel
   skillName: Fuel Barrel
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a9a5eaa9a5a64b54b98cb985ca047c64, type: 3}
   levelDescriptions:
   - Scorched earth policy. Blue fire surrounds player, slows enemies.
   - 

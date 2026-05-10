@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: ammo_thruster
   skillName: Ammo Thruster
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6dcc725814d487643b7bd0eddaf1af27, type: 3}
   levelDescriptions:
   - Bullet flight speed +10%
   - Bullet flight speed +20%

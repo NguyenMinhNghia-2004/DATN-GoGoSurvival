@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: force_barrier
   skillName: Force Barrier
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 489fc9e6df61e8b4bb565531be1b04a8, type: 3}
   levelDescriptions:
   - This is my domain. Slows enemies on contact.
   - 

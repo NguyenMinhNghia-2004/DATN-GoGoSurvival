@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: forcefield
   skillName: Forcefield
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ac92159d33a056e4080bb2803231c948, type: 3}
   levelDescriptions:
   - Generates a dissolving forcefield
   - Adds area size + damage

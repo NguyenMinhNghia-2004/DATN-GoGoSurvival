@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: magnetic_rebounder
   skillName: Magnetic Rebounder
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e9155961656324e4da5f1739b7fa0c49, type: 3}
   levelDescriptions:
   - Reverse polarity. 2 magnetic boomerangs orbit around the player.
   - 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: caltrops
   skillName: Caltrops
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: aee5b3a6f27541b4194e2715b3e3cc6f, type: 3}
   levelDescriptions:
   - Fruit shower incoming. Increased size, fires penetrating spikes.
   - 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: brick
   skillName: Brick
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 771542a8331dc6743b94a9403ec1fd1b, type: 3}
   levelDescriptions:
   - Throws 1 brick
   - +1 brick, adds damage

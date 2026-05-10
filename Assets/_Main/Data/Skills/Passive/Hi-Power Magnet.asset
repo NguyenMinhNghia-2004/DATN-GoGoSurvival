@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: hi_power_magnet
   skillName: Hi-Power Magnet
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 466cf34a43dcbab43beb439af97e09e6, type: 3}
   levelDescriptions:
   - Item loot range +100%
   - Item loot range +200%

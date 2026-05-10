@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: exo_bracer
   skillName: Exo-Bracer
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 027551a8f79d60145bc21240d94df8f7, type: 3}
   levelDescriptions:
   - Over-time effect duration +10%
   - Over-time effect duration +20%

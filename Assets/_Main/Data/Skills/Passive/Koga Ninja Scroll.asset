@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: koga_ninja_scroll
   skillName: Koga Ninja Scroll
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f8dcc5315ea9f5c43a35b09649e6ef95, type: 3}
   levelDescriptions:
   - EXP gain +8%
   - EXP gain +16%

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillId: energy_drink
   skillName: Energy Drink
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 703b95ca3a76f4c4492c9d0de061e860, type: 3}
   levelDescriptions:
   - Restores 1% HP/5s
   - Restores 2% HP/5s
