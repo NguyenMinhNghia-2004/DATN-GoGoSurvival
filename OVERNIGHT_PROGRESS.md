@@ -50,12 +50,28 @@ Tested via play-mode + Unity MCP automation. Verified flows:
 - `Assets/_Main/Scripts/_LuzartGame/Entity/StatsBehavior.cs` — fallback defaults for HPMax/TotalSkill/ATK/Speed
 - `Assets/_Main/Scenes/GamePlay.unity` — `_NinjaUI` Canvas fixed; legacy `UI` Canvas disabled
 
+## Late-night additions (after the first OVERNIGHT_PROGRESS.md write)
+
+### Additional fixes
+
+8. **SV_MainMenu was missing top bar + bottom nav** — original cloned only `UI/Main Menu/Container/MainMenu` (a small sub-panel inside the menu screen), not the full `Container`. Visually this looked like a tiny Start button on a blank screen.
+   **Fix**: re-cloned from `UI/Main Menu/Container` (the full menu screen with top header showing coins/HP/level, the 1.Wild Streets card with game preview, the Start button, AND the bottom DownContainer nav bar with Battle/Shop/Equipment locks). Prefab grew 132KB → 2MB. Now matches original Survivor.io main menu visually.
+
+9. **Legacy `ManagerFloatingBtn.Start()` threw NullRef on play** — script invokes 5 onClick handlers in Start; one resolves to a null target after the prefab clone. **Fix**: null-check each Button and wrap each invoke in a try/catch (defensive — these legacy startup hooks aren't critical).
+
+### Final stability check
+
+- Played the boot flow + ~30s gameplay + multiple auto level-ups → **no NullReferenceException, no errors**. Console only shows expected NinjaUI lifecycle logs.
+- Auto level-up popup correctly pauses with Time.timeScale=0 and resumes after pick.
+- HP=100/100 ratio displays correctly.
+
 ## Git checkpoints
 
 - `b96f52d` checkpoint: clone 13 UI prefabs from legacy scene + fix _NinjaUI canvas
 - `58ed24b` checkpoint #2: NinjaUI boot flow + pause + levelup all working
 - `e34752c` checkpoint #3: SV_Shop re-cloned from correct GameObject, natural lose verified
-- (final stat-fallback commit will come after this file is saved)
+- `443fef3` checkpoint #4: stat fallback + LevelUp auto-trigger + first morning notes
+- (final commit pending: full SV_MainMenu + ManagerFloatingBtn defensive fix)
 
 Rollback to any checkpoint with `git reset --hard <hash>` if needed.
 

@@ -72,15 +72,19 @@ public class ManagerFloatingBtn : MonoBehaviour
     }
     void Start()
     {
-        // BtnCenter.onClick.Invoke();
-        Evolvebtn.onClick.Invoke();
-        shopbtn.onClick.Invoke();
-        equipementbtn.onClick.Invoke();
-        deathbtn.onClick.Invoke();
-        BtnCenter.onClick.Invoke();
-        // shopbtn.onClick.Invoke();
-        PlayAnim(LogCenter, "VectorBattleBack");
-        CheckFirsts();
+        TryInvoke(Evolvebtn);
+        TryInvoke(shopbtn);
+        TryInvoke(equipementbtn);
+        TryInvoke(deathbtn);
+        TryInvoke(BtnCenter);
+        if (LogCenter != null) try { PlayAnim(LogCenter, "VectorBattleBack"); } catch { }
+        try { CheckFirsts(); } catch { }
+    }
+
+    private static void TryInvoke(UnityEngine.UI.Button b)
+    {
+        if (b == null) return;
+        try { b.onClick.Invoke(); } catch { }
     }
     void Update()
     {

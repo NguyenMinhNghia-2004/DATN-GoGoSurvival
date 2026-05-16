@@ -24,7 +24,7 @@ MonoBehaviour:
     PausableWhenOverlaid: 0
   - Id: 6000
     StringId: sv_main_menu
-    AssetRef: {fileID: 5939519205261940180, guid: 3891b318de7ea45e7b937a828e896669, type: 3}
+    AssetRef: {fileID: 5624247224311789256, guid: 3891b318de7ea45e7b937a828e896669, type: 3}
     Lane: 1
     CachePolicy: 2
     PreloadOnBoot: 0
