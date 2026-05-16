@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DATN.Legacy;
 
 public class SpawenManager : MonoBehaviour
 {

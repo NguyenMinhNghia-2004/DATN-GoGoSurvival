@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca696d1db116b7447aa04ef9a1453dbe, type: 3}
+  m_Name: Eq_Kunai
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
+  equipId: Eq_Kunai
+  equipName: Kunai
+  icon: {fileID: 0}
+  description: "Army set \u2014 Weapon"
+  slot: 0
+  atkByQuality:
+  - 10
+  - 20
+  - 40
+  - 70
+  - 130
+  - 200
+  - 300
+  hpByQuality:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  maxEnhanceLevel: 10
+  enhanceBonusPerLevel: 0.05
+  enhanceCostCoins: 6400000000000000c80000000000000090010000000000002003000000000000dc05000000000000b80b0000000000007017000000000000e02e000000000000a86100000000000050c3000000000000
+  gradeSkillExcellent:
+    skillName: Kunai damage +30%
+    description: Boost Kunai damage
+    statType: 1
+    value: 0.1
+  gradeSkillEpic:
+    skillName: Kunai damage +30% II
+    description: Boost Kunai damage (+upgrade)
+    statType: 1
+    value: 0.15
+  gradeSkillLegendary:
+    skillName: Kunai damage +30% III
+    description: Boost Kunai damage (legendary)
+    statType: 1
+    value: 0.2
+  linkedStartingSkill: {fileID: 0}

@@ -55,13 +55,20 @@ public class ManagerFloatingBtn : MonoBehaviour
     internal bool CheckFix = true;
 
 
+    static void PlayAnim(GameObject go, string state)
+    {
+        if (go == null || !go.activeInHierarchy) return;
+        var a = go.GetComponent<Animator>();
+        if (a != null && a.isActiveAndEnabled) a.Play(state);
+    }
+
     void Awake()
     {
 
     }
     private void OnEnable()
     {
-        LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
+        PlayAnim(LogCenter, "VectorBattleBack");
     }
     void Start()
     {
@@ -72,7 +79,7 @@ public class ManagerFloatingBtn : MonoBehaviour
         deathbtn.onClick.Invoke();
         BtnCenter.onClick.Invoke();
         // shopbtn.onClick.Invoke();
-        LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
+        PlayAnim(LogCenter, "VectorBattleBack");
         CheckFirsts();
     }
     void Update()
@@ -131,22 +138,22 @@ public class ManagerFloatingBtn : MonoBehaviour
         if (FirstBtn.GetComponent<Image>().sprite == Inactive && Shop == true)
         {
             LogFirst.SetActive(true);
-            LogFirst.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogFirst, "VectorBattle");
         }
         if (FirstMinseBtn.GetComponent<Image>().sprite == Inactive && Equipement == true)
         {
             LogFirstMinse.SetActive(true);
-            LogFirstMinse.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogFirstMinse, "VectorBattle");
         }
         if (SecondBtn.GetComponent<Image>().sprite == Inactive && Death == true)
         {
             LogSecond.SetActive(true);
-            LogSecond.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogSecond, "VectorBattle");
         }
         if (ThirdBtn.GetComponent<Image>().sprite == Inactive && Evolve == true)
         {
             LogThird.SetActive(true);
-            LogThird.GetComponent<Animator>().Play("VectorBattle");CheckCenter();CheckFirst();CheckCenter();
+            PlayAnim(LogThird, "VectorBattle");CheckCenter();CheckFirst();CheckCenter();
         }
     }
     public void CheckCenter()
@@ -159,7 +166,7 @@ public class ManagerFloatingBtn : MonoBehaviour
         if (CenterBtn.GetComponent<Image>().sprite == Inactive)
         {
             CenterBtn.GetComponent<Image>().sprite = Active;
-            LogCenter.GetComponent<Animator>().Play("VectorBattleBack");
+            PlayAnim(LogCenter, "VectorBattleBack");
             TextCenter.SetActive(true);
             TextFirstMinse.SetActive(false);
             TextSecond.SetActive(false);
@@ -169,19 +176,19 @@ public class ManagerFloatingBtn : MonoBehaviour
         /////
         if (FirstMinseBtn.GetComponent<Image>().sprite == Active)
         {
-            LogFirstMinse.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogFirstMinse, "VectorBattle");
         }
         if (SecondBtn.GetComponent<Image>().sprite == Active)
         {
-            LogSecond.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogSecond, "VectorBattle");
         }
         if (ThirdBtn.GetComponent<Image>().sprite == Active)
         {
-            LogThird.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogThird, "VectorBattle");
         }
         if(FirstBtn.GetComponent<Image>().sprite == Active)
         {
-            LogFirst.GetComponent<Animator>().Play("VectorBattle");
+            PlayAnim(LogFirst, "VectorBattle");
         }
 
         FirstBtn.GetComponent<Image>().sprite = Inactive;
@@ -201,7 +208,7 @@ public class ManagerFloatingBtn : MonoBehaviour
             if (FirstBtn.GetComponent<Image>().sprite == Inactive)
             {
                 FirstBtn.GetComponent<Image>().sprite = Active;
-                LogFirst.GetComponent<Animator>().Play("VectorBattleBack");
+                PlayAnim(LogFirst, "VectorBattleBack");
                 TextFirst.SetActive(true);
                 TextCenter.SetActive(false);
                 TextFirstMinse.SetActive(false);
@@ -211,19 +218,19 @@ public class ManagerFloatingBtn : MonoBehaviour
             /////
             if (CenterBtn.GetComponent<Image>().sprite == Active)
             {
-                LogCenter.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogCenter, "VectorBattle");
             }
             if (FirstMinseBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirstMinse.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirstMinse, "VectorBattle");
             }
             if (SecondBtn.GetComponent<Image>().sprite == Active)
             {
-                LogSecond.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogSecond, "VectorBattle");
             }
             if (ThirdBtn.GetComponent<Image>().sprite == Active)
             {
-                LogThird.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogThird, "VectorBattle");
             }
 
             FirstMinseBtn.GetComponent<Image>().sprite = Inactive;
@@ -244,7 +251,7 @@ public class ManagerFloatingBtn : MonoBehaviour
             if (FirstMinseBtn.GetComponent<Image>().sprite == Inactive)
             {
                 FirstMinseBtn.GetComponent<Image>().sprite = Active;
-                LogFirstMinse.GetComponent<Animator>().Play("VectorBattleBack");
+                PlayAnim(LogFirstMinse, "VectorBattleBack");
                 TextFirstMinse.SetActive(true);
                 TextCenter.SetActive(false);
                 TextFirst.SetActive(false);
@@ -254,19 +261,19 @@ public class ManagerFloatingBtn : MonoBehaviour
             /////
             if (CenterBtn.GetComponent<Image>().sprite == Active)
             {
-                LogCenter.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogCenter, "VectorBattle");
             }
             if (FirstBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirst.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirst, "VectorBattle");
             }
             if (SecondBtn.GetComponent<Image>().sprite == Active)
             {
-                LogSecond.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogSecond, "VectorBattle");
             }
             if (ThirdBtn.GetComponent<Image>().sprite == Active)
             {
-                LogThird.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogThird, "VectorBattle");
             }
             CenterBtn.GetComponent<Image>().sprite = Inactive;
             FirstBtn.GetComponent<Image>().sprite = Inactive;
@@ -286,7 +293,7 @@ public class ManagerFloatingBtn : MonoBehaviour
             if (SecondBtn.GetComponent<Image>().sprite == Inactive)
             {
                 SecondBtn.GetComponent<Image>().sprite = Active;
-                LogSecond.GetComponent<Animator>().Play("VectorBattleBack");
+                PlayAnim(LogSecond, "VectorBattleBack");
                 TextSecond.SetActive(true);
                 TextCenter.SetActive(false);
                 TextFirst.SetActive(false);
@@ -296,19 +303,19 @@ public class ManagerFloatingBtn : MonoBehaviour
             /////
             if (CenterBtn.GetComponent<Image>().sprite == Active)
             {
-                LogCenter.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogCenter, "VectorBattle");
             }
             if (FirstBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirst.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirst, "VectorBattle");
             }
             if (FirstMinseBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirstMinse.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirstMinse, "VectorBattle");
             }
             if (ThirdBtn.GetComponent<Image>().sprite == Active)
             {
-                LogThird.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogThird, "VectorBattle");
             }
             CenterBtn.GetComponent<Image>().sprite = Inactive;
             FirstMinseBtn.GetComponent<Image>().sprite = Inactive;
@@ -328,8 +335,8 @@ public class ManagerFloatingBtn : MonoBehaviour
             if (ThirdBtn.GetComponent<Image>().sprite == Inactive)
             {
                 ThirdBtn.GetComponent<Image>().sprite = Active;
-                LogThird.GetComponent<Animator>().Play("VectorBattleBack");
-                LogCenter.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogThird, "VectorBattleBack");
+                PlayAnim(LogCenter, "VectorBattle");
                 TextThird.SetActive(true);
                 TextCenter.SetActive(false);
                 TextFirst.SetActive(false);
@@ -339,19 +346,19 @@ public class ManagerFloatingBtn : MonoBehaviour
             /////
             if (CenterBtn.GetComponent<Image>().sprite == Active)
             {
-                LogCenter.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogCenter, "VectorBattle");
             }
             if (FirstBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirst.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirst, "VectorBattle");
             }
             if (FirstMinseBtn.GetComponent<Image>().sprite == Active)
             {
-                LogFirstMinse.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogFirstMinse, "VectorBattle");
             }
             if (SecondBtn.GetComponent<Image>().sprite == Active)
             {
-                LogSecond.GetComponent<Animator>().Play("VectorBattle");
+                PlayAnim(LogSecond, "VectorBattle");
             }
             SecondBtn.GetComponent<Image>().sprite = Inactive;
             FirstMinseBtn.GetComponent<Image>().sprite = Inactive;

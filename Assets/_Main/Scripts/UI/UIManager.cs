@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DATN.Legacy;
 
+namespace DATN.Legacy {
 public class UIManager : MonoBehaviour
 {
     [Header("Managers")]
@@ -59,6 +61,11 @@ public class UIManager : MonoBehaviour
     internal bool DestroyEnemys = false;
     internal bool StopAllAudios = false;
     internal bool MapReady = false;
+
+    [Header("End-game UI migration")]
+    [Tooltip("If true (default), legacy FinishScreen popup is suppressed — SV_LoseScreenUI is used instead via SV_EndGameBridge listening to Data_ClassicEndGame.")]
+    public bool useSurvivorIoEndGame = true;
+
     void Start()
     {
         Checking = DataManager.Instance.GetCheckEvolve();
@@ -74,11 +81,16 @@ public class UIManager : MonoBehaviour
         {
             DestroyEnemys = true;
             StopAllAudios = true;
-            FinishScreen.SetActive(true);
-            Advertisements.Instance.ShowInterstitial();
+            if (!useSurvivorIoEndGame)
+            {
+                FinishScreen.SetActive(true);
+            }
+            // Reset death flag + restore HP regardless of which screen we show,
+            // since gameplay state mutates here. The SV path will fire Data_ClassicEndGame
+            // through GameController.OnHPChange before we resetto 100.
             Manager.PlayerDeath = false;
             Manager.Health = 100;
-            Manager.HealthBar.color = Color.green;
+            if (Manager.HealthBar != null) Manager.HealthBar.color = Color.green;
             FinishScreenB = true;
         }
         else
@@ -105,7 +117,6 @@ public class UIManager : MonoBehaviour
         Weapons.DesactivateAll();
         Destroy(CurrentLevel);
         StartCoroutine(StartBacking());
-        Advertisements.Instance.ShowInterstitial();
     }
     IEnumerator StartBacking()
     {
@@ -169,12 +180,13 @@ public class UIManager : MonoBehaviour
     }
     public void Pause()
     {
-        ScreenPause.SetActive(true);
+        if (!useSurvivorIoEndGame) ScreenPause.SetActive(true);
         Manager.BtnPause();
     }
     public void Resume()
     {
-        ScreenPause.SetActive(false);
+        if (!useSurvivorIoEndGame && ScreenPause != null) ScreenPause.SetActive(false);
         Manager.ResumeBtn();
     }
 }
+} // namespace DATN.Legacy

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e24682b84fe0bb47b30c44f10fbf848, type: 3}
+  m_Name: EnDef_BossBoucebloom
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.EnemyDefinition
+  _id: EnDef_BossBoucebloom
+  _sprite: {fileID: 21300000, guid: beeb349bf8a94f04f93f5b39c24af763, type: 3}
+  _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
+  _scale: {x: 2, y: 2, z: 2}
+  _lifeTime: 3000
+  prefab: {fileID: 3156331820324582483, guid: a0de7b3d7db211a4f98f884944296602, type: 3}
+  animationConfig: {fileID: 0}
+  skillConfig: []

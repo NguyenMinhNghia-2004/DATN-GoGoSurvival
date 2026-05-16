@@ -18,10 +18,6 @@ public class ControllerUI : MonoBehaviour
     internal bool CheckGamePlay = true;
     internal bool ActivateMusic = true;
 
-    void Awake()
-    {
-        Advertisements.Instance.Initialize();
-    }
     void Update()
     {
         if(CheckSplash == true && manager.GameLoaded == true)

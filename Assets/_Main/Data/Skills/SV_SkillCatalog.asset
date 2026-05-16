@@ -1,0 +1,808 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1bcf7820e79495097b5d701a39fdba, type: 3}
+  m_Name: SV_SkillCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::SV_SkillCatalog
+  activeSkills:
+  - skillId: Sk_Kunai
+    displayName: Kunai
+    icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
+    description: Default weapon, auto-targets nearest enemy.
+    atkMultiplier:
+    - 1.5
+    - 2
+    - 3
+    - 4
+    - 5.5
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +1 Kunai
+    - +1 Kunai
+    - +1 Kunai
+    - +1 Kunai
+    - +1 Kunai
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Boomerang
+    displayName: Boomerang
+    icon: {fileID: 6946876648732156625, guid: 7900cb034bcf9374ab359b6746b151e0, type: 3}
+    description: Launches returning boomerangs.
+    atkMultiplier:
+    - 2.4
+    - 2.4
+    - 4.8
+    - 4.8
+    - 6
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1.2
+    - 1.5
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Throws 1 boomerang
+    - +1 boomerang
+    - Damage doubled
+    - Adds size
+    - Adds size
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Brick
+    displayName: Brick
+    icon: {fileID: 8222420645925065664, guid: 16cae9f3a889d0c4a95042c84e2ae30d, type: 3}
+    description: Bricks fall from above with knockback.
+    atkMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1.5
+    - 1.5
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Throws 1 brick
+    - +1 brick
+    - +1 brick
+    - +1 brick
+    - +1 brick
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_DrillShot
+    displayName: Drill Shot
+    icon: {fileID: -7287322145768585120, guid: 490ad36d9a1cca7459cbcd186a7c776c, type: 3}
+    description: Drills bounce around piercing enemies.
+    atkMultiplier:
+    - 1.5
+    - 2
+    - 3
+    - 4
+    - 5.5
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 2
+    - 3
+    - 3
+    perStarDescription:
+    - Fires a drill
+    - +1 drill
+    - Speed doubled
+    - Speed up + damage
+    - +1 drill
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Durian
+    displayName: Durian
+    icon: {fileID: -5919972264516495945, guid: aa7081b60409518408959c9e3f80c9f5, type: 3}
+    description: Bouncing durian with knockback.
+    atkMultiplier:
+    - 6
+    - 6
+    - 8
+    - 10
+    - 10
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Throws a durian
+    - Damage doubled
+    - Size doubled
+    - More damage
+    - Damage doubled
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Forcefield
+    displayName: Forcefield
+    icon: {fileID: -2294684798004565974, guid: 5b82f57458df752478bcfb6a7aa71ef2, type: 3}
+    description: Damaging forcefield around player.
+    atkMultiplier:
+    - 1
+    - 1.5
+    - 2
+    - 2.25
+    - 2.5
+    scaleMultiplier:
+    - 1
+    - 1.15
+    - 1.3
+    - 1.45
+    - 1.6
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Generates field
+    - +size +dmg
+    - +size +dmg
+    - +size +dmg
+    - +size +dmg
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Guardian
+    displayName: Guardian
+    icon: {fileID: 287197706594284169, guid: 3a28dfe0204f97f4d839f260eab0b9a0, type: 3}
+    description: Orbiting tops that block bullets.
+    atkMultiplier:
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.9
+    - 0.9
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1.15
+    - 1.3
+    - 1.45
+    - 1.6
+    perStarDescription:
+    - 2 tops, stops bullets
+    - +1 top, spin speed
+    - +1 top, spin speed
+    - +1 top, spin speed
+    - +1 top, spin speed
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_Molotov
+    displayName: Molotov
+    icon: {fileID: -8596323334576517715, guid: a2496589f15c4534cacd73c276343d65, type: 3}
+    description: Fire patches on ground.
+    atkMultiplier:
+    - 0.6
+    - 0.8
+    - 0.9
+    - 1.1
+    - 1.2
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Throws 2 molotovs
+    - +1 molotov, bigger burn
+    - +1 molotov, bigger burn
+    - +1 molotov, bigger burn
+    - +1 molotov, bigger burn
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_RPG
+    displayName: RPG
+    icon: {fileID: -8138264534235535264, guid: a9883fb5cd2265b4a8af2dcf4480c1a2, type: 3}
+    description: Explosive rockets.
+    atkMultiplier:
+    - 2
+    - 4
+    - 4
+    - 6
+    - 6
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Fires rocket
+    - Damage doubled
+    - +1 rocket
+    - More damage
+    - +1 rocket
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Sk_SoccerBall
+    displayName: Soccer Ball
+    icon: {fileID: 0}
+    description: Bouncing football.
+    atkMultiplier:
+    - 1
+    - 1
+    - 4
+    - 5
+    - 5
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - Throws 1 football
+    - +1 football
+    - Speed + damage
+    - Speed + damage
+    - +1 football
+    passiveValue:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    passiveStatType: 0
+    zSkillConfigRef: {fileID: 0}
+  passiveSkills:
+  - skillId: Ps_HiPowerMagnet
+    displayName: Hi-Power Magnet
+    icon: {fileID: 8040655671284959246, guid: ae56a81887d203d4c9f5db87b52edfec, type: 3}
+    description: Increases pickup range for EXP and items.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +100%
+    - +200%
+    - +300%
+    - +400%
+    - +500%
+    passiveValue:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    passiveStatType: 8
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_FitnessGuide
+    displayName: Fitness Guide
+    icon: {fileID: -9128804391785536619, guid: 51cb50ee5d833ae4893b7cbd92510e90, type: 3}
+    description: Increases player Max HP.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +20%
+    - +40%
+    - +60%
+    - +80%
+    - +100%
+    passiveValue:
+    - 0.2
+    - 0.4
+    - 0.6
+    - 0.8
+    - 1
+    passiveStatType: 2
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_AmmoThruster
+    displayName: Ammo Thruster
+    icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
+    description: Increases bullet flight speed.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +10%
+    - +20%
+    - +30%
+    - +40%
+    - +50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 10
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_HEFuel
+    displayName: HE Fuel
+    icon: {fileID: -6570297543699491653, guid: f1340ba91d7017744a36a927fc17ab41, type: 3}
+    description: Increases size and range of skills.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +10%
+    - +20%
+    - +30%
+    - +40%
+    - +50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 1
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_EnergyDrink
+    displayName: Energy Drink
+    icon: {fileID: -4884214388169493030, guid: f495bc086efecbe4dab18d6c2b66dab0, type: 3}
+    description: Restores HP periodically.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - 1% HP/5s
+    - 2% HP/5s
+    - 3% HP/5s
+    - 4% HP/5s
+    - 5% HP/5s
+    passiveValue:
+    - 0.01
+    - 0.02
+    - 0.03
+    - 0.04
+    - 0.05
+    passiveStatType: 9
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_ExoBracer
+    displayName: Exo-Bracer
+    icon: {fileID: 2864072112647360154, guid: c76246179aebad94cbf0336b12c01883, type: 3}
+    description: Increases over-time skill duration.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +10%
+    - +20%
+    - +30%
+    - +40%
+    - +50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 11
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_EnergyCube
+    displayName: Energy Cube
+    icon: {fileID: -1901870353399733498, guid: b2efdbd4a737e39438bd1f974833dd75, type: 3}
+    description: Lowers attack skill cooldown.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - -8%
+    - -16%
+    - -24%
+    - -32%
+    - -40%
+    passiveValue:
+    - 0.08
+    - 0.16
+    - 0.24
+    - 0.32
+    - 0.4
+    passiveStatType: 4
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_OilBond
+    displayName: Oil Bond
+    icon: {fileID: -4342990106867435157, guid: 1d80e1e7aeb0ef54cbdcb3a73ed7ab81, type: 3}
+    description: Increases Gold value picked up.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +8%
+    - +16%
+    - +24%
+    - +32%
+    - +40%
+    passiveValue:
+    - 0.08
+    - 0.16
+    - 0.24
+    - 0.32
+    - 0.4
+    passiveStatType: 6
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_RoninOyoroi
+    displayName: Ronin Oyoroi
+    icon: {fileID: 4139055994545622896, guid: 2bdb7755e37ae5c45bb230b4a8587a53, type: 3}
+    description: Reduces damage taken.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - -10%
+    - -20%
+    - -30%
+    - -40%
+    - -50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 5
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_SportsShoes
+    displayName: Sports Shoes
+    icon: {fileID: -6449449655468660855, guid: 00472e27574e3c2448bbc51ab246be85, type: 3}
+    description: Increases movement speed.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +10%
+    - +20%
+    - +30%
+    - +40%
+    - +50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 3
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_HiPowerBullet
+    displayName: Hi-Power Bullet
+    icon: {fileID: 0}
+    description: Increases ATK damage.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +10%
+    - +20%
+    - +30%
+    - +40%
+    - +50%
+    passiveValue:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    passiveStatType: 1
+    zSkillConfigRef: {fileID: 0}
+  - skillId: Ps_KogaNinjaScroll
+    displayName: Koga Ninja Scroll
+    icon: {fileID: -5725786655984018465, guid: d96bb841610a35b42913dc1f3af07d5a, type: 3}
+    description: Increases EXP gain.
+    atkMultiplier:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    scaleMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    speedMultiplier:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    perStarDescription:
+    - +8%
+    - +16%
+    - +24%
+    - +32%
+    - +40%
+    passiveValue:
+    - 0.08
+    - 0.16
+    - 0.24
+    - 0.32
+    - 0.4
+    passiveStatType: 7
+    zSkillConfigRef: {fileID: 0}

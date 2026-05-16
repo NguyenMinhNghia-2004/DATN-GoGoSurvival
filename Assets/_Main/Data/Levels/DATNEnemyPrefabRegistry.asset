@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88f2479f168d4a6891d985479ea9b17, type: 3}
+  m_Name: DATNEnemyPrefabRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.DATNEnemyPrefabRegistry
+  entries:
+  - definition: {fileID: 11400000, guid: d5d0b18a3aaa94e91860f099a102b349, type: 2}
+    datnPrefab: {fileID: 3537171100188795310, guid: a4be2570a2e23844d97eda6847bcfe92, type: 3}
+  - definition: {fileID: 11400000, guid: 403044445c6ea4a85b7aee18d9f1e836, type: 2}
+    datnPrefab: {fileID: 3537171100188795310, guid: a4be2570a2e23844d97eda6847bcfe92, type: 3}
+  - definition: {fileID: 11400000, guid: e4edf3b5626d743c6927287fefa42094, type: 2}
+    datnPrefab: {fileID: 3537171100188795310, guid: a4be2570a2e23844d97eda6847bcfe92, type: 3}
+  - definition: {fileID: 11400000, guid: a1233105bbdd3486e92217728b6fc276, type: 2}
+    datnPrefab: {fileID: 3156331820324582483, guid: a0de7b3d7db211a4f98f884944296602, type: 3}
+  defaultPrefab: {fileID: 3537171100188795310, guid: a4be2570a2e23844d97eda6847bcfe92, type: 3}

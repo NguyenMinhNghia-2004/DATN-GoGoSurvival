@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca696d1db116b7447aa04ef9a1453dbe, type: 3}
+  m_Name: Eq_ProtectiveSuit
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
+  equipId: Eq_ProtectiveSuit
+  equipName: Protective Suit
+  icon: {fileID: 0}
+  description: "Protective Set \u2014 Armor"
+  slot: 1
+  atkByQuality:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  hpByQuality:
+  - 50
+  - 70
+  - 100
+  - 200
+  - 350
+  - 525
+  - 800
+  maxEnhanceLevel: 10
+  enhanceBonusPerLevel: 0.05
+  enhanceCostCoins: 6400000000000000c80000000000000090010000000000002003000000000000dc05000000000000b80b0000000000007017000000000000e02e000000000000a86100000000000050c3000000000000
+  gradeSkillExcellent:
+    skillName: Regen
+    description: Heal 3% HP/5s
+    statType: 1
+    value: 0.1
+  gradeSkillEpic:
+    skillName: Regen II
+    description: Heal 3% HP/5s (upgraded)
+    statType: 1
+    value: 0.15
+  gradeSkillLegendary:
+    skillName: Regen III
+    description: Heal 3% HP/5s (legendary)
+    statType: 1
+    value: 0.2
+  linkedStartingSkill: {fileID: 0}

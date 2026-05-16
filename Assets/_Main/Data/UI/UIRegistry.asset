@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb20ab820c362e4988d639ef65e84e6, type: 3}
+  m_Name: UIRegistry
+  m_EditorClassIdentifier: NinjaUI.Runtime::Luzart.UIRegistrySO
+  entries:
+  - Id: 1000
+    StringId: splash
+    AssetRef: {fileID: 5392343670708361176, guid: 5de4f040fb56947e79deff6768461df1, type: 3}
+    Lane: 1
+    CachePolicy: 0
+    PreloadOnBoot: 1
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6000
+    StringId: sv_main_menu
+    AssetRef: {fileID: 7415243604344747587, guid: 3891b318de7ea45e7b937a828e896669, type: 3}
+    Lane: 1
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6200
+    StringId: sv_gameplay_hud
+    AssetRef: {fileID: 4054084820254480619, guid: ec5f5a4a50ff746649026bca3eb2db2e, type: 3}
+    Lane: 2
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6101
+    StringId: sv_pause
+    AssetRef: {fileID: 1712715857254016218, guid: b9b0ce5dac3014156bb7e43cae47c1a5, type: 3}
+    Lane: 3
+    CachePolicy: 1
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6103
+    StringId: sv_settings
+    AssetRef: {fileID: 516356697791364145, guid: 8d0f5fc787bdf484db02941c1d6d63a1, type: 3}
+    Lane: 3
+    CachePolicy: 1
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6100
+    StringId: sv_levelup
+    AssetRef: {fileID: 2325830152020712723, guid: d7d3298996e9c4f788ac39b2b1647188, type: 3}
+    Lane: 3
+    CachePolicy: 1
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6003
+    StringId: sv_win
+    AssetRef: {fileID: 7486644763964680098, guid: c620f96a9f0af46b5947c1540db2d3f7, type: 3}
+    Lane: 1
+    CachePolicy: 0
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6004
+    StringId: sv_lose
+    AssetRef: {fileID: 3381925921911945912, guid: ae181959f80f44c8aa6727be2445d87c, type: 3}
+    Lane: 1
+    CachePolicy: 0
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0

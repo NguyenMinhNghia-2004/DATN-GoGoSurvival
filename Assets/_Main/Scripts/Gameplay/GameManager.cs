@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using System.Numerics;
+using DATN.Legacy;
 
 public class GameManager : MonoBehaviour
 {
@@ -92,70 +93,67 @@ public class GameManager : MonoBehaviour
         ManagerDownBtn.Equipement = true;
         ManagerDownBtn.Death = true;
 
+        if (useSurvivorIoHud) HideLegacyHudPanels();
     }
+
+    // Hide the legacy HUD bar parents so SV_GameplayHud is the only visible HUD.
+    void HideLegacyHudPanels()
+    {
+        // HealthBar parent (Health row inside legacy Container) holds HP + WeaponReload row.
+        if (HealthBar != null && HealthBar.transform.parent != null)
+            HealthBar.transform.parent.gameObject.SetActive(false);
+        // ScoringLevel parent (VarPower under TopUI) holds the legacy XP/level bar.
+        if (ScoringLevel != null && ScoringLevel.transform.parent != null)
+            ScoringLevel.transform.parent.gameObject.SetActive(false);
+        // FillingReweapon parent is in AddMoreWapeon (weapon-flash popup) — keep hidden.
+        if (FillingReweapon != null && FillingReweapon.transform.parent != null)
+            FillingReweapon.transform.parent.gameObject.SetActive(false);
+    }
+    // Legacy HUD writes (HealthBar/ScoringLevel/ScreenAddonWap/FillingReweapon) are now
+    // owned by SV_GameplayHudUI subscribed to the framework's Runtime_HP / Runtime_XP /
+    // CurrentLevel / CountEnemyDead events. Death + level-up popups are driven by
+    // GameController.OnHPChange + UpgradeSkillManager respectively. Set
+    // useSurvivorIoHud=false ONLY to fall back to the legacy UI for debugging.
+    [Header("HUD migration")]
+    [SerializeField] private bool useSurvivorIoHud = true;
+
     void Update()
     {
-        if(Checkenemys == true)
-        {
-
-        }
         if(GameStart == true && SetActiveAll == true)
         {
             Boolean.GameStart = true;
             ContainerWorld.SetActive(true);
             UIWeapon.SetActive(true);
             SetActiveAll = false;
-        }if(Boolean.GameStart == false)
+        }
+        if(Boolean.GameStart == false)
         {
             Valeur = 0;
             ValureLevel = 0;
-            ReloadWeapon.fillAmount = 0;
-            ScoringLevel.fillAmount = 0;
+            if (!useSurvivorIoHud)
+            {
+                if (ReloadWeapon != null) ReloadWeapon.fillAmount = 0;
+                if (ScoringLevel != null) ScoringLevel.fillAmount = 0;
+            }
         }
         if(Boolean.GameStart == true)
         {
             CheckEnemy();
             ReloadingWapeons();
 
-            HealthBar.fillAmount = Health / 100f;
-            if (HealthBar.fillAmount == 0.5f)
+            if (!useSurvivorIoHud)
             {
-                HealthBar.color = Color.yellow;
+                LegacyHudUpdate();
             }
-            if (HealthBar.fillAmount == 0.3f)
+            else
             {
-                HealthBar.color = Color.red;
-            }
-            if(HealthBar.fillAmount == 0 && PlayerDeath == false)
-            {
-                Debug.Log("You are Death");
-                BtnPause();
-                PlayerDeath = true;
-            }
-            ScoringValue.text = "" + CurrentReload;
-            ScoringValueDeux.text = "" + CurrentReload;
-            if (CheckFinish == true)
-            {
-                CheckValeurFill();
-                if (ScoringLevel.fillAmount == 1)
+                // Framework owns HUD bars. Only run death detection (legacy thresholding by
+                // Health value, not by fillAmount which is no longer being written).
+                if (Health <= 0f && PlayerDeath == false)
                 {
-                    WeaponSpawn.PauseFirst = Random.Range(1, 12);
-                    WeaponSpawn.PauseSecond = Random.Range(1, 12);
-                    WeaponSpawn.PauseThrees = Random.Range(1, 12);
-                    WeaponSpawn.ActivateWeapon = true;
-                    Times.timerIsRunning = false;
-                    CurrentReload += 1;
-                    StartFlashing = true;
-                    ScreenAddonWap.SetActive(true);
-                    PlayerPerfb.GetComponent<PlayerManager>().enabled = false;
-                    PlayerPerfb.GetComponent<Rigidbody2D>().simulated = false;
-                    if (EnemyAvailable == true)
-                    {
-                        Spawner.enabled = false;
-                        startmove = true;
-                    }
-                    ValureLevel = 0f;
-                    CheckFinish = false;
+                    Debug.Log("You are Death");
+                    BtnPause();
+                    PlayerDeath = true;
                 }
             }
             if (startmove == true)
@@ -166,18 +164,57 @@ public class GameManager : MonoBehaviour
                     joint.GetComponent<Rigidbody2D>().simulated = false;
                 }
             }
-            if (StartFlashing == true)
-            {
-                FillingReweapon.color = Color.Lerp(FillingReweapon.color, myColors[colorIndex], LerpTime * Time.deltaTime);
-                t = Mathf.Lerp(t, 1f, LerpTime * Time.deltaTime);
-                if (t > 0.9f)
-                {
-                    t = 0;
-                    colorIndex++;
-                    colorIndex = (colorIndex >= len) ? 0 : colorIndex;
-                }
-            }
             CheckKilledAndCoins();
+        }
+    }
+
+    void LegacyHudUpdate()
+    {
+        HealthBar.fillAmount = Health / 100f;
+        if (HealthBar.fillAmount == 0.5f) HealthBar.color = Color.yellow;
+        if (HealthBar.fillAmount == 0.3f) HealthBar.color = Color.red;
+        if (HealthBar.fillAmount == 0 && PlayerDeath == false)
+        {
+            Debug.Log("You are Death");
+            BtnPause();
+            PlayerDeath = true;
+        }
+        ScoringValue.text = "" + CurrentReload;
+        ScoringValueDeux.text = "" + CurrentReload;
+        if (CheckFinish == true)
+        {
+            CheckValeurFill();
+            if (ScoringLevel.fillAmount == 1)
+            {
+                WeaponSpawn.PauseFirst = Random.Range(1, 12);
+                WeaponSpawn.PauseSecond = Random.Range(1, 12);
+                WeaponSpawn.PauseThrees = Random.Range(1, 12);
+                WeaponSpawn.ActivateWeapon = true;
+                Times.timerIsRunning = false;
+                CurrentReload += 1;
+                StartFlashing = true;
+                ScreenAddonWap.SetActive(true);
+                PlayerPerfb.GetComponent<PlayerManager>().enabled = false;
+                PlayerPerfb.GetComponent<Rigidbody2D>().simulated = false;
+                if (EnemyAvailable == true)
+                {
+                    Spawner.enabled = false;
+                    startmove = true;
+                }
+                ValureLevel = 0f;
+                CheckFinish = false;
+            }
+        }
+        if (StartFlashing == true)
+        {
+            FillingReweapon.color = Color.Lerp(FillingReweapon.color, myColors[colorIndex], LerpTime * Time.deltaTime);
+            t = Mathf.Lerp(t, 1f, LerpTime * Time.deltaTime);
+            if (t > 0.9f)
+            {
+                t = 0;
+                colorIndex++;
+                colorIndex = (colorIndex >= len) ? 0 : colorIndex;
+            }
         }
     }
     public void BtnPause()

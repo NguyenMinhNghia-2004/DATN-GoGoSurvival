@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca696d1db116b7447aa04ef9a1453dbe, type: 3}
+  m_Name: Eq_BroadWaistguard
+  m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
+  equipId: Eq_BroadWaistguard
+  equipName: Broad Waistguard
+  icon: {fileID: 0}
+  description: "Protective Set \u2014 Belt"
+  slot: 2
+  atkByQuality:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  hpByQuality:
+  - 40
+  - 55
+  - 75
+  - 150
+  - 250
+  - 375
+  - 600
+  maxEnhanceLevel: 10
+  enhanceBonusPerLevel: 0.05
+  enhanceCostCoins: 6400000000000000c80000000000000090010000000000002003000000000000dc05000000000000b80b0000000000007017000000000000e02e000000000000a86100000000000050c3000000000000
+  gradeSkillExcellent:
+    skillName: Cooldown Boost
+    description: Gain +20% CD in 10s from Elites/Bosses kills
+    statType: 1
+    value: 0.1
+  gradeSkillEpic:
+    skillName: Cooldown Boost II
+    description: Gain +20% CD in 10s from Elites/Bosses kills (upgraded)
+    statType: 1
+    value: 0.15
+  gradeSkillLegendary:
+    skillName: Cooldown Boost III
+    description: Gain +20% CD in 10s from Elites/Bosses kills (legendary)
+    statType: 1
+    value: 0.2
+  linkedStartingSkill: {fileID: 0}

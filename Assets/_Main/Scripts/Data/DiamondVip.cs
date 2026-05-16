@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using DATN.Legacy;
 
 public class DiamondVip : MonoBehaviour
 {

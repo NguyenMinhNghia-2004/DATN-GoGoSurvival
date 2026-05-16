@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using DATN.Legacy;
 
 /// <summary>
 /// Quản lý 1 enemy instance. Refactored:
