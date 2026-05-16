@@ -42,7 +42,7 @@ MonoBehaviour:
     PausableWhenOverlaid: 0
   - Id: 6002
     StringId: sv_shop
-    AssetRef: {fileID: 4593864137297402368, guid: 9042ccd1d24e54fcfa2e0a171e37b274, type: 3}
+    AssetRef: {fileID: 633671582974439601, guid: 9042ccd1d24e54fcfa2e0a171e37b274, type: 3}
     Lane: 1
     CachePolicy: 2
     PreloadOnBoot: 0
