@@ -39,37 +39,70 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private float fadeDuration = 0.22f;
 
-    private readonly List<GameObject> spawnedSlots = new();
-
     protected override UniTask OnBeforeShowAsync(SV_LevelUpData data, CancellationToken ct)
     {
-        ClearSlots();
-        if (data == null || data.Options == null) return UniTask.CompletedTask;
+        if (data == null || data.Options == null || slotContainer == null) return UniTask.CompletedTask;
 
         if (titleText != null) titleText.text = "LEVEL UP! Choose a skill";
 
-        for (int i = 0; i < data.Options.Count; i++)
+        // Bind to the fixed child slots already present in the prefab (Left/Center/Right etc.).
+        // If slotPrefab is assigned, fall back to instantiation for legacy flows.
+        int slotCount = slotContainer.childCount;
+        for (int i = 0; i < slotCount; i++)
         {
-            var opt = data.Options[i];
-            var slotGO = Instantiate(slotPrefab, slotContainer);
-            spawnedSlots.Add(slotGO);
-
-            // Bind via convention: expect a SV_LevelUpSlot component on prefab root.
-            var slot = slotGO.GetComponent<SV_LevelUpSlot>();
-            if (slot != null)
+            var slotTr = slotContainer.GetChild(i);
+            if (i >= data.Options.Count)
             {
-                slot.Bind(opt, () => HandlePick(opt));
+                slotTr.gameObject.SetActive(false);
+                continue;
             }
-            else
-            {
-                // Fallback: bind first Button + first Text by reflection-free convention.
-                var btn = slotGO.GetComponentInChildren<Button>();
-                if (btn != null) btn.onClick.AddListener(() => HandlePick(opt));
-            }
+            slotTr.gameObject.SetActive(true);
+            BindSlot(slotTr.gameObject, data.Options[i]);
         }
 
         Time.timeScale = 0f;
         return UniTask.CompletedTask;
+    }
+
+    private void BindSlot(GameObject slotGO, Data_UpgradeSkill opt)
+    {
+        var slot = slotGO.GetComponent<SV_LevelUpSlot>();
+        if (slot != null)
+        {
+            slot.Bind(opt, () => HandlePick(opt));
+            return;
+        }
+        // Best-effort: fill Name/Description/Icon/Stars children, attach click handler.
+        var nameTr = slotGO.transform.Find("Name");
+        if (nameTr != null && opt.SkillConfig != null)
+        {
+            var tmp = nameTr.GetComponent<TextMeshProUGUI>();
+            if (tmp != null) tmp.text = opt.SkillConfig.name;
+            else { var t = nameTr.GetComponent<UnityEngine.UI.Text>(); if (t != null) t.text = opt.SkillConfig.name; }
+        }
+        var descTr = slotGO.transform.Find("Description");
+        if (descTr == null) descTr = slotGO.transform.Find("Description ");
+        if (descTr == null) descTr = slotGO.transform.Find("Description  ");
+        if (descTr != null)
+        {
+            var tmp = descTr.GetComponent<TextMeshProUGUI>();
+            if (tmp != null) tmp.text = $"Lv.{opt.LevelIndex + 1}";
+            else { var t = descTr.GetComponent<UnityEngine.UI.Text>(); if (t != null) t.text = $"Lv.{opt.LevelIndex + 1}"; }
+        }
+        // Attach click handler — either on the root or on the Background child.
+        var btn = slotGO.GetComponent<Button>();
+        if (btn == null) btn = slotGO.GetComponentInChildren<Button>();
+        if (btn != null)
+        {
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => HandlePick(opt));
+        }
+        else
+        {
+            // No Button → add one to the root so the player can click anywhere on the slot.
+            btn = slotGO.AddComponent<Button>();
+            btn.onClick.AddListener(() => HandlePick(opt));
+        }
     }
 
     public override async UniTask AnimateShowAsync(bool instant, CancellationToken ct)
@@ -91,7 +124,6 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
 
     protected override UniTask OnHiddenAsync(SV_LevelUpData data, UIHideReason reason, CancellationToken ct)
     {
-        ClearSlots();
         Time.timeScale = 1f;
         return UniTask.CompletedTask;
     }
@@ -106,13 +138,6 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
     {
         Data?.OnPicked?.Invoke(picked);
         OnCloseButtonClicked();
-    }
-
-    private void ClearSlots()
-    {
-        foreach (var go in spawnedSlots)
-            if (go != null) Destroy(go);
-        spawnedSlots.Clear();
     }
 }
 

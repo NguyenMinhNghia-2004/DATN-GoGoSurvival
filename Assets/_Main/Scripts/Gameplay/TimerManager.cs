@@ -18,8 +18,11 @@ public class TimerManager : MonoBehaviour
     }
     void Update()
     {
-        timeTextScreenFinish.text = timeText.text;
-        BestTime.text = timeText.text;
+        if (timeText != null)
+        {
+            if (timeTextScreenFinish != null) timeTextScreenFinish.text = timeText.text;
+            if (BestTime != null) BestTime.text = timeText.text;
+        }
         if (timerIsRunning)
         {
             if (timeRemaining > -1)

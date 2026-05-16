@@ -651,7 +651,6 @@ GameObject:
   - component: {fileID: 5950516075443640564}
   - component: {fileID: 5734599751981152163}
   - component: {fileID: 2905592013952976652}
-  - component: {fileID: 8949725948432071624}
   m_Layer: 5
   m_Name: SV_Mails
   m_TagString: Untagged
@@ -717,18 +716,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8949725948432071624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948331742930262254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SV_MailsUI
 --- !u!1 &7106135127010731679
 GameObject:
   m_ObjectHideFlags: 0

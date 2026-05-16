@@ -2480,7 +2480,6 @@ GameObject:
   - component: {fileID: 9114926651380515516}
   - component: {fileID: 6028773688265563182}
   - component: {fileID: 4860687030545860841}
-  - component: {fileID: 1435187619755148772}
   m_Layer: 5
   m_Name: SV_SelectMap
   m_TagString: Untagged
@@ -2573,18 +2572,6 @@ MonoBehaviour:
   Swiping: {fileID: 0}
   Manager: {fileID: 9114926651380515516}
   BoolM: {fileID: 0}
---- !u!114 &1435187619755148772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4095741588725437223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SV_SelectMapUI
 --- !u!1 &4222397974854649539
 GameObject:
   m_ObjectHideFlags: 0
