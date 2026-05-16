@@ -70,6 +70,10 @@ namespace Luzart
         SV_ItemDetail = 6102, // Popup
         SV_SettingsPopup = 6103, // Popup
         SV_GameplayHud = 6200, // HUD
+        SV_Process = 6005, // Window
+        SV_Evolve = 6006, // Window
+        SV_Mails = 6007, // Window
+        SV_SelectMap = 6008, // Window
         // --- SurvivorV2 (6xxx) END ---
     }
 }

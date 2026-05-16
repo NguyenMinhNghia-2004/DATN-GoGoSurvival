@@ -15,7 +15,7 @@ MonoBehaviour:
   entries:
   - Id: 1000
     StringId: splash
-    AssetRef: {fileID: 5392343670708361176, guid: 5de4f040fb56947e79deff6768461df1, type: 3}
+    AssetRef: {fileID: 2588550085346398862, guid: 5de4f040fb56947e79deff6768461df1, type: 3}
     Lane: 1
     CachePolicy: 0
     PreloadOnBoot: 1
@@ -24,52 +24,34 @@ MonoBehaviour:
     PausableWhenOverlaid: 0
   - Id: 6000
     StringId: sv_main_menu
-    AssetRef: {fileID: 7415243604344747587, guid: 3891b318de7ea45e7b937a828e896669, type: 3}
+    AssetRef: {fileID: 5939519205261940180, guid: 3891b318de7ea45e7b937a828e896669, type: 3}
     Lane: 1
     CachePolicy: 2
     PreloadOnBoot: 0
     AllowMultiInstance: 0
     DismissByEscape: 0
     PausableWhenOverlaid: 0
-  - Id: 6200
-    StringId: sv_gameplay_hud
-    AssetRef: {fileID: 4054084820254480619, guid: ec5f5a4a50ff746649026bca3eb2db2e, type: 3}
-    Lane: 2
+  - Id: 6001
+    StringId: sv_equipement
+    AssetRef: {fileID: 5117890832202494019, guid: bec7ec4dc8aa040368368f2410a4f21c, type: 3}
+    Lane: 1
     CachePolicy: 2
     PreloadOnBoot: 0
     AllowMultiInstance: 0
-    DismissByEscape: 0
+    DismissByEscape: 1
     PausableWhenOverlaid: 0
-  - Id: 6101
-    StringId: sv_pause
-    AssetRef: {fileID: 1712715857254016218, guid: b9b0ce5dac3014156bb7e43cae47c1a5, type: 3}
-    Lane: 3
-    CachePolicy: 1
+  - Id: 6002
+    StringId: sv_shop
+    AssetRef: {fileID: 4593864137297402368, guid: 9042ccd1d24e54fcfa2e0a171e37b274, type: 3}
+    Lane: 1
+    CachePolicy: 2
     PreloadOnBoot: 0
     AllowMultiInstance: 0
     DismissByEscape: 1
-    PausableWhenOverlaid: 0
-  - Id: 6103
-    StringId: sv_settings
-    AssetRef: {fileID: 516356697791364145, guid: 8d0f5fc787bdf484db02941c1d6d63a1, type: 3}
-    Lane: 3
-    CachePolicy: 1
-    PreloadOnBoot: 0
-    AllowMultiInstance: 0
-    DismissByEscape: 1
-    PausableWhenOverlaid: 0
-  - Id: 6100
-    StringId: sv_levelup
-    AssetRef: {fileID: 2325830152020712723, guid: d7d3298996e9c4f788ac39b2b1647188, type: 3}
-    Lane: 3
-    CachePolicy: 1
-    PreloadOnBoot: 0
-    AllowMultiInstance: 0
-    DismissByEscape: 0
     PausableWhenOverlaid: 0
   - Id: 6003
     StringId: sv_win
-    AssetRef: {fileID: 7486644763964680098, guid: c620f96a9f0af46b5947c1540db2d3f7, type: 3}
+    AssetRef: {fileID: 7196457523282784205, guid: c620f96a9f0af46b5947c1540db2d3f7, type: 3}
     Lane: 1
     CachePolicy: 0
     PreloadOnBoot: 0
@@ -78,9 +60,72 @@ MonoBehaviour:
     PausableWhenOverlaid: 0
   - Id: 6004
     StringId: sv_lose
-    AssetRef: {fileID: 3381925921911945912, guid: ae181959f80f44c8aa6727be2445d87c, type: 3}
+    AssetRef: {fileID: 7196457523282784205, guid: ae181959f80f44c8aa6727be2445d87c, type: 3}
     Lane: 1
     CachePolicy: 0
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6005
+    StringId: sv_process
+    AssetRef: {fileID: 6561800811557509931, guid: 1b24a7686a4144ea19480d0f77b2c9f6, type: 3}
+    Lane: 1
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6006
+    StringId: sv_evolve
+    AssetRef: {fileID: 6147884322699137164, guid: dc04ffdb4eea44402a3edcfa3c69d501, type: 3}
+    Lane: 1
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6007
+    StringId: sv_mails
+    AssetRef: {fileID: 4948331742930262254, guid: 944f42d27945d458b85141a280f9fe99, type: 3}
+    Lane: 1
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6008
+    StringId: sv_select_map
+    AssetRef: {fileID: 4095741588725437223, guid: a4f10985728924da194796fa61e0e8c7, type: 3}
+    Lane: 1
+    CachePolicy: 2
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6100
+    StringId: sv_levelup
+    AssetRef: {fileID: 3721302961400853031, guid: d7d3298996e9c4f788ac39b2b1647188, type: 3}
+    Lane: 3
+    CachePolicy: 1
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 0
+    PausableWhenOverlaid: 0
+  - Id: 6101
+    StringId: sv_pause
+    AssetRef: {fileID: 4682974806085142791, guid: b9b0ce5dac3014156bb7e43cae47c1a5, type: 3}
+    Lane: 3
+    CachePolicy: 1
+    PreloadOnBoot: 0
+    AllowMultiInstance: 0
+    DismissByEscape: 1
+    PausableWhenOverlaid: 0
+  - Id: 6200
+    StringId: sv_gameplay_hud
+    AssetRef: {fileID: 8286838403987283955, guid: ec5f5a4a50ff746649026bca3eb2db2e, type: 3}
+    Lane: 2
+    CachePolicy: 2
     PreloadOnBoot: 0
     AllowMultiInstance: 0
     DismissByEscape: 0
