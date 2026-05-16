@@ -71,7 +71,30 @@ Tested via play-mode + Unity MCP automation. Verified flows:
 - `58ed24b` checkpoint #2: NinjaUI boot flow + pause + levelup all working
 - `e34752c` checkpoint #3: SV_Shop re-cloned from correct GameObject, natural lose verified
 - `443fef3` checkpoint #4: stat fallback + LevelUp auto-trigger + first morning notes
-- (final commit pending: full SV_MainMenu + ManagerFloatingBtn defensive fix)
+- `7f625a7` checkpoint #5: full SV_MainMenu with nav bar + ManagerFloatingBtn defensive fix ⭐ **last known-good state**
+- `5e02ec6` SV_MainMenuUI auto-wire DownContainer (code-only, safe)
+
+## ⚠️ Recovery (read this first if Unity is hung)
+
+Late in the session I experimented with SetActive(false) on legacy `UI/Main Menu`, `UI/Splash`, `UI/GamePlay` GameObjects to fully separate legacy UI from NinjaUI. After re-enabling them, the boot flow broke (UIBootstrap.Start logs `Preloaded Splash` but never `Shown Splash`). I tried to roll back by `git checkout 7f625a7 -- Assets/_Main/Scenes/GamePlay.unity`, but Unity Editor became unresponsive (MCP timing out).
+
+**What you'll likely see when you wake up:**
+- Unity Editor either showing a modal dialog asking to reload the externally-modified scene, OR fully frozen.
+
+**How to recover (5 minutes):**
+1. If a "Scene was modified externally" dialog is showing, click **Reload** (NOT Save).
+2. If Unity is fully frozen: Force Quit Unity (Cmd+Option+Esc on Mac) → reopen the project → it'll load checkpoint `7f625a7`'s scene which is the known-good state.
+3. Open `Assets/_Main/Scenes/GamePlay.unity`.
+4. Press Play. Expected: splash bar fills → main menu (with TOP bar + game card + Start + bottom nav) → click Start → gameplay.
+
+**If you want to fully reset to the last-known-good state and lose the late-session edits:**
+```bash
+git reset --hard 7f625a7
+```
+That discards the `5e02ec6` SV_MainMenuUI auto-wire (purely a code addition, no scene impact) and any uncommitted scene experiments. Safe to do.
+
+**If you want to KEEP the auto-wire code:**
+The current HEAD `5e02ec6` is fine. The scene file on disk is already reverted to the `7f625a7` version (the known-working state). Just reload it in Unity. The combination should still work — auto-wire is additive, doesn't break boot.
 
 Rollback to any checkpoint with `git reset --hard <hash>` if needed.
 
