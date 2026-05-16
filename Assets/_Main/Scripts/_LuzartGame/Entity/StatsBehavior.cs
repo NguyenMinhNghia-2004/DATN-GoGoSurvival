@@ -34,11 +34,24 @@ namespace Luzart
                 _statDefaultDict[stat.Definition.StatType] = stat.Value;
             }
         }
+        // Fallback defaults when the AssetStats config doesn't define a stat.
+        // Without these, HPMax=0 makes the HP bar always empty and TotalSkill=0
+        // makes UpgradeSkillManager skip the level-up popup.
+        private static readonly Dictionary<StatType, double> _missingStatFallback = new()
+        {
+            { StatType.HPMax, 100 },
+            { StatType.TotalSkill, 3 },
+            { StatType.ATK, 10 },
+            { StatType.Speed, 5 },
+        };
+
         public INumber Get(StatType key)
         {
             if (!_statDefaultDict.ContainsKey(key))
             {
-                return new Number(0);
+                double fallback = 0;
+                _missingStatFallback.TryGetValue(key, out fallback);
+                return new Number(fallback);
             }
             return _statDefaultDict[key];
         }
