@@ -29,12 +29,41 @@ public class SV_MainMenuUI : UIBase
 
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
+        // Auto-find DownContainer nav buttons if not wired via Inspector.
+        if (btnPlay == null) btnPlay = FindChildButton("BtnPlay") ?? FindChildButton("Battle");
+        if (btnShop == null) btnShop = FindChildButton("Shop");
+        if (btnEquipment == null) btnEquipment = FindChildButton("Equipement");
+
         if (btnPlay != null) btnPlay.onClick.AddListener(OnPlay);
         if (btnShop != null) btnShop.onClick.AddListener(OnShop);
         if (btnEquipment != null) btnEquipment.onClick.AddListener(OnEquipment);
         if (btnSettings != null) btnSettings.onClick.AddListener(OnSettings);
         if (btnMessages != null) btnMessages.onClick.AddListener(OnMessages);
+
+        // Wire remaining DownContainer nav buttons (Death/Evolve) → corresponding SV_*UI screens.
+        WireExtraNav("Death", UIId.SV_Process);
+        WireExtraNav("Evolve", UIId.SV_Evolve);
         return UniTask.CompletedTask;
+    }
+
+    private Button FindChildButton(string name)
+    {
+        foreach (var t in GetComponentsInChildren<Transform>(true))
+            if (t.name == name)
+            {
+                var b = t.GetComponent<Button>();
+                if (b != null) return b;
+            }
+        return null;
+    }
+
+    private void WireExtraNav(string buttonName, UIId target)
+    {
+        var b = FindChildButton(buttonName);
+        if (b != null) b.onClick.AddListener(async () =>
+        {
+            await UIManager.Instance.ShowAsync(target, ct: this.GetCancellationTokenOnDestroy());
+        });
     }
 
     private async void OnPlay()
