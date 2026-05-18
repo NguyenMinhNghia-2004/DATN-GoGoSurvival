@@ -68,6 +68,17 @@ namespace Luzart
             if (_timerCoroutine != null) StopCoroutine(_timerCoroutine);
         }
 
+        /// <summary>Reset wave/timer/level/kill counters so the next StartGameplay starts fresh.
+        /// Used by Win/Lose → Continue/Retry/MainMenu flows.</summary>
+        public void ResetState()
+        {
+            StopGameplay();
+            _indexWave.Set(0);
+            _countTime.Set(0);
+            _currentLevel.Set(0);
+            _countEnemyDead.Set(0);
+        }
+
         private bool _gameplayActive;
         private Coroutine _timerCoroutine;
         private void SpawnNewWave(IValue<int> indexWave)

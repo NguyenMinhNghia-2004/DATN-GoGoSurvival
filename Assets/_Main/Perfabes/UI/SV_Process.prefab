@@ -161,7 +161,6 @@ GameObject:
   - component: {fileID: 6634508719138009559}
   - component: {fileID: 6909675745363941269}
   - component: {fileID: 8341349141452412479}
-  - component: {fileID: 8401229799338178693}
   m_Layer: 5
   m_Name: Six
   m_TagString: Untagged
@@ -230,28 +229,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8401229799338178693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51513259882320347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 6804347671449843200}
-  Done2: {fileID: 1175063197040479760}
-  Done3: {fileID: 2129151750674376476}
-  NotDone1: {fileID: 2358912936591971095}
-  NotDone2: {fileID: 5550635902451658958}
-  NotDone3: {fileID: 8833121105999234163}
-  Btn1: {fileID: 9143677373855799218}
-  Btn2: {fileID: 3519276674522215570}
-  Btn3: {fileID: 4449690861938143906}
 --- !u!1 &235086400217109063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: ThreeLevel3
         m_Mode: 1
@@ -1488,7 +1465,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: SixLevel2
         m_Mode: 1
@@ -1777,7 +1754,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FiveLevel3
         m_Mode: 1
@@ -1989,7 +1966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: OneLevel2
         m_Mode: 1
@@ -3515,7 +3492,6 @@ GameObject:
   - component: {fileID: 6807527195934202153}
   - component: {fileID: 7082397916434363738}
   - component: {fileID: 7559552765226188885}
-  - component: {fileID: 4547548771626201759}
   m_Layer: 5
   m_Name: Four
   m_TagString: Untagged
@@ -3584,28 +3560,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4547548771626201759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2512751966349092733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 6679288201327248842}
-  Done2: {fileID: 8059343705820546365}
-  Done3: {fileID: 4983230649952560998}
-  NotDone1: {fileID: 5958333148498932979}
-  NotDone2: {fileID: 5761002638479352277}
-  NotDone3: {fileID: 694972126552932564}
-  Btn1: {fileID: 1101211437098905205}
-  Btn2: {fileID: 4884005753306414641}
-  Btn3: {fileID: 9027425427049994274}
 --- !u!1 &2604716330365898954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,7 +3683,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FourLevel1
         m_Mode: 1
@@ -4469,7 +4423,6 @@ GameObject:
   - component: {fileID: 9084395909319607547}
   - component: {fileID: 6270118453439961956}
   - component: {fileID: 2312843438300000318}
-  - component: {fileID: 2324267889096878083}
   m_Layer: 5
   m_Name: Third
   m_TagString: Untagged
@@ -4538,28 +4491,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2324267889096878083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3321370197701255064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 7518889385806398072}
-  Done2: {fileID: 3603069398653162124}
-  Done3: {fileID: 1618044200662693571}
-  NotDone1: {fileID: 4849420874704800301}
-  NotDone2: {fileID: 8723253215514189153}
-  NotDone3: {fileID: 4529739566656926140}
-  Btn1: {fileID: 1871772447294808940}
-  Btn2: {fileID: 8303259774409329386}
-  Btn3: {fileID: 9013216123479521409}
 --- !u!1 &3401050117371714379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,7 +5031,6 @@ GameObject:
   - component: {fileID: 605443190267527095}
   - component: {fileID: 8616516260949589034}
   - component: {fileID: 2892768443402932646}
-  - component: {fileID: 5269583823496433715}
   m_Layer: 5
   m_Name: First
   m_TagString: Untagged
@@ -5169,28 +5099,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5269583823496433715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705748155114554232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 5980479320514715722}
-  Done2: {fileID: 8349411542998093812}
-  Done3: {fileID: 8766836352175486301}
-  NotDone1: {fileID: 6790162678734053003}
-  NotDone2: {fileID: 3401050117371714379}
-  NotDone3: {fileID: 8160446149460371564}
-  Btn1: {fileID: 2755596114052764210}
-  Btn2: {fileID: 2408203415490114724}
-  Btn3: {fileID: 2593328682188054318}
 --- !u!1 &3763651484469171337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,7 +5796,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: ThreeLevel2
         m_Mode: 1
@@ -6133,7 +6041,6 @@ GameObject:
   - component: {fileID: 5496785074200251765}
   - component: {fileID: 6460036557971372817}
   - component: {fileID: 6461643443507424159}
-  - component: {fileID: 8034285895676893625}
   m_Layer: 5
   m_Name: Second
   m_TagString: Untagged
@@ -6202,28 +6109,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8034285895676893625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4149867247112170604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 1570895175594730952}
-  Done2: {fileID: 1421599570256175417}
-  Done3: {fileID: 2702746316098351661}
-  NotDone1: {fileID: 4634494251955249722}
-  NotDone2: {fileID: 7876647840372997921}
-  NotDone3: {fileID: 8047301462061049287}
-  Btn1: {fileID: 6275237212824536803}
-  Btn2: {fileID: 7731884683395505082}
-  Btn3: {fileID: 2124911611115801151}
 --- !u!1 &4216583845662708375
 GameObject:
   m_ObjectHideFlags: 0
@@ -6570,7 +6455,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FiveLevel1
         m_Mode: 1
@@ -7306,7 +7191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: ThreeLevel1
         m_Mode: 1
@@ -8840,7 +8725,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: SixLevel1
         m_Mode: 1
@@ -9731,7 +9616,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: TwoLevel2
         m_Mode: 1
@@ -9941,7 +9826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: TwoLevel1
         m_Mode: 1
@@ -10163,7 +10048,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7488621302172526441}
-  - component: {fileID: 556361086888156330}
   m_Layer: 5
   m_Name: SV_Process
   m_TagString: Untagged
@@ -10192,26 +10076,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &556361086888156330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6561800811557509931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79061a1818b88ac48977836f3836fcb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Btn: {fileID: 0}
-  M1: {fileID: 5269583823496433715}
-  M2: {fileID: 8034285895676893625}
-  M3: {fileID: 2324267889096878083}
-  M4: {fileID: 4547548771626201759}
-  M5: {fileID: 4563068949773391982}
-  M6: {fileID: 8401229799338178693}
-  Manager: {fileID: 0}
 --- !u!1 &6650234194164867323
 GameObject:
   m_ObjectHideFlags: 0
@@ -11028,7 +10892,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FourLevel2
         m_Mode: 1
@@ -11500,7 +11364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: OneLevel3
         m_Mode: 1
@@ -11712,7 +11576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: OneLevel1
         m_Mode: 1
@@ -11958,7 +11822,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: SixLevel3
         m_Mode: 1
@@ -12208,7 +12072,6 @@ GameObject:
   - component: {fileID: 5796023719902918955}
   - component: {fileID: 7924160237499849711}
   - component: {fileID: 3445805844001375896}
-  - component: {fileID: 4563068949773391982}
   m_Layer: 5
   m_Name: Five
   m_TagString: Untagged
@@ -12277,28 +12140,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4563068949773391982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7965364168191322417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0bc8f835d07734292cf706c7109ad0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Management: {fileID: 556361086888156330}
-  Done1: {fileID: 8788357062292531114}
-  Done2: {fileID: 980018846147012393}
-  Done3: {fileID: 4750786612321549154}
-  NotDone1: {fileID: 7400091598000971028}
-  NotDone2: {fileID: 2692874122562476054}
-  NotDone3: {fileID: 4835473827176655811}
-  Btn1: {fileID: 8842498169698504693}
-  Btn2: {fileID: 3350529891451302717}
-  Btn3: {fileID: 7519102559792716710}
 --- !u!1 &8043139949356298682
 GameObject:
   m_ObjectHideFlags: 0
@@ -12422,7 +12263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: TwoLevel3
         m_Mode: 1
@@ -12861,7 +12702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FourLevel3
         m_Mode: 1
@@ -13263,7 +13104,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 556361086888156330}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProcessManagerment, Assembly-CSharp
         m_MethodName: FiveLevel2
         m_Mode: 1

@@ -1,16 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// XP gem (Biofuel) pickup. Phase B8 migrated: XP grant goes ONLY through framework
+/// <see cref="Luzart.PlayerCharacter.Stats"/> (the source of truth for XP). The legacy
+/// GameManager.ValureLevel bar is no longer driven from here; SV_GameplayHud's XP bar
+/// subscribes to Stats.Runtime_XP directly.
+///
+/// Behavior:
+///   - Spawned by enemy death (see EnemyManager.DropDiamond) and by BoltSHooter scatter.
+///   - When player's DetecteurRoad trigger enters this gem, magnetize toward player
+///     (BackPoint coroutine flips StartMove → false → Update lerps toward player).
+///   - On collision with Player tag: grant XP + audio + destroy.
+/// </summary>
 public class Diamond : MonoBehaviour
 {
-    
     public GameObject Player;
-    public GameObject Manager;
-    public GameObject Boolean;
     public GameObject Flasher;
-    private AudioSource Audio;
-    private BooleanManager BoolM;
+
+    [Tooltip("XP granted when player walks over this gem. Match GDD Small Biofuel = 10.")]
+    public float xpReward = 10f;
+
+    private AudioSource _audio;
+    private BooleanManager _boolM;
     internal bool FollowPlayer = false;
     internal bool StartMove = true;
     internal bool AddOnce = true;
@@ -18,68 +30,68 @@ public class Diamond : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        Boolean = GameObject.Find("Controller");
-        Manager = GameObject.Find("GameManager");
-        Audio = GetComponent<AudioSource>();
-        Audio.volume = 0.5f;
-        if (Boolean != null)
-            BoolM = Boolean.GetComponent<BooleanManager>();
+        var controller = GameObject.Find("Controller");
+        if (controller != null) _boolM = controller.GetComponent<BooleanManager>();
+        _audio = GetComponent<AudioSource>();
+        if (_audio != null) _audio.volume = 0.5f;
     }
+
+    private bool IsGameRunning()
+    {
+        return _boolM != null && _boolM.GameStart;
+    }
+
     void FixedUpdate()
     {
-        if(Boolean.GetComponent<BooleanManager>().GameStart == true)
+        if (!IsGameRunning() || !FollowPlayer || !StartMove) return;
+        if (AddOnce)
         {
-            if (FollowPlayer == true)
-            {
-                if (StartMove == true)
-                {
-                    if (AddOnce == true)
-                    {
-                        this.gameObject.AddComponent<Rigidbody2D>();
-                        this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-                        AddOnce = false;
-                    }
-                    this.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 15);
-                    StartCoroutine(BackPoint());
-                }
-            }
+            var rb = gameObject.AddComponent<Rigidbody2D>();
+            rb.gravityScale = 0;
+            AddOnce = false;
         }
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 15);
+        StartCoroutine(BackPoint());
     }
+
     void Update()
     {
-        if (Boolean.GetComponent<BooleanManager>().GameStart == true)
-        {
-            if (StartMove == false)
-            {
-                transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, 15f * Time.deltaTime);
-            }
-        }
+        if (!IsGameRunning() || StartMove || Player == null) return;
+        transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, 15f * Time.deltaTime);
     }
+
     IEnumerator BackPoint()
     {
-        if (Boolean.GetComponent<BooleanManager>().GameStart == true)
-        {
-            yield return new WaitForSeconds(0.4f);
-            StartMove = false;
-        }
+        yield return new WaitForSeconds(0.4f);
+        StartMove = false;
     }
+
     IEnumerator Destroy()
     {
         yield return new WaitForSeconds(0.8f);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
+        {
+            // Framework Stats.AddXP is the single source of truth — fires Runtime_XP.Changed
+            // → GameController.OnXPChange → SV_GameplayHud XP bar + SV_LevelUpPopup trigger.
+            var sr = Luzart.SceneRootManager.Instance;
+            if (sr != null && sr.Domain != null)
             {
-                Manager.GetComponent<GameManager>().ValureLevel += 0.15f;
-            Instantiate(Flasher, transform.position, transform.rotation);
-            if (BoolM != null && BoolM.Sound) Audio.Play();
+                var player = sr.Domain.Get<Luzart.PlayerCharacter>();
+                if (player != null && player.Stats != null) player.Stats.AddXP(xpReward);
+            }
+
+            if (Flasher != null) Instantiate(Flasher, transform.position, transform.rotation);
+            if (_boolM != null && _boolM.Sound && _audio != null) _audio.Play();
             StartCoroutine(Destroy());
-            }
-            if (other.CompareTag("RoadDetections"))
-            {
-                FollowPlayer = true;
-            }
+        }
+        else if (other.CompareTag("RoadDetections"))
+        {
+            FollowPlayer = true;
+        }
     }
 }

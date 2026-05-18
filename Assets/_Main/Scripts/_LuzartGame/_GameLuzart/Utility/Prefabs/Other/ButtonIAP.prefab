@@ -286,7 +286,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6874448151577192999}
-  - component: {fileID: 5979119841454211907}
   m_Layer: 5
   m_Name: Purschase
   m_TagString: Untagged
@@ -315,37 +314,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5979119841454211907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264650233151987152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f82e09f8764038a6a5cf5303fdb121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 7257291113854082201}
-  _moveY: -17
-  _duration: 2
-  _loopDelay: 0
-  OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TruckSort.Other.IAPCallPurchase, Assembly-CSharp
-        m_MethodName: CallPurchase
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6024913744498435348
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +565,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5316012422988863305}
-  - component: {fileID: 9199537115413094494}
   m_Layer: 5
   m_Name: Loading
   m_TagString: Untagged
@@ -626,25 +593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9199537115413094494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584607935667539871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f82e09f8764038a6a5cf5303fdb121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 4173180021758588906}
-  _moveY: -17
-  _duration: 2
-  _loopDelay: 0
-  OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2127887903201958240
 PrefabInstance:
   m_ObjectHideFlags: 0

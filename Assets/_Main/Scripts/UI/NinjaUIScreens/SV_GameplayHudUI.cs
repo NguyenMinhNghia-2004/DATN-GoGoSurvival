@@ -23,6 +23,7 @@ public class SV_GameplayHudUI : UIBase
     private INumberWithSet _hp;
     private INumberWithSet _enemyDead;
     private IVariable<int> _currentLevel;
+    private IVariable<int> _countTime;
     private bool _subscribed;
 
     [Header("Health")]
@@ -43,22 +44,94 @@ public class SV_GameplayHudUI : UIBase
     [Header("Pause button")]
     [SerializeField] private Button btnPause;
 
+    [Header("Timer")]
+    [SerializeField] private TextMeshProUGUI timerText; // TMP slot (preferred)
+    private UnityEngine.UI.Text _timerLegacyText;       // auto-found legacy Text fallback
+
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
+        UIButtonSanitizer.SanitizeChildButtons(transform);
         if (btnPause != null) btnPause.onClick.AddListener(OnPauseClicked);
+        // Auto-find legacy "Timer" Text child if the SV_GameplayHud prefab still has the
+        // cloned legacy timer Text (no TMP version exists in the cloned prefab).
+        if (timerText == null) {
+            foreach (var tr in GetComponentsInChildren<Transform>(true)) {
+                if (tr.name == "Timer") {
+                    _timerLegacyText = tr.GetComponent<UnityEngine.UI.Text>();
+                    if (_timerLegacyText != null) break;
+                }
+            }
+        }
         return UniTask.CompletedTask;
     }
 
-    public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
+    public override async UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
     {
         SubscribeFramework();
-        return UniTask.CompletedTask;
+        // Wait for legacy GameStart() coroutine to SetActive(true) on /UI/GamePlay (parent of Joystick Table).
+        // Without the wait, GameObject.Find returns null and we can't attach the joystick Canvas.
+        await WaitForJoystickActiveAsync(ct);
+        EnableLegacyJoystick(true);
+        BumpPickupRadius();
+    }
+
+    /// <summary>Diamond drops only magnetize toward the player when they enter the
+    /// DetecteurRoad trigger collider. The scene-authored size is 1×1, too tight
+    /// (almost no diamonds ever home in). Standard Survivor.io pickup radius is small —
+    /// roughly 1.5 units in either direction (3×3 box). The Hi-Power Magnet passive
+    /// scales this up later (+100% to +500%).</summary>
+    private const float DesiredPickupRadius = 3f;
+    private void BumpPickupRadius()
+    {
+        var player = GameObject.Find("Player");
+        if (player == null) return;
+        var dr = player.transform.Find("DetecteurRoad");
+        if (dr == null) return;
+        var col = dr.GetComponent<BoxCollider2D>();
+        if (col == null) return;
+        col.size = new Vector2(DesiredPickupRadius, DesiredPickupRadius);
     }
 
     public override UniTask OnHiddenAsync(UIHideReason reason, CancellationToken ct)
     {
         UnsubscribeFramework();
+        EnableLegacyJoystick(false);
         return UniTask.CompletedTask;
+    }
+
+    /// <summary>Poll up to 2s for the Joystick Table to be active. After the /UI →
+    /// _LegacyManagers migration, the joystick lives under _NinjaUI/2_Hud (rendered by
+    /// NinjaUI canvas), and the legacy GamePlay container lives under _LegacyManagers.</summary>
+    private async UniTask WaitForJoystickActiveAsync(CancellationToken ct)
+    {
+        for (int i = 0; i < 120; i++) // ~2s @ 60fps
+        {
+            var jt = FindJoystickTable();
+            if (jt != null && jt.gameObject.activeInHierarchy) return;
+            try { await UniTask.NextFrame(ct); } catch { return; }
+        }
+    }
+
+    /// <summary>Locate Joystick Table at its new post-migration path. Falls back to a
+    /// scene-wide search if the canonical path doesn't resolve (defensive).</summary>
+    private static Transform FindJoystickTable()
+    {
+        // New path under NinjaUI Hud lane.
+        var go = GameObject.Find("/_NinjaUI/2_Hud/Joystick Table");
+        if (go != null) return go.transform;
+        // Fallback: search by component for the rare case it got reparented elsewhere.
+        var js = UnityEngine.Object.FindFirstObjectByType<movementJoystick>(UnityEngine.FindObjectsInactive.Include);
+        return js != null ? js.transform : null;
+    }
+
+    /// <summary>After the /UI → _LegacyManagers migration, the Joystick Table sits directly
+    /// under <c>_NinjaUI/2_Hud</c> and renders through the NinjaUI canvas (no separate
+    /// canvas hack needed). This method just ensures the joystick GameObject is active
+    /// while the HUD is shown.</summary>
+    private void EnableLegacyJoystick(bool on)
+    {
+        var jt = FindJoystickTable();
+        if (jt != null) jt.gameObject.SetActive(on);
     }
 
     private void SubscribeFramework()
@@ -72,21 +145,32 @@ public class SV_GameplayHudUI : UIBase
         _levelConfig = d.Get<LevelConfig>();
         if (_player == null || _player.Stats == null || _gameController == null) return;
 
+        // Subscribe to CurrencyManager for coin display (Phase B2 migration — ManagerMecanique
+        // legacy display path replaced by direct CurrencyManager → HUD wiring).
+        if (CurrencyManager.Instance != null)
+        {
+            CurrencyManager.Instance.OnCoinChanged += OnCoinChanged;
+            OnCoinChanged(CurrencyManager.Instance.Coins); // push initial value
+        }
+
         _xp = _player.Stats.GetRuntime(StatType.Runtime_XP);
         _hp = _player.Stats.GetRuntime(StatType.Runtime_HP);
         _currentLevel = _gameController.CurrentLevel;
         _enemyDead = _gameController.CountEnemyDead;
+        _countTime = _gameController.CountTime;
 
         _xp.Changed += OnXpChanged;
         _hp.Changed += OnHpChanged;
         _currentLevel.Changed += OnLevelChanged;
         _enemyDead.Changed += OnEnemyDeadChanged;
+        _countTime.Changed += OnTimeChanged;
 
         // Push initial values so HUD reflects current state immediately.
         OnXpChanged(_xp);
         OnHpChanged(_hp);
         OnLevelChanged(_currentLevel);
         OnEnemyDeadChanged(_enemyDead);
+        OnTimeChanged(_countTime);
 
         _subscribed = true;
     }
@@ -98,7 +182,23 @@ public class SV_GameplayHudUI : UIBase
         if (_hp != null) _hp.Changed -= OnHpChanged;
         if (_currentLevel != null) _currentLevel.Changed -= OnLevelChanged;
         if (_enemyDead != null) _enemyDead.Changed -= OnEnemyDeadChanged;
+        if (_countTime != null) _countTime.Changed -= OnTimeChanged;
+        if (CurrencyManager.Instance != null) CurrencyManager.Instance.OnCoinChanged -= OnCoinChanged;
         _subscribed = false;
+    }
+
+    private void OnCoinChanged(long coins)
+    {
+        if (currentCoinsText != null) currentCoinsText.text = CurrencyManager.FormatNumber(coins);
+    }
+
+    private void OnTimeChanged(IValue<int> t)
+    {
+        int sec = t.Value;
+        int m = sec / 60, s = sec % 60;
+        string formatted = string.Format("{0:00}:{1:00}", m, s);
+        if (timerText != null) timerText.text = formatted;
+        if (_timerLegacyText != null) _timerLegacyText.text = formatted;
     }
 
     private void OnXpChanged(INumber xp)

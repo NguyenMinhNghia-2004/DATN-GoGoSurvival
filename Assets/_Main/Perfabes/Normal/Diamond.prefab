@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3652454789901718114}
   - component: {fileID: 3826751410270087319}
   - component: {fileID: 5178607767577936328}
-  - component: {fileID: 7595773542817881896}
   m_Layer: 5
   m_Name: Diamond
   m_TagString: Diamond
@@ -32,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -77,19 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7595773542817881896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8181993906369122788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40adee8954d7aac48bcaf859bc05917e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
-  Green: {fileID: -931739737, guid: b3615f05d6bba204c88000d208a7e237, type: 3}
-  Blue: {fileID: -1802823240, guid: b3615f05d6bba204c88000d208a7e237, type: 3}
-  Red: {fileID: -851242183, guid: b3615f05d6bba204c88000d208a7e237, type: 3}

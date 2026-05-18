@@ -72,11 +72,19 @@ public class ManagerFloatingBtn : MonoBehaviour
     }
     void Start()
     {
-        TryInvoke(Evolvebtn);
-        TryInvoke(shopbtn);
-        TryInvoke(equipementbtn);
-        TryInvoke(deathbtn);
-        TryInvoke(BtnCenter);
+        // NinjaUI migration: do NOT auto-invoke Shop/Equipement/Death/Evolve button onClicks
+        // on Start. The original legacy design used invoke() as a hacky way to set the
+        // 4 bool flags + visual lock state. Post-migration those buttons also carry a NinjaUI
+        // ShowAsync(SV_Shop/...) listener — auto-invoking them at boot makes Shop overlay
+        // MainMenu (the "vào thẳng Shop khi mở game" bug).
+        //
+        // Set the bools directly so locks hide and visuals stay correct, without firing onClick.
+        Evolve = true;
+        Shop = true;
+        Equipement = true;
+        Death = true;
+
+        TryInvoke(BtnCenter); // keep — sets Home tab visually active; no NinjaUI side-effect.
         if (LogCenter != null) try { PlayAnim(LogCenter, "VectorBattleBack"); } catch { }
         try { CheckFirsts(); } catch { }
     }

@@ -339,7 +339,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 0}
   - skillId: Sk_SoccerBall
     displayName: Soccer Ball
-    icon: {fileID: 0}
+    icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
     description: Bouncing football.
     atkMultiplier:
     - 1
@@ -736,7 +736,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 0}
   - skillId: Ps_HiPowerBullet
     displayName: Hi-Power Bullet
-    icon: {fileID: 0}
+    icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
     description: Increases ATK damage.
     atkMultiplier:
     - 0

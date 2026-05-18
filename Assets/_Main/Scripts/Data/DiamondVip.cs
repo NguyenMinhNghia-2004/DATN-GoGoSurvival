@@ -13,21 +13,24 @@ public class DiamondVip : MonoBehaviour
     public bool Green = false;
     public bool WorkOn = true;
     internal int Checking;
+    private UIManager _uiMgrCache;
     void Start()
     {
         StartCoroutine(FollowPlayer());
         Player = GameObject.FindGameObjectWithTag("Player");
         Manager = GameObject.Find("GameManager");
-        UIManager = GameObject.Find("UI");
+        // Phase B2: ManagerMecanique removed. Coin/Gem state owned by CurrencyManager singleton.
+        _uiMgrCache = UnityEngine.Object.FindFirstObjectByType<UIManager>();
+        UIManager = _uiMgrCache != null ? _uiMgrCache.gameObject : null;
     }
     void Update()
     {
         Checking = Random.Range(0, 2);
-        if (MoveOn == true)
+        if (MoveOn == true && Player != null)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, 10f * Time.deltaTime);
         }
-        if(UIManager.GetComponent<UIManager>().MapReady == false)
+        if (_uiMgrCache != null && _uiMgrCache.MapReady == false)
         {
             Destroy(this.gameObject);
         }
@@ -57,19 +60,10 @@ public class DiamondVip : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Manager.GetComponent<GameManager>().ValureLevel += Checking;
-            if(Green == true)
+            if (Manager != null) Manager.GetComponent<GameManager>().ValureLevel += Checking;
+            if(Green == true && CurrencyManager.Instance != null)
             {
-                if (CurrencyManager.Instance != null)
-                {
-                    CurrencyManager.Instance.AddGems(1);
-                    UIManager.GetComponent<ManagerMecanique>().GemsInt = CurrencyManager.Instance.Gems;
-                }
-                else
-                {
-                    UIManager.GetComponent<ManagerMecanique>().GemsInt += 1;
-                    DataManager.Instance.SetGems(UIManager.GetComponent<ManagerMecanique>().GemsInt);
-                }
+                CurrencyManager.Instance.AddGems(1);
             }
             StartCoroutine(FlashingLed());
         }

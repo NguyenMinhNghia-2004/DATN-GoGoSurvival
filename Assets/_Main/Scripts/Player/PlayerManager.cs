@@ -42,14 +42,9 @@ public class PlayerManager : MonoBehaviour
             HitBolts();
         }
         
-        if(Manager.HealthBar.fillAmount == 0)
-        {
-            Death.SetActive(true);
-        }
-        else
-        {
-            Death.SetActive(false);
-        }
+        // Death detection: HealthBar was legacy UI Image (deleted). Use Manager.Health
+        // directly — same source of truth, GameManager.Update sets PlayerDeath flag.
+        if (Death != null) Death.SetActive(Manager != null && Manager.Health <= 0f);
     }
     void HitBolts()
     {

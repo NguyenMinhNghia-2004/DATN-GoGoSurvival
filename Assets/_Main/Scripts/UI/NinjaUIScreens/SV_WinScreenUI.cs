@@ -37,6 +37,7 @@ public class SV_WinScreenUI : UIBase<SV_WinData>
 
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
+        UIButtonSanitizer.SanitizeChildButtons(transform);
         if (btnContinue != null) btnContinue.onClick.AddListener(OnContinue);
         if (btnRetry != null) btnRetry.onClick.AddListener(OnRetry);
         return UniTask.CompletedTask;
@@ -62,13 +63,11 @@ public class SV_WinScreenUI : UIBase<SV_WinData>
 
     private async void OnContinue()
     {
-        await UIManager.Instance.HideAllExceptSystemAsync();
-        await UIManager.Instance.ShowAsync(UIId.SV_MainMenu);
+        await GameplayResetCoordinator.BackToMainMenuAsync();
     }
 
     private async void OnRetry()
     {
-        await UIManager.Instance.HideAllExceptSystemAsync();
-        // TODO: trigger gameplay restart via GameController/SceneRootManager.
+        await GameplayResetCoordinator.RetryAsync();
     }
 }

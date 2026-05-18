@@ -73,16 +73,24 @@ namespace Luzart
                     hpRT.Set(_datnGameManager.Health);
             }
 
-            // -- Kills delta → XP --
-            if (_datnGameManager != null && _player?.Stats != null)
+            // -- Kills delta → kill counter only --
+            // XP is NOT granted per kill (Survivor.io spec: kill → drop → walk over → XP).
+            // The Diamond pickup in Diamond.OnTriggerEnter2D handles framework Stats.AddXP.
+            // We still need to mirror the kill count so GameController.CountEnemyDead and the
+            // HUD kill counter stay in sync with legacy CurrentKilled.
+            if (_datnGameManager != null)
             {
                 int killed = _datnGameManager.CurrentKilled;
                 int delta = killed - _lastSyncedKillCount;
                 if (delta > 0)
                 {
                     _lastSyncedKillCount = killed;
-                    _player.Stats.AddXP(xpPerKill * delta);
                     _gameController?.AddEnemyDead(delta);
+                }
+                else if (delta < 0)
+                {
+                    // Legacy reset CurrentKilled to 0 (Retry / BackFinishSafe path).
+                    _lastSyncedKillCount = killed;
                 }
             }
         }

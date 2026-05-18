@@ -24,7 +24,7 @@ namespace MyGame.Scripts.CheatManagement
 
         private GameManager gameManager;
         private UIManager uiManager;
-        private ManagerMecanique mecanique;
+        // Phase B2: removed ManagerMecanique cache — CurrencyManager owns Coins/Gems/Energy state.
 
         public static bool IsOpenCheat()
         {
@@ -35,7 +35,6 @@ namespace MyGame.Scripts.CheatManagement
         {
             gameManager = FindAnyObjectByType<GameManager>();
             uiManager = FindAnyObjectByType<UIManager>();
-            mecanique = FindAnyObjectByType<ManagerMecanique>();
 
             InitOpts();
 
@@ -83,8 +82,6 @@ namespace MyGame.Scripts.CheatManagement
                     gameManager = FindAnyObjectByType<GameManager>();
                 if (uiManager == null)
                     uiManager = FindAnyObjectByType<UIManager>();
-                if (mecanique == null)
-                    mecanique = FindAnyObjectByType<ManagerMecanique>();
 
                 Time.timeScale = 0f;
             }
@@ -212,8 +209,6 @@ namespace MyGame.Scripts.CheatManagement
                 CurrencyManager.Instance.SetCoins(value);
             else
                 DataManager.Instance.SetCoins(value);
-            if (mecanique != null)
-                mecanique.CoinsInt = value;
             ShowToast($"Coins = {value}");
         }
 
@@ -223,8 +218,6 @@ namespace MyGame.Scripts.CheatManagement
                 CurrencyManager.Instance.SetGems(value);
             else
                 DataManager.Instance.SetGems(value);
-            if (mecanique != null)
-                mecanique.GemsInt = value;
             ShowToast($"Gems = {value}");
         }
 
@@ -240,8 +233,6 @@ namespace MyGame.Scripts.CheatManagement
         private void CheatSetFlash(int value)
         {
             DataManager.Instance.SetFlash(value);
-            if (mecanique != null)
-                mecanique.FlashInt = value;
             ShowToast($"Flash = {value}");
         }
 
@@ -257,8 +248,6 @@ namespace MyGame.Scripts.CheatManagement
         private void CheatSetScore(int value)
         {
             DataManager.Instance.SetCurrentScore(value);
-            if (mecanique != null)
-                mecanique.LevelInt = value;
             ShowToast($"Score = {value}");
         }
 
@@ -285,7 +274,7 @@ namespace MyGame.Scripts.CheatManagement
             if (gameManager != null)
             {
                 gameManager.Health = 100f;
-                gameManager.HealthBar.color = Color.green;
+                if (gameManager.HealthBar != null) gameManager.HealthBar.color = Color.green;
                 ShowToast("Health = 100");
             }
         }
@@ -297,7 +286,7 @@ namespace MyGame.Scripts.CheatManagement
             if (godModeActive && gameManager != null)
             {
                 gameManager.Health = 100f;
-                gameManager.HealthBar.color = Color.cyan;
+                if (gameManager.HealthBar != null) gameManager.HealthBar.color = Color.cyan;
             }
             ShowToast($"GodMode = {(godModeActive ? "ON" : "OFF")}");
         }

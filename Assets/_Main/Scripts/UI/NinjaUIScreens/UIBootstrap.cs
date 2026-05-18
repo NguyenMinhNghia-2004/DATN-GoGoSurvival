@@ -25,7 +25,8 @@ public class UIBootstrap : MonoBehaviour
     {
         // Wait 1 frame so UIManager.Awake runs first if both in same scene.
         await UniTask.NextFrame();
-        await StartFlow(this.GetCancellationTokenOnDestroy());
+        try { await StartFlow(this.GetCancellationTokenOnDestroy()); }
+        catch (System.Exception e) { Debug.LogError("[UIBootstrap] StartFlow threw: " + e); }
     }
 
     protected virtual async UniTask StartFlow(CancellationToken ct)

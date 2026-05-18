@@ -41,6 +41,11 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
 
     protected override UniTask OnBeforeShowAsync(SV_LevelUpData data, CancellationToken ct)
     {
+        // Disable broken Inspector-wired onClicks on the cloned slot buttons before we
+        // attach our own pick handlers. Without this, click events trigger legacy
+        // NULL_TARGET listeners → NullReferenceException.
+        UIButtonSanitizer.SanitizeChildButtons(transform);
+
         if (data == null || data.Options == null || slotContainer == null) return UniTask.CompletedTask;
 
         if (titleText != null) titleText.text = "LEVEL UP! Choose a skill";
@@ -72,23 +77,63 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
             slot.Bind(opt, () => HandlePick(opt));
             return;
         }
-        // Best-effort: fill Name/Description/Icon/Stars children, attach click handler.
-        var nameTr = slotGO.transform.Find("Name");
-        if (nameTr != null && opt.SkillConfig != null)
+
+        // Fallback: slot child has no SV_LevelUpSlot component (legacy prefab layout).
+        // Find ICON/Name/Description by name (tolerating trailing whitespace), look up the
+        // SV_SkillCatalog for icon + per-star description, and wire the click handler.
+        var catalog = SV_LevelUpSlot.LookupCatalog();
+        SV_SkillEntry entry = null;
+        if (catalog != null && opt.SkillConfig != null)
         {
-            var tmp = nameTr.GetComponent<TextMeshProUGUI>();
-            if (tmp != null) tmp.text = opt.SkillConfig.name;
-            else { var t = nameTr.GetComponent<UnityEngine.UI.Text>(); if (t != null) t.text = opt.SkillConfig.name; }
+            string id = opt.SkillConfig.name; // e.g. "ZSk_Molotov" or "ZPs_EnergyDrink"
+            entry = catalog.FindById(id);
+            // Catalog IDs drop the leading 'Z' framework prefix (Sk_/Ps_ vs ZSk_/ZPs_).
+            if (entry == null && id != null && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+                entry = catalog.FindById(id.Substring(1));
         }
-        var descTr = slotGO.transform.Find("Description");
-        if (descTr == null) descTr = slotGO.transform.Find("Description ");
-        if (descTr == null) descTr = slotGO.transform.Find("Description  ");
-        if (descTr != null)
+
+        // Icon: try ICON child (with optional trailing space).
+        var iconTr = FindChildLoose(slotGO.transform, "ICON");
+        if (iconTr != null && entry != null && entry.icon != null)
         {
-            var tmp = descTr.GetComponent<TextMeshProUGUI>();
-            if (tmp != null) tmp.text = $"Lv.{opt.LevelIndex + 1}";
-            else { var t = descTr.GetComponent<UnityEngine.UI.Text>(); if (t != null) t.text = $"Lv.{opt.LevelIndex + 1}"; }
+            var img = iconTr.GetComponent<Image>();
+            if (img != null)
+            {
+                img.sprite = entry.icon;
+                img.color = Color.white;
+                img.preserveAspect = true;
+                img.enabled = true;
+            }
         }
+
+        // Name: prefer entry.displayName, fall back to ZSkillConfig.name.
+        string displayName = entry != null ? entry.displayName : (opt.SkillConfig != null ? opt.SkillConfig.name : "?");
+        var nameTr = FindChildLoose(slotGO.transform, "Name");
+        if (nameTr != null) SetText(nameTr, displayName);
+
+        // Description: per-star description if available, else "Lv.X".
+        string descText = $"Lv.{opt.LevelIndex + 1}";
+        if (entry != null && entry.perStarDescription != null && entry.perStarDescription.Length > 0)
+        {
+            int starIdx = Mathf.Clamp(opt.LevelIndex, 0, entry.perStarDescription.Length - 1);
+            descText = entry.perStarDescription[starIdx];
+        }
+        var descTr = FindChildLoose(slotGO.transform, "Description");
+        if (descTr != null) SetText(descTr, descText);
+
+        // Stars: turn on Stars1..Stars(LevelIndex+1) Active children, hide Inactive.
+        int starsLit = Mathf.Clamp(opt.LevelIndex + 1, 1, 5);
+        for (int s = 1; s <= 5; s++)
+        {
+            var starTr = FindChildLoose(slotGO.transform, "Stars" + s);
+            if (starTr == null) continue;
+            var active = starTr.Find("Active");
+            var inactive = starTr.Find("Inactive");
+            bool on = s <= starsLit;
+            if (active != null) active.gameObject.SetActive(on);
+            if (inactive != null) inactive.gameObject.SetActive(!on);
+        }
+
         // Attach click handler — either on the root or on the Background child.
         var btn = slotGO.GetComponent<Button>();
         if (btn == null) btn = slotGO.GetComponentInChildren<Button>();
@@ -99,10 +144,41 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
         }
         else
         {
-            // No Button → add one to the root so the player can click anywhere on the slot.
             btn = slotGO.AddComponent<Button>();
             btn.onClick.AddListener(() => HandlePick(opt));
         }
+    }
+
+    /// <summary>Find a direct child whose name matches `name` (ignoring trailing whitespace).</summary>
+    private static Transform FindChildLoose(Transform parent, string name)
+    {
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            var c = parent.GetChild(i);
+            if (c.name.TrimEnd() == name) return c;
+        }
+        // Also try one level deeper since the prefab has nested 'ICON' sometimes.
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            var c = parent.GetChild(i);
+            var found = FindChildLoose(c, name);
+            if (found != null) return found;
+        }
+        return null;
+    }
+
+    private static void SetText(Transform tr, string text)
+    {
+        // Try component on this transform first, fall back to first Text/TMP in subtree
+        // (the prefab's "Description" is an Image with a child TMP — must dig deeper).
+        var tmp = tr.GetComponent<TextMeshProUGUI>();
+        if (tmp != null) { tmp.text = text; return; }
+        var t = tr.GetComponent<UnityEngine.UI.Text>();
+        if (t != null) { t.text = text; return; }
+        var childTmp = tr.GetComponentInChildren<TextMeshProUGUI>(true);
+        if (childTmp != null) { childTmp.text = text; return; }
+        var childText = tr.GetComponentInChildren<UnityEngine.UI.Text>(true);
+        if (childText != null) childText.text = text;
     }
 
     public override async UniTask AnimateShowAsync(bool instant, CancellationToken ct)
@@ -159,20 +235,19 @@ public class SV_LevelUpSlot : MonoBehaviour
     private System.Action onPicked;
     private static SV_SkillCatalog _catalog;
 
-    private static SV_SkillCatalog Catalog
+    private static SV_SkillCatalog Catalog => LookupCatalog();
+
+    /// <summary>Internal helper used by SV_LevelUpPopupUI fallback path.
+    /// Loads catalog from AssetDatabase in editor, or from Resources at runtime.</summary>
+    public static SV_SkillCatalog LookupCatalog()
     {
-        get
-        {
-            if (_catalog == null)
-            {
-                #if UNITY_EDITOR
-                _catalog = UnityEditor.AssetDatabase.LoadAssetAtPath<SV_SkillCatalog>("Assets/_Main/Data/Skills/SV_SkillCatalog.asset");
-                #endif
-                // Runtime fallback: must be referenced from a scene SO field, or load via Resources.
-                // For DATN, catalog is asset-driven; consumers can also pass directly.
-            }
-            return _catalog;
-        }
+        if (_catalog != null) return _catalog;
+#if UNITY_EDITOR
+        _catalog = UnityEditor.AssetDatabase.LoadAssetAtPath<SV_SkillCatalog>("Assets/_Main/Data/Skills/SV_SkillCatalog.asset");
+#endif
+        if (_catalog == null)
+            _catalog = Resources.Load<SV_SkillCatalog>("SV_SkillCatalog");
+        return _catalog;
     }
 
     public void Bind(Data_UpgradeSkill data, System.Action onPickedCallback)

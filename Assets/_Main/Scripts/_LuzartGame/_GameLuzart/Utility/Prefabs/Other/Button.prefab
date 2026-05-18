@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5686958940524033065}
-  - component: {fileID: 5563124813461977088}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -38,25 +37,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 331.1364, y: 155}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5563124813461977088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309686668673294444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f82e09f8764038a6a5cf5303fdb121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 2825947571351653678}
-  _moveY: -17
-  _duration: 1.25
-  _loopDelay: 0.65
-  OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2487812014629663165
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +314,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8209579546923956483, guid: 975fd70d851ce3a45839c248545b34d9, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8751044141715680860, guid: 975fd70d851ce3a45839c248545b34d9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -1080,7 +1080,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4728158456043233531}
   - component: {fileID: 9028991243499789423}
-  - component: {fileID: 7710244655225757578}
   - component: {fileID: 6346465783463844808}
   m_Layer: 5
   m_Name: Timer
@@ -1116,23 +1115,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7787270277303908050}
   m_CullTransparentMesh: 1
---- !u!114 &7710244655225757578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7787270277303908050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dba9d5ff9efd154b938299a72fcf13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeRemaining: 0
-  timerIsRunning: 0
-  timeText: {fileID: 6346465783463844808}
-  timeTextScreenFinish: {fileID: 0}
-  BestTime: {fileID: 0}
 --- !u!114 &6346465783463844808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1251,7 @@ MonoBehaviour:
   reloadWeaponBar: {fileID: 0}
   fillingFlashBar: {fileID: 9003718240806925850}
   btnPause: {fileID: 6722895992025436239}
+  timerText: {fileID: 0}
 --- !u!1 &8576248584954608697
 GameObject:
   m_ObjectHideFlags: 0

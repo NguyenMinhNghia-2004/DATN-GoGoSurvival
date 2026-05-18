@@ -74,3 +74,6 @@ crashlytics-build.properties
 # Screenshots from MCP automation
 /Assets/Screenshots/
 /Assets/Screenshots.meta
+
+# Claude Code harness state (per-machine)
+.claude/

@@ -12,6 +12,9 @@ Master catalog. Read first to find relevant pages.
 ## Overview
 - [[overview]] — Survivor.io-clone thesis project, NinjaUI migration done, data SOs authored
 
+## GDD (canonical — must match)
+- [[gdd/survivor-io-reference]] — Combined Survivor.io reference + user excel GDD. **Read first** before changing gameplay.
+
 ## Meta
 - [[claims]] — Cross-page facts with sources
 - [[open-questions]] — Unanswered design/tech questions

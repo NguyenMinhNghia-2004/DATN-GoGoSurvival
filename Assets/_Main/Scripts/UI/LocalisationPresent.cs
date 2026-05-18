@@ -9,18 +9,24 @@ public class LocalisationPresent : MonoBehaviour
     public GameObject ControllerSpawener;
     internal bool Check = false;
 
+    private UIManager _uiMgr;
+
     private void Start()
     {
         ControllerSpawener = GameObject.Find("Camera");
-        UI = GameObject.Find("UI");
+        // After NinjaUI migration, find UIManager by component type rather than GameObject name.
+        _uiMgr = UnityEngine.Object.FindFirstObjectByType<UIManager>();
+        UI = _uiMgr != null ? _uiMgr.gameObject : null;
         StartCoroutine(WaitingActive());
     }
     private void Update()
     {
-        if(UI.GetComponent<UIManager>().MapReady == true && Check == true)
+        if (_uiMgr != null && _uiMgr.MapReady == true && Check == true && ControllerSpawener != null)
         {
-            ControllerSpawener.GetComponent<ControllerSpawening>().SpawenOne.GetComponent<SpawenManager>().SpawenLocalisation = this.gameObject;
-            ControllerSpawener.GetComponent<ControllerSpawening>().SpawenTwo.GetComponent<SpawenManager>().SpawenLocalisation = this.gameObject;
+            var cs = ControllerSpawener.GetComponent<ControllerSpawening>();
+            if (cs == null) return;
+            if (cs.SpawenOne != null) cs.SpawenOne.GetComponent<SpawenManager>().SpawenLocalisation = this.gameObject;
+            if (cs.SpawenTwo != null) cs.SpawenTwo.GetComponent<SpawenManager>().SpawenLocalisation = this.gameObject;
         }
     }
     IEnumerator WaitingActive()

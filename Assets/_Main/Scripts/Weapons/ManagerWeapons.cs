@@ -63,7 +63,9 @@ public class ManagerWeapons : MonoBehaviour
     }
     void Update()
     {
-        if (ActivateWeapon == true)
+        // FillingScore.ScoringLevel was the legacy XP fill bar on /UI/GamePlay/TopUI (deleted).
+        // SV_GameplayHud now drives the bar; null-guard the legacy weapon switch trigger.
+        if (ActivateWeapon == true && FillingScore != null && FillingScore.ScoringLevel != null)
         {
             if(FillingScore.ScoringLevel.fillAmount == 1)
             {

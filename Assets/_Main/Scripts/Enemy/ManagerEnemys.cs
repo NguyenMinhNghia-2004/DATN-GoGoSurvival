@@ -7,19 +7,22 @@ public class ManagerEnemys : MonoBehaviour
     public SpawenManager ManagerSpawn;
     public SpawenManager Monsters;
     public GameObject Blooding;
-    public ManagerMecanique ManagerMec;
+
+    // Phase B2 migration: legacy score progression float tracked locally (was on
+    // ManagerMecanique.LevelLevel — that field tied to legacy fill bar, now unused).
+    private float legacyScoreFill;
 
     internal bool Stop = false;
     private void Start()
     {
-        
+
     }
     private void Update()
     {
         if(Stop == true)
         {
-            ManagerMec.LevelLevel += 0.005f;
-            DataManager.Instance.SetScore(ManagerMec.LevelLevel);
+            legacyScoreFill += 0.005f;
+            if (DataManager.Instance != null) DataManager.Instance.SetScore(legacyScoreFill);
         }
     }
     IEnumerator Spawning()

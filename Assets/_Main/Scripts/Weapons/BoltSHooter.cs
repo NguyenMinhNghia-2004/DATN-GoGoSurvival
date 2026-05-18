@@ -21,11 +21,16 @@ public class BoltSHooter : MonoBehaviour
     [Header("Floating Manager")]
     internal int SpawenPoint;
 
+    private UIManager _uiMgrCache;
+
     void Awake()
     {
         Manager = GameObject.Find("GameManager");
         DiamondPos = GameObject.Find("DiamondPos");
-        UImanager = GameObject.Find("UI");
+        // After NinjaUI migration, the legacy UIManager GameObject was renamed/reparented.
+        // Find by component type instead of name.
+        _uiMgrCache = UnityEngine.Object.FindFirstObjectByType<UIManager>();
+        UImanager = _uiMgrCache != null ? _uiMgrCache.gameObject : null;
         CheckDestroy();
     }
     void Start()
@@ -53,7 +58,7 @@ public class BoltSHooter : MonoBehaviour
             }
             CheckPlaceSpawening();
         }
-        if (UImanager.GetComponent<UIManager>().DestroyEnemys == true)
+        if (_uiMgrCache != null && _uiMgrCache.DestroyEnemys == true)
         {
             Destroy(this.gameObject);
         }

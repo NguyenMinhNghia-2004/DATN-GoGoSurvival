@@ -30,6 +30,7 @@ public class SV_LoseScreenUI : UIBase<SV_LoseData>
 
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
+        UIButtonSanitizer.SanitizeChildButtons(transform);
         if (btnRetry != null) btnRetry.onClick.AddListener(OnRetry);
         if (btnMainMenu != null) btnMainMenu.onClick.AddListener(OnMainMenu);
         return UniTask.CompletedTask;
@@ -53,13 +54,11 @@ public class SV_LoseScreenUI : UIBase<SV_LoseData>
 
     private async void OnRetry()
     {
-        await UIManager.Instance.HideAllExceptSystemAsync();
-        // TODO: trigger gameplay restart.
+        await GameplayResetCoordinator.RetryAsync();
     }
 
     private async void OnMainMenu()
     {
-        await UIManager.Instance.HideAllExceptSystemAsync();
-        await UIManager.Instance.ShowAsync(UIId.SV_MainMenu);
+        await GameplayResetCoordinator.BackToMainMenuAsync();
     }
 }

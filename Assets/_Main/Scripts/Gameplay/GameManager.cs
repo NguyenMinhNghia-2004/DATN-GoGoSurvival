@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public AudioManager Sounds;
     public movementJoystick JoystManager;
     public SpawenManager Spawner;
-    public TimerManager Times;
+    // Phase B1 migrated: legacy TimerManager removed. Game time owned by Luzart.GameController.
     public ManagerFloatingBtn ManagerDownBtn;
     public ManagerWeapons WeaponSpawn;
     public UIManager ManagerUI;
@@ -89,33 +89,19 @@ public class GameManager : MonoBehaviour
     {
         len = myColors.Length;
         Health = 100f;
-        ManagerDownBtn.Shop = true;
-        ManagerDownBtn.Equipement = true;
-        ManagerDownBtn.Death = true;
+        if (ManagerDownBtn != null)
+        {
+            ManagerDownBtn.Shop = true;
+            ManagerDownBtn.Equipement = true;
+            ManagerDownBtn.Death = true;
+        }
 
-        if (useSurvivorIoHud) HideLegacyHudPanels();
+        // Legacy HUD panels were already deleted in Phase A migration; no need to hide them.
     }
-
-    // Hide the legacy HUD bar parents so SV_GameplayHud is the only visible HUD.
-    void HideLegacyHudPanels()
-    {
-        // HealthBar parent (Health row inside legacy Container) holds HP + WeaponReload row.
-        if (HealthBar != null && HealthBar.transform.parent != null)
-            HealthBar.transform.parent.gameObject.SetActive(false);
-        // ScoringLevel parent (VarPower under TopUI) holds the legacy XP/level bar.
-        if (ScoringLevel != null && ScoringLevel.transform.parent != null)
-            ScoringLevel.transform.parent.gameObject.SetActive(false);
-        // FillingReweapon parent is in AddMoreWapeon (weapon-flash popup) — keep hidden.
-        if (FillingReweapon != null && FillingReweapon.transform.parent != null)
-            FillingReweapon.transform.parent.gameObject.SetActive(false);
-    }
-    // Legacy HUD writes (HealthBar/ScoringLevel/ScreenAddonWap/FillingReweapon) are now
-    // owned by SV_GameplayHudUI subscribed to the framework's Runtime_HP / Runtime_XP /
-    // CurrentLevel / CountEnemyDead events. Death + level-up popups are driven by
-    // GameController.OnHPChange + UpgradeSkillManager respectively. Set
-    // useSurvivorIoHud=false ONLY to fall back to the legacy UI for debugging.
-    [Header("HUD migration")]
-    [SerializeField] private bool useSurvivorIoHud = true;
+    // Legacy HUD writes (HealthBar/ScoringLevel/ScreenAddonWap/FillingReweapon) are owned
+    // by SV_GameplayHudUI subscribed to framework Runtime_HP/Runtime_XP/CurrentLevel events.
+    // Death detection still lives here (legacy Health field is the source of truth for HP
+    // changes from EnemyManager collisions). LegacyHudUpdate path removed in Phase B cleanup.
 
     void Update()
     {
@@ -130,32 +116,20 @@ public class GameManager : MonoBehaviour
         {
             Valeur = 0;
             ValureLevel = 0;
-            if (!useSurvivorIoHud)
-            {
-                if (ReloadWeapon != null) ReloadWeapon.fillAmount = 0;
-                if (ScoringLevel != null) ScoringLevel.fillAmount = 0;
-            }
         }
         if(Boolean.GameStart == true)
         {
             CheckEnemy();
             ReloadingWapeons();
 
-            if (!useSurvivorIoHud)
+            // Death detection — Health is mutated by EnemyManager collisions. Framework
+            // SV_GameplayHud reads via DATNGameplayBridge.Health → Stats.Runtime_HP.
+            if (Health <= 0f && PlayerDeath == false)
             {
-                LegacyHudUpdate();
+                BtnPause();
+                PlayerDeath = true;
             }
-            else
-            {
-                // Framework owns HUD bars. Only run death detection (legacy thresholding by
-                // Health value, not by fillAmount which is no longer being written).
-                if (Health <= 0f && PlayerDeath == false)
-                {
-                    Debug.Log("You are Death");
-                    BtnPause();
-                    PlayerDeath = true;
-                }
-            }
+
             if (startmove == true)
             {
                 foreach (GameObject joint in Enemys)
@@ -167,60 +141,10 @@ public class GameManager : MonoBehaviour
             CheckKilledAndCoins();
         }
     }
-
-    void LegacyHudUpdate()
-    {
-        HealthBar.fillAmount = Health / 100f;
-        if (HealthBar.fillAmount == 0.5f) HealthBar.color = Color.yellow;
-        if (HealthBar.fillAmount == 0.3f) HealthBar.color = Color.red;
-        if (HealthBar.fillAmount == 0 && PlayerDeath == false)
-        {
-            Debug.Log("You are Death");
-            BtnPause();
-            PlayerDeath = true;
-        }
-        ScoringValue.text = "" + CurrentReload;
-        ScoringValueDeux.text = "" + CurrentReload;
-        if (CheckFinish == true)
-        {
-            CheckValeurFill();
-            if (ScoringLevel.fillAmount == 1)
-            {
-                WeaponSpawn.PauseFirst = Random.Range(1, 12);
-                WeaponSpawn.PauseSecond = Random.Range(1, 12);
-                WeaponSpawn.PauseThrees = Random.Range(1, 12);
-                WeaponSpawn.ActivateWeapon = true;
-                Times.timerIsRunning = false;
-                CurrentReload += 1;
-                StartFlashing = true;
-                ScreenAddonWap.SetActive(true);
-                PlayerPerfb.GetComponent<PlayerManager>().enabled = false;
-                PlayerPerfb.GetComponent<Rigidbody2D>().simulated = false;
-                if (EnemyAvailable == true)
-                {
-                    Spawner.enabled = false;
-                    startmove = true;
-                }
-                ValureLevel = 0f;
-                CheckFinish = false;
-            }
-        }
-        if (StartFlashing == true)
-        {
-            FillingReweapon.color = Color.Lerp(FillingReweapon.color, myColors[colorIndex], LerpTime * Time.deltaTime);
-            t = Mathf.Lerp(t, 1f, LerpTime * Time.deltaTime);
-            if (t > 0.9f)
-            {
-                t = 0;
-                colorIndex++;
-                colorIndex = (colorIndex >= len) ? 0 : colorIndex;
-            }
-        }
-    }
     public void BtnPause()
     {
         AvailabelWeapon = false;
-        Times.timerIsRunning = false;
+        /* Phase B1: Times.timerIsRunning = false → Luzart.GameController paused via Time.timeScale */
         PlayerPerfb.GetComponent<PlayerManager>().enabled = false;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = false;
         if (EnemyAvailable == true)
@@ -234,7 +158,7 @@ public class GameManager : MonoBehaviour
     {
         AvailabelWeapon = true;
         Checkenemys = true;
-        Times.timerIsRunning = true;
+        /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
         PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
@@ -250,23 +174,21 @@ public class GameManager : MonoBehaviour
     }
     void CheckKilledAndCoins()
     {
-        ValueKilled.text =  "" + CurrentKilled;
-        ValueKilledScreenFinish.text =  "" + CurrentKilled;
-        CurrentCoins.text = "" + CurrentCurrency;
+        // Legacy text refs lived on /UI/GamePlay/TopUI and FinishScreen, both deleted in the
+        // NinjaUI migration. SV_GameplayHud + SV_WinScreen now show these values. Null-guard.
+        if (ValueKilled != null) ValueKilled.text = "" + CurrentKilled;
+        if (ValueKilledScreenFinish != null) ValueKilledScreenFinish.text = "" + CurrentKilled;
+        if (CurrentCoins != null) CurrentCoins.text = "" + CurrentCurrency;
         DataManager.Instance.SetCurrentKilled(CurrentKilled);
         DataManager.Instance.SetCurrentCurrency(CurrentCurrency);
 
     }
-    void CheckValeurFill()
-    {
-        if (CheckFinish == true)
-        {
-            ScoringLevel.fillAmount = ValureLevel / 50;
-        }
-    }
     void ReloadingWapeons()
-    {    
+    {
+        // Legacy reload UI removed in Phase A; ReloadWeapon Image ref is null. The Valeur
+        // counter still ticks for any legacy code that reads it but doesn't update visual.
         Valeur += 1f * Time.deltaTime;
+        if (ReloadWeapon == null) return;
         if(ReloadWeapon.fillAmount < 1 && RightFill == true)
         {
             SpawnObject = false;
@@ -300,7 +222,7 @@ public class GameManager : MonoBehaviour
     public void FirstCont()
     {
         ScreenAddonWap.SetActive(false);
-        Times.timerIsRunning = true;
+        /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
         PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
@@ -318,7 +240,7 @@ public class GameManager : MonoBehaviour
     public void SecondCont()
     {
         ScreenAddonWap.SetActive(false);
-        Times.timerIsRunning = true;
+        /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
         PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
@@ -336,7 +258,7 @@ public class GameManager : MonoBehaviour
     public void ThirdCont()
     {
         ScreenAddonWap.SetActive(false);
-        Times.timerIsRunning = true;
+        /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
         PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         //Spawner.enabled = true;

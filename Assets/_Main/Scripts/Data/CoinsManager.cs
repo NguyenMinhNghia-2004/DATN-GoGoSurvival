@@ -16,7 +16,8 @@ public class CoinsManager : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Manager = GameObject.Find("GameManager");
-        UIManager = GameObject.Find("UI");
+        // Phase B2: ManagerMecanique removed. Coin state owned by CurrencyManager singleton.
+        UIManager = null;
         Effect = GetComponent<AudioSource>();
         Effect.volume = 0.5f;
         GameObject controller = GameObject.Find("Controller");
@@ -59,16 +60,8 @@ public class CoinsManager : MonoBehaviour
         {
             StartCoroutine(FollowPlayer());
             if (CurrencyManager.Instance != null)
-            {
                 CurrencyManager.Instance.AddCoins(1);
-                UIManager.GetComponent<ManagerMecanique>().CoinsInt = CurrencyManager.Instance.Coins;
-            }
-            else
-            {
-                UIManager.GetComponent<ManagerMecanique>().CoinsInt += 1;
-                DataManager.Instance.SetCoins(UIManager.GetComponent<ManagerMecanique>().CoinsInt);
-            }
-            Manager.GetComponent<GameManager>().CurrentCurrency += 1;
+            if (Manager != null) Manager.GetComponent<GameManager>().CurrentCurrency += 1;
             StartCoroutine(FlashingLed());
         }
     }

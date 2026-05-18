@@ -10,11 +10,13 @@ public class UIManager : MonoBehaviour
 {
     [Header("Managers")]
     public GameManager Manager;
-    public TimerManager timer;
+    // Phase B1 migrated: legacy TimerManager removed. Game time is owned by Luzart.GameController._countTime.
     public BooleanManager Bool;
+    // LevelsManager kept as a slim data holder for Inspector-wired level prefab refs.
+    // SelectMap UI was removed (Phase A), but the Inspector ref to Level1 prefab survives.
     public LevelsManager Level;
     public SpriteWeapons Weapons;
-    public ManagerMecanique Mecanique;
+    // Phase B2 migrated: ManagerMecanique removed. CurrencyManager singleton owns Coins/Gems.
 
     [Header("Componenet Player")]
     public GameObject Player;
@@ -72,12 +74,12 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        CheckEvolve = DataManager.Instance.GetCheckEvolve();
-        if (CheckEvolve == "work")
+        if (DataManager.Instance != null) CheckEvolve = DataManager.Instance.GetCheckEvolve();
+        if (CheckEvolve == "work" && Manager != null && Manager.ManagerDownBtn != null)
         {
             Manager.ManagerDownBtn.Evolve = true;
         }
-        if(Manager.PlayerDeath == true && FinishScreenB == false)
+        if(Manager != null && Manager.PlayerDeath == true && FinishScreenB == false)
         {
             DestroyEnemys = true;
             StopAllAudios = true;
@@ -118,32 +120,50 @@ public class UIManager : MonoBehaviour
         Destroy(CurrentLevel);
         StartCoroutine(StartBacking());
     }
+
+    /// <summary>Null-safe variant of <see cref="BackFinish"/> for the NinjaUI end-game flow
+    /// where <see cref="FinishScreen"/> may be unwired (we use SV_WinScreen/SV_LoseScreen instead).
+    /// Destroys the spawned Level prefab, deactivates weapons, runs the back-to-menu coroutine.</summary>
+    public void BackFinishSafe()
+    {
+        MapReady = false;
+        DestroyEnemys = true;
+        if (EffectFadeGamePlay != null) EffectFadeGamePlay.SetActive(true);
+        if (FinishScreen != null) FinishScreen.SetActive(false);
+        if (Weapons != null) Weapons.DesactivateAll();
+        if (CurrentLevel != null) Destroy(CurrentLevel);
+        StartCoroutine(StartBacking());
+    }
     IEnumerator StartBacking()
     {
         yield return new WaitForSeconds(0.8f);
-        Player.gameObject.GetComponent<Rigidbody2D>().simulated = true;
+        if (Player != null) Player.gameObject.GetComponent<Rigidbody2D>().simulated = true;
         DestroyEnemys = false;
-        Manager.CurrentReload = 0;
-        Manager.CurrentCurrency = 0;
-        Manager.CurrentKilled = 0;
-        timer.timeRemaining = 0;
+        if (Manager != null) {
+            Manager.CurrentReload = 0;
+            Manager.CurrentCurrency = 0;
+            Manager.CurrentKilled = 0;
+        }
+        // Timer reset now handled by Luzart.GameController.ResetState() (called via GameplayResetCoordinator).
         FinishScreenB = false;
-        EffectFadeGamePlay.SetActive(false);
-        if (Manager.Boolean.GameStart == true)
+        if (EffectFadeGamePlay != null) EffectFadeGamePlay.SetActive(false);
+        if (Manager != null && Manager.Boolean.GameStart == true)
         {
-            Player.transform.position = new Vector3(0, 0, 0);
-            HelthUI.SetActive(false);
-            ScreenPause.SetActive(false);
-            ScreenGamePlay.SetActive(false);
-            ScreenMainMenu.SetActive(true);
+            if (Player != null) Player.transform.position = new Vector3(0, 0, 0);
+            if (HelthUI != null) HelthUI.SetActive(false);
+            if (ScreenPause != null) ScreenPause.SetActive(false);
+            if (ScreenGamePlay != null) ScreenGamePlay.SetActive(false);
+            if (ScreenMainMenu != null) ScreenMainMenu.SetActive(true);
             Manager.Boolean.GameStart = false;
         }
     }
     public void PlayBtn()
     {
-        EffectFade.SetActive(true);
-        (Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject).transform.SetParent(LevelLocalisation.transform);
-        CurrentName = Level.Level1.gameObject.name + "(Clone)";
+        if (EffectFade != null) EffectFade.SetActive(true);
+        if (Level != null && Level.Level1 != null && LevelLocalisation != null) {
+            (Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject).transform.SetParent(LevelLocalisation.transform);
+            CurrentName = Level.Level1.gameObject.name + "(Clone)";
+        }
         StartCoroutine(GameStart());
     }
     IEnumerator GameStart()
@@ -158,17 +178,16 @@ public class UIManager : MonoBehaviour
             DataManager.Instance.SetCheckEvolve(Checking);
         }
         MapReady = true;
-        Manager.startmove = true;
-        EffectFade.SetActive(false);
-        Bool.GameStart = true;
-        Player.GetComponent<PlayerManager>().enabled = true;
-        Manager.AvailabelWeapon = true;
-        Manager.GameStart = true;
-        ScreenMainMenu.SetActive(false);
-        ScreenGamePlay.SetActive(true);
-        HelthUI.SetActive(true);
-        timer.timerIsRunning = true;
-        if (Manager.EnemyAvailable == true)
+        if (Manager != null) Manager.startmove = true;
+        if (EffectFade != null) EffectFade.SetActive(false);
+        if (Bool != null) Bool.GameStart = true;
+        if (Player != null) Player.GetComponent<PlayerManager>().enabled = true;
+        if (Manager != null) { Manager.AvailabelWeapon = true; Manager.GameStart = true; }
+        if (ScreenMainMenu != null) ScreenMainMenu.SetActive(false);
+        if (ScreenGamePlay != null) ScreenGamePlay.SetActive(true);
+        if (HelthUI != null) HelthUI.SetActive(true);
+        // Timer ticks via Luzart.GameController.StartGameplay() (already called by SV_MainMenuUI.OnPlay).
+        if (Manager != null && Manager.EnemyAvailable == true)
         {
             Manager.startmove = false;
             foreach (GameObject joint in Manager.Enemys)

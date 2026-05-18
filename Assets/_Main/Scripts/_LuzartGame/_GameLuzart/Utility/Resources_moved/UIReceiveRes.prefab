@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5455651147088646675}
   - component: {fileID: 5572210477809559884}
-  - component: {fileID: 3613371462811518803}
   m_Layer: 5
   m_Name: UIReceiveRes
   m_TagString: Untagged
@@ -45,19 +44,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3443102373380232451}
   m_CullTransparentMesh: 1
---- !u!114 &3613371462811518803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3443102373380232451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56203b0ba46608b4595c0b6641efcabf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiName: 0
-  closeBtn: {fileID: 0}
-  isAnimBtnClose: 1
-  isCache: 0

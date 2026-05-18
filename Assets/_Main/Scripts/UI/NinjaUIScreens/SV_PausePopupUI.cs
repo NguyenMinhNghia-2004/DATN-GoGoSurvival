@@ -23,10 +23,26 @@ public class SV_PausePopupUI : UIBase
 
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
+        UIButtonSanitizer.SanitizeChildButtons(transform);
+        // Auto-find by common legacy names if Inspector refs aren't wired.
+        if (btnResume == null) btnResume = FindByName("Resume") ?? FindByName("BtnResume");
+        if (btnSettings == null) btnSettings = FindByName("Setting") ?? FindByName("Settings") ?? FindByName("BtnSetting");
+        if (btnMainMenu == null) btnMainMenu = FindByName("Home") ?? FindByName("MainMenu") ?? FindByName("BtnHome");
         if (btnResume != null) btnResume.onClick.AddListener(OnResume);
         if (btnSettings != null) btnSettings.onClick.AddListener(OnSettings);
         if (btnMainMenu != null) btnMainMenu.onClick.AddListener(OnMainMenu);
         return UniTask.CompletedTask;
+    }
+
+    private Button FindByName(string name)
+    {
+        foreach (var t in GetComponentsInChildren<Transform>(true))
+            if (t.name.TrimEnd() == name)
+            {
+                var b = t.GetComponent<Button>();
+                if (b != null) return b;
+            }
+        return null;
     }
 
     public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)

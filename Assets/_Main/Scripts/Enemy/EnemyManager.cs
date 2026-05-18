@@ -62,7 +62,10 @@ public class EnemyManager : MonoBehaviour
     {
         // Cache references (1 lần duy nhất, không gọi lại trong Update)
         Manager = GameObject.Find("GameManager");
-        UImanager = GameObject.Find("UI");
+        // After NinjaUI migration, the legacy UIManager GameObject was renamed/reparented.
+        // Find by component type instead of relying on the old root name "UI".
+        var legacyUI = UnityEngine.Object.FindFirstObjectByType<DATN.Legacy.UIManager>();
+        UImanager = legacyUI != null ? legacyUI.gameObject : null;
         BloodLocalisation = GameObject.Find("BloodManager");
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -198,14 +201,10 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        // Drop diamond
+        // Drop diamond — XP comes only when player walks over the diamond (Survivor.io
+        // style). Auto-grant on death used to live here but bypassed the pickup mechanic;
+        // see Diamond.OnTriggerEnter2D for the actual XP grant path.
         DropDiamond();
-
-        // Add EXP to GameManager
-        if (gameManager != null && enemyData != null)
-        {
-            gameManager.ValureLevel += enemyData.expReward;
-        }
 
         Destroy(gameObject);
     }

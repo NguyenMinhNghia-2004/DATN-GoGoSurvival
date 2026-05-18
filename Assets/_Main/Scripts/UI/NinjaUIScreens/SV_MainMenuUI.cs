@@ -29,10 +29,21 @@ public class SV_MainMenuUI : UIBase
 
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
-        // Auto-find DownContainer nav buttons if not wired via Inspector.
+        // Defensive: disable every Inspector-wired onClick listener whose target is null.
+        // Many legacy buttons in this prefab were authored against the old DATN.Legacy
+        // hierarchy; after migration their targets resolve to null and clicking them
+        // throws NullReferenceException. SanitizeButtons disables (state=Off) those
+        // broken listeners across the whole MainMenu hierarchy so the only listeners
+        // that fire are the runtime ones we add below.
+        UIButtonSanitizer.SanitizeChildButtons(transform);
+
+        // Auto-find buttons by name. Tolerant to spaces and case so prefab renames
+        // don't silently break wiring.
         if (btnPlay == null) btnPlay = FindChildButton("BtnPlay") ?? FindChildButton("Battle");
         if (btnShop == null) btnShop = FindChildButton("Shop");
-        if (btnEquipment == null) btnEquipment = FindChildButton("Equipement");
+        if (btnEquipment == null) btnEquipment = FindChildButton("Equipement") ?? FindChildButton("Equipment");
+        if (btnSettings == null) btnSettings = FindChildButton("Setting") ?? FindChildButton("Settings");
+        if (btnMessages == null) btnMessages = FindChildButton("Messaging") ?? FindChildButton("Messages") ?? FindChildButton("Mails");
 
         if (btnPlay != null) btnPlay.onClick.AddListener(OnPlay);
         if (btnShop != null) btnShop.onClick.AddListener(OnShop);
@@ -86,25 +97,28 @@ public class SV_MainMenuUI : UIBase
         OnCloseButtonClicked(); // close MainMenu
     }
 
-    private async void OnShop()
-    {
-        await UIManager.Instance.ShowAsync(UIId.SV_Shop, ct: this.GetCancellationTokenOnDestroy());
-    }
-
-    private async void OnEquipment()
-    {
-        await UIManager.Instance.ShowAsync(UIId.SV_ItemEquipment, ct: this.GetCancellationTokenOnDestroy());
-    }
-
-    private async void OnSettings()
-    {
-        await UIManager.Instance.ShowAsync(UIId.SV_SettingsPopup, ct: this.GetCancellationTokenOnDestroy());
-    }
+    private async void OnShop() => await SafeShowAsync(UIId.SV_Shop);
+    private async void OnEquipment() => await SafeShowAsync(UIId.SV_ItemEquipment);
+    private async void OnSettings() => await SafeShowAsync(UIId.SV_SettingsPopup);
 
     private void OnMessages()
     {
         // Messages panel — keep legacy SetActive pattern for now.
         if (panelMessages != null) panelMessages.SetActive(true);
+    }
+
+    /// <summary>Show a UIId, swallowing the "no config" exception when the UIRegistry doesn't
+    /// have a matching entry yet. Lets MainMenu buttons stay clickable without throwing while
+    /// new screens are being authored.</summary>
+    private async UniTask SafeShowAsync(UIId id)
+    {
+        try { await UIManager.Instance.ShowAsync(id, ct: this.GetCancellationTokenOnDestroy()); }
+        catch (System.Collections.Generic.KeyNotFoundException) {
+            Debug.LogWarning($"[SV_MainMenuUI] {id} has no UIRegistry entry — screen not yet authored. Button click ignored.");
+        }
+        catch (System.Exception e) {
+            Debug.LogError($"[SV_MainMenuUI] {id} show failed: {e.Message}");
+        }
     }
 
     public override bool HandleEscape()
