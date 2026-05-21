@@ -46,13 +46,18 @@ public class CoinsManager : MonoBehaviour
     {
         if (BoolM != null && BoolM.Sound) Effect.Play();
         yield return new WaitForEndOfFrame();
-        Manager.GetComponent<GameManager>().FillingFlash.SetActive(true);
-        yield return new WaitForSeconds(0.005f);
-        Manager.GetComponent<GameManager>().FillingFlash.SetActive(false);
-        yield return new WaitForEndOfFrame();
+        // FillingFlash was legacy ReloadWeapon-bar tint Image (deleted in Phase A migration).
+        // Skip flash if ref is null — pickup still works visually via Diamond.Flasher instantiate.
+        var gm = Manager != null ? Manager.GetComponent<GameManager>() : null;
+        if (gm != null && gm.FillingFlash != null)
+        {
+            gm.FillingFlash.SetActive(true);
+            yield return new WaitForSeconds(0.005f);
+            gm.FillingFlash.SetActive(false);
+            yield return new WaitForEndOfFrame();
+        }
         yield return new WaitForSeconds(0.9f);
         Destroy(this.gameObject);
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

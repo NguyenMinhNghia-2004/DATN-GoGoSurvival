@@ -179,8 +179,13 @@ public class GameManager : MonoBehaviour
         if (ValueKilled != null) ValueKilled.text = "" + CurrentKilled;
         if (ValueKilledScreenFinish != null) ValueKilledScreenFinish.text = "" + CurrentKilled;
         if (CurrentCoins != null) CurrentCoins.text = "" + CurrentCurrency;
-        DataManager.Instance.SetCurrentKilled(CurrentKilled);
-        DataManager.Instance.SetCurrentCurrency(CurrentCurrency);
+        // Skip save when DataManager singleton isn't bootstrapped (e.g. running GamePlay
+        // scene directly without going through Splash/MainMenu). Avoids per-frame NRE.
+        if (DataManager.Instance != null)
+        {
+            DataManager.Instance.SetCurrentKilled(CurrentKilled);
+            DataManager.Instance.SetCurrentCurrency(CurrentCurrency);
+        }
 
     }
     void ReloadingWapeons()

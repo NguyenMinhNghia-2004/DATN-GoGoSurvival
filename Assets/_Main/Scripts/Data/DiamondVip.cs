@@ -49,12 +49,17 @@ public class DiamondVip : MonoBehaviour
     IEnumerator FlashingLed()
     {
         yield return new WaitForEndOfFrame();
-        Manager.GetComponent<GameManager>().FillingFlash.SetActive(true);
-        yield return new WaitForSeconds(0.005f);
-        Manager.GetComponent<GameManager>().FillingFlash.SetActive(false);
-        yield return new WaitForEndOfFrame();
+        // FillingFlash was legacy ReloadWeapon tint Image (deleted in Phase A migration).
+        // Null-guard so pickup doesn't UnassignedReferenceException.
+        var gm = Manager != null ? Manager.GetComponent<GameManager>() : null;
+        if (gm != null && gm.FillingFlash != null)
+        {
+            gm.FillingFlash.SetActive(true);
+            yield return new WaitForSeconds(0.005f);
+            gm.FillingFlash.SetActive(false);
+            yield return new WaitForEndOfFrame();
+        }
         Destroy(this.gameObject);
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

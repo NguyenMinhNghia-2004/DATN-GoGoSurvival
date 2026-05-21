@@ -9,12 +9,20 @@ namespace Luzart
         [SerializeField] NumberPicker value;
         INumber _value;
         IStatDefinition IStat.Definition => definition;
-        INumber IStat.Value => _value;
+        // Lazy-init: AssetStat SOs are passed directly to StatsBehavior.Add() by
+        // EnemySpawnerManager without IContent.Initialize() being called — relying on
+        // DoInitialize() alone leaves _value null and silently breaks enemy stats.
+        INumber IStat.Value => EnsureValue();
         protected override void DoInitialize()
         {
             base.DoInitialize();
-            _value = value.PickNumber();
+            EnsureValue();
         }
-        public double Value => _value.Value;
+        public double Value => EnsureValue().Value;
+        private INumber EnsureValue()
+        {
+            if (_value == null) _value = value.PickNumber();
+            return _value;
+        }
     }
 }
