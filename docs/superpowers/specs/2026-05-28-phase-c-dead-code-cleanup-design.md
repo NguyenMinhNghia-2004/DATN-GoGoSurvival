@@ -183,14 +183,21 @@ Each slice = one commit. After each commit: enter Play, verify boot → main men
 - Confirm Phase C success criteria (§4).
 - Commit: `migrate(C.9): Phase C close-out`.
 
-## 4. Success criteria
+## 4. Success criteria — ACTUAL RESULTS (executed 2026-05-28)
 
-- [ ] `Assets/_Main/Scripts/` no longer contains any of the script files in §2.1 (except those documented as "deferred to Phase F").
-- [ ] `GamePlay.unity` has **9 root GameObjects** (was 12).
-- [ ] All 5 UI prefabs (`SV_Equipement`, `SV_Process`, `SV_Evolve`, `SV_Mails`, `SV_SelectMap`) have a `SV_LegacyUIBase`-derived script on root.
-- [ ] `MigrationFlags` class exists, is empty.
-- [ ] Compile clean (0 errors, 0 new warnings beyond baseline).
-- [ ] Manual play-test: full boot → main menu → play → kill → level-up → die → menu loop works.
+Reality on execution:
+
+- [x] `MigrationFlags` SO + `MigrationFlagsContent` exist at `Assets/_Main/Data/Migration/`. Wired into `_GameBoot.DomainContentLoader.contents`. (C.1)
+- [x] `CheatManager.cs` and `ScrollContent.cs` deleted — the only 2 pure orphans confirmed via GUID grep + `find_gameobjects(include_inactive=true)=0`. (C.2)
+- [x] `AdsManager` GameObject removed from scene (`rootCount: 12 → 11`). (C.3a)
+- [x] All 5 UI prefabs (`SV_Equipement`, `SV_Process`, `SV_Evolve`, `SV_Mails`, `SV_SelectMap`) have `SV_<Name>UI : SV_LegacyUIBase` on root. Verified via `manage_prefabs.get_info`. (C.4)
+- [x] Compile clean throughout (0 errors).
+- [ ] Manual play-test: deferred to user verification.
+
+### Re-scoped from plan
+
+- **18 of 20 candidate scripts (Batches 1-4) NOT deleted**: every one has prefab or scene refs (verified via `*.unity` + `*.prefab` GUID grep + `find_gameobjects include_inactive=true`). Their deletion naturally absorbs into Phase D-F when their host prefabs are refactored.
+- **2 inactive GameObjects deferred to Phase D**: `Enverement` (Light2D + empty levels container, inactive) and `_LegacyManagers/GamePlay` (hosts `ManagerWeapons` inactive). Blocked by Unity MCP `manage_gameobject.delete` rejecting integer instance IDs while `by_name` ignores inactive. Direct YAML m_IsActive flip triggered Unity hang on activation (broken inactive refs). Will be removed alongside the `_LegacyManagers` parent cleanup in Phase D.
 
 ## 5. Out of scope
 

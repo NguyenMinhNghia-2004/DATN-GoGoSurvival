@@ -159,14 +159,19 @@ Commit: `migrate(D.3): dual-path weapon resolution via flag`.
 
 Commit: `migrate(D.8): migrate UIManager scene flags into GameController`.
 
-### Slice D.9 — Delete legacy `UIManager.cs` + `_LegacyUIScripts` GO
+### Slice D.9 — Delete legacy `UIManager.cs` + `_LegacyManagers` subtree
 
 - Verify zero references via project-wide grep.
 - Clear Inspector fields on any GameObject still pointing at the soon-deleted `UIManager`.
+- **Absorbed from deferred Phase C**: delete the inactive `_LegacyManagers/GamePlay` GameObject (hosts the unused `ManagerWeapons`). Use one of these techniques to overcome MCP integer-ID rejection on inactive GOs:
+  - **Option A**: open the scene in Unity, manually select + delete in editor (1-click), then re-run MCP scene inspection.
+  - **Option B**: write a one-shot Editor menu item `Tools/Migration/DeleteInactiveLegacy` that calls `Object.DestroyImmediate` on the inactive roots by name, then save scene.
+  - **Option C**: edit `.unity` YAML to remove the `GameObject`+`Transform`+`MonoBehaviour` blocks for those GOs. Risky — last resort.
 - Delete the `_LegacyUIScripts` child GameObject from scene.
 - Delete `Assets/_Main/Scripts/UI/UIManager.cs`.
 - The parent `_LegacyManagers` GameObject now contains zero children → delete it too.
-- Commit: `migrate(D.9): delete DATN.Legacy.UIManager + _LegacyManagers root`.
+- **Also absorb from deferred Phase C**: delete the inactive `Enverement` root GameObject (Light2D + empty `levels` container, no inbound refs verified). Same technique.
+- Commit: `migrate(D.9): delete DATN.Legacy.UIManager + _LegacyManagers + Enverement`.
 
 ### Slice D.10 — Phase D close-out
 
