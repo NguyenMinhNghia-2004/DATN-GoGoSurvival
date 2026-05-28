@@ -174,10 +174,21 @@ public class UIManager : MonoBehaviour
     public void PlayBtn()
     {
         if (EffectFade != null) EffectFade.SetActive(true);
-        if (Level != null && Level.Level1 != null && LevelLocalisation != null) {
-            (Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject).transform.SetParent(LevelLocalisation.transform);
-            CurrentName = Level.Level1.gameObject.name + "(Clone)";
+        // Phase D.6 — instantiate via GameController.SpawnDefaultLevel (reads LevelCatalog SO).
+        // Legacy Level (LevelsManager) field kept as a Unity-only safety fallback if framework
+        // booting is incomplete; Phase D.7 deletes LevelsManager + the field.
+        var gc = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.GameController>();
+        GameObject spawned = null;
+        if (gc != null && LevelLocalisation != null)
+        {
+            spawned = gc.SpawnDefaultLevel(LevelLocalisation.transform);
         }
+        else if (Level != null && Level.Level1 != null && LevelLocalisation != null)
+        {
+            spawned = Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject;
+            if (spawned != null) spawned.transform.SetParent(LevelLocalisation.transform);
+        }
+        if (spawned != null) CurrentName = spawned.name;
         StartCoroutine(GameStart());
     }
     IEnumerator GameStart()
