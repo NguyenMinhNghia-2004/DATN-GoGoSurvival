@@ -9,6 +9,14 @@ updated: 2026-05-28
 
 Chronological record of all wiki operations.
 
+## [2026-05-28] migrate | Phase E — PlayerStats singleton removed
+- **Spec**: `docs/superpowers/specs/2026-05-28-phase-e-playerstats-skilldata-removal-design.md`
+- **Rescoped**: audit revealed PlayerStats was effectively orphan (only writer = EquipmentManager; no readers anywhere). SkillData NOT a stub — 33 skill assets (Active/Passive/EVO) reference it. PassiveStatType still used by Equipment.GradeSkill.
+- **Done**:
+  - Deleted `PlayerStats.cs`. Method `EquipmentManager.ApplyToPlayerStats()` stripped to no-op (signature kept for compile compat).
+- **Deferred to Phase F**: SkillData → ZSkillConfig migration (33 assets); PassiveStatType → framework StatType mapping; EquipmentManager bonus computation → StatsBehavior writes.
+- **Next**: Phase F — gameplay loop rewrite + ZSkillRuntime MonoBehaviour
+
 ## [2026-05-28] migrate | Phase D — UIManager data + signal extraction
 - **Spec**: `docs/superpowers/specs/2026-05-28-phase-d-legacy-uimanager-removal-design.md`
 - **Plan**: `docs/superpowers/plans/2026-05-28-phase-d-legacy-uimanager-removal.md`
