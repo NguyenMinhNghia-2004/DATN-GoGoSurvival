@@ -9,6 +9,32 @@ updated: 2026-05-28
 
 Chronological record of all wiki operations.
 
+## [2026-05-28] migrate | Phase F — foundation scaffolds (handoff)
+- **Spec**: `docs/superpowers/specs/2026-05-28-phase-f-gameplay-zskill-monobehaviour-design.md`
+- **Plan**: `docs/superpowers/plans/2026-05-28-phase-f-gameplay-zskill-monobehaviour.md`
+- **Scope shipped this session**: foundation scaffolds only — no behavior change.
+- **Done**:
+  - `ZSkillRuntime : MonoBehaviour` — Survivor.io-style per-skill child of Player/Skills/
+  - `LuzartPlayerController : MonoBehaviour` — future PlayerManager+JoystickManager replacement (dormant)
+  - `LuzartPlayerEntityRoot : AbstractMonoBehaviorContent` — future DATNPlayerEntityAdapter replacement (dormant)
+  - `LuzartEnemyEntityRoot : MonoBehaviour` — future EnemyManager+adapter replacement (dormant)
+  - `MigrationFlags` extended with 4 Phase F bools (default false)
+  - Scene: created `Player/Skills/` container GO
+- **Deferred to follow-up sessions** (each needs play-test iteration):
+  - Player cutover (3 commits): attach LuzartPlayerController + LuzartPlayerEntityRoot, flip flags, delete legacy 3 MBs
+  - Weapon ports (12 commits): port 12 legacy weapons to ZSkillConfig+Behavior
+  - Bridge reversal (1 commit): flip FrameworkOwnsPlayerHP, delete DATNGameplayBridge
+  - Enemy cutover (2 commits): Zombie prefab swap, delete legacy enemy code
+  - Camera cutover (1 commit): LuzartCameraController, delete legacy CameraController + ControllerSpawening
+  - Legacy delete pass (3 commits): GameManager, BooleanManager, UIManager + _LegacyManagers
+- **Net migration totals** (Phase C-F foundation):
+  - `GamePlay.unity`: 12 root GOs → 10 (AdsManager, Enverement deleted; added Player/Skills child)
+  - 7 new SOs (MigrationFlags, MigrationFlagsContent, WeaponCatalog, WeaponCatalogContent, LevelCatalog, LevelCatalogContent, the 9 prefab wrappers from C.4)
+  - 5 new framework classes (ZSkillRuntime, Luzart{PlayerController, PlayerEntityRoot, EnemyEntityRoot, _Migration tools})
+  - 4 legacy scripts deleted: CheatManager, ScrollContent, LevelsManager, PlayerStats
+  - 1 Editor menu: `Tools/Migration/Delete Inactive Legacy GOs`
+  - Game plays identically; ready for incremental cutover
+
 ## [2026-05-28] migrate | Phase E — PlayerStats singleton removed
 - **Spec**: `docs/superpowers/specs/2026-05-28-phase-e-playerstats-skilldata-removal-design.md`
 - **Rescoped**: audit revealed PlayerStats was effectively orphan (only writer = EquipmentManager; no readers anywhere). SkillData NOT a stub — 33 skill assets (Active/Passive/EVO) reference it. PassiveStatType still used by Equipment.GradeSkill.
