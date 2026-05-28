@@ -7355,6 +7355,8 @@ GameObject:
   - component: {fileID: 1177642145}
   - component: {fileID: 1177642146}
   - component: {fileID: 1177642147}
+  - component: {fileID: 1177642149}
+  - component: {fileID: 1177642148}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7585,6 +7587,39 @@ MonoBehaviour:
   statsConfigOverride: {fileID: 0}
   startingSkills:
   - {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
+--- !u!114 &1177642148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177642138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b22af860ce4d4f43af2935bb3897d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerEntityRoot
+  _id: LuzartPlayer
+  _statsConfig: {fileID: 0}
+  _startingSkills: []
+  _skillsContainer: {fileID: 1983154430}
+--- !u!114 &1177642149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177642138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd47cb37ee51a714cafd1cd8caf08f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerController
+  _rb: {fileID: 1177642140}
+  _animator: {fileID: 271933535}
+  _joystick: {fileID: 352769154}
+  _gunForFlip: {fileID: 949337937}
+  _gunFlipScale: 0.2446888
 --- !u!1 &1183999890
 GameObject:
   m_ObjectHideFlags: 0
