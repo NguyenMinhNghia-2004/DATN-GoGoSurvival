@@ -3406,6 +3406,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -3539,7 +3540,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b3cb9cd94424674c9ab27b16ef001c3, type: 3}
   m_Name: 
@@ -3565,6 +3566,24 @@ MonoBehaviour:
   Managers: {fileID: 189845729}
   SpawenOne: {fileID: 204604324}
   SpawenTwo: {fileID: 1111218153}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d87e8e2b3063b14cb2158959ab8c10d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartCameraController
+  _legacyPlayerRef: {fileID: 1177642138}
+  _spinner: {fileID: 0}
+  _speedMove: 0
+  _offset: {x: 0, y: -0.71, z: -10}
+  _fovRampMax: 85
+  _fovRampPerFrame: 0.5
 --- !u!1 &541733045
 GameObject:
   m_ObjectHideFlags: 0
