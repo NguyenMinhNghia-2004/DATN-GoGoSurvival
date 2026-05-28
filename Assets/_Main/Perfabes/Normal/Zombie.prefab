@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 3537171100188795297}
   - component: {fileID: 4235804376522667059}
   - component: {fileID: 6214729061173962889}
+  - component: {fileID: 585912881181113180}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -473,6 +474,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea0aa75032974014a3f8bd48e7005ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.DATNEnemyEntityAdapter
+  startingSkills: []
+--- !u!114 &585912881181113180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537171100188795310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3832e391ddc27d848b301bd1e0dc6b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartEnemyEntityRoot
+  _legacyData: {fileID: 0}
+  _defaultHP: 100
+  _defaultMoveSpeed: 2
+  _bloodLocalisationParent: {fileID: 0}
+  _blueDiamond: {fileID: 8183285587281381113, guid: 48a6780bb0811b14cb098f7671cb1371, type: 3}
+  _redDiamond: {fileID: 8183285587281381113, guid: fc6dec5d55df07d42810cc7f5d84c623, type: 3}
+  _greenDiamond: {fileID: 8183285587281381113, guid: 4a5dab04b7c633643a0c2429c34864bc, type: 3}
 --- !u!1 &4927636615585834507
 GameObject:
   m_ObjectHideFlags: 0

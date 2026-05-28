@@ -168,7 +168,12 @@ namespace Luzart
 
         private void DropDiamond()
         {
-            if (_bloodLocalisationParent == null) return;
+            // Resolve drop parent — Inspector ref first, fallback to scene's BloodManager
+            // GO (legacy EnemyManager uses the same pattern via GameObject.Find).
+            var parent = _bloodLocalisationParent;
+            if (parent == null) parent = GameObject.Find("BloodManager");
+            if (parent == null) return;
+
             GameObject prefab = _diamondType switch
             {
                 1 => _blueDiamond,
@@ -178,7 +183,7 @@ namespace Luzart
             };
             if (prefab == null) return;
             var d = Instantiate(prefab, transform.position, transform.rotation);
-            d.transform.SetParent(_bloodLocalisationParent.transform);
+            d.transform.SetParent(parent.transform);
         }
 
         private void OnDestroy()
