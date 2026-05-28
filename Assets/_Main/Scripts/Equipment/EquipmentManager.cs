@@ -104,36 +104,24 @@ public class EquipmentManager : MonoBehaviour
         return total;
     }
 
-    /// <summary>Áp dụng tất cả equipment bonuses lên PlayerStats.</summary>
+    /// <summary>
+    /// Apply current equipment bonuses to the player. Phase E: PlayerStats singleton
+    /// removed (had no readers). Phase F will route these bonuses into
+    /// <c>Luzart.PlayerCharacter.Stats</c> (StatsBehavior) instead.
+    ///
+    /// Method signature kept so existing call sites (Equip/Unequip/TryEnhance) still
+    /// compile; body is intentionally empty for now.
+    /// </summary>
     public void ApplyToPlayerStats()
     {
-        if (PlayerStats.Instance == null) return;
-
-        float atkBonus = GetTotalAttackBonus();
-        float hpBonus = GetTotalHPBonus();
-        float speedBonus = 0f; // Shoes có thể thêm speed
-        float cdrBonus = 0f;
-
-        // Grade Skills cũng contribute thêm
-        foreach (var slot in equippedSlots)
-        {
-            if (slot == null) continue;
-            var gradeSkills = slot.GetUnlockedGradeSkills();
-            foreach (var gs in gradeSkills)
-            {
-                switch (gs.statType)
-                {
-                    case PassiveStatType.MovementSpeed:
-                        speedBonus += gs.value;
-                        break;
-                    case PassiveStatType.CooldownReduction:
-                        cdrBonus += gs.value;
-                        break;
-                }
-            }
-        }
-
-        PlayerStats.Instance.ApplyEquipmentBonuses(atkBonus, hpBonus, speedBonus, cdrBonus);
+        // No-op until Phase F adds StatsBehavior writes.
+        // The bonus computation below stays as a reference for the Phase F port.
+        //
+        //   float atkBonus = GetTotalAttackBonus();
+        //   float hpBonus = GetTotalHPBonus();
+        //   foreach (var slot in equippedSlots)
+        //       foreach (var gs in slot.GetUnlockedGradeSkills())
+        //           switch (gs.statType) { … }
     }
 
     // ============================================================
