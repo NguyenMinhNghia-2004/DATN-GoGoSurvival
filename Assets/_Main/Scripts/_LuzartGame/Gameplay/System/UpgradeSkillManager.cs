@@ -43,6 +43,7 @@ namespace Luzart
         private void UpgradeLevel(IValue<int> obj)
         {
             int level = obj.Value;
+            Debug.Log($"[UpgradeSkillManager] Level Changed → {level} (queueLen={_queueProcess.Count}, isUpgrading={_isUpgrading})");
             Action action = () => UpgradeLevel(level);
             _queueProcess.Enqueue(action);
             if (!_isUpgrading)

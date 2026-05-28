@@ -142,9 +142,21 @@ namespace Luzart
         }
         public void OnXPChange(INumber XP)
         {
+            if (_levelConfig == null)
+            {
+                Debug.LogWarning("[GameController] OnXPChange: _levelConfig is null — XP capped, no level-up possible.");
+                return;
+            }
+            var thresholds = _levelConfig.ListXPRequirePerLevel;
+            if (thresholds == null || thresholds.Count == 0)
+            {
+                Debug.LogWarning("[GameController] OnXPChange: ListXPRequirePerLevel empty — XP capped.");
+                return;
+            }
             double valueXP = XP.Value;
-            int levelNowOnChange = ListExtensions.FindLowerBoundIndex(_levelConfig.ListXPRequirePerLevel, valueXP);
+            int levelNowOnChange = ListExtensions.FindLowerBoundIndex(thresholds, valueXP);
             int currentValue = _currentLevel.Value;
+            Debug.Log($"[GameController] OnXPChange XP={valueXP} levelNow={levelNowOnChange} current={currentValue} cap={thresholds.Count}");
             if (currentValue < levelNowOnChange)
             {
                 for (int i = currentValue + 1; i <= levelNowOnChange; i++)

@@ -39,6 +39,9 @@ public class BoltSHooter : MonoBehaviour
         StartCoroutine(ItemSelfDest());
     }
 
+    private float _noEnemyTimer = 0f;
+    private const float NoEnemyMaxIdleSeconds = 0.5f;
+
     void Update()
     {
         CheckDestroy();
@@ -50,11 +53,24 @@ public class BoltSHooter : MonoBehaviour
             var enemy = GameObject.FindGameObjectWithTag("Enemy");
             if (enemy != null)
             {
+                _noEnemyTimer = 0f;
                 Vector3 enemyPos = enemy.transform.position;
                 transform.position = Vector2.MoveTowards(this.transform.position, enemyPos, 10f * Time.deltaTime);
                 Vector2 direction = enemyPos - transform.position;
                 float Angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 this.gameObject.GetComponent<Rigidbody2D>().rotation = Angle;
+            }
+            else
+            {
+                // Phase F — no enemy in scene. Self-destruct after a brief idle so the bolt
+                // doesn't sit visually attached to the player. Was spamming NRE before;
+                // now we just despawn cleanly.
+                _noEnemyTimer += Time.deltaTime;
+                if (_noEnemyTimer >= NoEnemyMaxIdleSeconds)
+                {
+                    Destroy(this.gameObject);
+                    return;
+                }
             }
         }
         if(EnemyDispo == false)
