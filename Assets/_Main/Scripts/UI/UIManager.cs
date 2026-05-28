@@ -173,13 +173,16 @@ public class UIManager : MonoBehaviour
     {
         if (EffectFade != null) EffectFade.SetActive(true);
         // Phase D.6 — instantiate via GameController.SpawnDefaultLevel (reads LevelCatalog SO).
-        // Legacy Level (LevelsManager) field kept as a Unity-only safety fallback if framework
-        // booting is incomplete; Phase D.7 deletes LevelsManager + the field.
+        // Bug fix: LevelLocalisation Inspector ref is null in current scene (was always null,
+        // legacy code-path also silently skipped). Removed the LevelLocalisation gate so the
+        // level spawns into the scene root when no parent is provided — GameController.SpawnDefaultLevel
+        // already null-handles the parent arg.
         var gc = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.GameController>();
         GameObject spawned = null;
-        if (gc != null && LevelLocalisation != null)
+        if (gc != null)
         {
-            spawned = gc.SpawnDefaultLevel(LevelLocalisation.transform);
+            var parent = LevelLocalisation != null ? LevelLocalisation.transform : null;
+            spawned = gc.SpawnDefaultLevel(parent);
         }
         if (spawned != null) CurrentName = spawned.name;
         StartCoroutine(GameStart());
