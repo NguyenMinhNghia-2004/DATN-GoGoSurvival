@@ -44,10 +44,18 @@ public class BoltSHooter : MonoBehaviour
         CheckDestroy();
         if(EnemyDispo == true)
         {
-           transform.position = Vector2.MoveTowards(this.transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position, 10f * Time.deltaTime);
-           Vector2 direction = GameObject.FindGameObjectWithTag("Enemy").transform.position - transform.position;
-           float Angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-           this.gameObject.GetComponent<Rigidbody2D>().rotation = Angle;
+            // Phase F defensive null-guard — when no enemy is present (scene fresh-loaded,
+            // all enemies dead, or spawner hadn't ticked yet), FindGameObjectWithTag returns
+            // null and the legacy code spammed NRE every frame.
+            var enemy = GameObject.FindGameObjectWithTag("Enemy");
+            if (enemy != null)
+            {
+                Vector3 enemyPos = enemy.transform.position;
+                transform.position = Vector2.MoveTowards(this.transform.position, enemyPos, 10f * Time.deltaTime);
+                Vector2 direction = enemyPos - transform.position;
+                float Angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                this.gameObject.GetComponent<Rigidbody2D>().rotation = Angle;
+            }
         }
         if(EnemyDispo == false)
         {

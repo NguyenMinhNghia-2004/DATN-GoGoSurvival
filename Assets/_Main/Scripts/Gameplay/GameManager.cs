@@ -108,8 +108,10 @@ public class GameManager : MonoBehaviour
         if(GameStart == true && SetActiveAll == true)
         {
             Boolean.GameStart = true;
-            ContainerWorld.SetActive(true);
-            UIWeapon.SetActive(true);
+            // Phase F defensive null-guards — these Inspector refs were unwired by
+            // earlier migration phases (legacy world container + weapon UI panel).
+            if (ContainerWorld != null) ContainerWorld.SetActive(true);
+            if (UIWeapon != null) UIWeapon.SetActive(true);
             SetActiveAll = false;
         }
         if(Boolean.GameStart == false)
