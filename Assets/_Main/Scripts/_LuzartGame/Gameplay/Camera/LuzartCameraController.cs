@@ -47,9 +47,13 @@ namespace Luzart
             var player = srm != null ? srm.Domain?.Get<PlayerCharacter>() : null;
             if (player != null && player.Transform != null && player.Transform.Position != null)
             {
-                // Framework Position is Vector2; preserve camera's current Z.
+                // Framework Position is Vector2 → use player Z (2D player is at z=0).
+                // Bug fix: previous code reused camera.z here AND added _offset later,
+                // which drifted camera z by _offset.z every frame. Match legacy by
+                // using player z directly.
                 var p = player.Transform.Position.Value;
-                position = new Vector3(p.x, p.y, transform.position.z);
+                float playerZ = _legacyPlayerRef != null ? _legacyPlayerRef.transform.position.z : 0f;
+                position = new Vector3(p.x, p.y, playerZ);
                 return true;
             }
             if (_legacyPlayerRef != null)
