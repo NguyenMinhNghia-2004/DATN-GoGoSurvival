@@ -81,7 +81,11 @@ namespace Luzart
                 return;
             }
             _isUpgrading = true;
-            Time.timeScale = 0;
+            // Phase F fix: do NOT set Time.timeScale here. SV_LevelUpPopupUI.OnBeforeShowAsync
+            // owns the pause; setting it twice from independent code paths (UpgradeLevel +
+            // OnBeforeShow) caused a race when multiple level-ups queued — broadcast fired
+            // timeScale=1 then dequeued next UpgradeLevel which set timeScale=0 before the
+            // popup hide animation finished, leaving the game frozen with no visible popup.
 
             // NinjaUI: show level-up popup with the 3 rolled options.
             // When player picks, fire SkillUpgradeSuccessBroadcastData which OnSkillUpgradeSuccessBroadcast
