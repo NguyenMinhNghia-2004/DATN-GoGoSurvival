@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e9c2004f9279543909d87931a03832, type: 3}
+  m_Name: WeaponCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.WeaponCatalog
+  _entries:
+  - id: ProtecteurGreen
+    sprite: {fileID: 21300000, guid: ac92159d33a056e4080bb2803231c948, type: 3}
+    displayName: Protecteur Zz
+    description: This weapon Help you protect Your Self From Zombies thats Attac
+      You
+  - id: DroneA
+    sprite: {fileID: 21300000, guid: bd36293a984ff03429ff214d183394af, type: 3}
+    displayName: Drone Monster
+    description: This Drone Help You Attace Enemys with bolt
+  - id: DroneB
+    sprite: {fileID: 21300000, guid: 2f907a1156daaa845b8dc6950e0b03b6, type: 3}
+    displayName: Drone Electricaly
+    description: This Drone Make Other Drones If Available With Multie Shoootings
+  - id: DroneC
+    sprite: {fileID: 21300000, guid: 9ae3fac985277284ead00ec1eef91ced, type: 3}
+    displayName: Drone Magicaly
+    description: This Drone Make Player Move Eays Beside Enemys By Killing Them
+  - id: BrikWall
+    sprite: {fileID: 21300000, guid: 0166118281bb4ee49b3539595ccb5f3b, type: 3}
+    displayName: Briking Wall
+    description: This Kill Enemys By Breking Them Fulledly
+  - id: Gun
+    sprite: {fileID: 21300000, guid: 26814db12f77b4942b37b0d51cf80713, type: 3}
+    displayName: M45-7A
+    description: You Shoot Enemys By this Gun On HeadShoot Directly To KillThem With
+      Six Bults
+  - id: SprineA
+    sprite: {fileID: 21300000, guid: 7d4801b82c457bc4e8de4629f27d2621, type: 3}
+    displayName: Springing H1A
+    description: Help You To Kill Enemys By Shooting Rotatly On Head
+  - id: SprineB
+    sprite: {fileID: 21300000, guid: fc157b7b015750c44b0e78aae2713a53, type: 3}
+    displayName: Protecteur H1B
+    description: Make Enemys Move Down By Touching Them With H1B
+  - id: Ball
+    sprite: {fileID: 21300000, guid: 99b8fa860a2e8264e8795855aa4b21ea, type: 3}
+    displayName: Ball Fooot
+    description: Footbal Ball Heating Heads Of Enemys To Destroy Them Infinitly
+  - id: SalsaRanshom
+    sprite: {fileID: 21300000, guid: 4a6ab8fb58e321e49a50865dcd6f309a, type: 3}
+    displayName: Fire Cup
+    description: Firing Enemys And Kill Them Exactly Wheen The Fire Exploded
+  - id: FireGase
+    sprite: {fileID: 21300000, guid: 11b05c059c8cc21489d2b122b1f24e3a, type: 3}
+    displayName: Fire Gase
+    description: Fire Gase Firing Enets With 100% Hydroilcation Type Of Fires
+  - id: Aguel
+    sprite: {fileID: 427020854, guid: f50673b214fb52044a54ee81afd79131, type: 3}
+    displayName: Aguel
+    description: Aguel Like Firebale But wuth Arrow Shoting On Head with HeadShoot

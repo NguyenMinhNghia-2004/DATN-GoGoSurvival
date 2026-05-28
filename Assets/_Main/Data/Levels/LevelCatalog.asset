@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704523cfcc1a60043a4b0747afe91bde, type: 3}
+  m_Name: LevelCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LevelCatalog
+  _defaultLevelPrefab: {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
+  _additionalLevels:
+  - {fileID: 1320171832528862900, guid: aa97ba3ad55eb204eb2561a5a466d750, type: 3}
+  - {fileID: 1320171832528862900, guid: c95c42a60d531694f9ea70624eadd4a8, type: 3}
+  - {fileID: 1320171832528862900, guid: 9923592712eb3a449a79aefc36e1e59c, type: 3}
+  - {fileID: 1320171832528862900, guid: b88e6cb53850efb489a00ef7e9491e5b, type: 3}
+  - {fileID: 1320171832528862900, guid: 66b3cae0033c33542bb67aa02671df67, type: 3}
