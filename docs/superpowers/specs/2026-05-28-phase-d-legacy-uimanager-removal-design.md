@@ -179,14 +179,43 @@ Commit: `migrate(D.8): migrate UIManager scene flags into GameController`.
 - Verify success criteria (§5).
 - Commit: `migrate(D.10): Phase D close-out`.
 
-## 5. Success criteria
+## 5. Success criteria — ACTUAL RESULTS (executed 2026-05-28)
 
-- [ ] `Grep "DATN.Legacy.UIManager"` returns 0 hits across `.cs` files.
-- [ ] `find_gameobjects search_term=UIManager search_method=by_component` returns only the NinjaUI `Luzart.UIFramework.UIManager` (on `_NinjaUI`).
-- [ ] `Assets/_Main/Data/Weapons/WeaponCatalog.asset` and `Assets/_Main/Data/Levels/LevelCatalog.asset` exist with full data.
-- [ ] `_LegacyManagers` root GameObject is gone.
-- [ ] `SpriteWeapons.cs` and `LevelsManager.cs` deleted (assuming no other prefab refs).
-- [ ] Full play loop works.
+Phase D was rescoped on execution. The original ambition to fully delete
+`DATN.Legacy.UIManager.cs` proved Phase F territory (PlayBtn / GameStart /
+BackFinishSafe deeply couple to GameManager.Health, BooleanManager.GameStart,
+PlayerManager.enabled, screen GameObjects, weapon activation, enemy enable).
+Pragmatic Phase D extracted **data + signal**, leaving the procedural facade.
+
+What actually shipped:
+
+- [x] `Assets/_Main/Data/Weapons/WeaponCatalog.asset` exists with 12 entries
+  (preserved sprite + display name + description from legacy `SpriteWeapons`).
+- [x] `Assets/_Main/Data/Levels/LevelCatalog.asset` exists with `DefaultLevelPrefab=Leve1`
+  + 5 `AdditionalLevels`.
+- [x] `GameController.MapReady` property + `SpawnDefaultLevel(Transform)` helper added.
+- [x] `UIManager.MapReady` refactored to property that bridges writes to
+  `GameController.MapReady` automatically.
+- [x] 3 readers (`ControllerSpawening`, `DiamondVip`, `LocalisationPresent`)
+  read `GameController.MapReady` first with UIManager fallback.
+- [x] `UIManager.PlayBtn` instantiates via `GameController.SpawnDefaultLevel` (LevelCatalog).
+- [x] `LevelsManager.cs` deleted + MonoBehaviour removed from `GameManager` GO.
+- [x] `UIManager.Level` field removed.
+- [x] `Enverement` inactive root GameObject deleted (rootCount 11 → 10) via new
+  `Tools/Migration/Delete Inactive Legacy GOs (Phase D)` Editor menu.
+- [x] Compile clean.
+
+### Deferred to Phase F
+
+- [ ] `Grep "DATN.Legacy.UIManager"` still has hits — UIManager.cs alive. Phase F
+  rewrites the gameplay loop and absorbs PlayBtn/GameStart/BackFinishSafe.
+- [ ] `_LegacyManagers` + `_LegacyManagers/_LegacyUIScripts` + inactive
+  `_LegacyManagers/GamePlay` (ManagerWeapons holder) stay. All removed by Phase F
+  via the same Editor menu (adding their names to `PhaseDeleteTargets`).
+- [ ] `SpriteWeapons.cs` MonoBehaviour stays. Inspector refs to scene weapon GOs
+  used by UIManager weapon-enable flow. Phase F replaces with per-weapon ZSkillRuntime.
+- [ ] `StopAllAudios`, `useSurvivorIoEndGame` flags untouched (low-value migration).
+- [ ] Manual play-test — deferred to user.
 
 ## 6. Out of scope
 

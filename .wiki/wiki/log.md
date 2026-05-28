@@ -9,6 +9,19 @@ updated: 2026-05-28
 
 Chronological record of all wiki operations.
 
+## [2026-05-28] migrate | Phase D — UIManager data + signal extraction
+- **Spec**: `docs/superpowers/specs/2026-05-28-phase-d-legacy-uimanager-removal-design.md`
+- **Plan**: `docs/superpowers/plans/2026-05-28-phase-d-legacy-uimanager-removal.md`
+- **Rescoped**: full UIManager.cs deletion deferred to Phase F (PlayBtn/GameStart/BackFinishSafe deeply couple to legacy state). Phase D extracted **data SOs + signal property**, kept procedural facade.
+- **Done**:
+  - D.2: `WeaponCatalog` SO (12 entries) + `LevelCatalog` SO (Leve1-6) + 2 Content wrappers registered in Domain
+  - D.3–D.5: `GameController.MapReady` + `SpawnDefaultLevel()`; `UIManager.MapReady` now bridges writes to framework; 3 readers migrated (`ControllerSpawening`, `DiamondVip`, `LocalisationPresent`)
+  - D.6: `UIManager.PlayBtn` instantiates via `GameController.SpawnDefaultLevel`
+  - D.7: `LevelsManager.cs` deleted; MonoBehaviour removed from `GameManager`; `UIManager.Level` field gone
+  - D.8: `Tools/Migration/Delete Inactive Legacy GOs` Editor menu; deleted inactive `Enverement` (rootCount 11 → 10)
+- **Deferred to Phase F**: `UIManager.cs` full delete, `_LegacyManagers` subtree, `SpriteWeapons.cs`, `StopAllAudios`/`useSurvivorIoEndGame` flags
+- **Next**: Phase E — remove `PlayerStats` singleton + `SkillData` stub
+
 ## [2026-05-28] migrate | Phase C dead-code cleanup
 - **Specs**: `docs/superpowers/specs/2026-05-28-luzart-migration-master-roadmap.md` + 4 phase specs
 - **Plan**: `docs/superpowers/plans/2026-05-28-phase-c-dead-code-cleanup.md`
