@@ -62,7 +62,21 @@ public class UIManager : MonoBehaviour
     internal bool FinishScreenB = false;
     internal bool DestroyEnemys = false;
     internal bool StopAllAudios = false;
-    internal bool MapReady = false;
+    internal bool _mapReady = false;
+    internal bool MapReady
+    {
+        get => _mapReady;
+        set
+        {
+            _mapReady = value;
+            // Phase D.4 bridge: propagate to framework GameController so non-legacy readers
+            // (ControllerSpawening, DiamondVip, LocalisationPresent) can drop their UIManager
+            // dependency. Phase F will absorb the writer side too.
+            var srm = Luzart.SceneRootManager.Instance;
+            var gc = srm != null ? srm.Domain?.Get<Luzart.GameController>() : null;
+            if (gc != null) gc.MapReady = value;
+        }
+    }
 
     [Header("End-game UI migration")]
     [Tooltip("If true (default), legacy FinishScreen popup is suppressed — SV_LoseScreenUI is used instead via SV_EndGameBridge listening to Data_ClassicEndGame.")]

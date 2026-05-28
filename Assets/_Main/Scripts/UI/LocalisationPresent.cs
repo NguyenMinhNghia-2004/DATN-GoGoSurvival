@@ -21,7 +21,10 @@ public class LocalisationPresent : MonoBehaviour
     }
     private void Update()
     {
-        if (_uiMgr != null && _uiMgr.MapReady == true && Check == true && ControllerSpawener != null)
+        // Phase D.5 — MapReady migrated to GameController.MapReady; UIManager kept as fallback.
+        var gc = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.GameController>();
+        bool mapReady = gc != null ? gc.MapReady : (_uiMgr != null && _uiMgr.MapReady);
+        if (mapReady == true && Check == true && ControllerSpawener != null)
         {
             var cs = ControllerSpawener.GetComponent<ControllerSpawening>();
             if (cs == null) return;

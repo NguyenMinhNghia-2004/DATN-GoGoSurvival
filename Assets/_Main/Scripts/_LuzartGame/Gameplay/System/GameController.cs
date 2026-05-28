@@ -14,7 +14,13 @@ namespace Luzart
         public IVariable<int> CurrentLevel => _currentLevel;
         public IVariable<int> IndexWave => _indexWave;
         public IVariable<int> CountTime => _countTime;
-        public INumberWithSet CountEnemyDead => _countEnemyDead;    
+        public INumberWithSet CountEnemyDead => _countEnemyDead;
+        /// <summary>True after the playfield is spawned and gameplay has begun.
+        /// Migrated from legacy DATN.Legacy.UIManager.MapReady (Phase D.6).
+        /// Readers: ControllerSpawening (camera spawn gating), Diamond/DiamondVip
+        /// (pickup gating), LocalisationPresent (level localisation gating).</summary>
+        public bool MapReady { get; set; }
+    
         // Inject
         private LevelConfig _levelConfig;
         private EnemySpawnerManager _enemyManager;
@@ -159,5 +165,21 @@ namespace Luzart
         {
             _countEnemyDead.Set(_countEnemyDead.Value + add);
         }
+
+        /// <summary>Instantiate the default level prefab from LevelCatalog (Phase D).</summary>
+        public GameObject SpawnDefaultLevel(Transform parent = null)
+        {
+            var catalog = _domain != null ? _domain.Get<LevelCatalog>() : null;
+            if (catalog == null || catalog.DefaultLevelPrefab == null)
+            {
+                Debug.LogWarning("[GameController] SpawnDefaultLevel: LevelCatalog or DefaultLevelPrefab missing.");
+                return null;
+            }
+            var prefab = catalog.DefaultLevelPrefab;
+            var inst = Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
+            if (parent != null) inst.transform.SetParent(parent);
+            return inst;
+        }
+
     }
 }

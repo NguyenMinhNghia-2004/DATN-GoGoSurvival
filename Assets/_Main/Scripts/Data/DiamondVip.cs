@@ -30,7 +30,10 @@ public class DiamondVip : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(this.transform.position, Player.transform.position, 10f * Time.deltaTime);
         }
-        if (_uiMgrCache != null && _uiMgrCache.MapReady == false)
+        // Phase D.5 — MapReady migrated to GameController.MapReady; UIManager kept as fallback.
+        var gc = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.GameController>();
+        bool mapReady = gc != null ? gc.MapReady : (_uiMgrCache != null && _uiMgrCache.MapReady);
+        if (mapReady == false)
         {
             Destroy(this.gameObject);
         }

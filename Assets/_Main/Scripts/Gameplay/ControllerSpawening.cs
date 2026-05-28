@@ -12,18 +12,31 @@ public class ControllerSpawening : MonoBehaviour
     public GameObject SpawenTwo;
     internal bool CheckWork = true;
     internal bool KeepingGame = false;
+
+    // Phase D.5 — MapReady source migrated from UIManager.MapReady to GameController.MapReady.
+    // Manager Inspector ref kept null-safe for the BoolGameStart bridge but no longer required.
+    private bool MapReady
+    {
+        get
+        {
+            var gc = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.GameController>();
+            if (gc != null) return gc.MapReady;
+            return Manager != null && Manager.MapReady;
+        }
+    }
+
     void Update()
     {
         if(KeepingGame == true)
         {
             Managers.ResumeBtn();
         }
-        if(Manager.MapReady == false)
+        if(MapReady == false)
         {
             Spawner.SetActive(false);
             CheckWork = true;
         }
-        if (Manager.MapReady == true)
+        if (MapReady == true)
         {
             Spawner.SetActive(true);
             if(CheckWork == true)
