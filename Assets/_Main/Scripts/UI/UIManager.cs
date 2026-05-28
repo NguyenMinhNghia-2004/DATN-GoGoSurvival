@@ -12,9 +12,7 @@ public class UIManager : MonoBehaviour
     public GameManager Manager;
     // Phase B1 migrated: legacy TimerManager removed. Game time is owned by Luzart.GameController._countTime.
     public BooleanManager Bool;
-    // LevelsManager kept as a slim data holder for Inspector-wired level prefab refs.
-    // SelectMap UI was removed (Phase A), but the Inspector ref to Level1 prefab survives.
-    public LevelsManager Level;
+    // Phase D.7: LevelsManager removed. Default level prefab now resolved via Domain.Get<LevelCatalog>().
     public SpriteWeapons Weapons;
     // Phase B2 migrated: ManagerMecanique removed. CurrencyManager singleton owns Coins/Gems.
 
@@ -182,11 +180,6 @@ public class UIManager : MonoBehaviour
         if (gc != null && LevelLocalisation != null)
         {
             spawned = gc.SpawnDefaultLevel(LevelLocalisation.transform);
-        }
-        else if (Level != null && Level.Level1 != null && LevelLocalisation != null)
-        {
-            spawned = Instantiate(Level.Level1, Level.Level1.transform.position, Level.Level1.transform.rotation) as GameObject;
-            if (spawned != null) spawned.transform.SetParent(LevelLocalisation.transform);
         }
         if (spawned != null) CurrentName = spawned.name;
         StartCoroutine(GameStart());

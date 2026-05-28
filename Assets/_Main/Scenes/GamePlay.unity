@@ -865,7 +865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 189845730}
   - component: {fileID: 189845729}
-  - component: {fileID: 189845735}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -938,26 +937,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &189845735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189845728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2a73cafe0cdbf47b47425b3bf20537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelsManager
-  Level1: {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
-  Levels:
-  - {fileID: 1320171832528862900, guid: 12f9ecb3a061b5d4492fd682e94f1f34, type: 3}
-  - {fileID: 1320171832528862900, guid: aa97ba3ad55eb204eb2561a5a466d750, type: 3}
-  - {fileID: 1320171832528862900, guid: c95c42a60d531694f9ea70624eadd4a8, type: 3}
-  - {fileID: 1320171832528862900, guid: 9923592712eb3a449a79aefc36e1e59c, type: 3}
-  - {fileID: 1320171832528862900, guid: b88e6cb53850efb489a00ef7e9491e5b, type: 3}
-  - {fileID: 1320171832528862900, guid: 66b3cae0033c33542bb67aa02671df67, type: 3}
 --- !u!1 &201082526
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,7 +4965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 189845729}
   Bool: {fileID: 1858125658}
-  Level: {fileID: 189845735}
+  Level: {fileID: 0}
   Weapons: {fileID: 1858125659}
   Player: {fileID: 1177642138}
   HelthUI: {fileID: 1121717384}
