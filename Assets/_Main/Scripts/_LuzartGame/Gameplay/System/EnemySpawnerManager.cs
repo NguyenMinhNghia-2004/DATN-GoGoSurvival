@@ -123,10 +123,9 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent
         if (spawnParent != null) go.transform.SetParent(spawnParent, true);
         // No transform.localScale override — prefab's own scale is the source of truth.
 
-        // Pipe per-wave stats into the IEntity wrapper (if the prefab has one).
-        var adapter = go.GetComponent<Luzart.DATNEnemyEntityAdapter>();
-        if (adapter != null && statConfig != null && statConfig.Count > 0)
-            adapter.ApplyStatsConfig(statConfig);
+        // F.G.6: LuzartEnemyEntityRoot resolves per-wave HP itself via ResolveWave()
+        // in DoStart (reads EnemyData.GetHP(wave)). The legacy DATNEnemyEntityAdapter
+        // ApplyStatsConfig path is gone; nothing to do here.
     }
     // -------------------------------------------------------
     private void OnDeadEnemy(IEntity iEntity)
