@@ -46,18 +46,15 @@ namespace Luzart
             DisableLegacyOnFlagOn();
         }
 
-        /// <summary>F.G.5: once we own bolt firing, silence the legacy
-        /// PlayerManager.HitBolts coroutine. Other PlayerManager responsibilities
-        /// (UI follow, Death GO toggle) stay alive until F.G.7 deletes the class.</summary>
+        /// <summary>F.G.5/F.G.7: once we own bolt firing, silence the legacy
+        /// PlayerManager entirely. Its remaining responsibilities (UI follow
+        /// SmoothDamp on an already-deleted UI ref, Death GO toggle on a HUD
+        /// that no longer reads it) are obsolete in the Luzart-only flow.</summary>
         private void DisableLegacyOnFlagOn()
         {
             if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
-            // We can't disable PlayerManager entirely here — it still owns the
-            // Death GO toggle (until F.G.7). Instead, set Manager.AvailabelWeapon
-            // to false on the GameManager so HitBolts() inside PlayerManager.Update
-            // skips the spawn path.
             var pm = GetComponent<PlayerManager>();
-            if (pm != null && pm.Manager != null) pm.Manager.AvailabelWeapon = false;
+            if (pm != null) pm.enabled = false;
         }
 
         private bool TryGetFlags(out Migration.MigrationFlags flags)
