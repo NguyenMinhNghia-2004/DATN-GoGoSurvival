@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 3537171100188795296}
   - component: {fileID: 3537171100188795297}
   - component: {fileID: 4235804376522667059}
-  - component: {fileID: 6214729061173962889}
   - component: {fileID: 585912881181113180}
   m_Layer: 0
   m_Name: Zombie
@@ -462,19 +461,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6214729061173962889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537171100188795310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ea0aa75032974014a3f8bd48e7005ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.DATNEnemyEntityAdapter
-  startingSkills: []
 --- !u!114 &585912881181113180
 MonoBehaviour:
   m_ObjectHideFlags: 0

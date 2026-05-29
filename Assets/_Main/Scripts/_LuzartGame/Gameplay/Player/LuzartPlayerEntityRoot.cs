@@ -56,12 +56,9 @@ namespace Luzart
         public override void DoInject(IDomain domain)
         {
             base.DoInject(domain);
-            // F.G.3: Defensive — disable DATN adapter component if present.
-            // Can't reliably check ActivePerFlag here because MigrationFlags may not
-            // yet be in Domain (DomainContentLoader.DoInject may run after this).
-            // The actual character override is deferred to DoInitialize.
-            var legacyAdapter = GetComponent<DATNPlayerEntityAdapter>();
-            if (legacyAdapter != null) legacyAdapter.enabled = false;
+            // F.G.6: DATNPlayerEntityAdapter has been deleted. Nothing to disable here.
+            // PlayerCharacter override happens in DoInitialize (after MigrationFlags are
+            // guaranteed to be in Domain).
         }
 
         public override void DoInitialize()

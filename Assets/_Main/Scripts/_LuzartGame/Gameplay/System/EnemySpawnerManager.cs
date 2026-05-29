@@ -96,7 +96,7 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent
     ///
     /// Visual / scale / sprite / animator / collider are ALL baked into the prefab. The spawner
     /// does NOT override transform.localScale or sprite — those are the prefab's responsibility.
-    /// We only pipe per-wave Stats into the on-prefab <see cref="Luzart.DATNEnemyEntityAdapter"/>.
+    /// We only pipe per-wave Stats into the on-prefab <see cref="Luzart.LuzartEnemyEntityRoot"/>.
     /// </summary>
     private void SpawnOne(Vector3 pos, EnemyWaveConfig config, List<IStat> statConfig)
     {

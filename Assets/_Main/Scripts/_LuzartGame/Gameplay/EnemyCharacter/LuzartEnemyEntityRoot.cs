@@ -58,10 +58,9 @@ namespace Luzart
             _active = true;
 
             // Disable legacy enemy components on same GO so they don't fight us.
+            // F.G.6: DATNEnemyEntityAdapter has been deleted — only EnemyManager left.
             var legacyEM = GetComponent<EnemyManager>();
             if (legacyEM != null) legacyEM.enabled = false;
-            var legacyAdapter = GetComponent<DATNEnemyEntityAdapter>();
-            if (legacyAdapter != null) legacyAdapter.enabled = false;
 
             // Cache visual refs (visual freeze: prefab structure unchanged).
             _spriteRenderer = GetComponent<SpriteRenderer>();

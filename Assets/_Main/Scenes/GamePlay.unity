@@ -7354,7 +7354,6 @@ GameObject:
   - component: {fileID: 1177642144}
   - component: {fileID: 1177642145}
   - component: {fileID: 1177642146}
-  - component: {fileID: 1177642147}
   - component: {fileID: 1177642149}
   - component: {fileID: 1177642148}
   - component: {fileID: 1177642150}
@@ -7572,22 +7571,6 @@ MonoBehaviour:
   ManagerSpawn: {fileID: 204604326}
   Monsters: {fileID: 1111218155}
   Blooding: {fileID: 1009675358081200596, guid: 5ccefc214a0bef24bad13e3e3823c1fd, type: 3}
---- !u!114 &1177642147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177642138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e4ebc16c0fb4de8a4ce01131b429bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.DATNPlayerEntityAdapter
-  _id: Player
-  statsConfigOverride: {fileID: 0}
-  startingSkills:
-  - {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
 --- !u!114 &1177642148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7602,7 +7585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerEntityRoot
   _id: Player
   _statsConfig: {fileID: 0}
-  _startingSkills: []
+  _startingSkills:
+  - {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
   _skillsContainer: {fileID: 1983154430}
 --- !u!114 &1177642149
 MonoBehaviour:
