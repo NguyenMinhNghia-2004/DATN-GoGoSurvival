@@ -7617,7 +7617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerController
   _rb: {fileID: 1177642140}
   _animator: {fileID: 271933535}
-  _joystick: {fileID: 352769154}
+  _joystick: {fileID: 352769157}
   _gunForFlip: {fileID: 949337937}
   _gunFlipScale: 0.2446888
 --- !u!1 &1183999890
