@@ -136,7 +136,10 @@ namespace Luzart
             var v = ReadJoystick();
             if (_rb != null)
             {
-                if (v.y != 0f)
+                // F.G fix: legacy gated on v.y != 0 only — pure horizontal joystick
+                // (y=0, x!=0) fell into the else branch and zeroed velocity. Player
+                // appeared stuck whenever the player pushed straight left or right.
+                if (v.sqrMagnitude > 0f)
                 {
                     float speed = ResolveSpeed();
                     _rb.linearVelocity = new Vector2(v.x * speed, v.y * speed);
