@@ -57,6 +57,19 @@ namespace Luzart
         private void OnEnable()
         {
             CacheJoystickReflection();
+            DisableLegacyOnFlagOn();
+        }
+
+        /// <summary>F.E bridge reversal: when LuzartPlayerController takes over,
+        /// silence legacy PlayerManager + JoystickManager on this same GameObject
+        /// so they don't double-damage Stats / fight us on velocity writes.</summary>
+        private void DisableLegacyOnFlagOn()
+        {
+            if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
+            var legacyPM = GetComponent<PlayerManager>();
+            if (legacyPM != null) legacyPM.enabled = false;
+            var legacyJM = GetComponent<JoystickManager>();
+            if (legacyJM != null) legacyJM.enabled = false;
         }
 
         private void CacheJoystickReflection()

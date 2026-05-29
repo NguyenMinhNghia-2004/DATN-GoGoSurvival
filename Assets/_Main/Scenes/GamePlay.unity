@@ -7599,7 +7599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b22af860ce4d4f43af2935bb3897d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerEntityRoot
-  _id: LuzartPlayer
+  _id: Player
   _statsConfig: {fileID: 0}
   _startingSkills: []
   _skillsContainer: {fileID: 1983154430}
@@ -9754,7 +9754,6 @@ GameObject:
   - component: {fileID: 1515392209}
   - component: {fileID: 1515392208}
   - component: {fileID: 1515392212}
-  - component: {fileID: 1515392213}
   - component: {fileID: 1515392214}
   m_Layer: 0
   m_Name: _GameBoot
@@ -9870,19 +9869,6 @@ MonoBehaviour:
   autoDespawnFarEnemies: 1
   prefabRegistry: {fileID: 11400000, guid: 7436de735b8974996bea8430b83a6fce, type: 2}
   spawnParent: {fileID: 204604325}
---- !u!114 &1515392213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515392203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9f7d596b6a548858c129e7724e676e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.DATNGameplayBridge
-  xpPerKill: 10
 --- !u!114 &1515392214
 MonoBehaviour:
   m_ObjectHideFlags: 0

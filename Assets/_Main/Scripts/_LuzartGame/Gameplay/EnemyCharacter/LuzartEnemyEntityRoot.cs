@@ -150,11 +150,19 @@ namespace Luzart
             _isDead = true;
             if (_animator != null) _animator.Play("ZombieDeath");
 
-            // Kill count still flows to legacy GameManager so HUD + GameController
-            // bridge see the same total. Phase F.E (bridge reversal) will route
-            // directly to GameController.AddEnemyDead.
-            var legacy = UnityEngine.Object.FindFirstObjectByType<GameManager>();
-            if (legacy != null) legacy.CurrentKilled += 1;
+            // F.E bridge reversal: route kill count directly to framework
+            // GameController.AddEnemyDead (no longer via DATNGameplayBridge mirror).
+            var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
+            if (gc != null)
+            {
+                gc.AddEnemyDead(1);
+            }
+            else
+            {
+                // Legacy fallback if framework not booted.
+                var legacy = UnityEngine.Object.FindFirstObjectByType<GameManager>();
+                if (legacy != null) legacy.CurrentKilled += 1;
+            }
 
             StartCoroutine(DeathSequence());
         }
