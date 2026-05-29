@@ -99,27 +99,33 @@ public class Domain : IDomain
             c.Inject(this); // direct call, no reflection
     }
     // ---------------- Lifecycle ----------------
+    // Snapshot _contents before iterating so DoInitialize/DoStart/DoStop/DoTerminate
+    // implementations can safely Add/Remove from the Domain without tripping
+    // InvalidOperationException ("Collection was modified"). Items added during a
+    // phase are NOT initialized this pass — they get their own lifecycle on next
+    // Add (which triggers DoInject via Inject(instance)) or are picked up at next
+    // phase if they're MonoBehavior-based (they receive Unity Awake/Start themselves).
     public void InitializeAll()
     {
-        var allContent = _contents.OfType<IContent>();
+        var allContent = _contents.OfType<IContent>().ToList();
         foreach (var c in allContent)
             c.Initialize();
     }
     public void StartAll()
     {
-        var allContent = _contents.OfType<IContent>();
+        var allContent = _contents.OfType<IContent>().ToList();
         foreach (var c in allContent)
             c.Start();
     }
     public void StopAll()
     {
-        var allContent = _contents.OfType<IContent>();
+        var allContent = _contents.OfType<IContent>().ToList();
         foreach (var c in allContent)
             c.Stop();
     }
     public void TerminateAll()
     {
-        var allContent = _contents.OfType<IContent>();
+        var allContent = _contents.OfType<IContent>().ToList();
         foreach (var c in allContent)
             c.Terminate();
     }
