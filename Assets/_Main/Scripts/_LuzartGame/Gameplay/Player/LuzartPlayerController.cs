@@ -61,13 +61,19 @@ namespace Luzart
         }
 
         /// <summary>F.E bridge reversal: when LuzartPlayerController takes over,
-        /// silence legacy PlayerManager + JoystickManager on this same GameObject
-        /// so they don't double-damage Stats / fight us on velocity writes.</summary>
+        /// silence legacy JoystickManager so it doesn't fight us on Rigidbody2D
+        /// velocity writes.
+        ///
+        /// <para>NOT disabling legacy PlayerManager (yet) — it owns the weapon
+        /// firing (HitBolts), HUD UI follow (SmoothDamp UI to player position),
+        /// and the Death GameObject toggle. Phase F.G ports HitBolts to
+        /// ZSkillRuntime; until then, PlayerManager must stay enabled or the
+        /// player loses all attacks. Its OnTriggerEnter2D damages
+        /// GameManager.Health which now has no readers (post F.E bridge delete)
+        /// — harmless double-damage to a disconnected field.</para></summary>
         private void DisableLegacyOnFlagOn()
         {
             if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
-            var legacyPM = GetComponent<PlayerManager>();
-            if (legacyPM != null) legacyPM.enabled = false;
             var legacyJM = GetComponent<JoystickManager>();
             if (legacyJM != null) legacyJM.enabled = false;
         }
