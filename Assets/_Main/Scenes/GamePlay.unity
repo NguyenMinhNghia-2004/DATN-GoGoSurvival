@@ -7357,6 +7357,7 @@ GameObject:
   - component: {fileID: 1177642147}
   - component: {fileID: 1177642149}
   - component: {fileID: 1177642148}
+  - component: {fileID: 1177642150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7620,6 +7621,23 @@ MonoBehaviour:
   _joystick: {fileID: 352769157}
   _gunForFlip: {fileID: 949337937}
   _gunFlipScale: 0.2446888
+--- !u!114 &1177642150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177642138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d426d8dc600da57459afdd5c31151df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartBoltShooter
+  _boltPrefab: {fileID: 294761617863680392, guid: e4f500636d700c046b9553e3f189a6e7, type: 3}
+  _spawnPoint: {fileID: 1597210390}
+  _container: {fileID: 1021969298}
+  _fireSfx: {fileID: 1979066962}
+  _cooldown: 1
 --- !u!1 &1183999890
 GameObject:
   m_ObjectHideFlags: 0
