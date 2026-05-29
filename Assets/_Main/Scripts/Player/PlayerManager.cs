@@ -62,14 +62,19 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Bool.GameStart == true)
-        {
-            if (other.CompareTag("Enemy"))
-            {
-                if (Bool.Sound) AudioHeat.Play();
-                Manager.Health -= 0.5f;
-            }
-        }
+        if (Bool.GameStart != true) return;
+        if (!other.CompareTag("Enemy")) return;
+
+        // F.G.1: when LuzartPlayerController owns damage (flag ON), don't double-charge.
+        // LPC writes Stats.Runtime_HP. Writing legacy Manager.Health here would (a) double
+        // the actual damage and (b) trigger GameManager.Update's PlayerDeath freeze
+        // (simulated=false), which makes the player un-controllable mid-life.
+        var srm = Luzart.SceneRootManager.Instance;
+        var flags = srm != null ? srm.Domain?.Get<Luzart.Migration.MigrationFlags>() : null;
+        if (flags != null && flags.UseLuzartPlayerController) return;
+
+        if (Bool.Sound) AudioHeat.Play();
+        Manager.Health -= 0.5f;
     }
 
 }

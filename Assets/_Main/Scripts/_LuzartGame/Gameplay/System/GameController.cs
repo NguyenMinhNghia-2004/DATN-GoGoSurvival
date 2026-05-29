@@ -57,6 +57,12 @@ namespace Luzart
         {
             if (_gameplayActive) return;
             _gameplayActive = true;
+            // F.G.3: Re-resolve PlayerCharacter from Domain. DoInitialize ran while
+            // both DATN + Luzart adapters could have been present. LuzartPlayerEntityRoot
+            // forcibly removes non-Luzart PCs in its own DoInitialize, but the order
+            // between that and GameController.DoInitialize is non-deterministic. Re-reading
+            // here ensures HP/XP subscriptions target the canonical (Luzart) character.
+            _playerCharacter = _domain.Get<PlayerCharacter>();
             SpawnNewWave(IndexWave);
             IndexWave.Changed += SpawnNewWave;
             XP.Changed += OnXPChange;

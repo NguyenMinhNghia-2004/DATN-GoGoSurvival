@@ -101,6 +101,85 @@ namespace Luzart.Migration.EditorTools
             Debug.Log("[TestXPHelper] Dummy broadcast sent to unstuck the queue.");
         }
 
+        [MenuItem("Tools/Migration/Diag — Dump runtime state (HP/MapReady/Joystick/UI)")]
+        public static void DumpRuntimeState()
+        {
+            if (!Application.isPlaying) { Debug.LogWarning("[Diag] Enter Play mode first."); return; }
+            var sb = new System.Text.StringBuilder();
+            sb.AppendLine("===== RUNTIME STATE DUMP =====");
+            sb.AppendLine("Time.timeScale=" + Time.timeScale + " isPaused=" + UnityEditor.EditorApplication.isPaused);
+
+            var srm = SceneRootManager.Instance;
+            sb.AppendLine("SRM=" + (srm != null) + " Domain=" + (srm != null && srm.Domain != null));
+            if (srm != null && srm.Domain != null)
+            {
+                var flags = srm.Domain.Get<Migration.MigrationFlags>();
+                sb.AppendLine("Flags=" + (flags != null)
+                    + " LPC=" + (flags != null && flags.UseLuzartPlayerController)
+                    + " LPER=" + (flags != null && flags.UseLuzartPlayerEntityRoot)
+                    + " LEER=" + (flags != null && flags.UseLuzartEnemyEntityRoot));
+                var gc = srm.Domain.Get<GameController>();
+                sb.AppendLine("GC=" + (gc != null) + " MapReady=" + (gc != null && gc.MapReady));
+                var pc = srm.Domain.Get<PlayerCharacter>();
+                sb.AppendLine("PC=" + (pc != null) + " type=" + (pc != null ? pc.GetType().Name : "n/a"));
+                if (pc != null && pc.Stats != null)
+                {
+                    var hp = pc.Stats.GetRuntime(StatType.Runtime_HP);
+                    var xp = pc.Stats.GetRuntime(StatType.Runtime_XP);
+                    sb.AppendLine("HP=" + (hp != null ? hp.Value.ToString() : "null") + " XP=" + (xp != null ? xp.Value.ToString() : "null"));
+                }
+            }
+
+            // LuzartPlayerController
+            var lpc = Object.FindFirstObjectByType<LuzartPlayerController>();
+            sb.AppendLine("LPC=" + (lpc != null));
+            if (lpc != null)
+            {
+                sb.AppendLine("  GO=" + lpc.gameObject.name + " active=" + lpc.gameObject.activeInHierarchy + " enabled=" + lpc.enabled);
+                var t = typeof(LuzartPlayerController);
+                var fJs = t.GetField("_joystick", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                var js = fJs != null ? fJs.GetValue(lpc) as MonoBehaviour : null;
+                if (js == null) sb.AppendLine("  _joystick=NULL");
+                else
+                {
+                    sb.AppendLine("  _joystick=" + js.GetType().Name + " on '" + js.gameObject.name + "' active=" + js.gameObject.activeInHierarchy + " enabled=" + js.enabled);
+                    var fVec = js.GetType().GetField("joystickVec", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+                    sb.AppendLine("  joystickVec=" + (fVec != null ? fVec.GetValue(js).ToString() : "(no field)"));
+                }
+                var fRb = t.GetField("_rb", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                var rb = fRb != null ? fRb.GetValue(lpc) as Rigidbody2D : null;
+                sb.AppendLine("  _rb=" + (rb != null ? "v=" + rb.linearVelocity + " bodyType=" + rb.bodyType + " simulated=" + rb.simulated : "NULL"));
+            }
+
+            // Joystick discovery
+            var allJs = Object.FindObjectsByType<movementJoystick>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            sb.AppendLine("movementJoystick count=" + allJs.Length);
+            foreach (var j in allJs)
+            {
+                sb.AppendLine("  -> '" + j.gameObject.name + "' active=" + j.gameObject.activeInHierarchy + " parent='" + (j.transform.parent != null ? j.transform.parent.name : "(root)") + "' scene=" + j.gameObject.scene.name);
+                sb.AppendLine("     joystickVec=" + j.joystickVec + " hasBG=" + (j.joystickBG != null) + " hasJS=" + (j.joystick != null));
+            }
+
+            // UI Canvas
+            var uim = UIManager.Instance;
+            sb.AppendLine("UIManager=" + (uim != null));
+            if (uim != null)
+            {
+                var c = uim.GetComponent<Canvas>();
+                sb.AppendLine("  Canvas enabled=" + (c != null && c.enabled) + " renderMode=" + (c != null ? c.renderMode.ToString() : "n/a"));
+                var rt = uim.transform as RectTransform;
+                sb.AppendLine("  RT lossyScale=" + (rt != null ? rt.lossyScale.ToString() : "n/a") + " localScale=" + (rt != null ? rt.localScale.ToString() : "n/a"));
+                sb.AppendLine("  childCount=" + uim.transform.childCount + " activeInHier=" + uim.gameObject.activeInHierarchy);
+            }
+
+            // EventSystem
+            var es = Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>();
+            sb.AppendLine("EventSystem=" + (es != null) + " enabled=" + (es != null && es.enabled));
+
+            sb.AppendLine("===== END DUMP =====");
+            Debug.Log(sb.ToString());
+        }
+
         [MenuItem("Tools/Migration/Test — Click first LevelUp slot (simulate pick)")]
         public static void ClickFirstSlot()
         {

@@ -56,31 +56,35 @@ namespace Luzart
         public override void DoInject(IDomain domain)
         {
             base.DoInject(domain);
-            if (!ActivePerFlag) return;
-
-            // F.D-flip cutover: disable the legacy DATNPlayerEntityAdapter
-            // on the same GameObject so its Update/Initialize is silent.
+            // F.G.3: Defensive — disable DATN adapter component if present.
+            // Can't reliably check ActivePerFlag here because MigrationFlags may not
+            // yet be in Domain (DomainContentLoader.DoInject may run after this).
+            // The actual character override is deferred to DoInitialize.
             var legacyAdapter = GetComponent<DATNPlayerEntityAdapter>();
             if (legacyAdapter != null) legacyAdapter.enabled = false;
-
-            // Domain.Get<PlayerCharacter>() walks _contents in insertion order
-            // and returns the FIRST match. If DATN adapter already inserted a
-            // DATNPlayerCharacter (FindObjectsOfType order is undefined),
-            // Remove it so our LuzartPlayerCharacter becomes the canonical one.
-            var existing = domain.Get<PlayerCharacter>();
-            if (existing != null) domain.Remove<PlayerCharacter>(existing);
-
-            _character = new LuzartPlayerCharacter(
-                _statsConfig,
-                string.IsNullOrEmpty(_id) ? "LuzartPlayer" : _id);
-
-            domain.Add<PlayerCharacter>(_character, _character.Id);
         }
 
         public override void DoInitialize()
         {
             base.DoInitialize();
-            if (_character == null) return;
+            // F.G.3: All DoInject calls have completed (including DomainContentLoader
+            // adding MigrationFlags). Now safe to read ActivePerFlag.
+            if (!ActivePerFlag) return;
+
+            // Forcefully remove ALL existing PlayerCharacters from Domain.
+            // DATN may have added one in its DoInject. We can't rely on insertion
+            // order — wipe all, then add Luzart's as the sole canonical PC.
+            var existing = _domain.GetAll<PlayerCharacter>();
+            if (existing != null)
+            {
+                var copy = new List<PlayerCharacter>(existing);
+                foreach (var pc in copy) _domain.Remove<PlayerCharacter>(pc);
+            }
+
+            _character = new LuzartPlayerCharacter(
+                _statsConfig,
+                string.IsNullOrEmpty(_id) ? "LuzartPlayer" : _id);
+            _domain.Add<PlayerCharacter>(_character, _character.Id);
 
             _character.Inject(_domain);
             _character.Initialize();
@@ -88,6 +92,12 @@ namespace Luzart
                 _character.Transform.SetPosition(transform.position);
 
             SpawnStartingSkills();
+
+            // F.G.2: Hook framework death state — when Runtime_HP drops to 0,
+            // freeze the player's Rigidbody2D so legacy logic doesn't keep applying
+            // velocity. GameController.OnHPChange already broadcasts Data_ClassicEndGame
+            // which the SV_EndGameBridge translates into SV_LoseScreen.
+            SubscribeDeath();
         }
 
         public override void DoStart()
@@ -114,8 +124,41 @@ namespace Luzart
         public override void DoTerminate()
         {
             base.DoTerminate();
+            UnsubscribeDeath();
             DespawnAllSkills();
             _character?.Terminate();
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // F.G.2 — Death handling
+        // ─────────────────────────────────────────────────────────────
+        private bool _deathHandled;
+        private INumberWithSet _hpForDeath;
+
+        private void SubscribeDeath()
+        {
+            if (_character == null || _character.Stats == null) return;
+            _hpForDeath = _character.Stats.GetRuntime(StatType.Runtime_HP);
+            if (_hpForDeath != null) _hpForDeath.Changed += OnHpChangedForDeath;
+        }
+
+        private void UnsubscribeDeath()
+        {
+            if (_hpForDeath != null) _hpForDeath.Changed -= OnHpChangedForDeath;
+            _hpForDeath = null;
+        }
+
+        private void OnHpChangedForDeath(INumber hp)
+        {
+            if (_deathHandled) return;
+            if (hp.Value > 0) return;
+            _deathHandled = true;
+
+            // Freeze player physics so velocity writes are ignored. GameController's
+            // own OnHPChange listener will broadcast Data_ClassicEndGame which
+            // SV_EndGameBridge consumes to show SV_LoseScreen.
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb != null) rb.simulated = false;
         }
 
         private Transform ResolveSkillsContainer()

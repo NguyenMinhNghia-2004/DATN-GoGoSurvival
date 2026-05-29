@@ -126,7 +126,12 @@ public class GameManager : MonoBehaviour
 
             // Death detection — Health is mutated by EnemyManager collisions. Framework
             // SV_GameplayHud reads via DATNGameplayBridge.Health → Stats.Runtime_HP.
-            if (Health <= 0f && PlayerDeath == false)
+            //
+            // F.G.4: When LuzartPlayerController owns damage (flag ON), legacy Health
+            // never drops (PlayerManager.OnTriggerEnter2D early-returns), but defense in
+            // depth — skip the BtnPause freeze entirely. Framework owns death via
+            // GameController.OnHPChange → Data_ClassicEndGame → SV_LoseScreen.
+            if (Health <= 0f && PlayerDeath == false && !LuzartOwnsDeath())
             {
                 BtnPause();
                 PlayerDeath = true;
@@ -286,5 +291,14 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         CheckFinish = true;
+    }
+
+    /// <summary>F.G.4 — true when Luzart owns death state. Reads MigrationFlags via SceneRootManager.
+    /// Domain isn't ready until late Unity init, so this null-guards every step.</summary>
+    private bool LuzartOwnsDeath()
+    {
+        var srm = Luzart.SceneRootManager.Instance;
+        var flags = srm != null ? srm.Domain?.Get<Luzart.Migration.MigrationFlags>() : null;
+        return flags != null && flags.UseLuzartPlayerController;
     }
 }
