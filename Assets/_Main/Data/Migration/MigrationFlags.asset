@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.Migration.MigrationFlags
   UseLuzartPlayerController: 1
   UseLuzartPlayerEntityRoot: 1
-  UseLuzartEnemyEntityRoot: 0
+  UseLuzartEnemyEntityRoot: 1
   FrameworkOwnsPlayerHP: 0
