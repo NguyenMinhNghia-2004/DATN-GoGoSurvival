@@ -149,6 +149,19 @@ namespace Luzart
             EnsureSkillControllerResolved();
             _skillControllerBehavior?.UpgradeSkill(data.SkillConfig);
             _isUpgrading = false;
+            // Phase F fix: defer dequeue 2 frames so the current popup's
+            // AnimateHideAsync (DOTween fade ~0.22s) + UIManager's instance teardown
+            // complete before the next ShowAsync. Without this, NinjaUI sees a
+            // popup "still showing" and silently drops the second show — the
+            // queue then stalls forever even though _isUpgrading was reset.
+            if (_queueProcess.Count > 0) DequeueNextAfterHideAsync().Forget();
+        }
+
+        private async UniTaskVoid DequeueNextAfterHideAsync()
+        {
+            // 1-2 frames are usually enough; if hide animation is longer the
+            // ShowAsync wrapper's try/catch is the second-line safety net.
+            await UniTask.DelayFrame(2);
             if (_queueProcess.Count > 0)
             {
                 _queueProcess.Dequeue()?.Invoke();
