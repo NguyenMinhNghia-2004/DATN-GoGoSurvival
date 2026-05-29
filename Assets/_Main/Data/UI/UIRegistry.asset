@@ -107,7 +107,7 @@ MonoBehaviour:
     StringId: sv_levelup
     AssetRef: {fileID: 3721302961400853031, guid: d7d3298996e9c4f788ac39b2b1647188, type: 3}
     Lane: 3
-    CachePolicy: 1
+    CachePolicy: 2
     PreloadOnBoot: 0
     AllowMultiInstance: 0
     DismissByEscape: 0

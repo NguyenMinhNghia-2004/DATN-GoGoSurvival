@@ -101,9 +101,10 @@ namespace Luzart
                         Broadcaster.Broadcast(new SkillUpgradeSuccessBroadcastData(picked.SkillConfig, picked.LevelIndex));
                     }
                 };
-                UIManager.Instance.ShowAsync(
-                    UIId.SV_LevelUpPopup,
-                    new UIContext(levelUpData)).Forget();
+                // Phase F: do the ShowAsync as an awaited task with a try/catch. If it
+                // throws (e.g. pool race when previous popup hasn't finished hiding),
+                // reset _isUpgrading + dequeue next so the queue doesn't deadlock.
+                ShowLevelUpPopupSafe(levelUpData, shuffledUpgrades).Forget();
             }
             else
             {
@@ -115,6 +116,33 @@ namespace Luzart
                 }
             }
         }
+        /// <summary>Awaited ShowAsync with fallback so a transient popup failure (pool
+        /// race, registry mismatch) doesn't leave _isUpgrading stuck at true forever.
+        /// Phase F bug fix: previously .Forget() swallowed exceptions silently, leaving
+        /// the queue deadlocked.</summary>
+        private async UniTaskVoid ShowLevelUpPopupSafe(SV_LevelUpData data, List<Data_UpgradeSkill> fallbackOptions)
+        {
+            try
+            {
+                await UIManager.Instance.ShowAsync(UIId.SV_LevelUpPopup, new UIContext(data));
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning($"[UpgradeSkillManager] ShowAsync threw: {e.GetType().Name}: {e.Message}. Auto-picking first option to keep queue unstuck.");
+                if (fallbackOptions != null && fallbackOptions.Count > 0)
+                {
+                    Broadcaster.Broadcast(new SkillUpgradeSuccessBroadcastData(
+                        fallbackOptions[0].SkillConfig, fallbackOptions[0].LevelIndex));
+                }
+                else
+                {
+                    // No options — just unblock the queue.
+                    _isUpgrading = false;
+                    if (_queueProcess.Count > 0) _queueProcess.Dequeue()?.Invoke();
+                }
+            }
+        }
+
         private void OnSkillUpgradeSuccessBroadcast(SkillUpgradeSuccessBroadcastData data)
         {
             Time.timeScale = 1;
