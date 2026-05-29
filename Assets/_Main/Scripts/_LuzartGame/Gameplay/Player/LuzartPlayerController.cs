@@ -60,22 +60,12 @@ namespace Luzart
             DisableLegacyOnFlagOn();
         }
 
-        /// <summary>F.E bridge reversal: when LuzartPlayerController takes over,
-        /// silence legacy JoystickManager so it doesn't fight us on Rigidbody2D
-        /// velocity writes.
-        ///
-        /// <para>NOT disabling legacy PlayerManager (yet) — it owns the weapon
-        /// firing (HitBolts), HUD UI follow (SmoothDamp UI to player position),
-        /// and the Death GameObject toggle. Phase F.G ports HitBolts to
-        /// ZSkillRuntime; until then, PlayerManager must stay enabled or the
-        /// player loses all attacks. Its OnTriggerEnter2D damages
-        /// GameManager.Health which now has no readers (post F.E bridge delete)
-        /// — harmless double-damage to a disconnected field.</para></summary>
+        /// <summary>F.G cleanup: legacy JoystickManager + PlayerManager have been
+        /// deleted from the project. This method is now a no-op kept for parity
+        /// with OnEnable's call site (which OS-level can't be easily refactored).</summary>
         private void DisableLegacyOnFlagOn()
         {
-            if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
-            var legacyJM = GetComponent<JoystickManager>();
-            if (legacyJM != null) legacyJM.enabled = false;
+            // no-op
         }
 
         private void CacheJoystickReflection()
@@ -184,17 +174,11 @@ namespace Luzart
             if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
             if (!other.CompareTag("Enemy")) return;
 
-            // Prefer framework HP path; fall back to legacy GameManager.Health.
+            // F.G cleanup: framework HP only — legacy GameManager.Health fallback removed.
             var character = ResolveCharacter();
-            if (character != null && character.Stats != null)
-            {
-                var hp = character.Stats.GetRuntime(StatType.Runtime_HP);
-                hp.Set(hp.Value - EnemyTouchDamage);
-                return;
-            }
-            // Reach in via GameObject lookup (no hard ref to legacy assembly).
-            var legacy = UnityEngine.Object.FindFirstObjectByType<GameManager>();
-            if (legacy != null) legacy.Health -= EnemyTouchDamage;
+            if (character == null || character.Stats == null) return;
+            var hp = character.Stats.GetRuntime(StatType.Runtime_HP);
+            hp.Set(hp.Value - EnemyTouchDamage);
         }
     }
 }

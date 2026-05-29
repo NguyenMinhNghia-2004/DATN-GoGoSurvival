@@ -202,17 +202,8 @@ public class UIManager : MonoBehaviour
         if (Manager != null) Manager.startmove = true;
         if (EffectFade != null) EffectFade.SetActive(false);
         if (Bool != null) Bool.GameStart = true;
-        // F.G fix: respect the Luzart cutover — when LuzartPlayerController owns the
-        // player, LuzartBoltShooter has hard-disabled PlayerManager. Re-enabling it
-        // here would resurrect HitBolts (double-fire bolts) and the stale UI/Death
-        // SmoothDamp updates. Only re-enable when legacy still owns the player.
-        if (Player != null)
-        {
-            var srm = Luzart.SceneRootManager.Instance;
-            var flags = srm != null ? srm.Domain?.Get<Luzart.Migration.MigrationFlags>() : null;
-            bool luzartOwnsPlayer = flags != null && flags.UseLuzartPlayerController;
-            if (!luzartOwnsPlayer) Player.GetComponent<PlayerManager>().enabled = true;
-        }
+        // F.G cleanup: legacy PlayerManager has been deleted. LuzartPlayerController
+        // owns movement, LuzartBoltShooter owns weapon firing.
         if (Manager != null) { Manager.AvailabelWeapon = true; Manager.GameStart = true; }
         if (ScreenMainMenu != null) ScreenMainMenu.SetActive(false);
         if (ScreenGamePlay != null) ScreenGamePlay.SetActive(true);

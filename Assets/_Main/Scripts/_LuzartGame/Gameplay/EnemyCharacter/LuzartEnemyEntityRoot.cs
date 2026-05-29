@@ -57,10 +57,8 @@ namespace Luzart
 
             _active = true;
 
-            // Disable legacy enemy components on same GO so they don't fight us.
-            // F.G.6: DATNEnemyEntityAdapter has been deleted — only EnemyManager left.
-            var legacyEM = GetComponent<EnemyManager>();
-            if (legacyEM != null) legacyEM.enabled = false;
+            // F.G cleanup: legacy EnemyManager + DATNEnemyEntityAdapter components have
+            // been removed from the Zombie prefab. Nothing legacy to disable.
 
             // Cache visual refs (visual freeze: prefab structure unchanged).
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -149,19 +147,10 @@ namespace Luzart
             _isDead = true;
             if (_animator != null) _animator.Play("ZombieDeath");
 
-            // F.E bridge reversal: route kill count directly to framework
-            // GameController.AddEnemyDead (no longer via DATNGameplayBridge mirror).
+            // Route kill count to framework GameController.AddEnemyDead.
+            // F.G cleanup: legacy GameManager.CurrentKilled fallback removed.
             var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
-            if (gc != null)
-            {
-                gc.AddEnemyDead(1);
-            }
-            else
-            {
-                // Legacy fallback if framework not booted.
-                var legacy = UnityEngine.Object.FindFirstObjectByType<GameManager>();
-                if (legacy != null) legacy.CurrentKilled += 1;
-            }
+            if (gc != null) gc.AddEnemyDead(1);
 
             StartCoroutine(DeathSequence());
         }

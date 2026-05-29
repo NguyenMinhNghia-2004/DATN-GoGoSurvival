@@ -46,15 +46,11 @@ namespace Luzart
             DisableLegacyOnFlagOn();
         }
 
-        /// <summary>F.G.5/F.G.7: once we own bolt firing, silence the legacy
-        /// PlayerManager entirely. Its remaining responsibilities (UI follow
-        /// SmoothDamp on an already-deleted UI ref, Death GO toggle on a HUD
-        /// that no longer reads it) are obsolete in the Luzart-only flow.</summary>
+        /// <summary>F.G cleanup: legacy PlayerManager has been deleted from
+        /// the project; nothing to disable. Kept as a no-op for OnEnable parity.</summary>
         private void DisableLegacyOnFlagOn()
         {
-            if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
-            var pm = GetComponent<PlayerManager>();
-            if (pm != null) pm.enabled = false;
+            // no-op
         }
 
         private bool TryGetFlags(out Migration.MigrationFlags flags)

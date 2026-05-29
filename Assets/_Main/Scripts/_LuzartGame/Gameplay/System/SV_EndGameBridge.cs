@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using DATN.Legacy;
 using UnityEngine;
 
 namespace Luzart
@@ -7,22 +6,19 @@ namespace Luzart
     /// <summary>
     /// Listens for the gameplay end-game broadcast and shows the appropriate
     /// NinjaUI screen (<see cref="SV_LoseScreenUI"/> or <see cref="SV_WinScreenUI"/>).
-    /// Replaces the legacy <c>DATN.Legacy.UIManager.FinishScreen</c> flow.
     ///
-    /// Survival time / kills / coins are pulled from <see cref="GameController"/> +
-    /// the legacy <see cref="GameManager"/> (for coins) at the moment of broadcast.
+    /// Survival time / kills come from <see cref="GameController"/>; coin total
+    /// comes from <see cref="CurrencyManager"/> (framework currency owner).
     /// </summary>
     public class SV_EndGameBridge : MonoBehaviour
     {
         private GameController _gameController;
-        private GameManager _legacyGameManager;
         private bool _registered;
 
         private void Start()
         {
             if (SceneRootManager.Instance != null && SceneRootManager.Instance.Domain != null)
                 _gameController = SceneRootManager.Instance.Domain.Get<GameController>();
-            _legacyGameManager = FindFirstObjectByType<GameManager>();
 
             Broadcaster.Register<Data_ClassicEndGame>(OnEndGame);
             _registered = true;
@@ -44,7 +40,7 @@ namespace Luzart
 
             int kills = _gameController != null ? (int)_gameController.CountEnemyDead.Value : 0;
             float survival = _gameController != null ? _gameController.CountTime.Value : 0f;
-            int coins = _legacyGameManager != null ? _legacyGameManager.CurrentCurrency : 0;
+            int coins = CurrencyManager.Instance != null ? (int)CurrencyManager.Instance.Coins : 0;
 
             if (isWin)
             {
