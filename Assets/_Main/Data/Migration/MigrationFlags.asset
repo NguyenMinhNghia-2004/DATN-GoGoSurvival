@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2beeb784e909cb4c9c71218c0e6f9b6, type: 3}
   m_Name: MigrationFlags
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.Migration.MigrationFlags
+  UseLuzartPlayerController: 1
+  UseLuzartPlayerEntityRoot: 1
+  UseLuzartEnemyEntityRoot: 0
+  FrameworkOwnsPlayerHP: 0

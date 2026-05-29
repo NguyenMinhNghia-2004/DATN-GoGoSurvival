@@ -58,14 +58,22 @@ namespace Luzart
             base.DoInject(domain);
             if (!ActivePerFlag) return;
 
+            // F.D-flip cutover: disable the legacy DATNPlayerEntityAdapter
+            // on the same GameObject so its Update/Initialize is silent.
+            var legacyAdapter = GetComponent<DATNPlayerEntityAdapter>();
+            if (legacyAdapter != null) legacyAdapter.enabled = false;
+
+            // Domain.Get<PlayerCharacter>() walks _contents in insertion order
+            // and returns the FIRST match. If DATN adapter already inserted a
+            // DATNPlayerCharacter (FindObjectsOfType order is undefined),
+            // Remove it so our LuzartPlayerCharacter becomes the canonical one.
+            var existing = domain.Get<PlayerCharacter>();
+            if (existing != null) domain.Remove<PlayerCharacter>(existing);
+
             _character = new LuzartPlayerCharacter(
                 _statsConfig,
                 string.IsNullOrEmpty(_id) ? "LuzartPlayer" : _id);
 
-            // Domain.Add overwrites by id; when both Luzart + DATN adapter exist
-            // on the same GO, whichever runs later wins. Execution order on
-            // AbstractMonoBehaviorContent is -1000; both share it, so order is
-            // the array order in DomainContentLoader / FindObjectsOfType.
             domain.Add<PlayerCharacter>(_character, _character.Id);
         }
 
