@@ -83,9 +83,19 @@ public class SV_PausePopupUI : UIBase
 
     private async void OnMainMenu()
     {
-        // Close pause + back to main menu.
+        // Quit from pause = abandon the run → funnel through the single end door (counts as a
+        // loss). ClassicMode.EndGame stops the sim + despawns enemies, then SV_LoseScreen shows
+        // (its Continue returns to MainMenu). This replaces the old "just hide UI + show MainMenu",
+        // which left the run still simulating in the background.
         Time.timeScale = 1f;
-        OnCloseButtonClicked();
+        OnCloseButtonClicked(); // close the pause popup first
+        var classicMode = Luzart.SceneRootManager.Instance?.Domain?.Get<Luzart.ClassicModeController>();
+        if (classicMode != null && classicMode.IsPlaying)
+        {
+            classicMode.EndGame(Luzart.EndReason.QuitFromPause);
+            return;
+        }
+        // Fallback (ClassicMode not wired / not playing): old direct-to-menu behaviour.
         await UIManager.Instance.HideAllExceptSystemAsync();
         await UIManager.Instance.ShowAsync(UIId.SV_MainMenu, ct: this.GetCancellationTokenOnDestroy());
     }

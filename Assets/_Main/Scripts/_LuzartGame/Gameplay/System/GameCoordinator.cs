@@ -34,5 +34,22 @@ namespace Luzart
                 catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunEnd {participants[i]} : {e}"); }
             }
         }
+
+        /// <summary>Reset the framework state (counters, mode→Idle) + player stats so the next
+        /// run starts fresh. The legacy-layer teardown (level/UI) stays in
+        /// <c>GameplayResetCoordinator</c> which calls this.</summary>
+        public void ResetRun()
+        {
+            if (_domain == null) return;
+            _domain.Get<GameController>()?.ResetState();
+            _domain.Get<ClassicModeController>()?.ResetToIdle();
+
+            var player = _domain.Get<PlayerCharacter>();
+            if (player?.Stats != null)
+            {
+                player.Stats.GetRuntime(StatType.Runtime_HP).Set(100);
+                player.Stats.GetRuntime(StatType.Runtime_XP).Set(0);
+            }
+        }
     }
 }

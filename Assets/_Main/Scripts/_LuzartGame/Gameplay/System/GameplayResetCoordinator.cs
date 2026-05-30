@@ -49,21 +49,12 @@ namespace Luzart
 
         private static void ResetAllLayers()
         {
-            // 1) Framework — stop wave timer, reset counters, and return the mode to Idle so the
-            //    next StartGame begins fresh.
+            // 1) Framework counters + mode→Idle + player stats — delegated to GameCoordinator
+            //    (the single owner of run lifecycle). Keeps this class to legacy-layer teardown.
             var domain = SceneRootManager.Instance?.Domain;
-            domain?.Get<GameController>()?.ResetState();
-            domain?.Get<ClassicModeController>()?.ResetToIdle();
+            domain?.Get<GameCoordinator>()?.ResetRun();
 
-            // 2) Player stats — restore HP, clear XP/level (Stats.AddXP accumulates).
-            var player = domain?.Get<PlayerCharacter>();
-            if (player?.Stats != null)
-            {
-                player.Stats.GetRuntime(StatType.Runtime_HP).Set(100);
-                player.Stats.GetRuntime(StatType.Runtime_XP).Set(0);
-            }
-
-            // 3) Legacy — destroy spawned level, hide gameplay screens, reset coins/kills/timer.
+            // 2) Legacy — destroy spawned level, hide gameplay screens, reset coins/kills/timer.
             var legacy = Object.FindFirstObjectByType<DATN.Legacy.UIManager>();
             if (legacy != null) legacy.BackFinishSafe();
         }
