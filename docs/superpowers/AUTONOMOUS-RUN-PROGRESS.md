@@ -6,8 +6,8 @@
 
 - **Status:** `RUNNING`
 - **Run started:** 2026-05-30
-- **Last green commit:** `8e42612` (baseline at run start)
-- **Slices done:** 0 · **Rolled-back:** 0 · **Skipped:** 0
+- **Last green commit:** `04a847a` (chore: delete 2 fully-dead orphan scripts)
+- **Slices done:** 3 (Slice 0 audit, ManagerEnemys delete, dead-orphan-scripts delete) · **Rolled-back:** 0 · **Skipped:** 1 (S-A CameraController, tooling-blocked)
 - **Consecutive red slices:** 0 / 3 (halt threshold)
 
 ## Environment / path mapping (macOS prompt → this Windows machine)
@@ -85,6 +85,23 @@ Built the reference blueprint wiki at `D:\Unity Training\IO_Training\.wiki\wiki\
 ### Slice 0 — re-audit — commit `<pending>` — docs only, no gameplay change
 - Changed: `docs/superpowers/AUTONOMOUS-RUN-PROGRESS.md`, target `.wiki/wiki/log.md`. Reference wiki built under `IO_Training/.wiki/wiki/`.
 - Verification: baseline Play-mode green (see above). No gameplay code/scene touched → no regression risk.
+
+### Slice S-A — delete disabled legacy `CameraController` — ⛔ SKIPPED (tooling-blocked, NOT a red/failure)
+- The disabled legacy `CameraController` (GUID `3b3cb9cd…`, on the `Camera` GO) is a true orphan (0 inbound C# refs, disabled, not in prefabs).
+- **Could not remove cleanly**: Unity MCP `manage_components remove` fails with *"Component type 'CameraController' not found"* — the global-namespace name collides with the TextMesh Pro example `CameraController`, so the type resolver bails. `execute_code` also fails on this machine (mono *"filename or extension is too long"* — Windows command-length limit). Hand-editing scene YAML to splice out the component was judged too risky for ~30 lines of dead disabled code.
+- **No change made; tree stayed clean.** Deferred — needs either a human in-Editor right-click Remove Component, or renaming/namespacing to disambiguate. (See MUST-REPLAY / BLOCKED.)
+
+### Slice (S-B) — delete disabled orphan `ManagerEnemys` — ✅ commit `3e837bf`
+- Removed the disabled `ManagerEnemys` MonoBehaviour from the **Player** GO via Unity MCP (clean YAML rewrite) + deleted `Assets/_Main/Scripts/Enemy/ManagerEnemys.cs`(+.meta).
+- GUID `88d96010…`: 0 inbound C# refs; only the owner's component-list entry referenced it in-scene; 0 prefab refs. Dead trigger-spawn path (active spawn = ControllerSpawening→SpawenManager).
+- **Verification (all green):** scene diff = component block only (visual freeze ✓); full asset refresh cleared a transient CS2001 from filesystem-delete; Play mode 0 errors; `LuzartPlayerController` player exists; screenshot `Assets/Screenshots/slice_managerenemys.png` identical to baseline.
+- Self-review: no visual edits, GUID grep'd before delete, no scope creep (excluded unrelated TMP font-atlas churn from the commit), flag-gating n/a (pure dead-code removal).
+
+### Slice (S-D) — delete 2 fully-dead orphan scripts — ✅ commit `04a847a`
+- Deleted `Assets/_Main/Scripts/Equipment/EquipmentManager.cs` and `Assets/_Main/Scripts/UI/NinjaUIScreens/SV_SettingsPopupUI.cs` (+ metas).
+- Both verified **zero references anywhere in `Assets/`** — no inbound C# refs, not on any scene/prefab (GUID absent), no string/UIId references. Pure dead code (superseded earlier in the migration; `EquipmentManager` replaced by Luzart equipment SOs, `SV_SettingsPopupUI` not wired into UIRegistry).
+- Found via a conservative repo-wide scan (304 scripts → only these 2 fully dead).
+- **Verification (green):** compile clean (no CS errors after full refresh), Play mode 0 errors, player exists. No scene/visual surface touched → no screenshot diff needed.
 
 ---
 
