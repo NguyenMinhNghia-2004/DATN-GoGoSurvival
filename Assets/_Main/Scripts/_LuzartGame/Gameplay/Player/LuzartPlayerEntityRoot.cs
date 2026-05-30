@@ -183,13 +183,40 @@ namespace Luzart
             }
         }
 
-        private void SpawnSkill(ZSkillConfig cfg, Transform parent)
+        private ZSkillRuntime SpawnSkill(ZSkillConfig cfg, Transform parent)
         {
             var go = new GameObject($"ZSkillRuntime_{cfg.name}");
             go.transform.SetParent(parent, false);
             var runtime = go.AddComponent<ZSkillRuntime>();
             runtime.Bind(_character, cfg);
             _skillRuntimes.Add(runtime);
+            return runtime;
+        }
+
+        /// <summary>Runtime API for the level-up flow: ensure a ZSkillRuntime exists for
+        /// <paramref name="cfg"/>. Returns the existing runtime if the player already owns the
+        /// skill, otherwise spawns a new ZSkillRuntime child under the Skills container.</summary>
+        public ZSkillRuntime AddSkill(ZSkillConfig cfg)
+        {
+            if (cfg == null || _character == null) return null;
+            for (int i = 0; i < _skillRuntimes.Count; i++)
+            {
+                if (_skillRuntimes[i] != null && _skillRuntimes[i].Config == cfg)
+                    return _skillRuntimes[i];
+            }
+            return SpawnSkill(cfg, ResolveSkillsContainer());
+        }
+
+        /// <summary>Find the ZSkillRuntime hosting <paramref name="cfg"/>, or null.</summary>
+        public ZSkillRuntime GetRuntime(ZSkillConfig cfg)
+        {
+            if (cfg == null) return null;
+            for (int i = 0; i < _skillRuntimes.Count; i++)
+            {
+                if (_skillRuntimes[i] != null && _skillRuntimes[i].Config == cfg)
+                    return _skillRuntimes[i];
+            }
+            return null;
         }
 
         private void DespawnAllSkills()

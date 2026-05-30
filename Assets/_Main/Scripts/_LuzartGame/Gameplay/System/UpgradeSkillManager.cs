@@ -10,7 +10,12 @@ namespace Luzart
         private int _maxSkillCanRolInSectionUpgrade = 3;
         private LevelConfig _levelConfig;
         private PlayerCharacter _playerCharacter;
-        private SkillControllerBehavior _skillControllerBehavior;
+        // Phase-F.G skill model: the player has NO SkillControllerBehavior. Skills live as
+        // ZSkillRuntime children spawned by LuzartPlayerEntityRoot (the §3.6 GameObject-child
+        // deviation). This manager resolves available upgrades from the player's ZSkillRuntime
+        // children + the LevelConfig pool, and applies a pick by upgrading an existing runtime
+        // or spawning a new one — instead of going through a SkillControllerBehavior.
+        private LuzartPlayerEntityRoot _playerEntityRoot;
         private GameController _gameController;
         private StatsBehavior _statsBehavior;
         private Queue<Action> _queueProcess = new Queue<Action>();
@@ -20,15 +25,16 @@ namespace Luzart
             _levelConfig = _domain.Get<LevelConfig>();
             _playerCharacter = _domain.Get<PlayerCharacter>();
             _gameController = _domain.Get<GameController>();
+            _playerEntityRoot = _domain.Get<LuzartPlayerEntityRoot>();
             if (_playerCharacter != null)
             {
-                _skillControllerBehavior = _playerCharacter.GetBehavior<SkillControllerBehavior>();
                 _statsBehavior = _playerCharacter.GetBehavior<StatsBehavior>();
             }
             if (_statsBehavior != null)
             {
                 _maxSkillCanRolInSectionUpgrade = (int)_statsBehavior.Get(StatType.TotalSkill).Value;
             }
+            if (_maxSkillCanRolInSectionUpgrade <= 0) _maxSkillCanRolInSectionUpgrade = 3;
             if (_gameController != null) _gameController.CurrentLevel.Changed += UpgradeLevel;
             _queueProcess = new Queue<Action>();
             Broadcaster.Register<SkillUpgradeSuccessBroadcastData>(OnSkillUpgradeSuccessBroadcast);
@@ -57,10 +63,10 @@ namespace Luzart
             // Level 0 = initial state from GameController.DoInitialize. Skip — no real level-up.
             if (levelCurrent <= 0) { _isUpgrading = false; return; }
 
-            EnsureSkillControllerResolved();
-            if (_skillControllerBehavior == null || _levelConfig == null)
+            EnsurePlayerEntityRootResolved();
+            if (_playerEntityRoot == null || _levelConfig == null)
             {
-                Debug.LogWarning("[UpgradeSkillManager] Missing deps — skipping UpgradeLevel.");
+                Debug.LogWarning("[UpgradeSkillManager] Missing deps (player entity root / level config) — skipping UpgradeLevel.");
                 _isUpgrading = false;
                 return;
             }
@@ -71,7 +77,7 @@ namespace Luzart
                 data_UpgradeSkills.Add(new Data_UpgradeSkill()
                 {
                     SkillConfig = availableUpgrades[i],
-                    LevelIndex = _skillControllerBehavior.GetSkillLevel(availableUpgrades[i])
+                    LevelIndex = GetSkillLevel(availableUpgrades[i])
                 });
             }
             var shuffledUpgrades = data_UpgradeSkills.GetShuffle(_maxSkillCanRolInSectionUpgrade);
@@ -83,14 +89,10 @@ namespace Luzart
             }
             _isUpgrading = true;
             // Phase F fix: do NOT set Time.timeScale here. SV_LevelUpPopupUI.OnBeforeShowAsync
-            // owns the pause; setting it twice from independent code paths (UpgradeLevel +
-            // OnBeforeShow) caused a race when multiple level-ups queued — broadcast fired
-            // timeScale=1 then dequeued next UpgradeLevel which set timeScale=0 before the
-            // popup hide animation finished, leaving the game frozen with no visible popup.
+            // owns the pause; setting it twice from independent code paths caused a freeze race.
 
-            // NinjaUI: show level-up popup with the 3 rolled options.
-            // When player picks, fire SkillUpgradeSuccessBroadcastData which OnSkillUpgradeSuccessBroadcast
-            // (already subscribed) consumes to apply the upgrade.
+            // NinjaUI: show level-up popup with the rolled options. When the player picks, fire
+            // SkillUpgradeSuccessBroadcastData which OnSkillUpgradeSuccessBroadcast consumes.
             if (UIManager.Instance != null)
             {
                 var levelUpData = new SV_LevelUpData
@@ -101,9 +103,6 @@ namespace Luzart
                         Broadcaster.Broadcast(new SkillUpgradeSuccessBroadcastData(picked.SkillConfig, picked.LevelIndex));
                     }
                 };
-                // Phase F: do the ShowAsync as an awaited task with a try/catch. If it
-                // throws (e.g. pool race when previous popup hasn't finished hiding),
-                // reset _isUpgrading + dequeue next so the queue doesn't deadlock.
                 ShowLevelUpPopupSafe(levelUpData, shuffledUpgrades).Forget();
             }
             else
@@ -116,10 +115,8 @@ namespace Luzart
                 }
             }
         }
-        /// <summary>Awaited ShowAsync with fallback so a transient popup failure (pool
-        /// race, registry mismatch) doesn't leave _isUpgrading stuck at true forever.
-        /// Phase F bug fix: previously .Forget() swallowed exceptions silently, leaving
-        /// the queue deadlocked.</summary>
+        /// <summary>Awaited ShowAsync with fallback so a transient popup failure (pool race,
+        /// registry mismatch) doesn't leave _isUpgrading stuck at true forever.</summary>
         private async UniTaskVoid ShowLevelUpPopupSafe(SV_LevelUpData data, List<Data_UpgradeSkill> fallbackOptions)
         {
             try
@@ -136,7 +133,6 @@ namespace Luzart
                 }
                 else
                 {
-                    // No options — just unblock the queue.
                     _isUpgrading = false;
                     if (_queueProcess.Count > 0) _queueProcess.Dequeue()?.Invoke();
                 }
@@ -146,58 +142,75 @@ namespace Luzart
         private void OnSkillUpgradeSuccessBroadcast(SkillUpgradeSuccessBroadcastData data)
         {
             Time.timeScale = 1;
-            EnsureSkillControllerResolved();
-            _skillControllerBehavior?.UpgradeSkill(data.SkillConfig);
+            EnsurePlayerEntityRootResolved();
+            ApplyUpgrade(data.SkillConfig);
             _isUpgrading = false;
-            // Phase F fix: defer dequeue 2 frames so the current popup's
-            // AnimateHideAsync (DOTween fade ~0.22s) + UIManager's instance teardown
-            // complete before the next ShowAsync. Without this, NinjaUI sees a
-            // popup "still showing" and silently drops the second show — the
-            // queue then stalls forever even though _isUpgrading was reset.
+            // Phase F fix: defer dequeue 2 frames so the popup's hide animation + UIManager
+            // teardown complete before the next ShowAsync, otherwise NinjaUI drops the 2nd show.
             if (_queueProcess.Count > 0) DequeueNextAfterHideAsync().Forget();
+        }
+
+        /// <summary>Apply a picked skill in the ZSkillRuntime model: if the player already owns a
+        /// runtime for this config, bump its level (re-rolls the behaviors' upgrade numbers);
+        /// otherwise spawn a new ZSkillRuntime child for it.</summary>
+        private void ApplyUpgrade(ZSkillConfig config)
+        {
+            if (config == null || _playerEntityRoot == null) return;
+            var runtime = _playerEntityRoot.GetRuntime(config);
+            if (runtime != null)
+            {
+                runtime.Skill?.UpgradeSkill();
+            }
+            else
+            {
+                _playerEntityRoot.AddSkill(config);
+            }
         }
 
         private async UniTaskVoid DequeueNextAfterHideAsync()
         {
-            // 1-2 frames are usually enough; if hide animation is longer the
-            // ShowAsync wrapper's try/catch is the second-line safety net.
             await UniTask.DelayFrame(2);
             if (_queueProcess.Count > 0)
             {
                 _queueProcess.Dequeue()?.Invoke();
             }
         }
+        /// <summary>Skills offered at this level: the LevelConfig pool minus skills the player
+        /// already owns AND can no longer upgrade (maxed). Result = new skills + owned-still-
+        /// upgradable skills.</summary>
         private List<ZSkillConfig> FindAvailableUpgrades()
         {
-            EnsureSkillControllerResolved();
-            if (_levelConfig == null || _skillControllerBehavior == null)
+            EnsurePlayerEntityRootResolved();
+            if (_levelConfig == null || _playerEntityRoot == null)
                 return new List<ZSkillConfig>();
-            var totalSkillConfigsCanUpgrade = _levelConfig.GetAllSkillInLevel() ?? new List<ZSkillConfig>();
-            var allConfigs = _skillControllerBehavior.GetAllZSkillConfigs();
-            var currentConfigs = (allConfigs != null ? allConfigs.ToList() : new List<ZSkillConfig>());
-            var currentSkill = _skillControllerBehavior.GetAllZSkill();
-            if (currentSkill != null)
+            var pool = _levelConfig.GetAllSkillInLevel() ?? new List<ZSkillConfig>();
+            var ownedMaxed = new List<ZSkillConfig>();
+            var runtimes = _playerEntityRoot.SkillRuntimes;
+            if (runtimes != null)
             {
-                foreach (var skill in currentSkill)
+                foreach (var rt in runtimes)
                 {
-                    if (skill == null) continue;
-                    if (skill.IsUpgradeSkill())
-                    {
-                        currentConfigs.Remove(skill.Config);
-                    }
+                    if (rt == null || rt.Config == null) continue;
+                    bool canUpgrade = rt.Skill != null && rt.Skill.IsUpgradeSkill();
+                    if (!canUpgrade) ownedMaxed.Add(rt.Config);
                 }
             }
-            totalSkillConfigsCanUpgrade.RemoveAll(currentConfigs.Contains);
-            return totalSkillConfigsCanUpgrade;
+            pool.RemoveAll(ownedMaxed.Contains);
+            return pool;
         }
 
-        private void EnsureSkillControllerResolved()
+        /// <summary>Current level index of the skill hosting <paramref name="config"/>, or 0 if
+        /// the player doesn't own it yet.</summary>
+        private int GetSkillLevel(ZSkillConfig config)
         {
-            if (_skillControllerBehavior != null) return;
-            if (_playerCharacter == null && _domain != null)
-                _playerCharacter = _domain.Get<PlayerCharacter>();
-            if (_playerCharacter != null)
-                _skillControllerBehavior = _playerCharacter.GetBehavior<SkillControllerBehavior>();
+            var rt = _playerEntityRoot != null ? _playerEntityRoot.GetRuntime(config) : null;
+            return rt != null && rt.Skill != null ? (int)rt.Skill.LevelIndex.Value : 0;
+        }
+
+        private void EnsurePlayerEntityRootResolved()
+        {
+            if (_playerEntityRoot == null && _domain != null)
+                _playerEntityRoot = _domain.Get<LuzartPlayerEntityRoot>();
         }
     }
     [System.Serializable]
