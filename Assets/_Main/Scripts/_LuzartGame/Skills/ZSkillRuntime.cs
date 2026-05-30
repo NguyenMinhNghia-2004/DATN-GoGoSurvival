@@ -1,29 +1,38 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Luzart
 {
     /// <summary>
-    /// Survivor.io-style per-skill GameObject. Hosts a single <see cref="ZSkillConfig"/>
-    /// and ticks its <see cref="IZSkillBehavior"/> list every frame.
+    /// Survivor.io-style per-skill GameObject. Child of <c>Player/Skills/</c>. Hosts a single
+    /// <see cref="ZSkillConfig"/> as a runtime <see cref="ZSkill"/> — the plain-class skill that
+    /// builds its <see cref="IZSkillBehavior"/> list from <c>config.BehaviorConfigs</c> — and
+    /// ticks it every frame.
     ///
-    /// <para>Phase F foundation scaffold (Phase F.2). Created as a child of
-    /// Player/Skills/ when the player picks a skill in the level-up popup.
-    /// Phase F.7-F.18 will port the 12 legacy weapons into ZSkillBehavior_*
-    /// implementations consumed via <c>ZSkillConfig.BehaviorConfigs</c>.</para>
+    /// <para>This is the GameObject-child realization of the framework's <see cref="ZSkill"/>
+    /// (the deliberate deviation from the reference's plain-class <c>SkillControllerBehavior</c>
+    /// model: in GoGo Survival each weapon is a thing in the scene under the player). The hosted
+    /// <see cref="ZSkill"/> owns the cooldown/target/spawn logic via its behaviors; this
+    /// MonoBehaviour just drives its lifecycle (Start on Bind, Update each frame, Dispose on
+    /// destroy) and exposes <see cref="Skill"/> for the level-up flow.</para>
     /// </summary>
     public class ZSkillRuntime : MonoBehaviour
     {
         [SerializeField] private ZSkillConfig _config;
         private IEntity _owner;
-        private readonly List<IZSkillBehavior> _behaviors = new();
+        private ZSkill _skill;
         private bool _bound;
 
         public ZSkillConfig Config => _config;
         public IEntity Owner => _owner;
-        public IReadOnlyList<IZSkillBehavior> Behaviors => _behaviors;
+        /// <summary>The hosted skill (null until <see cref="Bind"/>). Used by the level-up flow
+        /// to read level / call <c>UpgradeSkill()</c>.</summary>
+        public IZSkill Skill => _skill;
+        public bool IsBound => _bound;
 
-        /// <summary>Bind to an owning entity + config. Called once after Instantiate.</summary>
+        /// <summary>Bind to an owning entity + config. Constructs the <see cref="ZSkill"/> (which
+        /// instantiates its behaviors from <c>config.BehaviorConfigs</c> and refreshes their
+        /// level-0 numbers) and starts it. Called once after Instantiate by
+        /// <see cref="LuzartPlayerEntityRoot"/> (starting skills) or the level-up flow.</summary>
         public void Bind(IEntity owner, ZSkillConfig config)
         {
             if (_bound)
@@ -31,31 +40,35 @@ namespace Luzart
                 Debug.LogWarning($"[ZSkillRuntime] Already bound: {name}");
                 return;
             }
+            if (owner == null || config == null)
+            {
+                Debug.LogWarning($"[ZSkillRuntime] Bind skipped — owner or config null on {name}");
+                return;
+            }
             _owner = owner;
             _config = config;
-            // Phase F.7+ will instantiate concrete IZSkillBehavior from
-            // config.BehaviorConfigs here. For now an empty list is fine —
-            // Update is a no-op until real behaviors land.
+            // ZSkill ctor builds the IZSkillBehavior list from config.BehaviorConfigs; each
+            // behavior's ctor calls RefreshNumbers() so its level-0 upgrade config is ready.
+            _skill = new ZSkill(owner, config);
+            ((IBehavior)_skill).Start();
             _bound = true;
         }
 
         private void Update()
         {
-            if (!_bound) return;
-            float dt = Time.deltaTime;
-            for (int i = 0; i < _behaviors.Count; i++)
-            {
-                _behaviors[i]?.Update(dt);
-            }
+            if (!_bound || _skill == null) return;
+            ((IBehavior)_skill).Update(Time.deltaTime);
         }
 
         private void OnDestroy()
         {
-            for (int i = 0; i < _behaviors.Count; i++)
+            if (_skill != null)
             {
-                (_behaviors[i] as System.IDisposable)?.Dispose();
+                ((IBehavior)_skill).OnDestroy();
+                ((System.IDisposable)_skill).Dispose();
+                _skill = null;
             }
-            _behaviors.Clear();
+            _bound = false;
         }
     }
 }
