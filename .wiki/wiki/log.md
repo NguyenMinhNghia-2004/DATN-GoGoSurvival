@@ -2,12 +2,25 @@
 title: Log
 category: log
 created: 2026-05-16
-updated: 2026-05-28
+updated: 2026-05-30
 ---
 
 # DATN-GoGoSurvival — Log
 
 Chronological record of all wiki operations.
+
+## [2026-05-30] audit | Slice 0 re-audit — verified live state (autonomous run)
+
+Verified against **live code + scene YAML + Unity Play mode** (the prior Phase-F handoff notes below were a forward-looking plan, not current state).
+
+- **Baseline = green**: compiles clean, Play mode 0 errors, `LuzartPlayerController` player exists & renders. Verification gate works.
+- **`MigrationFlags.asset` (runtime values)**: `UseLuzartPlayerController=1`, `UseLuzartPlayerEntityRoot=1`, `UseLuzartEnemyEntityRoot=1`, `FrameworkOwnsPlayerHP=0`. Player/enemy entity + player controller are Luzart-owned; **HP bridge not yet reversed**.
+- **Live legacy components in `GamePlay.unity`** (GUID-checked): enabled — `GameManager`, `PlayerManager`, `ManagerWeapons`, `ControllerSpawening`, `GunManager`, `BooleanManager`, `SpriteWeapons`; disabled (`m_Enabled:0`) — `SpawenManager`x2, `ManagerEnemys`, legacy `CameraController` (GUID `3b3cb9cd...`, the known disabled-ref trap). `EnemyManager` lives on enemy prefabs (`Monster`, `Zombie`), not the scene.
+- **Weapons still legacy at runtime**: `GunManager` fires hardcoded bolts ~every 2 s (no flag gate). The Luzart `ZSkill` scaffold exists (`_LuzartGame/Skills/`) but its `ZSkillBehavior_*` are stub scaffolds (empty behavior list at runtime). Real weapon migration = implement behaviors + author `ZSkillConfig` SOs from GDD + wire + retire `GunManager`.
+- **Currency 100% legacy**: `CurrencyManager` + `DataManager` + PlayerPrefs (~15 refs each). No Luzart `ResourcePool` yet.
+- > [!warning] `_LegacyCompat/_FrameworkStubs.cs` defines `IView`/`ViewT<T>`/`Data_ClassicEndGame`/`PopupSkillUpgradeData` used by the live death->Lose path — **compile-critical, do not delete until NinjaUI owns those types.**
+- **Reference blueprint built**: `IO_Training/.wiki/wiki/systems/` (architecture, init-flow, skills, projectiles, stats, modifiers, items, currency). Mirror its composition; target deviates only on the GameObject-child skill model.
+- Full corrected slice plan: `docs/superpowers/AUTONOMOUS-RUN-PROGRESS.md`.
 
 ## [2026-05-28] migrate | Phase F — foundation scaffolds (handoff)
 - **Spec**: `docs/superpowers/specs/2026-05-28-phase-f-gameplay-zskill-monobehaviour-design.md`
