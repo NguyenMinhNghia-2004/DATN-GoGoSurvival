@@ -23,6 +23,9 @@ namespace Luzart
         [SerializeField] private EnemyData _legacyData;
         [SerializeField] private float _defaultHP = 100f;
         [SerializeField] private float _defaultMoveSpeed = 2f;
+        [Tooltip("Hold position once within this distance of the player (melee). Re-evaluated " +
+                 "every frame, so enemies resume chasing the instant the player moves away.")]
+        [SerializeField] private float _stopFollowDistance = 0.6f;
 
         [Header("Death drops (set by Phase F.F-attach)")]
         [SerializeField] private GameObject _bloodLocalisationParent;
@@ -43,7 +46,6 @@ namespace Luzart
         // State
         private bool _active;
         private bool _isDead;
-        private bool _followPlayer = true;
         private float _currentHP;
         private float _maxHP;
         private int _diamondType;
@@ -95,16 +97,24 @@ namespace Luzart
             _character.Transform.SetPosition(transform.position);
             _character.OnUpdate(Time.deltaTime);
 
-            if (_followPlayer && _playerTransform != null)
+            if (_playerTransform == null) return;
+
+            // Re-evaluate distance every frame — NO sticky follow flag. The old code set
+            // _followPlayer=false on OnTriggerEnter2D(Player) and only re-enabled it on
+            // OnTriggerExit2D; a missed/late trigger-exit (common while the player runs in a
+            // Survivor.io game) left enemies frozen far from the player. Now: close the gap
+            // until melee range, then hold; resume the instant the player moves away.
+            float dist = Vector2.Distance(transform.position, _playerTransform.position);
+            if (dist > _stopFollowDistance)
             {
                 float speed = _legacyData != null
                     ? _legacyData.GetMoveSpeed(ResolveWave())
                     : _defaultMoveSpeed;
                 transform.position = Vector2.MoveTowards(
                     transform.position, _playerTransform.position, speed * Time.deltaTime);
-                if (_spriteRenderer != null)
-                    _spriteRenderer.flipX = _playerTransform.position.x < transform.position.x;
             }
+            if (_spriteRenderer != null)
+                _spriteRenderer.flipX = _playerTransform.position.x < transform.position.x;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -120,14 +130,11 @@ namespace Luzart
             }
             else if (other.CompareTag("Player"))
             {
+                // Melee-contact SFX only. Movement no longer gates on this trigger (see Update):
+                // the follow/hold decision is a per-frame distance check, so a missed trigger-exit
+                // can't freeze the enemy anymore.
                 if (_audioSource != null) _audioSource.Play();
-                _followPlayer = false;
             }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Player")) _followPlayer = true;
         }
 
         /// <summary>
