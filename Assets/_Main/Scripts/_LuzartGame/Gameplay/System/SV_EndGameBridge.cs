@@ -38,6 +38,13 @@ namespace Luzart
         {
             if (UIManager.Instance == null) return;
 
+            // Hide the gameplay HUD before showing the result screen. The HUD lives on the
+            // persistent "Hud" lane (KeepLoaded); NinjaUI does NOT auto-hide one lane when a
+            // Screen-lane UI (Win/Lose) is shown, so without this the HUD — and its joystick —
+            // kept rendering on top of the end screen. SV_GameplayHudUI.OnHiddenAsync disables
+            // the joystick on hide; GameplayResetCoordinator re-shows the HUD on Retry.
+            await UIManager.Instance.HideAsync(UIId.SV_GameplayHud);
+
             int kills = _gameController != null ? (int)_gameController.CountEnemyDead.Value : 0;
             float survival = _gameController != null ? _gameController.CountTime.Value : 0f;
             int coins = CurrencyManager.Instance != null ? (int)CurrencyManager.Instance.Coins : 0;
