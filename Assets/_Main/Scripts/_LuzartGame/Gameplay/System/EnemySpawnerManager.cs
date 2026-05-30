@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using UnityEngine;
-public class EnemySpawnerManager : AbstractMonoBehaviorContent
+public class EnemySpawnerManager : AbstractMonoBehaviorContent, IRunParticipant
 {
     // Runtime dependencies
     private EntityBluePrint _entityBluePrint;
@@ -46,6 +46,28 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent
         {
             item.Stop();
             item.Terminate();
+        }
+        _listEnemy.Clear();
+    }
+
+    // ── IRunParticipant ───────────────────────────────────────────────
+    void IRunParticipant.OnRunBegin()
+    {
+        // Wave spawning is kicked by GameController.SpawnNewWave on StartGameplay; nothing to
+        // pre-arm here. Reset the tracked list so a fresh run starts clean.
+        _listEnemy.Clear();
+    }
+
+    /// <summary>Stop spawning and remove every enemy so none keep chasing under the Win/Lose
+    /// screen. Spawn loops (SpawnWaveEnemy) run on this component, so StopAllCoroutines halts
+    /// them; remaining enemies are GameObjects tagged "Enemy" (Zombie/Monster prefabs).</summary>
+    void IRunParticipant.OnRunEnd()
+    {
+        StopAllCoroutines();
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i] != null) Destroy(enemies[i]);
         }
         _listEnemy.Clear();
     }

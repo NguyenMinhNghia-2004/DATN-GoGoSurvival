@@ -25,6 +25,7 @@ namespace Luzart
     public class ClassicModeController : AbstractMonoBehaviorContent
     {
         private GameController _gameController;
+        private GameCoordinator _coordinator;
 
         public ClassicModeState State { get; private set; } = ClassicModeState.Idle;
         public bool IsPlaying => State == ClassicModeState.Playing;
@@ -34,6 +35,7 @@ namespace Luzart
         {
             base.DoInitialize();
             _gameController = _domain.Get<GameController>();
+            _coordinator = _domain.Get<GameCoordinator>();
         }
 
         /// <summary>Begin a run (MainMenu Play / Retry). Idempotent while already Playing.</summary>
@@ -42,8 +44,9 @@ namespace Luzart
             if (State == ClassicModeState.Playing) return;
             State = ClassicModeState.Playing;
             Time.timeScale = 1f;
-            EnsureGameController();
+            EnsureRefs();
             _gameController?.StartGameplay();
+            _coordinator?.BeginRun();
         }
 
         /// <summary>The ONLY way a run ends. Guarded so it runs exactly once while Playing —
@@ -53,8 +56,9 @@ namespace Luzart
         {
             if (State != ClassicModeState.Playing) return; // not running, or already ended
             State = ClassicModeState.Ended;
-            EnsureGameController();
+            EnsureRefs();
             _gameController?.StopGameplay(); // stop wave timer + unsubscribe (no more re-fire)
+            _coordinator?.EndRun();          // stop spawner + despawn all enemies
             bool isWin = reason == EndReason.WavesCleared;
             Broadcaster.Broadcast(new Data_ClassicEndGame { IsWin = isWin });
         }
@@ -67,10 +71,11 @@ namespace Luzart
             Time.timeScale = 1f;
         }
 
-        private void EnsureGameController()
+        private void EnsureRefs()
         {
-            if (_gameController == null && _domain != null)
-                _gameController = _domain.Get<GameController>();
+            if (_domain == null) return;
+            if (_gameController == null) _gameController = _domain.Get<GameController>();
+            if (_coordinator == null) _coordinator = _domain.Get<GameCoordinator>();
         }
     }
 }
