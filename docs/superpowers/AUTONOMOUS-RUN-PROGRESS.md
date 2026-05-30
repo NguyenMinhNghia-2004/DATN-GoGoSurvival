@@ -4,7 +4,7 @@
 
 ## Header (kept current)
 
-- **Status:** `RUNNING`
+- **Status:** `PAUSED — safe machine-verifiable slices DONE; remaining slices need human hand-testing (NOT a failure; 0 reds, game playable)`
 - **Run started:** 2026-05-30
 - **Last green commit:** `04a847a` (chore: delete 2 fully-dead orphan scripts)
 - **Slices done:** 3 (Slice 0 audit, ManagerEnemys delete, dead-orphan-scripts delete) · **Rolled-back:** 0 · **Skipped:** 1 (S-A CameraController, tooling-blocked)
@@ -105,12 +105,35 @@ Built the reference blueprint wiki at `D:\Unity Training\IO_Training\.wiki\wiki\
 
 ---
 
+## ⚠️ Why this run paused here (read me first)
+
+I completed every slice that the machine can **fully verify on its own** and banked them as clean, individually-revertable commits. The game **compiles, boots, and plays the golden path** at `e26598c` (verified: 0 console errors in Play mode, player exists & renders identically to the run-start baseline).
+
+I deliberately did **NOT** attempt the remaining slices autonomously because they are **feel-dependent and not machine-verifiable**, and forcing them risks the exact failure mode that broke the game in the prior overnight run:
+- **HP bridge (Slice 1)** — flipping `FrameworkOwnsPlayerHP` changes death ownership; the only real test is "take damage → die → Lose screen appears," which needs driving the player to death (no MCP damage/input simulation). Can't verify ⇒ won't commit blind (§8.3).
+- **12-weapon port (Slice 2)** — the `ZSkillBehavior_*` files are **empty scaffolds**; this slice is *writing new gameplay logic* + authoring `ZSkillConfig` SOs from the GDD + wiring + retiring `GunManager`. Correctness = "does it fire/aim/cooldown right" = pure feel.
+- **Currency → ResourcePool (Slice 4)** — net-new observer system; behavior is fine to build but verifying UI updates correctly needs a human eye.
+- **GameManager trunk + coupled managers (SpawenManager/ControllerSpawening) (Slices 5–6)** — deleting these alters the live spawn/death loop; verification is feel-dependent.
+
+Everything above is staged for you with the reference blueprint already written (`IO_Training/.wiki/wiki/systems/`) so each is a guided, low-ambiguity task when you're back to hand-test.
+
 ## ⚠️ MUST-REPLAY-BY-HAND checklist
 
-_(populated as feel-dependent slices land)_
+The 3 committed slices are dead-code removals with no behavioral surface, but please smoke-test once:
+- [ ] **Boot + golden path** at `e26598c`: Splash→MainMenu→Play→move→enemies spawn & die→XP/HP HUD→level-up popup→pick skill→die→Lose→MainMenu→replay. (I verified compile + Play-mode-no-errors + player renders, but not the full hand-played loop.)
+- [ ] **Enemy spawning still works** — I removed the *disabled* `ManagerEnemys` (its trigger-spawn was dead; active spawn is `ControllerSpawening`→`SpawenManager`). Confirm enemies still spawn in waves.
+- [ ] **Equipment screen + Settings popup** — I deleted `EquipmentManager.cs` and `SV_SettingsPopupUI.cs` as fully-unreferenced dead code. Confirm the equipment UI and settings popup still open (they should — neither was wired to anything).
 
 ---
 
 ## BLOCKED items
 
-_(none yet)_
+- **Slice S-A — legacy `CameraController` deletion (GUID `3b3cb9cd…`): tooling-blocked, NOT done.**
+  - It's a true orphan (disabled, 0 inbound C# refs, not in prefabs) but its global-namespace name **collides with the TextMesh Pro example `CameraController`**, so Unity MCP `manage_components remove` returns *"Component type not found."* `execute_code` is unusable on this machine (mono *"filename or extension is too long"* — Windows arg-length limit). I refused to hand-splice the scene YAML (too risky for ~30 lines of dead disabled code).
+  - **To finish (human, ~1 min):** in the Editor, select the `Camera` GameObject in `GamePlay.unity`, right-click the disabled `CameraController` component → **Remove Component**, save scene, then delete `Assets/_Main/Scripts/Player/CameraController.cs`. (GUID already grep-verified: no other refs.)
+
+## Tooling notes for future autonomous runs on this machine
+- `mcp__unityMCP__execute_code` is **broken here** (mono "filename or extension is too long" — Windows command-length limit). Don't rely on it for scene surgery; use `manage_components`/`manage_gameobject` instead.
+- `manage_components remove` resolves components by **simple type name** and **fails on name collisions** (two global `CameraController` classes). Disambiguate by namespacing or do it by hand.
+- Deleting `.cs` via filesystem `rm` causes a transient `CS2001` until a **full** `refresh_unity (scope=all, mode=force)` — always full-refresh after a filesystem delete.
+- Screenshots land in `Assets/Screenshots/` which is **gitignored** (good — they never pollute commits). The `CaptureScreenshot region exceeds render target` console line is a harmless artifact, not a game error.
