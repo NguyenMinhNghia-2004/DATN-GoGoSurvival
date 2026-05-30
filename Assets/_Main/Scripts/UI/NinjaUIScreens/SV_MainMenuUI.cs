@@ -83,12 +83,14 @@ public class SV_MainMenuUI : UIBase
         var legacyUIManager = FindObjectOfType<DATN.Legacy.UIManager>();
         if (legacyUIManager != null) legacyUIManager.PlayBtn();
 
-        // 2) Start the framework gameplay loop (waves, XP, level-up).
-        //    Without this, GameController would tick from scene load — but we deferred it.
+        // 2) Start the framework gameplay loop via the ClassicMode state machine (single entry
+        //    door). ClassicMode.StartGame sets state=Playing and calls GameController.StartGameplay.
         if (Luzart.SceneRootManager.Instance != null)
         {
-            var gc = Luzart.SceneRootManager.Instance.Domain?.Get<Luzart.GameController>();
-            gc?.StartGameplay();
+            var domain = Luzart.SceneRootManager.Instance.Domain;
+            var classicMode = domain?.Get<Luzart.ClassicModeController>();
+            if (classicMode != null) classicMode.StartGame();
+            else domain?.Get<Luzart.GameController>()?.StartGameplay(); // fallback if not wired
         }
 
         // 3) Hide MainMenu, show GameplayHud.

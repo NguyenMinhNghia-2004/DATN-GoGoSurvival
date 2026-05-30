@@ -9721,6 +9721,7 @@ GameObject:
   - component: {fileID: 1515392208}
   - component: {fileID: 1515392212}
   - component: {fileID: 1515392214}
+  - component: {fileID: 1515392215}
   m_Layer: 0
   m_Name: _GameBoot
   m_TagString: Untagged
@@ -9847,6 +9848,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96a425fde208431baad51018732d1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.SV_EndGameBridge
+--- !u!114 &1515392215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515392203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2970108c0303a1747b442b3862645279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ClassicModeController
+  _id: _GameBoot
 --- !u!1 &1541228268
 GameObject:
   m_ObjectHideFlags: 0

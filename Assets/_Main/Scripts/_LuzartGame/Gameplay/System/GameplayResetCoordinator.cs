@@ -36,10 +36,12 @@ namespace Luzart
             var legacy = Object.FindFirstObjectByType<DATN.Legacy.UIManager>();
             if (legacy != null) legacy.PlayBtn();
 
-            var gc = SceneRootManager.Instance != null
-                ? SceneRootManager.Instance.Domain?.Get<GameController>()
-                : null;
-            gc?.StartGameplay();
+            // Restart via the ClassicMode state machine (single entry door); falls back to
+            // GameController directly if ClassicMode isn't wired.
+            var domain2 = SceneRootManager.Instance?.Domain;
+            var classicMode = domain2?.Get<ClassicModeController>();
+            if (classicMode != null) classicMode.StartGame();
+            else domain2?.Get<GameController>()?.StartGameplay();
 
             if (UIManager.Instance != null)
                 await UIManager.Instance.ShowAsync(UIId.SV_GameplayHud);
@@ -47,9 +49,11 @@ namespace Luzart
 
         private static void ResetAllLayers()
         {
-            // 1) Framework — stop wave timer, reset counters.
+            // 1) Framework — stop wave timer, reset counters, and return the mode to Idle so the
+            //    next StartGame begins fresh.
             var domain = SceneRootManager.Instance?.Domain;
             domain?.Get<GameController>()?.ResetState();
+            domain?.Get<ClassicModeController>()?.ResetToIdle();
 
             // 2) Player stats — restore HP, clear XP/level (Stats.AddXP accumulates).
             var player = domain?.Get<PlayerCharacter>();

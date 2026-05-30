@@ -26,6 +26,7 @@ namespace Luzart
         private EnemySpawnerManager _enemyManager;
         private PlayerCharacter _playerCharacter;
         private UpgradeSkillManager _upgradeSkillManager;
+        private ClassicModeController _classicMode;
         // Cache
         private DataWave _dataWaveCurrent;
         private EnemyWaveConfig _enemyWaveConfig;
@@ -40,6 +41,7 @@ namespace Luzart
             _enemyManager = _domain.Get<EnemySpawnerManager>();
             _playerCharacter = _domain.Get<PlayerCharacter>();
             _upgradeSkillManager = _domain.Get<UpgradeSkillManager>();
+            _classicMode = _domain.Get<ClassicModeController>();
             _indexWave.Set(0);
             _countTime.Set(0);
             _currentLevel.Set(0);
@@ -134,17 +136,15 @@ namespace Luzart
         }
         private void OnWinGame()
         {
-            Broadcaster.Broadcast<Data_ClassicEndGame>(new Data_ClassicEndGame()
-            {
-                IsWin = true
-            });
+            // Single exit door: ClassicMode.EndGame stops gameplay once + broadcasts. Fallback to
+            // a direct broadcast only if ClassicMode isn't wired (keeps old behaviour safe).
+            if (_classicMode != null) { _classicMode.EndGame(EndReason.WavesCleared); return; }
+            Broadcaster.Broadcast<Data_ClassicEndGame>(new Data_ClassicEndGame() { IsWin = true });
         }
         private void OnLoseGame()
         {
-            Broadcaster.Broadcast<Data_ClassicEndGame>(new Data_ClassicEndGame()
-            {
-                IsWin = false
-            });
+            if (_classicMode != null) { _classicMode.EndGame(EndReason.PlayerDied); return; }
+            Broadcaster.Broadcast<Data_ClassicEndGame>(new Data_ClassicEndGame() { IsWin = false });
         }
         public void OnXPChange(INumber XP)
         {
