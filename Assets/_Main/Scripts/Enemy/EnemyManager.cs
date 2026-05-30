@@ -32,6 +32,11 @@ public class EnemyManager : MonoBehaviour
     [Header("HP Settings (dùng nếu không có EnemyData SO)")]
     [SerializeField] private float defaultHP = 100f;
 
+    [Header("Follow")]
+    [Tooltip("Hold position once within this distance of the player (melee). Re-evaluated " +
+             "every frame, so the enemy resumes chasing the instant the player moves away.")]
+    [SerializeField] private float stopFollowDistance = 0.6f;
+
     // ---- Cached References ----
     private AudioSource audioSource;
     private BooleanManager boolM;
@@ -46,7 +51,6 @@ public class EnemyManager : MonoBehaviour
     private float maxHP;
     private float currentHP;
     private int diamondType;
-    private bool followPlayer = true;
     private bool isDead;
 
     // ---- Public Properties ----
@@ -96,16 +100,23 @@ public class EnemyManager : MonoBehaviour
     {
         if (isDead) return;
 
-        // Follow player
-        if (followPlayer && playerTransform != null && gameManager != null)
+        // Follow player. Re-evaluate distance every frame — NO sticky followPlayer flag.
+        // The old code set followPlayer=false on OnTriggerEnter2D(Player) and only re-enabled
+        // it on OnTriggerExit2D; a missed/late trigger-exit (common while the player runs in a
+        // Survivor.io game) left the enemy frozen far from the player. Now: chase until melee
+        // range, hold, resume the instant the player moves.
+        if (playerTransform != null && gameManager != null)
         {
-            float speed = enemyData != null
-                ? enemyData.GetMoveSpeed(GetCurrentWave())
-                : gameManager.SpeedEnemy;
+            float dist = Vector2.Distance(transform.position, playerTransform.position);
+            if (dist > stopFollowDistance)
+            {
+                float speed = enemyData != null
+                    ? enemyData.GetMoveSpeed(GetCurrentWave())
+                    : gameManager.SpeedEnemy;
 
-            transform.position = Vector2.MoveTowards(
-                transform.position, playerTransform.position, speed * Time.deltaTime);
-
+                transform.position = Vector2.MoveTowards(
+                    transform.position, playerTransform.position, speed * Time.deltaTime);
+            }
             if (spriteRenderer != null)
                 spriteRenderer.flipX = playerTransform.position.x < transform.position.x;
         }
@@ -247,17 +258,10 @@ public class EnemyManager : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            // Melee-contact SFX only. Movement no longer gates on this trigger (see Update):
+            // the per-frame distance check prevents a missed trigger-exit from freezing the enemy.
             if (boolM != null && boolM.Sound && audioSource != null)
                 audioSource.Play();
-            followPlayer = false;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            followPlayer = true;
         }
     }
 
