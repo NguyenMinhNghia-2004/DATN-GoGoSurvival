@@ -47,6 +47,7 @@ namespace Luzart
         private System.Reflection.FieldInfo _joystickVecField;
         private Migration.MigrationFlags _flags;
         private LuzartPlayerCharacter _character;
+        private ClassicModeController _classicMode;
 
         private void Reset()
         {
@@ -87,6 +88,18 @@ namespace Luzart
             return flags != null;
         }
 
+        /// <summary>Lazy-resolve ClassicModeController from Domain. Cached on first hit.
+        /// Returns false on the very first frames before SceneRootManager has bootstrapped,
+        /// in which case the Update gate falls through to the legacy MapReady check.</summary>
+        private bool TryGetClassicMode(out ClassicModeController mode)
+        {
+            if (_classicMode != null) { mode = _classicMode; return true; }
+            var srm = SceneRootManager.Instance;
+            _classicMode = srm != null ? srm.Domain?.Get<ClassicModeController>() : null;
+            mode = _classicMode;
+            return mode != null;
+        }
+
         private LuzartPlayerCharacter ResolveCharacter()
         {
             if (_character != null) return _character;
@@ -122,6 +135,16 @@ namespace Luzart
             // bridged from UIManager.MapReady in Phase D).
             var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
             if (gc != null && !gc.MapReady) return;
+
+            // Run-state gate: when ClassicMode is Idle (pre-Play) or Ended (post-Win/Lose),
+            // input must not drive the Rigidbody — otherwise the player keeps moving under
+            // the Win/Lose/MainMenu screens. This MonoBehaviour isn't a Domain Content so it
+            // can't receive IRunParticipant callbacks; check state per frame instead.
+            if (TryGetClassicMode(out var mode) && !mode.IsPlaying)
+            {
+                if (_rb != null) _rb.linearVelocity = Vector2.zero;
+                return;
+            }
 
             var v = ReadJoystick();
             if (_rb != null)

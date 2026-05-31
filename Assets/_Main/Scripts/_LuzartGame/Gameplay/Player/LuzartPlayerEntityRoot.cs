@@ -23,7 +23,7 @@ namespace Luzart
     /// then, DATNPlayerEntityAdapter on the same GameObject creates the live
     /// PlayerCharacter.</para>
     /// </summary>
-    public class LuzartPlayerEntityRoot : AbstractMonoBehaviorContent
+    public class LuzartPlayerEntityRoot : AbstractMonoBehaviorContent, IRunParticipant
     {
         [Header("Stats (optional — leave null for zero defaults)")]
         [SerializeField] private StatsConfig _statsConfig;
@@ -124,6 +124,43 @@ namespace Luzart
             UnsubscribeDeath();
             DespawnAllSkills();
             _character?.Terminate();
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // IRunParticipant — driven by GameCoordinator.BeginRun/EndRun
+        // Stops skill ticks + zeros player velocity when a run ends so the
+        // player can't keep firing / coasting under the Win/Lose screen.
+        // ─────────────────────────────────────────────────────────────
+        void IRunParticipant.OnRunBegin()
+        {
+            // Re-arm skill ticks for the new run (paired with OnRunEnd's SetActive(false)).
+            for (int i = 0; i < _skillRuntimes.Count; i++)
+            {
+                var rt = _skillRuntimes[i];
+                if (rt != null && rt.gameObject != null) rt.gameObject.SetActive(true);
+            }
+            // Death from a prior run freezes the Rigidbody2D via OnHpChangedForDeath;
+            // re-enable physics + clear the latch so the next run starts clean.
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb != null) rb.simulated = true;
+            _deathHandled = false;
+        }
+
+        void IRunParticipant.OnRunEnd()
+        {
+            // Freeze each skill's Update — Unity skips Update on inactive GameObjects,
+            // so ZSkillRuntime.Update no longer ticks IZSkillBehavior. No more projectile
+            // spawns under the Win/Lose screen.
+            for (int i = 0; i < _skillRuntimes.Count; i++)
+            {
+                var rt = _skillRuntimes[i];
+                if (rt != null && rt.gameObject != null) rt.gameObject.SetActive(false);
+            }
+            // Zero velocity so the player doesn't keep coasting after EndGame. The
+            // controller's per-frame gate (ClassicMode.IsPlaying) also writes zero,
+            // but doing it here as well covers the one-frame gap before the next Update.
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb != null) rb.linearVelocity = Vector2.zero;
         }
 
         // ─────────────────────────────────────────────────────────────
