@@ -56,20 +56,30 @@ public class movementJoystick : MonoBehaviour
     private void RecomputeRadius()
     {
         if (_bgRect == null) { _radiusPx = 100f; return; }
-        // Travel radius = a fraction of bg half-size so handle stays visually inside the ring.
-        // Matches survivor.io feel (~1/3 of full diameter).
-        var size = _bgRect.rect.size;
+        // Use sizeDelta (Inspector value, always present) — rect.size returns 0 in Awake
+        // before the first layout pass, which would zero out joystickVec at runtime.
+        var size = _bgRect.sizeDelta;
+        if (size.x <= 0f || size.y <= 0f) size = _bgRect.rect.size; // fallback for stretched anchors
         _radiusPx = Mathf.Min(size.x, size.y) * 0.5f * 0.85f;
         if (_radiusPx <= 0f) _radiusPx = 100f;
+        // Handle is a SIBLING of bg (both children of Joystick Table) with the same anchor.
+        // To make handle visually orbit bg, base its anchoredPosition off bg's anchoredPosition.
+        if (_bgRect != null) _bgAnchoredHome = _bgRect.anchoredPosition;
     }
 
-    // ---- Event handlers (wired by scene EventTrigger via SendMessage style) -
-    public void PointerDown(BaseEventData _)
+    private Vector2 _bgAnchoredHome;
+
+    // ---- Event handlers — Void mode (no args) overloads are required by the scene's
+    //      EventTrigger entries with m_Mode: 1. The (BaseEventData) overloads are kept
+    //      for any caller that uses EventDefined mode (m_Mode: 0).
+    public void PointerDown() { PointerDownCore(); }
+    public void PointerDown(BaseEventData _) => PointerDownCore();
+    private void PointerDownCore()
     {
-        // Legacy implementation re-centered handle and started tracking; keep handle
-        // pinned to center until first Drag updates it.
+        // Re-center handle and clear vec until first Drag updates them.
         joystickVec = Vector2.zero;
-        if (_handleRect != null) _handleRect.anchoredPosition = Vector2.zero;
+        if (_handleRect != null) _handleRect.anchoredPosition = _bgAnchoredHome;
+        if (_radiusPx <= 0f) RecomputeRadius(); // handle late-layout fallback
     }
 
     public void Drag(BaseEventData data)
@@ -77,6 +87,7 @@ public class movementJoystick : MonoBehaviour
         if (_bgRect == null || _handleRect == null) return;
         var ptr = data as PointerEventData;
         if (ptr == null) return;
+        if (_radiusPx <= 0f) RecomputeRadius();
 
         // Convert screen pos → bg local pos. Use canvas camera for ScreenSpace-Camera/World;
         // null for ScreenSpace-Overlay (Unity convention).
@@ -88,7 +99,10 @@ public class movementJoystick : MonoBehaviour
 
         // Clamp offset within travel radius.
         Vector2 clamped = Vector2.ClampMagnitude(localPoint, _radiusPx);
-        _handleRect.anchoredPosition = clamped;
+        // Handle is a sibling of bg with same anchor — orbit it around bg by offsetting
+        // from bg's anchoredPosition. NOT bare `clamped` (which would jump handle 552 px
+        // off, since bg sits at anchoredPosition (0, -552) within Joystick Table).
+        _handleRect.anchoredPosition = _bgAnchoredHome + clamped;
         joystickVec = _radiusPx > 0f ? clamped / _radiusPx : Vector2.zero;
 
         // Optional facing aids (legacy parity — no-op when refs unassigned).
@@ -106,9 +120,11 @@ public class movementJoystick : MonoBehaviour
         }
     }
 
-    public void PointerUp(BaseEventData _)
+    public void PointerUp() { PointerUpCore(); }
+    public void PointerUp(BaseEventData _) => PointerUpCore();
+    private void PointerUpCore()
     {
         joystickVec = Vector2.zero;
-        if (_handleRect != null) _handleRect.anchoredPosition = Vector2.zero;
+        if (_handleRect != null) _handleRect.anchoredPosition = _bgAnchoredHome;
     }
 }
