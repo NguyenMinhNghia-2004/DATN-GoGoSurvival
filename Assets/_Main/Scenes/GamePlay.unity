@@ -7214,7 +7214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartPlayerEntityRoot
   _id: Player
-  _statsConfig: {fileID: 0}
+  _statsConfig: {fileID: 11400000, guid: 6388f66b178c4796b803a960b5eee481, type: 2}
   _startingSkills:
   - {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
   _skillsContainer: {fileID: 1983154430}
