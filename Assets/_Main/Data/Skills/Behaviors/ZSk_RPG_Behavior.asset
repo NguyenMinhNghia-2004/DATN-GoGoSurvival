@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_RPG_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: b0b0ba68a3e5437bb923cae42c54dc2f, type: 2}

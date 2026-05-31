@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_DrillShot_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: f43834e01a1b4d2db4106bad1439adf5, type: 2}

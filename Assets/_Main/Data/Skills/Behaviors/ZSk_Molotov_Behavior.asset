@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_Molotov_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: 7c005245a39a4797ab8a8257d960f3cf, type: 2}

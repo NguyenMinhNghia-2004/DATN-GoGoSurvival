@@ -15,7 +15,12 @@ MonoBehaviour:
   _id: ZSk_SoccerBall
   eTypeSkill: 1
   skillDefine: 3
-  upgradeConfigs: []
+  upgradeConfigs:
+  - {fileID: 11400000, guid: 8aae5c69dc4f4f949e2ff60667140e6f, type: 2}
+  - {fileID: 11400000, guid: 6bb2cc7e0b144e15a12ded271e2d3700, type: 2}
+  - {fileID: 11400000, guid: 003fcc72b0a3443eb27e8229772163ee, type: 2}
+  - {fileID: 11400000, guid: 2c0c2a2c4d64472dbf5e2e9ea3370c8e, type: 2}
+  - {fileID: 11400000, guid: f9e153dff5484a909e3eacf18ce32d76, type: 2}
   behaviorConfigs:
   - {fileID: 11400000, guid: 51d73d03f7b464ec9a28bf2d52527f06, type: 2}
   isCanUpgradeLevel: {fileID: 0}

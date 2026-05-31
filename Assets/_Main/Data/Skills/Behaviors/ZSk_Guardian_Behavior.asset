@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_Guardian_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: 975f05916646429eb627dd8b6138a727, type: 2}

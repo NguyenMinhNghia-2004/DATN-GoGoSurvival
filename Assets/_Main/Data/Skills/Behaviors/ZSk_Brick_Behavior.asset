@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_Brick_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: f0a88328a1384eafaa3be45b3d4e12ab, type: 2}

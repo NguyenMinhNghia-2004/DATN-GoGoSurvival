@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a382ef75172ce4b8729e9e67b9363a, type: 3}
+  m_Name: ZSkUp_RPG_Lv1
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillUpgradeConfig
+  _id: ZSkUp_RPG_Lv1
+  skillInfor:
+    sprite: {fileID: 0}
+    skillName: RPG ★
+    skillDetail: rocket
+  stats:
+  - definition: {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
+    value:
+      mode: 0
+      constant: 20.0
+      asset: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 4dd538c3a70d24748837e476a326131d, type: 2}
+    value:
+      mode: 0
+      constant: 2.0
+      asset: {fileID: 0}
+  - definition: {fileID: 11400000, guid: afaff64959479453abb513b76ead9cc0, type: 2}
+    value:
+      mode: 0
+      constant: 8
+      asset: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 200d5d4a262b4f74a45a0ae1b89e0ad1, type: 2}
+    value:
+      mode: 0
+      constant: 1
+      asset: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 202dc84ee937243c6a9b56374e56765d, type: 2}
+    value:
+      mode: 0
+      constant: 8.0
+      asset: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 54576d2eb8e445c0bcdec56a9c818c12, type: 2}
+    value:
+      mode: 0
+      constant: 0.3
+      asset: {fileID: 0}
+  modifierFactors: []

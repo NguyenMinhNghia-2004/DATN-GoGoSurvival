@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_Forcefield_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: 08e828d27ddb499bb2eaa6c2199a2fcc, type: 2}

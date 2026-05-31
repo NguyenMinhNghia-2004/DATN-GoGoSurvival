@@ -15,7 +15,12 @@ MonoBehaviour:
   _id: ZSk_Brick
   eTypeSkill: 1
   skillDefine: 5
-  upgradeConfigs: []
+  upgradeConfigs:
+  - {fileID: 11400000, guid: 02042e673b5445fd986894231c4afce8, type: 2}
+  - {fileID: 11400000, guid: 3e5407ecfb164e4fb05a4460076a0585, type: 2}
+  - {fileID: 11400000, guid: bd6997f294f849479eb80789e0db08b7, type: 2}
+  - {fileID: 11400000, guid: 30d257fb284e474da0c761bd6e4e6170, type: 2}
+  - {fileID: 11400000, guid: cbd39f36c2ee4cf0b3f5ce265c6d6449, type: 2}
   behaviorConfigs:
   - {fileID: 11400000, guid: ab2b01917c8974153b97f35ed7755457, type: 2}
   isCanUpgradeLevel: {fileID: 0}

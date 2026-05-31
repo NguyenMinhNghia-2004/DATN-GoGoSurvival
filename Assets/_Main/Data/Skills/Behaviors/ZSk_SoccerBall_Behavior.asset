@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: ZSk_SoccerBall_Behavior
   _searchTargetType: 0
   skillBehaviorStats: []
-  projectileConfig: {fileID: 0}
+  projectileConfig: {fileID: 11400000, guid: 90b68ee52f0f40c984b95dbe0516e161, type: 2}

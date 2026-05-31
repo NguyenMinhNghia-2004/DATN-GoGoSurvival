@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6532e7bf15b799441925602f097c513b, type: 3}
+  m_Name: StatsCfg_Player
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.StatsConfig
+  _id: StatsCfg_Player
+  assetStats:
+  - {fileID: 11400000, guid: 76be018720a54e9b9b296e6646bf7eba, type: 2}
+  - {fileID: 11400000, guid: 9717ef981bdc445a94483876feda065f, type: 2}
+  - {fileID: 11400000, guid: b8fd8079a8ca4c81a7700c8b7fb07cc3, type: 2}
+  - {fileID: 11400000, guid: f16cce8220d24850998571c3b127687a, type: 2}
+  - {fileID: 11400000, guid: 2d95f068fecf43028d6995970ca536dd, type: 2}
+  - {fileID: 11400000, guid: 2ce255d0b65a4808aa275489161e6f11, type: 2}
+  - {fileID: 11400000, guid: 35f549abc8a94a40a75d979b11c8ace7, type: 2}
