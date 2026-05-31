@@ -89,3 +89,52 @@ namespace Luzart
 
     // Data_UpgradeSkill and ListExtensions.GetShuffle live in `_LuzartGame/...` — not stubbed here.
 }
+
+// ============================================================
+// W5/W6 nuke stubs — global namespace types whose .cs files were deleted,
+// but a handful of Luzart consumers still type-reference them. Empty no-op
+// shells keep compile clean; FindObjectOfType returns null at runtime
+// (consumers null-guard).
+// ============================================================
+
+/// <summary>Stub for the deleted global <c>CurrencyManager</c> singleton. SV_GameplayHudUI and
+/// SV_EndGameBridge type-reference Instance / Coins / OnCoinChanged / FormatNumber. With no
+/// real currency owner, Instance stays null forever — consumers null-guard, so coin display
+/// reads as 0. FormatNumber kept as a pure utility for any caller that still wants it.</summary>
+public class CurrencyManager : UnityEngine.MonoBehaviour
+{
+    public static CurrencyManager Instance { get; private set; }
+    public event System.Action<long> OnCoinChanged;
+    public long Coins { get; private set; }
+
+    public static string FormatNumber(long value)
+    {
+        if (value < 0) return "-" + FormatNumber(-value);
+        if (value < 1000L) return value.ToString();
+        if (value >= 1000000000L) { float b = value / 1000000000f; return b >= 100f ? $"{b:0}B" : b >= 10f ? $"{b:0.#}B" : $"{b:0.##}B"; }
+        if (value >= 1000000L)    { float m = value / 1000000f;    return m >= 100f ? $"{m:0}M" : m >= 10f ? $"{m:0.#}M" : $"{m:0.##}M"; }
+        float k = value / 1000f;
+        return k >= 100f ? $"{k:0}K" : k >= 10f ? $"{k:0.#}K" : $"{k:0.##}K";
+    }
+
+    // Silence "event never used" warning without exposing real behaviour.
+    private void _SilenceUnusedWarning() { OnCoinChanged?.Invoke(0); }
+}
+
+namespace DATN.Legacy
+{
+    /// <summary>Stub for the deleted <c>DATN.Legacy.UIManager</c>. SV_MainMenuUI and
+    /// GameplayResetCoordinator type-reference PlayBtn / BackFinishSafe. With the legacy
+    /// MonoBehaviour gone, FindObjectOfType returns null at runtime — consumers null-guard,
+    /// so the legacy flow becomes a no-op. Luzart-native equivalents (ClassicMode.StartGame,
+    /// GameController.SpawnDefaultLevel, etc.) take over.</summary>
+    public class UIManager : UnityEngine.MonoBehaviour
+    {
+        public bool MapReady { get; set; }
+        public bool DestroyEnemys { get; set; }
+        public void PlayBtn() { }
+        public void BackFinishSafe() { }
+        public void BackFinish() { }
+        public void BackBtn() { }
+    }
+}
