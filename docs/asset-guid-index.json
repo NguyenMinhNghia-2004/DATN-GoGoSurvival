@@ -5780,6 +5780,15 @@
   "guid": "433e436611f294063890d395b119ddd7",
   "name": "Equipment"
  },
+ "Items": {
+  "path": "Assets/_Main/Data/Items",
+  "guid": "f64561e5e395405448775abfc691c853"
+ },
+ "__by_path__/Assets/_Main/Data/Items": {
+  "path": "Assets/_Main/Data/Items",
+  "guid": "f64561e5e395405448775abfc691c853",
+  "name": "Items"
+ },
  "Levels": {
   "path": "Assets/_Main/Data/Levels",
   "guid": "d17b473eda11146c793855b19bdfd4d5"
@@ -10873,10 +10882,6 @@
   "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay",
   "guid": "396eed32d44f61e4c8a4d185122711c4",
   "name": "Gameplay"
- },
- "Items": {
-  "path": "Assets/_Main/Scripts/_LuzartGame/Items",
-  "guid": "570b35cc8dc6d4a1e8146689a4992482"
  },
  "__by_path__/Assets/_Main/Scripts/_LuzartGame/Items": {
   "path": "Assets/_Main/Scripts/_LuzartGame/Items",

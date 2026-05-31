@@ -1,0 +1,964 @@
+[
+ {
+  "name": "Kunai",
+  "category": "Weapon",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 3.0,
+    "max_level": 10.0,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 20.0,
+    "bonus_per_level": 4.0,
+    "max_level": 20.0,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Better": {
+    "base": 40.0,
+    "bonus_per_level": 5.0,
+    "max_level": 40.0,
+    "grade_skill_text": "Kunai damage +30%"
+   },
+   "Excellent": {
+    "base": 70.0,
+    "bonus_per_level": 8.0,
+    "max_level": 60.0,
+    "grade_skill_text": "Start of with LV.2 Kunai"
+   },
+   "Epic": {
+    "base": 130.0,
+    "bonus_per_level": 12.0,
+    "max_level": 100.0,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Army Nameplate",
+  "category": "Neacklace",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +50% Dame in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Army Gloves",
+  "category": "Gloves",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Damage to Elites and Bosses +20%"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Army Uniform",
+  "category": "Armor",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 50.0,
+    "bonus_per_level": 5.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 70.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 100.0,
+    "bonus_per_level": 15.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 200.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "Heal 3% HP/5s"
+   },
+   "Epic": {
+    "base": 350.0,
+    "bonus_per_level": 30.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Army Belt",
+  "category": "Belt",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +20% CD in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Army Boots",
+  "category": "Shoes",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +30% Movement speed in 20s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Bone Pendant",
+  "category": "Neacklace",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Monsters in range are Slowed"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Leather Gloves",
+  "category": "Gloves",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Attacks have 5% chance to Crit"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Carapace",
+  "category": "Armor",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 50.0,
+    "bonus_per_level": 5.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 70.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 100.0,
+    "bonus_per_level": 15.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 200.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "Bullet damage received -100%, +10% for each bullet received. Max 0%."
+   },
+   "Epic": {
+    "base": 350.0,
+    "bonus_per_level": 30.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Leather Belt",
+  "category": "Belt",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Healing +5% when looting food (Max 30%)"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Prosthetic Legs",
+  "category": "Shoes",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Base Movement Speed +1"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Emerald Pendant",
+  "category": "Neacklace",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Generates radiation ring that deals damage over time"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Protective Gloves",
+  "category": "Gloves",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Damage to Elites and Bosses +20%"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Protective Suit",
+  "category": "Armor",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 50.0,
+    "bonus_per_level": 5.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 70.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 100.0,
+    "bonus_per_level": 15.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 200.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "Heal 3% HP/5s"
+   },
+   "Epic": {
+    "base": 350.0,
+    "bonus_per_level": 30.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Broad Waistguard",
+  "category": "Belt",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +20% CD in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Layered Snowshoes",
+  "category": "Shoes",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +30% Movement speed in 20s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Metal Neckguard",
+  "category": "Neacklace",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +50% Dame in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Shiny Wristguard",
+  "category": "Gloves",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Damage to Elites and Bosses +20%"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Full Metal Suit",
+  "category": "Armor",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 50.0,
+    "bonus_per_level": 5.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 70.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 100.0,
+    "bonus_per_level": 15.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 200.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "Heal 3% HP/5s"
+   },
+   "Epic": {
+    "base": 350.0,
+    "bonus_per_level": 30.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Waist Sensor",
+  "category": "Belt",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +20% CD in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Light Runners",
+  "category": "Shoes",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +30% Movement speed in 20s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Trendy Charm",
+  "category": "Neacklace",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +50% Dame in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Fingerless Gloves",
+  "category": "Gloves",
+  "statCategory": "ATK",
+  "quality": {
+   "Normal": {
+    "base": 10.0,
+    "bonus_per_level": 2.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 15.0,
+    "bonus_per_level": 3.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 30.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +10%"
+   },
+   "Excellent": {
+    "base": 50.0,
+    "bonus_per_level": 7.0,
+    "max_level": null,
+    "grade_skill_text": "Damage to Elites and Bosses +20%"
+   },
+   "Epic": {
+    "base": 100.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "ATK +15%"
+   }
+  }
+ },
+ {
+  "name": "Traveler's Jacket",
+  "category": "Armor",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 50.0,
+    "bonus_per_level": 5.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 70.0,
+    "bonus_per_level": 10.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 100.0,
+    "bonus_per_level": 15.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 200.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "Heal 3% HP/5s"
+   },
+   "Epic": {
+    "base": 350.0,
+    "bonus_per_level": 30.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Stylish Belt",
+  "category": "Belt",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +20% CD in 10s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ },
+ {
+  "name": "Highboots",
+  "category": "Shoes",
+  "statCategory": "HP",
+  "quality": {
+   "Normal": {
+    "base": 40.0,
+    "bonus_per_level": 4.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Good": {
+    "base": 55.0,
+    "bonus_per_level": 6.0,
+    "max_level": null,
+    "grade_skill_text": "n/a"
+   },
+   "Better": {
+    "base": 75.0,
+    "bonus_per_level": 8.0,
+    "max_level": null,
+    "grade_skill_text": "HP +15%"
+   },
+   "Excellent": {
+    "base": 150.0,
+    "bonus_per_level": 12.0,
+    "max_level": null,
+    "grade_skill_text": "Gain +30% Movement speed in 20s from Elites/Bosses kills"
+   },
+   "Epic": {
+    "base": 250.0,
+    "bonus_per_level": 20.0,
+    "max_level": null,
+    "grade_skill_text": "HP +20%"
+   }
+  }
+ }
+]
