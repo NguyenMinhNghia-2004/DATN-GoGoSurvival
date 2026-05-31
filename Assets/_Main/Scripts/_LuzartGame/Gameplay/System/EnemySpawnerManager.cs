@@ -73,6 +73,7 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent, IRunParticipant
     }
     public IEnumerator StartSpawning(List<EnemyWaveConfig> list)
     {
+        Debug.Log($"[DBG-CHAIN] S: EnemySpawnerManager.StartSpawning ENTRY (list count={list?.Count ?? 0}, instance='{name}', enabled={enabled})");
         Debug.Log($"[EnemySpawnerManager] StartSpawning: {list?.Count ?? 0} wave configs");
         if (list == null || list.Count == 0) yield break;
 

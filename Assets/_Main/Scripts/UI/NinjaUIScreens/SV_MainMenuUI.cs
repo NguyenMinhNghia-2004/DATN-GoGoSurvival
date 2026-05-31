@@ -45,6 +45,7 @@ public class SV_MainMenuUI : UIBase
         if (btnSettings == null) btnSettings = FindChildButton("Setting") ?? FindChildButton("Settings");
         if (btnMessages == null) btnMessages = FindChildButton("Messaging") ?? FindChildButton("Messages") ?? FindChildButton("Mails");
 
+        Debug.Log($"[DBG-CHAIN] A0: SV_MainMenuUI.OnCreateAsync on '{name}' — btnPlay={(btnPlay==null?"NULL":btnPlay.name)} btnShop={(btnShop==null?"NULL":btnShop.name)}");
         if (btnPlay != null) btnPlay.onClick.AddListener(OnPlay);
         if (btnShop != null) btnShop.onClick.AddListener(OnShop);
         if (btnEquipment != null) btnEquipment.onClick.AddListener(OnEquipment);

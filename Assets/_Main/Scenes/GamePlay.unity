@@ -165,10 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 284921910}
-  Rocket: {fileID: 3586765421827151515, guid: ec8eea61f963fa34aa84dabe8fe0e628, type: 3}
-  Manager: {fileID: 189845728}
-  SpawenLocalisation: {fileID: 1501464286}
 --- !u!212 &1758349
 SpriteRenderer:
   serializedVersion: 2
@@ -884,44 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68aa399b0c0c2e0478187695089f9037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boolean: {fileID: 1858125658}
-  PlayerPerfb: {fileID: 1177642144}
-  Sounds: {fileID: 1121729827}
-  JoystManager: {fileID: 352769157}
-  Spawner: {fileID: 204604326}
-  ManagerDownBtn: {fileID: 0}
-  WeaponSpawn: {fileID: 517922386}
-  ManagerUI: {fileID: 752338031}
-  ScreenHome: {fileID: 0}
-  ScreenVolve: {fileID: 0}
-  ScreenShop: {fileID: 0}
-  ScreenDeath: {fileID: 0}
-  ScreenEquipement: {fileID: 0}
-  UIWeapon: {fileID: 1121717384}
-  FillingFlash: {fileID: 0}
-  ScreenAddonWap: {fileID: 0}
-  Enemys: []
-  ContainerWorld: {fileID: 0}
-  HealthBar: {fileID: 1541228270}
-  ReloadWeapon: {fileID: 1785789031}
-  ScoringLevel: {fileID: 0}
-  FillingReweapon: {fileID: 0}
-  myColors:
-  - {r: 0.07066631, g: 1, b: 0, a: 1}
-  - {r: 0.9747988, g: 1, b: 0, a: 1}
-  - {r: 1, g: 0.39354917, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0.025919914, a: 1}
-  - {r: 0.9963193, g: 0, b: 1, a: 1}
-  - {r: 0.04513645, g: 0, b: 1, a: 1}
-  - {r: 0, g: 0.885386, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0.49680638, a: 1}
-  ScoringValue: {fileID: 0}
-  ScoringValueDeux: {fileID: 0}
-  ValueKilled: {fileID: 0}
-  ValueKilledScreenFinish: {fileID: 0}
-  CurrentCoins: {fileID: 0}
-  SpeedEnemy: 1
-  LerpTime: 15
 --- !u!4 &189845730
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,14 +1030,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 204604325}
-  - component: {fileID: 204604326}
   m_Layer: 0
   m_Name: SpawenLocalisation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &204604325
 Transform:
   m_ObjectHideFlags: 0
@@ -1088,35 +1045,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204604324}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1484999969}
   - {fileID: 1111218154}
-  m_Father: {fileID: 519420032}
+  m_Father: {fileID: 2040973965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &204604326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204604324}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a128190934d71fd4cb2017f3738aa004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 752338031}
-  Managers: {fileID: 189845729}
-  Zombie: {fileID: 3537171100188795310, guid: a4be2570a2e23844d97eda6847bcfe92, type: 3}
-  SpawenLocalisation: {fileID: 0}
-  Spawen1: {fileID: 1183999890}
-  Spawen2: {fileID: 852765993}
-  Spawen3: {fileID: 1444786310}
-  Spawen4: {fileID: 1412129679}
 --- !u!1 &219549481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,11 +1746,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 1377907531}
-  Left: 0
-  Right: 1
-  Up: 0
-  Down: 0
 --- !u!1 &284921910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,8 +2066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c60f180eb740914eb6d8cf30e9d93f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotatore: {fileID: 110816971304699030, guid: 63d940d375611b14ea571a750edff2b6, type: 3}
-  Points: {fileID: 1734697386}
 --- !u!212 &342113889
 SpriteRenderer:
   serializedVersion: 2
@@ -2318,8 +2248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7166dea7049259b45a1786e00b1a7943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ArrowDirecteur: {fileID: 346692316}
-  Gun: {fileID: 949337937}
+  ArrowDirecteur: {fileID: 0}
+  Gun: {fileID: 0}
   joystick: {fileID: 795584358}
   joystickBG: {fileID: 1458525228}
   joystickVec: {x: 0, y: 0}
@@ -2753,9 +2683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13498dbee6053e54e8d4a8a067079198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RanshonePerf: {fileID: 7659934636644487235, guid: 8c1a45c3104acd64f99d26496df9136a, type: 3}
-  LocalisationFrom: {fileID: 516912233}
-  LocalisationRansh: {fileID: 486259331}
 --- !u!1 &490207654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,8 +3029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581ac44e0fbfbde4db129fa398101bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bricking: {fileID: 5928708518177568049, guid: b8438fb6f52d95544926acfc893142a5, type: 3}
-  LocalisationBrick: {fileID: 396075084}
 --- !u!1 &508095343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,85 +3238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495dc240104af444db91f4f2eb77b23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 100
---- !u!1 &517922384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 517922385}
-  - component: {fileID: 517922386}
-  m_Layer: 5
-  m_Name: GamePlay
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &517922385
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517922384}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1143242781}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &517922386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517922384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0bef7c01486e58498dd80f98630b928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponsManager: {fileID: 1858125659}
-  FillingScore: {fileID: 189845729}
-  GameAddonsWeapons: {fileID: 0}
-  FirstBtn: {fileID: 0}
-  SecondBtn: {fileID: 0}
-  ThirdBtn: {fileID: 0}
-  NameOne: {fileID: 0}
-  NameTwo: {fileID: 0}
-  NameThree: {fileID: 0}
-  IconOne: {fileID: 0}
-  IconTwo: {fileID: 0}
-  IconThree: {fileID: 0}
-  DescriptionOne: {fileID: 0}
-  DescriptionTwo: {fileID: 0}
-  DescriptionThree: {fileID: 0}
-  YSpriteOne: {fileID: 0}
-  YSpriteTwo: {fileID: 0}
-  YSpriteThree: {fileID: 0}
-  YSpriteFour: {fileID: 0}
-  YSpriteFive: {fileID: 0}
-  YSpriteSix: {fileID: 0}
-  GSpriteOne: {fileID: 0}
-  GSpriteTwo: {fileID: 0}
-  GSpriteThree: {fileID: 0}
-  GSpriteFour: {fileID: 0}
-  GSpriteFive: {fileID: 0}
-  GSpriteSix: {fileID: 0}
-  PauseFirst: 0
-  PauseSecond: 0
-  PauseThrees: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,8 +3375,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 204604325}
+  m_Children: []
   m_Father: {fileID: 2040973965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
@@ -3545,10 +3390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3cb9cd94424674c9ab27b16ef001c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1177642138}
-  Spinner: {fileID: 238384983}
-  SpeedMove: 0
-  Offest: {x: 0, y: -0.71, z: -10}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,11 +3402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531185d8940e3aa4298e2139e15afd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawner: {fileID: 204604324}
-  Manager: {fileID: 752338031}
-  Managers: {fileID: 189845729}
-  SpawenOne: {fileID: 204604324}
-  SpawenTwo: {fileID: 1111218153}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,8 +3464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b146b34d4e50c14998802b47620544b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Aigule: {fileID: 3156331820324582483, guid: a0de7b3d7db211a4f98f884944296602, type: 3}
-  ContainerAigule: {fileID: 1713180376}
 --- !u!1 &579531792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4139,11 +3973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 1377907531}
-  Left: 1
-  Right: 0
-  Up: 0
-  Down: 0
 --- !u!1 &694311459
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,87 +4644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7ec2c5bdc870d4996664ee80ab39a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound: {fileID: 447001270}
-  Value: 0.74
---- !u!1 &752338026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 752338030}
-  - component: {fileID: 752338031}
-  m_Layer: 5
-  m_Name: _LegacyUIScripts
-  m_TagString: UI
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &752338030
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752338026}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1143242781}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &752338031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752338026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cee88c7102a1d4f9ebfac8673265f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Manager: {fileID: 189845729}
-  Bool: {fileID: 1858125658}
-  Weapons: {fileID: 1858125659}
-  Player: {fileID: 1177642138}
-  HelthUI: {fileID: 1121717384}
-  LevelLocalisation: {fileID: 0}
-  CurrentLevel: {fileID: 0}
-  ScreenPause: {fileID: 0}
-  ScreenMainMenu: {fileID: 0}
-  ScreenGamePlay: {fileID: 517922384}
-  EffectFade: {fileID: 0}
-  EffectFadeGamePlay: {fileID: 0}
-  FinishScreen: {fileID: 0}
-  SpinerContainer: {fileID: 238384983}
-  GunW: {fileID: 949337937}
-  SpinnerAW: {fileID: 698135713}
-  SpinnerBW: {fileID: 1884699223}
-  Sahem: {fileID: 21300000, guid: 039c05c0076e40e4a8358491ca62668b, type: 3}
-  Gun: {fileID: 21300000, guid: 26814db12f77b4942b37b0d51cf80713, type: 3}
-  SpinerA: {fileID: 21300000, guid: fc157b7b015750c44b0e78aae2713a53, type: 3}
-  SpinerB: {fileID: 21300000, guid: 7d4801b82c457bc4e8de4629f27d2621, type: 3}
-  Ball: {fileID: 21300000, guid: 99b8fa860a2e8264e8795855aa4b21ea, type: 3}
-  Rocket: {fileID: 427020854, guid: f50673b214fb52044a54ee81afd79131, type: 3}
-  DroneA: {fileID: 21300000, guid: bd36293a984ff03429ff214d183394af, type: 3}
-  DroneB: {fileID: 21300000, guid: 2f907a1156daaa845b8dc6950e0b03b6, type: 3}
-  DroneC: {fileID: 21300000, guid: 9ae3fac985277284ead00ec1eef91ced, type: 3}
-  FireGlass: {fileID: 21300000, guid: 4a6ab8fb58e321e49a50865dcd6f309a, type: 3}
-  Brick: {fileID: 21300000, guid: 0166118281bb4ee49b3539595ccb5f3b, type: 3}
-  FireGase: {fileID: 21300000, guid: 11b05c059c8cc21489d2b122b1f24e3a, type: 3}
-  CurrentName: 
-  useSurvivorIoEndGame: 1
 --- !u!1 &795584358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,11 +5645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 1377907531}
-  Left: 0
-  Right: 0
-  Up: 1
-  Down: 0
 --- !u!1 &949337937
 GameObject:
   m_ObjectHideFlags: 0
@@ -6007,22 +5750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4415879f0b6358742a2a31f8641d1270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1597210390}
-  Audio: {fileID: 957329719}
-  Bool: {fileID: 0}
-  Pos0: {fileID: 337217137}
-  Pos1: {fileID: 410733864}
-  Pos2: {fileID: 1254225369}
-  Pos3: {fileID: 928780983}
-  Pos4: {fileID: 219549481}
-  Pos5: {fileID: 626418022}
-  Bullet0: {fileID: 6782310333302772039, guid: 6319b02595c057f429f466d5d3ad47c8, type: 3}
-  Bullet1: {fileID: 5631505898694730824, guid: 7d1b41ae81616584381e1128ce6a0de7, type: 3}
-  Bullet2: {fileID: 6629030549687097619, guid: 52751b3c5d788eb4ebb8d24e815ac27b, type: 3}
-  Bullet3: {fileID: 4795172057830980364, guid: 97b04af7493d122419e4d770e9ba0039, type: 3}
-  Bullet4: {fileID: 6931812270464566424, guid: a412f03ae3e6c944b8d62b9852f38bcc, type: 3}
-  Bullet5: {fileID: 1972246284134070338, guid: 86b80ff7deb28154baf5cb959aab69d7, type: 3}
-  ContainerBolt: {fileID: 94926396}
 --- !u!1 &957329717
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,9 +5923,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13498dbee6053e54e8d4a8a067079198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RanshonePerf: {fileID: 1740431431228757460, guid: d6293f187fce58240a827a4fdf6d9aed, type: 3}
-  LocalisationFrom: {fileID: 516912233}
-  LocalisationRansh: {fileID: 983836717}
 --- !u!1 &1001853821
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,14 +6681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a128190934d71fd4cb2017f3738aa004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 752338031}
-  Managers: {fileID: 189845729}
-  Zombie: {fileID: 3537171100188795310, guid: c0feb335d957d6e429237db00bd948e3, type: 3}
-  SpawenLocalisation: {fileID: 0}
-  Spawen1: {fileID: 1183999890}
-  Spawen2: {fileID: 852765993}
-  Spawen3: {fileID: 1444786310}
-  Spawen4: {fileID: 1412129679}
 --- !u!1 &1121717384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7118,44 +6834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ec92c85e7317b4cbe82b1bb8eae744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoolM: {fileID: 1858125658}
-  Sound: {fileID: 447001270}
-  Music: {fileID: 914353211}
-  Vibration: {fileID: 1418394078}
-  ScreenGamePlay: {fileID: 517922384}
---- !u!1 &1143242780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1143242781}
-  m_Layer: 0
-  m_Name: _LegacyManagers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1143242781
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143242780}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 517922385}
-  - {fileID: 752338030}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148875772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,8 +7015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7ec2c5bdc870d4996664ee80ab39a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound: {fileID: 447001270}
-  Value: 1
 --- !u!1 &1177642138
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,16 +7142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7161c7bf9f808f947b564d3d79921d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 189845729}
-  Bool: {fileID: 1858125658}
-  EffectArrow: {fileID: 1979066962}
-  AudioHeat: {fileID: 1044766578}
-  Death: {fileID: 712875191}
-  SpawenShoot: {fileID: 1597210390}
-  ContainerWap: {fileID: 1021969298}
-  Offest: {x: -0.057, y: -0.692, z: 0}
-  Bolts: {fileID: 294761617863680392, guid: e4f500636d700c046b9553e3f189a6e7, type: 3}
-  UI: {fileID: 1121717384}
 --- !u!212 &1177642145
 SpriteRenderer:
   serializedVersion: 2
@@ -8330,7 +7996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495dc240104af444db91f4f2eb77b23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 0.5
 --- !u!1 &1364735511
 GameObject:
   m_ObjectHideFlags: 0
@@ -8377,10 +8042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 811902615}
-  Rocket: {fileID: 3586765421827151515, guid: ec8eea61f963fa34aa84dabe8fe0e628, type: 3}
-  Manager: {fileID: 189845728}
-  SpawenLocalisation: {fileID: 1501464286}
 --- !u!212 &1364735514
 SpriteRenderer:
   serializedVersion: 2
@@ -10055,8 +9716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c60f180eb740914eb6d8cf30e9d93f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotatore: {fileID: 110816971304699030, guid: 627d3faabf55ffd40bb8bc40629d7fb1, type: 3}
-  Points: {fileID: 943481339}
 --- !u!1 &1597210390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11279,36 +10938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f82e15807c0d5548b5d803592c806e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProtecteurGreen: {fileID: 1542972278}
-  DroneA: {fileID: 1995113159}
-  DroneB: {fileID: 811902615}
-  DroneC: {fileID: 284921910}
-  BrikWall: {fileID: 496602085}
-  Gun: {fileID: 949337937}
-  SprineA: {fileID: 698135713}
-  SprineB: {fileID: 1884699223}
-  Ball: {fileID: 1377907531}
-  SalsaRanshom: {fileID: 983836717}
-  FireGase: {fileID: 486259331}
-  Aguel: {fileID: 541733045}
-  DroneContainer: {fileID: 2010006513}
-  DroneObjectsContainer: {fileID: 1699266927}
-  SprineContainer: {fileID: 238384983}
-  DroneObjectA: {fileID: 1865977341}
-  DroneObjectB: {fileID: 1364735511}
-  DroneObjectC: {fileID: 1758346}
-  SProtecteurGreen: {fileID: 21300000, guid: ac92159d33a056e4080bb2803231c948, type: 3}
-  SDroneA: {fileID: 21300000, guid: bd36293a984ff03429ff214d183394af, type: 3}
-  SDroneB: {fileID: 21300000, guid: 2f907a1156daaa845b8dc6950e0b03b6, type: 3}
-  SDroneC: {fileID: 21300000, guid: 9ae3fac985277284ead00ec1eef91ced, type: 3}
-  SBrikWall: {fileID: 21300000, guid: 0166118281bb4ee49b3539595ccb5f3b, type: 3}
-  SGun: {fileID: 21300000, guid: 26814db12f77b4942b37b0d51cf80713, type: 3}
-  SSprineA: {fileID: 21300000, guid: 7d4801b82c457bc4e8de4629f27d2621, type: 3}
-  SSprineB: {fileID: 21300000, guid: fc157b7b015750c44b0e78aae2713a53, type: 3}
-  SBall: {fileID: 21300000, guid: 99b8fa860a2e8264e8795855aa4b21ea, type: 3}
-  SSalsaRanshone: {fileID: 21300000, guid: 4a6ab8fb58e321e49a50865dcd6f309a, type: 3}
-  SFireGase: {fileID: 21300000, guid: 11b05c059c8cc21489d2b122b1f24e3a, type: 3}
-  SAguel: {fileID: 427020854, guid: f50673b214fb52044a54ee81afd79131, type: 3}
 --- !u!1 &1859455147
 GameObject:
   m_ObjectHideFlags: 0
@@ -11460,11 +11089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 1377907531}
-  Left: 0
-  Right: 0
-  Up: 0
-  Down: 1
 --- !u!1 &1865977341
 GameObject:
   m_ObjectHideFlags: 0
@@ -11511,10 +11135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1995113159}
-  Rocket: {fileID: 3586765421827151515, guid: ec8eea61f963fa34aa84dabe8fe0e628, type: 3}
-  Manager: {fileID: 189845728}
-  SpawenLocalisation: {fileID: 1501464286}
 --- !u!212 &1865977344
 SpriteRenderer:
   serializedVersion: 2
@@ -12733,6 +12353,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 204604325}
   - {fileID: 1980710827}
   - {fileID: 2029955168}
   m_Father: {fileID: 0}
@@ -13005,4 +12626,3 @@ SceneRoots:
   - {fileID: 694311466}
   - {fileID: 201082528}
   - {fileID: 1515392206}
-  - {fileID: 1143242781}

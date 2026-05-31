@@ -55,6 +55,11 @@ namespace Luzart
             _animator = GetComponentInChildren<Animator>();
         }
 
+        private void Awake()
+        {
+            Debug.Log($"[DBG-CHAIN] PLAYER: LuzartPlayerController.Awake on '{name}' — _rb={(_rb==null?"NULL":"OK")} _joystick={(_joystick==null?"NULL":_joystick.GetType().Name+":"+_joystick.name)} _animator={(_animator==null?"NULL":"OK")}");
+        }
+
         private void OnEnable()
         {
             CacheJoystickReflection();

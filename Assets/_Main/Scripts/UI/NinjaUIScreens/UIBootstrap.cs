@@ -31,6 +31,7 @@ public class UIBootstrap : MonoBehaviour
 
     protected virtual async UniTask StartFlow(CancellationToken ct)
     {
+        Debug.Log($"[DBG-CHAIN] BOOT: UIBootstrap.StartFlow showSplash={showSplash} showMainMenu={showMainMenu} UIManager.Instance={(UIManager.Instance==null?"NULL":"OK")}");
         if (UIManager.Instance == null)
         {
             Debug.LogError("[UIBootstrap] UIManager.Instance is null — make sure UIManager GameObject exists in scene.");
@@ -39,6 +40,7 @@ public class UIBootstrap : MonoBehaviour
 
         if (showSplash)
         {
+            Debug.Log("[DBG-CHAIN] BOOT: showing splash");
             var splashHandle = await UIManager.Instance.ShowAsync(splashId, ct: ct);
             // Splash auto-closes when fill bar fills. Wait until it does.
             var splashView = splashHandle.View;
@@ -51,11 +53,14 @@ public class UIBootstrap : MonoBehaviour
             }
             if (t < minSplashDuration)
                 await UniTask.Delay((int)((minSplashDuration - t) * 1000f), cancellationToken: ct);
+            Debug.Log("[DBG-CHAIN] BOOT: splash done");
         }
 
         if (showMainMenu)
         {
+            Debug.Log($"[DBG-CHAIN] BOOT: showing main menu (id={mainMenuId})");
             await UIManager.Instance.ShowAsync(mainMenuId, ct: ct);
+            Debug.Log("[DBG-CHAIN] BOOT: main menu shown");
         }
     }
 }
