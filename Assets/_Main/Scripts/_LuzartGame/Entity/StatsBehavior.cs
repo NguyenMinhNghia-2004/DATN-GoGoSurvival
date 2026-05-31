@@ -153,7 +153,8 @@ namespace Luzart
                 _ => oldValue,
             };
             _statDefaultDict[key] = new Number(newValue);
-            try { current.Changed?.Invoke(_statDefaultDict[key]); } catch { /* same */ }
+            // Same note as ApplyStatBonus: Action events on the old INumber
+            // instance can't be invoked from outside the declaring type.
         }
 
         protected override void DoUpdate(float dt)
