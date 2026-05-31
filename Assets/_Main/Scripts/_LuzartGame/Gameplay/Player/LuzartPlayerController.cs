@@ -127,9 +127,16 @@ namespace Luzart
             return PlayerSpeedFallback;
         }
 
+        private bool _dbgLoggedActive;
+        private bool _dbgLoggedFirstMove;
+        private int _dbgFlagsCheckCount;
         private void Update()
         {
-            if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
+            if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController)
+            {
+                if (_dbgFlagsCheckCount++ < 3) Debug.Log($"[DBG-CHAIN] E: PlayerController gate: flags={(flags==null?"NULL":"OK use="+flags.UseLuzartPlayerController)}");
+                return;
+            }
             // Note: legacy required Boolean.GameStart to be true to move. Phase F
             // hooks the framework GameController.MapReady property (already
             // bridged from UIManager.MapReady in Phase D).
@@ -146,7 +153,19 @@ namespace Luzart
                 return;
             }
 
+            if (!_dbgLoggedActive)
+            {
+                _dbgLoggedActive = true;
+                Debug.Log($"[DBG-CHAIN] E: PlayerController gates OPEN: gc.MapReady={gc?.MapReady}, mode.IsPlaying={mode?.IsPlaying}, _joystick={(_joystick==null?"NULL":_joystick.GetType().Name)}, _joystickVecField={(_joystickVecField==null?"NULL":"OK")}, _rb={(_rb==null?"NULL":"OK")}");
+            }
+
             var v = ReadJoystick();
+            // Log once when v transitions from zero → nonzero (i.e., user starts dragging)
+            if (!_dbgLoggedFirstMove && v.sqrMagnitude > 0.0001f)
+            {
+                _dbgLoggedFirstMove = true;
+                Debug.Log($"[DBG-CHAIN] E: First nonzero joystick v=({v.x:F2},{v.y:F2}) speed={ResolveSpeed():F1}");
+            }
             if (_rb != null)
             {
                 // F.G fix: legacy gated on v.y != 0 only — pure horizontal joystick

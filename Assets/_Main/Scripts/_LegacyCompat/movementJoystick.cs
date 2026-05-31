@@ -43,6 +43,7 @@ public class movementJoystick : MonoBehaviour
         if (joystick != null) _handleRect = joystick.GetComponent<RectTransform>();
         _parentCanvas = GetComponentInParent<Canvas>();
         RecomputeRadius();
+        Debug.Log($"[DBG-CHAIN] C: movementJoystick.Awake on {name}: bg={(joystickBG==null?"NULL":joystickBG.name)} handle={(joystick==null?"NULL":joystick.name)} canvas={(_parentCanvas==null?"NULL":_parentCanvas.name)} radius={_radiusPx:F1}");
     }
 
     private void OnEnable()
@@ -68,6 +69,7 @@ public class movementJoystick : MonoBehaviour
     }
 
     private Vector2 _bgAnchoredHome;
+    private int _dragLogThrottle;
 
     // ---- Event handlers — Void mode (no args) overloads are required by the scene's
     //      EventTrigger entries with m_Mode: 1. The (BaseEventData) overloads are kept
@@ -76,6 +78,7 @@ public class movementJoystick : MonoBehaviour
     public void PointerDown(BaseEventData _) => PointerDownCore();
     private void PointerDownCore()
     {
+        Debug.Log("[DBG-CHAIN] D: movementJoystick.PointerDown FIRED");
         // Re-center handle and clear vec until first Drag updates them.
         joystickVec = Vector2.zero;
         if (_handleRect != null) _handleRect.anchoredPosition = _bgAnchoredHome;
@@ -104,6 +107,9 @@ public class movementJoystick : MonoBehaviour
         // off, since bg sits at anchoredPosition (0, -552) within Joystick Table).
         _handleRect.anchoredPosition = _bgAnchoredHome + clamped;
         joystickVec = _radiusPx > 0f ? clamped / _radiusPx : Vector2.zero;
+        _dragLogThrottle++;
+        if (_dragLogThrottle <= 3 || _dragLogThrottle % 20 == 0)
+            Debug.Log($"[DBG-CHAIN] D: Drag fired#{_dragLogThrottle} local=({localPoint.x:F1},{localPoint.y:F1}) vec=({joystickVec.x:F2},{joystickVec.y:F2}) radius={_radiusPx:F1}");
 
         // Optional facing aids (legacy parity — no-op when refs unassigned).
         if (Gun != null)

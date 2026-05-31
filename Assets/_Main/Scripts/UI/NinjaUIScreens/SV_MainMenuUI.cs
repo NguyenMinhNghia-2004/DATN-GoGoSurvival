@@ -79,6 +79,7 @@ public class SV_MainMenuUI : UIBase
 
     private async void OnPlay()
     {
+        Debug.Log("[DBG-CHAIN] A: SV_MainMenuUI.OnPlay clicked");
         // 1) Kick legacy DATN gameplay flow (sets Bool.GameStart, activates weapons, etc.)
         var legacyUIManager = FindObjectOfType<DATN.Legacy.UIManager>();
         if (legacyUIManager != null) legacyUIManager.PlayBtn();
@@ -89,9 +90,11 @@ public class SV_MainMenuUI : UIBase
         {
             var domain = Luzart.SceneRootManager.Instance.Domain;
             var classicMode = domain?.Get<Luzart.ClassicModeController>();
+            Debug.Log($"[DBG-CHAIN] A: domain={(domain==null?"null":"OK")}, classicMode={(classicMode==null?"null":"OK")}");
             if (classicMode != null) classicMode.StartGame();
             else domain?.Get<Luzart.GameController>()?.StartGameplay(); // fallback if not wired
         }
+        else Debug.LogWarning("[DBG-CHAIN] A: SceneRootManager.Instance is NULL");
 
         // 3) Hide MainMenu, show GameplayHud.
         await Luzart.UIManager.Instance.ShowAsync(Luzart.UIId.SV_GameplayHud,
