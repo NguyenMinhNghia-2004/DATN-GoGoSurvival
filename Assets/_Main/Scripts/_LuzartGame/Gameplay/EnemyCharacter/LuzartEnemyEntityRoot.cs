@@ -19,8 +19,8 @@ namespace Luzart
     /// </summary>
     public class LuzartEnemyEntityRoot : MonoBehaviour
     {
-        [Header("Stat source (legacy EnemyData wired on Zombie prefab)")]
-        [SerializeField] private EnemyData _legacyData;
+        // W3 nuke: legacy EnemyData asset SO + class deleted. Stats now come from
+        // _defaultHP / _defaultMoveSpeed inline until a Luzart-native enemy stats config lands.
         [SerializeField] private float _defaultHP = 100f;
         [SerializeField] private float _defaultMoveSpeed = 2f;
         [Tooltip("Hold position once within this distance of the player (melee). Re-evaluated " +
@@ -71,7 +71,7 @@ namespace Luzart
 
             // Init HP from EnemyData per current framework wave.
             int wave = ResolveWave();
-            _maxHP = _legacyData != null ? _legacyData.GetHP(wave) : _defaultHP;
+            _maxHP = _defaultHP; // W3 nuke: legacy EnemyData removed, no per-wave HP scaling for now.
             _currentHP = _maxHP;
             _diamondType = Random.Range(1, 4); // 1..3 inclusive
 
@@ -107,9 +107,7 @@ namespace Luzart
             float dist = Vector2.Distance(transform.position, _playerTransform.position);
             if (dist > _stopFollowDistance)
             {
-                float speed = _legacyData != null
-                    ? _legacyData.GetMoveSpeed(ResolveWave())
-                    : _defaultMoveSpeed;
+                float speed = _defaultMoveSpeed; // W3 nuke: legacy EnemyData removed.
                 transform.position = Vector2.MoveTowards(
                     transform.position, _playerTransform.position, speed * Time.deltaTime);
             }

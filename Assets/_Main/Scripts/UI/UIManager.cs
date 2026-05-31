@@ -211,7 +211,6 @@ public class UIManager : MonoBehaviour
             Manager.startmove = false;
             foreach (GameObject joint in Manager.Enemys)
             {
-                joint.GetComponent<EnemyManager>().enabled = true;
                 joint.GetComponent<Rigidbody2D>().simulated = true;
             }
         }

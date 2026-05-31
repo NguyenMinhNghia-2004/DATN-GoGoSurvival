@@ -141,7 +141,6 @@ public class GameManager : MonoBehaviour
             {
                 foreach (GameObject joint in Enemys)
                 {
-                    joint.GetComponent<EnemyManager>().enabled = false;
                     joint.GetComponent<Rigidbody2D>().simulated = false;
                 }
             }
@@ -174,7 +173,6 @@ public class GameManager : MonoBehaviour
             Enemys = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject joint in Enemys)
             {
-                joint.GetComponent<EnemyManager>().enabled = true;
                 joint.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
@@ -242,7 +240,6 @@ public class GameManager : MonoBehaviour
             startmove = false;
             foreach (GameObject joint in Enemys)
             {
-                joint.GetComponent<EnemyManager>().enabled = true;
                 joint.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
@@ -260,7 +257,6 @@ public class GameManager : MonoBehaviour
             startmove = false;
             foreach (GameObject joint in Enemys)
             {
-                joint.GetComponent<EnemyManager>().enabled = true;
                 joint.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
@@ -279,7 +275,6 @@ public class GameManager : MonoBehaviour
             startmove = false;
             foreach (GameObject joint in Enemys)
             {
-                joint.GetComponent<EnemyManager>().enabled = true;
                 joint.GetComponent<Rigidbody2D>().simulated = true;
             }
         }
