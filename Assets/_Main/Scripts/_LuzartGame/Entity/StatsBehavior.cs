@@ -99,6 +99,63 @@ namespace Luzart
             double newValue = gold.Value + amount;
             gold.Set(newValue);
         }
+
+        // ──────────────────────────────────────────────────────────────────
+        // Passive stat bonus API (2026-06-01).
+        //
+        // Used by `ZSkillBehavior_Stat.UpgradeStat()` to apply passive skill
+        // effects (e.g. Fitness Guide +20% Max HP). Mutates the stored INumber
+        // reference for the stat so subsequent `Get(key)` reads see the new
+        // value. Caller is responsible for tracking + undoing previous level's
+        // contribution before applying a new level.
+        //
+        // This is a *minimal* alternative to the full Luzart modifier pipeline
+        // (RuntimeModifierFactorGroup + AssetModifier_ContributeToAggregatedNumber)
+        // which would require authoring AssetModifier SOs per stat. The delta
+        // semantics here match a simple "apply factor on top of current value"
+        // model.
+        // ──────────────────────────────────────────────────────────────────
+        public enum StatBonusMode
+        {
+            Additive,           // newValue = current + factor
+            PercentMultiply,    // newValue = current × (1 + factor)
+            PercentSubtract,    // newValue = current × (1 - factor) — for cooldown
+        }
+
+        public void ApplyStatBonus(StatType key, double factor, StatBonusMode mode)
+        {
+            if (factor == 0) return;
+            var current = Get(key);
+            double oldValue = current.Value;
+            double newValue = mode switch
+            {
+                StatBonusMode.Additive => oldValue + factor,
+                StatBonusMode.PercentMultiply => oldValue * (1 + factor),
+                StatBonusMode.PercentSubtract => oldValue * (1 - factor),
+                _ => oldValue,
+            };
+            _statDefaultDict[key] = new Number(newValue);
+            // Note: events on the old INumber instance won't fire because Action
+            // events can't be invoked from outside the declaring type. UI reading
+            // via Get(key) on demand will see the new value.
+        }
+
+        public void RemoveStatBonus(StatType key, double factor, StatBonusMode mode)
+        {
+            if (factor == 0) return;
+            var current = Get(key);
+            double oldValue = current.Value;
+            double newValue = mode switch
+            {
+                StatBonusMode.Additive => oldValue - factor,
+                StatBonusMode.PercentMultiply => oldValue / (1 + factor),
+                StatBonusMode.PercentSubtract => oldValue / (1 - factor),
+                _ => oldValue,
+            };
+            _statDefaultDict[key] = new Number(newValue);
+            try { current.Changed?.Invoke(_statDefaultDict[key]); } catch { /* same */ }
+        }
+
         protected override void DoUpdate(float dt)
         {
             base.DoUpdate(dt);

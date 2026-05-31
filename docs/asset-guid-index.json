@@ -5803,14 +5803,14 @@
   "guid": "ca2054594b042bb43bf77fc81bd3a077",
   "name": "NewEquipment"
  },
- "SkillDatabase": {
-  "path": "Assets/_Main/Data/SkillDatabase.asset",
-  "guid": "136e64be3178c1045bfd7f8da0f26afc"
+ "Projectiles": {
+  "path": "Assets/_Main/Data/Projectiles",
+  "guid": "522dfbfa0de6c1847ae3037917f3b6fe"
  },
- "__by_path__/Assets/_Main/Data/SkillDatabase.asset": {
-  "path": "Assets/_Main/Data/SkillDatabase.asset",
-  "guid": "136e64be3178c1045bfd7f8da0f26afc",
-  "name": "SkillDatabase"
+ "__by_path__/Assets/_Main/Data/Projectiles": {
+  "path": "Assets/_Main/Data/Projectiles",
+  "guid": "522dfbfa0de6c1847ae3037917f3b6fe",
+  "name": "Projectiles"
  },
  "Skills": {
   "path": "Assets/_Main/Data/Skills",
@@ -6339,6 +6339,96 @@
   "guid": "f0a221c51d9f74b45bae64b1e2d419ab",
   "name": "MigrationFlagsContent"
  },
+ "ProjCfg_Boomerang": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Boomerang.asset",
+  "guid": "70ece301acf84afa90d8d939b9a97193"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Boomerang.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Boomerang.asset",
+  "guid": "70ece301acf84afa90d8d939b9a97193",
+  "name": "ProjCfg_Boomerang"
+ },
+ "ProjCfg_Brick": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Brick.asset",
+  "guid": "f0a88328a1384eafaa3be45b3d4e12ab"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Brick.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Brick.asset",
+  "guid": "f0a88328a1384eafaa3be45b3d4e12ab",
+  "name": "ProjCfg_Brick"
+ },
+ "ProjCfg_DrillShot": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_DrillShot.asset",
+  "guid": "f43834e01a1b4d2db4106bad1439adf5"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_DrillShot.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_DrillShot.asset",
+  "guid": "f43834e01a1b4d2db4106bad1439adf5",
+  "name": "ProjCfg_DrillShot"
+ },
+ "ProjCfg_Durian": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Durian.asset",
+  "guid": "2a96b2e06fa94e959a5690b0e2065da4"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Durian.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Durian.asset",
+  "guid": "2a96b2e06fa94e959a5690b0e2065da4",
+  "name": "ProjCfg_Durian"
+ },
+ "ProjCfg_Forcefield": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Forcefield.asset",
+  "guid": "08e828d27ddb499bb2eaa6c2199a2fcc"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Forcefield.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Forcefield.asset",
+  "guid": "08e828d27ddb499bb2eaa6c2199a2fcc",
+  "name": "ProjCfg_Forcefield"
+ },
+ "ProjCfg_Guardian": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Guardian.asset",
+  "guid": "975f05916646429eb627dd8b6138a727"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Guardian.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Guardian.asset",
+  "guid": "975f05916646429eb627dd8b6138a727",
+  "name": "ProjCfg_Guardian"
+ },
+ "ProjCfg_Kunai": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Kunai.asset",
+  "guid": "e6b4ced6468d4edc925d0563ed227a9d"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Kunai.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Kunai.asset",
+  "guid": "e6b4ced6468d4edc925d0563ed227a9d",
+  "name": "ProjCfg_Kunai"
+ },
+ "ProjCfg_Molotov": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Molotov.asset",
+  "guid": "7c005245a39a4797ab8a8257d960f3cf"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_Molotov.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_Molotov.asset",
+  "guid": "7c005245a39a4797ab8a8257d960f3cf",
+  "name": "ProjCfg_Molotov"
+ },
+ "ProjCfg_RPG": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_RPG.asset",
+  "guid": "b0b0ba68a3e5437bb923cae42c54dc2f"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_RPG.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_RPG.asset",
+  "guid": "b0b0ba68a3e5437bb923cae42c54dc2f",
+  "name": "ProjCfg_RPG"
+ },
+ "ProjCfg_SoccerBall": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_SoccerBall.asset",
+  "guid": "90b68ee52f0f40c984b95dbe0516e161"
+ },
+ "__by_path__/Assets/_Main/Data/Projectiles/ProjCfg_SoccerBall.asset": {
+  "path": "Assets/_Main/Data/Projectiles/ProjCfg_SoccerBall.asset",
+  "guid": "90b68ee52f0f40c984b95dbe0516e161",
+  "name": "ProjCfg_SoccerBall"
+ },
  "Active": {
   "path": "Assets/_Main/Data/Skills/Active",
   "guid": "c9ff70f77afe5a0499a0225a6062f18b"
@@ -6379,6 +6469,10 @@
   "path": "Assets/_Main/Data/Skills/Passive",
   "guid": "793ac6e00af736940a39d67d1c2ba266",
   "name": "Passive"
+ },
+ "SkillDatabase": {
+  "path": "Assets/_Main/Data/Skills/SkillDatabase.asset",
+  "guid": "d7f9404639d347f4fbbb98f7eb5bb650"
  },
  "__by_path__/Assets/_Main/Data/Skills/SkillDatabase.asset": {
   "path": "Assets/_Main/Data/Skills/SkillDatabase.asset",
@@ -7020,6 +7114,1010 @@
   "guid": "3428b2bdb3471984c87565307353e6e0",
   "name": "Sports Shoes"
  },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive",
+  "guid": "93eb5b3e1bca41f4b8d35accee4921f0",
+  "name": "Passive"
+ },
+ "ZSkUp_Boomerang_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv1.asset",
+  "guid": "3d9924f93bb94cedab23b30255bf6ed5"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv1.asset",
+  "guid": "3d9924f93bb94cedab23b30255bf6ed5",
+  "name": "ZSkUp_Boomerang_Lv1"
+ },
+ "ZSkUp_Boomerang_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv2.asset",
+  "guid": "19bdefb38532438c9d9a4a190985f38a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv2.asset",
+  "guid": "19bdefb38532438c9d9a4a190985f38a",
+  "name": "ZSkUp_Boomerang_Lv2"
+ },
+ "ZSkUp_Boomerang_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv3.asset",
+  "guid": "400b593a3cfb4bf6bd032c1a86b62396"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv3.asset",
+  "guid": "400b593a3cfb4bf6bd032c1a86b62396",
+  "name": "ZSkUp_Boomerang_Lv3"
+ },
+ "ZSkUp_Boomerang_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv4.asset",
+  "guid": "d2fa82c8d14e4255acdcf1318efdc2be"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv4.asset",
+  "guid": "d2fa82c8d14e4255acdcf1318efdc2be",
+  "name": "ZSkUp_Boomerang_Lv4"
+ },
+ "ZSkUp_Boomerang_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv5.asset",
+  "guid": "7106d2443af848d49b1a061527b11d75"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Boomerang_Lv5.asset",
+  "guid": "7106d2443af848d49b1a061527b11d75",
+  "name": "ZSkUp_Boomerang_Lv5"
+ },
+ "ZSkUp_Brick_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv1.asset",
+  "guid": "02042e673b5445fd986894231c4afce8"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv1.asset",
+  "guid": "02042e673b5445fd986894231c4afce8",
+  "name": "ZSkUp_Brick_Lv1"
+ },
+ "ZSkUp_Brick_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv2.asset",
+  "guid": "3e5407ecfb164e4fb05a4460076a0585"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv2.asset",
+  "guid": "3e5407ecfb164e4fb05a4460076a0585",
+  "name": "ZSkUp_Brick_Lv2"
+ },
+ "ZSkUp_Brick_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv3.asset",
+  "guid": "bd6997f294f849479eb80789e0db08b7"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv3.asset",
+  "guid": "bd6997f294f849479eb80789e0db08b7",
+  "name": "ZSkUp_Brick_Lv3"
+ },
+ "ZSkUp_Brick_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv4.asset",
+  "guid": "30d257fb284e474da0c761bd6e4e6170"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv4.asset",
+  "guid": "30d257fb284e474da0c761bd6e4e6170",
+  "name": "ZSkUp_Brick_Lv4"
+ },
+ "ZSkUp_Brick_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv5.asset",
+  "guid": "cbd39f36c2ee4cf0b3f5ce265c6d6449"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Brick_Lv5.asset",
+  "guid": "cbd39f36c2ee4cf0b3f5ce265c6d6449",
+  "name": "ZSkUp_Brick_Lv5"
+ },
+ "ZSkUp_DrillShot_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv1.asset",
+  "guid": "b1d90c2c38d24a2280fbb97e457d3010"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv1.asset",
+  "guid": "b1d90c2c38d24a2280fbb97e457d3010",
+  "name": "ZSkUp_DrillShot_Lv1"
+ },
+ "ZSkUp_DrillShot_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv2.asset",
+  "guid": "d32f8b313b2a4717a7c9b154945a8e08"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv2.asset",
+  "guid": "d32f8b313b2a4717a7c9b154945a8e08",
+  "name": "ZSkUp_DrillShot_Lv2"
+ },
+ "ZSkUp_DrillShot_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv3.asset",
+  "guid": "499ff4e197bc4f97a22db9f842512b6d"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv3.asset",
+  "guid": "499ff4e197bc4f97a22db9f842512b6d",
+  "name": "ZSkUp_DrillShot_Lv3"
+ },
+ "ZSkUp_DrillShot_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv4.asset",
+  "guid": "89b8ef1f8c0a4930a1188e4253fab34b"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv4.asset",
+  "guid": "89b8ef1f8c0a4930a1188e4253fab34b",
+  "name": "ZSkUp_DrillShot_Lv4"
+ },
+ "ZSkUp_DrillShot_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv5.asset",
+  "guid": "aeb71b9ae98841e2962edebaa225f36f"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_DrillShot_Lv5.asset",
+  "guid": "aeb71b9ae98841e2962edebaa225f36f",
+  "name": "ZSkUp_DrillShot_Lv5"
+ },
+ "ZSkUp_Durian_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv1.asset",
+  "guid": "b35cdc2c9d07403cb1c2076b5245eaca"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv1.asset",
+  "guid": "b35cdc2c9d07403cb1c2076b5245eaca",
+  "name": "ZSkUp_Durian_Lv1"
+ },
+ "ZSkUp_Durian_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv2.asset",
+  "guid": "8446dbe6c8684cd2993fca32ed93ab86"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv2.asset",
+  "guid": "8446dbe6c8684cd2993fca32ed93ab86",
+  "name": "ZSkUp_Durian_Lv2"
+ },
+ "ZSkUp_Durian_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv3.asset",
+  "guid": "3bfb8c5539bd48ffa86729b3eae6a629"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv3.asset",
+  "guid": "3bfb8c5539bd48ffa86729b3eae6a629",
+  "name": "ZSkUp_Durian_Lv3"
+ },
+ "ZSkUp_Durian_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv4.asset",
+  "guid": "fde2c6dcf252456aa2f01680524286a7"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv4.asset",
+  "guid": "fde2c6dcf252456aa2f01680524286a7",
+  "name": "ZSkUp_Durian_Lv4"
+ },
+ "ZSkUp_Durian_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv5.asset",
+  "guid": "8f5ad3289d734d0b84b22114041978fc"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Durian_Lv5.asset",
+  "guid": "8f5ad3289d734d0b84b22114041978fc",
+  "name": "ZSkUp_Durian_Lv5"
+ },
+ "ZSkUp_Forcefield_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv1.asset",
+  "guid": "52517fc7d45f4cdf93cf17f7d3931f2b"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv1.asset",
+  "guid": "52517fc7d45f4cdf93cf17f7d3931f2b",
+  "name": "ZSkUp_Forcefield_Lv1"
+ },
+ "ZSkUp_Forcefield_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv2.asset",
+  "guid": "d7557a2f53f14f30b0069dbea10c4f2b"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv2.asset",
+  "guid": "d7557a2f53f14f30b0069dbea10c4f2b",
+  "name": "ZSkUp_Forcefield_Lv2"
+ },
+ "ZSkUp_Forcefield_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv3.asset",
+  "guid": "e486f0ee6d7a40228680319b65e9b827"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv3.asset",
+  "guid": "e486f0ee6d7a40228680319b65e9b827",
+  "name": "ZSkUp_Forcefield_Lv3"
+ },
+ "ZSkUp_Forcefield_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv4.asset",
+  "guid": "c127178729a241e1a51ffc666bace05a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv4.asset",
+  "guid": "c127178729a241e1a51ffc666bace05a",
+  "name": "ZSkUp_Forcefield_Lv4"
+ },
+ "ZSkUp_Forcefield_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv5.asset",
+  "guid": "a84ac9ac609041a787390b822e2de461"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Forcefield_Lv5.asset",
+  "guid": "a84ac9ac609041a787390b822e2de461",
+  "name": "ZSkUp_Forcefield_Lv5"
+ },
+ "ZSkUp_Guardian_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv1.asset",
+  "guid": "c7c89703d7524aa7a1dfadaa897b8346"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv1.asset",
+  "guid": "c7c89703d7524aa7a1dfadaa897b8346",
+  "name": "ZSkUp_Guardian_Lv1"
+ },
+ "ZSkUp_Guardian_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv2.asset",
+  "guid": "a152c5c0a1e346cb966954ea3cbbe6f1"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv2.asset",
+  "guid": "a152c5c0a1e346cb966954ea3cbbe6f1",
+  "name": "ZSkUp_Guardian_Lv2"
+ },
+ "ZSkUp_Guardian_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv3.asset",
+  "guid": "51986dbdfe8b446883661a52e3527c6b"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv3.asset",
+  "guid": "51986dbdfe8b446883661a52e3527c6b",
+  "name": "ZSkUp_Guardian_Lv3"
+ },
+ "ZSkUp_Guardian_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv4.asset",
+  "guid": "4cbd65a792c440acaf538fc9e23b84d9"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv4.asset",
+  "guid": "4cbd65a792c440acaf538fc9e23b84d9",
+  "name": "ZSkUp_Guardian_Lv4"
+ },
+ "ZSkUp_Guardian_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv5.asset",
+  "guid": "179729d8d28f474bbc261d3e901dc80e"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Guardian_Lv5.asset",
+  "guid": "179729d8d28f474bbc261d3e901dc80e",
+  "name": "ZSkUp_Guardian_Lv5"
+ },
+ "ZSkUp_Kunai_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv1.asset",
+  "guid": "989ac6ed95224cdd8f36b0288582e2bb"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv1.asset",
+  "guid": "989ac6ed95224cdd8f36b0288582e2bb",
+  "name": "ZSkUp_Kunai_Lv1"
+ },
+ "ZSkUp_Kunai_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv2.asset",
+  "guid": "bbeec01f0c10475cb0450d292e2c1f64"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv2.asset",
+  "guid": "bbeec01f0c10475cb0450d292e2c1f64",
+  "name": "ZSkUp_Kunai_Lv2"
+ },
+ "ZSkUp_Kunai_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv3.asset",
+  "guid": "64b957dee16f46fd9ad64ae5003671ea"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv3.asset",
+  "guid": "64b957dee16f46fd9ad64ae5003671ea",
+  "name": "ZSkUp_Kunai_Lv3"
+ },
+ "ZSkUp_Kunai_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv4.asset",
+  "guid": "a2f43ae3f5114eb39ef3d6316b69968d"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv4.asset",
+  "guid": "a2f43ae3f5114eb39ef3d6316b69968d",
+  "name": "ZSkUp_Kunai_Lv4"
+ },
+ "ZSkUp_Kunai_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv5.asset",
+  "guid": "ebe0b60e2f414a569083a8307e631ab8"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Kunai_Lv5.asset",
+  "guid": "ebe0b60e2f414a569083a8307e631ab8",
+  "name": "ZSkUp_Kunai_Lv5"
+ },
+ "ZSkUp_Molotov_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv1.asset",
+  "guid": "3bc82c6e7af54358ac244b7943657012"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv1.asset",
+  "guid": "3bc82c6e7af54358ac244b7943657012",
+  "name": "ZSkUp_Molotov_Lv1"
+ },
+ "ZSkUp_Molotov_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv2.asset",
+  "guid": "243b1d413ce54721b5dec7f79b82202a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv2.asset",
+  "guid": "243b1d413ce54721b5dec7f79b82202a",
+  "name": "ZSkUp_Molotov_Lv2"
+ },
+ "ZSkUp_Molotov_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv3.asset",
+  "guid": "95fc6e1901334ed18ba57d3bdb092063"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv3.asset",
+  "guid": "95fc6e1901334ed18ba57d3bdb092063",
+  "name": "ZSkUp_Molotov_Lv3"
+ },
+ "ZSkUp_Molotov_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv4.asset",
+  "guid": "a914f4c988284ebcb3e1bb48b0c76f96"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv4.asset",
+  "guid": "a914f4c988284ebcb3e1bb48b0c76f96",
+  "name": "ZSkUp_Molotov_Lv4"
+ },
+ "ZSkUp_Molotov_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv5.asset",
+  "guid": "fec2126f5f0947df9e1ada1583c82f85"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_Molotov_Lv5.asset",
+  "guid": "fec2126f5f0947df9e1ada1583c82f85",
+  "name": "ZSkUp_Molotov_Lv5"
+ },
+ "ZSkUp_RPG_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv1.asset",
+  "guid": "8be8b300be154616805c94db1d619cea"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv1.asset",
+  "guid": "8be8b300be154616805c94db1d619cea",
+  "name": "ZSkUp_RPG_Lv1"
+ },
+ "ZSkUp_RPG_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv2.asset",
+  "guid": "5d545b2870a84ddc8a218fa1685f742a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv2.asset",
+  "guid": "5d545b2870a84ddc8a218fa1685f742a",
+  "name": "ZSkUp_RPG_Lv2"
+ },
+ "ZSkUp_RPG_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv3.asset",
+  "guid": "50c733f233a34aa8835b84ae75d0eadb"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv3.asset",
+  "guid": "50c733f233a34aa8835b84ae75d0eadb",
+  "name": "ZSkUp_RPG_Lv3"
+ },
+ "ZSkUp_RPG_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv4.asset",
+  "guid": "973fbb1c79774d538676ff80edc47640"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv4.asset",
+  "guid": "973fbb1c79774d538676ff80edc47640",
+  "name": "ZSkUp_RPG_Lv4"
+ },
+ "ZSkUp_RPG_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv5.asset",
+  "guid": "d08003f89abc49d79d1a5cebbbc9b62f"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_RPG_Lv5.asset",
+  "guid": "d08003f89abc49d79d1a5cebbbc9b62f",
+  "name": "ZSkUp_RPG_Lv5"
+ },
+ "ZSkUp_SoccerBall_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv1.asset",
+  "guid": "8aae5c69dc4f4f949e2ff60667140e6f"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv1.asset",
+  "guid": "8aae5c69dc4f4f949e2ff60667140e6f",
+  "name": "ZSkUp_SoccerBall_Lv1"
+ },
+ "ZSkUp_SoccerBall_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv2.asset",
+  "guid": "6bb2cc7e0b144e15a12ded271e2d3700"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv2.asset",
+  "guid": "6bb2cc7e0b144e15a12ded271e2d3700",
+  "name": "ZSkUp_SoccerBall_Lv2"
+ },
+ "ZSkUp_SoccerBall_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv3.asset",
+  "guid": "003fcc72b0a3443eb27e8229772163ee"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv3.asset",
+  "guid": "003fcc72b0a3443eb27e8229772163ee",
+  "name": "ZSkUp_SoccerBall_Lv3"
+ },
+ "ZSkUp_SoccerBall_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv4.asset",
+  "guid": "2c0c2a2c4d64472dbf5e2e9ea3370c8e"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv4.asset",
+  "guid": "2c0c2a2c4d64472dbf5e2e9ea3370c8e",
+  "name": "ZSkUp_SoccerBall_Lv4"
+ },
+ "ZSkUp_SoccerBall_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv5.asset",
+  "guid": "f9e153dff5484a909e3eacf18ce32d76"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/ZSkUp_SoccerBall_Lv5.asset",
+  "guid": "f9e153dff5484a909e3eacf18ce32d76",
+  "name": "ZSkUp_SoccerBall_Lv5"
+ },
+ "ZPsUp_AmmoThruster_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv1.asset",
+  "guid": "74c564579a174af3892b28ea9e0e622a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv1.asset",
+  "guid": "74c564579a174af3892b28ea9e0e622a",
+  "name": "ZPsUp_AmmoThruster_Lv1"
+ },
+ "ZPsUp_AmmoThruster_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv2.asset",
+  "guid": "9af8041e296c48dfabcac83696f494cb"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv2.asset",
+  "guid": "9af8041e296c48dfabcac83696f494cb",
+  "name": "ZPsUp_AmmoThruster_Lv2"
+ },
+ "ZPsUp_AmmoThruster_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv3.asset",
+  "guid": "a98c33d339e8485487cb1a4efb0a3d25"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv3.asset",
+  "guid": "a98c33d339e8485487cb1a4efb0a3d25",
+  "name": "ZPsUp_AmmoThruster_Lv3"
+ },
+ "ZPsUp_AmmoThruster_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv4.asset",
+  "guid": "472c83b4b9134970b9fa592043668d99"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv4.asset",
+  "guid": "472c83b4b9134970b9fa592043668d99",
+  "name": "ZPsUp_AmmoThruster_Lv4"
+ },
+ "ZPsUp_AmmoThruster_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv5.asset",
+  "guid": "b56c39d41698403a84430c705a4090e6"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_AmmoThruster_Lv5.asset",
+  "guid": "b56c39d41698403a84430c705a4090e6",
+  "name": "ZPsUp_AmmoThruster_Lv5"
+ },
+ "ZPsUp_EnergyCube_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv1.asset",
+  "guid": "11b12e825e8447ab91bf63d0b0dc4767"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv1.asset",
+  "guid": "11b12e825e8447ab91bf63d0b0dc4767",
+  "name": "ZPsUp_EnergyCube_Lv1"
+ },
+ "ZPsUp_EnergyCube_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv2.asset",
+  "guid": "6017fc09b91f473d92b4c19426e404fb"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv2.asset",
+  "guid": "6017fc09b91f473d92b4c19426e404fb",
+  "name": "ZPsUp_EnergyCube_Lv2"
+ },
+ "ZPsUp_EnergyCube_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv3.asset",
+  "guid": "9b3ca430900f4857bc65622197950ac8"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv3.asset",
+  "guid": "9b3ca430900f4857bc65622197950ac8",
+  "name": "ZPsUp_EnergyCube_Lv3"
+ },
+ "ZPsUp_EnergyCube_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv4.asset",
+  "guid": "0bd85140444547edbc2334825f782759"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv4.asset",
+  "guid": "0bd85140444547edbc2334825f782759",
+  "name": "ZPsUp_EnergyCube_Lv4"
+ },
+ "ZPsUp_EnergyCube_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv5.asset",
+  "guid": "20131962f8cc41bdafe75cde4ccd69f0"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyCube_Lv5.asset",
+  "guid": "20131962f8cc41bdafe75cde4ccd69f0",
+  "name": "ZPsUp_EnergyCube_Lv5"
+ },
+ "ZPsUp_EnergyDrink_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv1.asset",
+  "guid": "9350d3d476974faa9c86b8ba308dfe4c"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv1.asset",
+  "guid": "9350d3d476974faa9c86b8ba308dfe4c",
+  "name": "ZPsUp_EnergyDrink_Lv1"
+ },
+ "ZPsUp_EnergyDrink_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv2.asset",
+  "guid": "b3a7706d07cf42c2beb1c3f1acffb1b2"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv2.asset",
+  "guid": "b3a7706d07cf42c2beb1c3f1acffb1b2",
+  "name": "ZPsUp_EnergyDrink_Lv2"
+ },
+ "ZPsUp_EnergyDrink_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv3.asset",
+  "guid": "9cdee3aefb6d4041bd30133d9c268ad9"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv3.asset",
+  "guid": "9cdee3aefb6d4041bd30133d9c268ad9",
+  "name": "ZPsUp_EnergyDrink_Lv3"
+ },
+ "ZPsUp_EnergyDrink_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv4.asset",
+  "guid": "52c0fa1d51d0408baa6df36d2b5b2222"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv4.asset",
+  "guid": "52c0fa1d51d0408baa6df36d2b5b2222",
+  "name": "ZPsUp_EnergyDrink_Lv4"
+ },
+ "ZPsUp_EnergyDrink_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv5.asset",
+  "guid": "554779aa6bfe4122865b8b21de9ea9b6"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_EnergyDrink_Lv5.asset",
+  "guid": "554779aa6bfe4122865b8b21de9ea9b6",
+  "name": "ZPsUp_EnergyDrink_Lv5"
+ },
+ "ZPsUp_ExoBracer_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv1.asset",
+  "guid": "3a15f939c35f45b4a5e5891681638a46"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv1.asset",
+  "guid": "3a15f939c35f45b4a5e5891681638a46",
+  "name": "ZPsUp_ExoBracer_Lv1"
+ },
+ "ZPsUp_ExoBracer_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv2.asset",
+  "guid": "3e824e9632ee429e99fa97b6628d1a37"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv2.asset",
+  "guid": "3e824e9632ee429e99fa97b6628d1a37",
+  "name": "ZPsUp_ExoBracer_Lv2"
+ },
+ "ZPsUp_ExoBracer_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv3.asset",
+  "guid": "b924e6505b514048821a7eeeab9f6441"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv3.asset",
+  "guid": "b924e6505b514048821a7eeeab9f6441",
+  "name": "ZPsUp_ExoBracer_Lv3"
+ },
+ "ZPsUp_ExoBracer_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv4.asset",
+  "guid": "c5917a82b35f4743b124480ec3df59f9"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv4.asset",
+  "guid": "c5917a82b35f4743b124480ec3df59f9",
+  "name": "ZPsUp_ExoBracer_Lv4"
+ },
+ "ZPsUp_ExoBracer_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv5.asset",
+  "guid": "305dbe61c594433a99f501b7b018e0cf"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_ExoBracer_Lv5.asset",
+  "guid": "305dbe61c594433a99f501b7b018e0cf",
+  "name": "ZPsUp_ExoBracer_Lv5"
+ },
+ "ZPsUp_FitnessGuide_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv1.asset",
+  "guid": "2cfba3c93dbb4769b83f6cdbb7ed0621"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv1.asset",
+  "guid": "2cfba3c93dbb4769b83f6cdbb7ed0621",
+  "name": "ZPsUp_FitnessGuide_Lv1"
+ },
+ "ZPsUp_FitnessGuide_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv2.asset",
+  "guid": "ce84eec844db4b78b2cd5802dc5fe09c"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv2.asset",
+  "guid": "ce84eec844db4b78b2cd5802dc5fe09c",
+  "name": "ZPsUp_FitnessGuide_Lv2"
+ },
+ "ZPsUp_FitnessGuide_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv3.asset",
+  "guid": "af5ef487be4f457394ca55995c0f974a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv3.asset",
+  "guid": "af5ef487be4f457394ca55995c0f974a",
+  "name": "ZPsUp_FitnessGuide_Lv3"
+ },
+ "ZPsUp_FitnessGuide_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv4.asset",
+  "guid": "10e4517036c14f89a2c86c805e83cc47"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv4.asset",
+  "guid": "10e4517036c14f89a2c86c805e83cc47",
+  "name": "ZPsUp_FitnessGuide_Lv4"
+ },
+ "ZPsUp_FitnessGuide_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv5.asset",
+  "guid": "010f9e90da73463f931a88bd5d00ccf5"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_FitnessGuide_Lv5.asset",
+  "guid": "010f9e90da73463f931a88bd5d00ccf5",
+  "name": "ZPsUp_FitnessGuide_Lv5"
+ },
+ "ZPsUp_HEFuel_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv1.asset",
+  "guid": "e252635984e84fc78e86d314f969b585"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv1.asset",
+  "guid": "e252635984e84fc78e86d314f969b585",
+  "name": "ZPsUp_HEFuel_Lv1"
+ },
+ "ZPsUp_HEFuel_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv2.asset",
+  "guid": "dbdaf4f0b9a84c3680cede8289291243"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv2.asset",
+  "guid": "dbdaf4f0b9a84c3680cede8289291243",
+  "name": "ZPsUp_HEFuel_Lv2"
+ },
+ "ZPsUp_HEFuel_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv3.asset",
+  "guid": "c3a8f20dea194775a77db85e6148b098"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv3.asset",
+  "guid": "c3a8f20dea194775a77db85e6148b098",
+  "name": "ZPsUp_HEFuel_Lv3"
+ },
+ "ZPsUp_HEFuel_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv4.asset",
+  "guid": "1bba3d1a4b724654a54edc755ce6ca40"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv4.asset",
+  "guid": "1bba3d1a4b724654a54edc755ce6ca40",
+  "name": "ZPsUp_HEFuel_Lv4"
+ },
+ "ZPsUp_HEFuel_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv5.asset",
+  "guid": "d0b8f35c3e95460687717aa8131a5ae1"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HEFuel_Lv5.asset",
+  "guid": "d0b8f35c3e95460687717aa8131a5ae1",
+  "name": "ZPsUp_HEFuel_Lv5"
+ },
+ "ZPsUp_HiPowerBullet_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv1.asset",
+  "guid": "196bd3f0ad8b4567b9c838fbc61034da"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv1.asset",
+  "guid": "196bd3f0ad8b4567b9c838fbc61034da",
+  "name": "ZPsUp_HiPowerBullet_Lv1"
+ },
+ "ZPsUp_HiPowerBullet_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv2.asset",
+  "guid": "1c6bfc09584c4c68b1d892dc65ff5610"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv2.asset",
+  "guid": "1c6bfc09584c4c68b1d892dc65ff5610",
+  "name": "ZPsUp_HiPowerBullet_Lv2"
+ },
+ "ZPsUp_HiPowerBullet_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv3.asset",
+  "guid": "005c582cd15a4cdf8d7ec9911301d908"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv3.asset",
+  "guid": "005c582cd15a4cdf8d7ec9911301d908",
+  "name": "ZPsUp_HiPowerBullet_Lv3"
+ },
+ "ZPsUp_HiPowerBullet_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv4.asset",
+  "guid": "1110ac3d73e44a50b14fc00f4d983e88"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv4.asset",
+  "guid": "1110ac3d73e44a50b14fc00f4d983e88",
+  "name": "ZPsUp_HiPowerBullet_Lv4"
+ },
+ "ZPsUp_HiPowerBullet_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv5.asset",
+  "guid": "8eae395caf22460ca093ff7d0ff55232"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerBullet_Lv5.asset",
+  "guid": "8eae395caf22460ca093ff7d0ff55232",
+  "name": "ZPsUp_HiPowerBullet_Lv5"
+ },
+ "ZPsUp_HiPowerMagnet_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv1.asset",
+  "guid": "935bf75c759a492d888aca9815bb31ab"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv1.asset",
+  "guid": "935bf75c759a492d888aca9815bb31ab",
+  "name": "ZPsUp_HiPowerMagnet_Lv1"
+ },
+ "ZPsUp_HiPowerMagnet_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv2.asset",
+  "guid": "032c3985fa2c4f408430ae3124d844d4"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv2.asset",
+  "guid": "032c3985fa2c4f408430ae3124d844d4",
+  "name": "ZPsUp_HiPowerMagnet_Lv2"
+ },
+ "ZPsUp_HiPowerMagnet_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv3.asset",
+  "guid": "ba84036571554ca58a605ca1f46fd01e"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv3.asset",
+  "guid": "ba84036571554ca58a605ca1f46fd01e",
+  "name": "ZPsUp_HiPowerMagnet_Lv3"
+ },
+ "ZPsUp_HiPowerMagnet_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv4.asset",
+  "guid": "ed347c49e366410a8af605a78a37a4d2"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv4.asset",
+  "guid": "ed347c49e366410a8af605a78a37a4d2",
+  "name": "ZPsUp_HiPowerMagnet_Lv4"
+ },
+ "ZPsUp_HiPowerMagnet_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv5.asset",
+  "guid": "0827cd46c7fa41c489916cb8c919bfa2"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_HiPowerMagnet_Lv5.asset",
+  "guid": "0827cd46c7fa41c489916cb8c919bfa2",
+  "name": "ZPsUp_HiPowerMagnet_Lv5"
+ },
+ "ZPsUp_KogaNinjaScroll_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv1.asset",
+  "guid": "1eff22afd9b54ca4b419b69a5279fbd6"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv1.asset",
+  "guid": "1eff22afd9b54ca4b419b69a5279fbd6",
+  "name": "ZPsUp_KogaNinjaScroll_Lv1"
+ },
+ "ZPsUp_KogaNinjaScroll_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv2.asset",
+  "guid": "9ace7212486644aeafdfdc34ab422fb5"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv2.asset",
+  "guid": "9ace7212486644aeafdfdc34ab422fb5",
+  "name": "ZPsUp_KogaNinjaScroll_Lv2"
+ },
+ "ZPsUp_KogaNinjaScroll_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv3.asset",
+  "guid": "e1b25805a06b4fd3960b240909a4fe0a"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv3.asset",
+  "guid": "e1b25805a06b4fd3960b240909a4fe0a",
+  "name": "ZPsUp_KogaNinjaScroll_Lv3"
+ },
+ "ZPsUp_KogaNinjaScroll_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv4.asset",
+  "guid": "20d75bf5c0d843df92ef9f5b829d8c37"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv4.asset",
+  "guid": "20d75bf5c0d843df92ef9f5b829d8c37",
+  "name": "ZPsUp_KogaNinjaScroll_Lv4"
+ },
+ "ZPsUp_KogaNinjaScroll_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv5.asset",
+  "guid": "cdf3f9ba990b4dcb9b7bccae9627d7bb"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_KogaNinjaScroll_Lv5.asset",
+  "guid": "cdf3f9ba990b4dcb9b7bccae9627d7bb",
+  "name": "ZPsUp_KogaNinjaScroll_Lv5"
+ },
+ "ZPsUp_OilBond_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv1.asset",
+  "guid": "c0009c10ee1e441cb2f9aa16c5e65340"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv1.asset",
+  "guid": "c0009c10ee1e441cb2f9aa16c5e65340",
+  "name": "ZPsUp_OilBond_Lv1"
+ },
+ "ZPsUp_OilBond_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv2.asset",
+  "guid": "3696a0629e384bb086a6068876d97147"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv2.asset",
+  "guid": "3696a0629e384bb086a6068876d97147",
+  "name": "ZPsUp_OilBond_Lv2"
+ },
+ "ZPsUp_OilBond_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv3.asset",
+  "guid": "914aa11d18304908b9c1f54f83b1541d"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv3.asset",
+  "guid": "914aa11d18304908b9c1f54f83b1541d",
+  "name": "ZPsUp_OilBond_Lv3"
+ },
+ "ZPsUp_OilBond_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv4.asset",
+  "guid": "6d9a955e645e481aa328afd405180960"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv4.asset",
+  "guid": "6d9a955e645e481aa328afd405180960",
+  "name": "ZPsUp_OilBond_Lv4"
+ },
+ "ZPsUp_OilBond_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv5.asset",
+  "guid": "ac02ca694a224a44ac54edc5c978fc99"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_OilBond_Lv5.asset",
+  "guid": "ac02ca694a224a44ac54edc5c978fc99",
+  "name": "ZPsUp_OilBond_Lv5"
+ },
+ "ZPsUp_RoninOyoroi_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv1.asset",
+  "guid": "ae8655845ac646f0afda61076c1cbd37"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv1.asset",
+  "guid": "ae8655845ac646f0afda61076c1cbd37",
+  "name": "ZPsUp_RoninOyoroi_Lv1"
+ },
+ "ZPsUp_RoninOyoroi_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv2.asset",
+  "guid": "8f6a8135ac114b2e94bb94a34c4f77ae"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv2.asset",
+  "guid": "8f6a8135ac114b2e94bb94a34c4f77ae",
+  "name": "ZPsUp_RoninOyoroi_Lv2"
+ },
+ "ZPsUp_RoninOyoroi_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv3.asset",
+  "guid": "baf38ba8e39e4ae78da7b08b260ddde5"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv3.asset",
+  "guid": "baf38ba8e39e4ae78da7b08b260ddde5",
+  "name": "ZPsUp_RoninOyoroi_Lv3"
+ },
+ "ZPsUp_RoninOyoroi_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv4.asset",
+  "guid": "45b303db1b074e168365d337dd5cbb6b"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv4.asset",
+  "guid": "45b303db1b074e168365d337dd5cbb6b",
+  "name": "ZPsUp_RoninOyoroi_Lv4"
+ },
+ "ZPsUp_RoninOyoroi_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv5.asset",
+  "guid": "d872522dfeee41e7b00a676860534bac"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_RoninOyoroi_Lv5.asset",
+  "guid": "d872522dfeee41e7b00a676860534bac",
+  "name": "ZPsUp_RoninOyoroi_Lv5"
+ },
+ "ZPsUp_SportsShoes_Lv1": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv1.asset",
+  "guid": "110c5461f8924f41a8bc6fe33d4c6c37"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv1.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv1.asset",
+  "guid": "110c5461f8924f41a8bc6fe33d4c6c37",
+  "name": "ZPsUp_SportsShoes_Lv1"
+ },
+ "ZPsUp_SportsShoes_Lv2": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv2.asset",
+  "guid": "f38fbda34f1c4613822e45157c1551b6"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv2.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv2.asset",
+  "guid": "f38fbda34f1c4613822e45157c1551b6",
+  "name": "ZPsUp_SportsShoes_Lv2"
+ },
+ "ZPsUp_SportsShoes_Lv3": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv3.asset",
+  "guid": "30c8805344c149b5b1510d96ca5fccc4"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv3.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv3.asset",
+  "guid": "30c8805344c149b5b1510d96ca5fccc4",
+  "name": "ZPsUp_SportsShoes_Lv3"
+ },
+ "ZPsUp_SportsShoes_Lv4": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv4.asset",
+  "guid": "9d4be8587ff7464c937a35ae897f63e0"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv4.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv4.asset",
+  "guid": "9d4be8587ff7464c937a35ae897f63e0",
+  "name": "ZPsUp_SportsShoes_Lv4"
+ },
+ "ZPsUp_SportsShoes_Lv5": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv5.asset",
+  "guid": "d784394fd0ef4bd3b44955cb9a022f27"
+ },
+ "__by_path__/Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv5.asset": {
+  "path": "Assets/_Main/Data/Skills/Upgrades/Passive/ZPsUp_SportsShoes_Lv5.asset",
+  "guid": "d784394fd0ef4bd3b44955cb9a022f27",
+  "name": "ZPsUp_SportsShoes_Lv5"
+ },
+ "StatDef_AmountProjectile": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_AmountProjectile.asset",
+  "guid": "200d5d4a262b4f74a45a0ae1b89e0ad1"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_AmountProjectile.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_AmountProjectile.asset",
+  "guid": "200d5d4a262b4f74a45a0ae1b89e0ad1",
+  "name": "StatDef_AmountProjectile"
+ },
  "StatDef_Armor": {
   "path": "Assets/_Main/Data/StatDefinitions/StatDef_Armor.asset",
   "guid": "33ab417a8a2f141f2b5643f267df250d"
@@ -7037,6 +8135,15 @@
   "path": "Assets/_Main/Data/StatDefinitions/StatDef_ATK.asset",
   "guid": "d23f4e56a2b9f4891b81b18fe885bd9b",
   "name": "StatDef_ATK"
+ },
+ "StatDef_ATKMultiplierExplosion": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_ATKMultiplierExplosion.asset",
+  "guid": "a57c4fdb7b434302a5e12756a13f5667"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_ATKMultiplierExplosion.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_ATKMultiplierExplosion.asset",
+  "guid": "a57c4fdb7b434302a5e12756a13f5667",
+  "name": "StatDef_ATKMultiplierExplosion"
  },
  "StatDef_Cooldown": {
   "path": "Assets/_Main/Data/StatDefinitions/StatDef_Cooldown.asset",
@@ -7083,6 +8190,24 @@
   "guid": "a0c43d573debe4b3fbca54c7150af2a8",
   "name": "StatDef_Luck"
  },
+ "StatDef_RadiusCollider": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_RadiusCollider.asset",
+  "guid": "54576d2eb8e445c0bcdec56a9c818c12"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_RadiusCollider.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_RadiusCollider.asset",
+  "guid": "54576d2eb8e445c0bcdec56a9c818c12",
+  "name": "StatDef_RadiusCollider"
+ },
+ "StatDef_RadiusExplosion": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_RadiusExplosion.asset",
+  "guid": "88e054328848449f9001220b49fccef0"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_RadiusExplosion.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_RadiusExplosion.asset",
+  "guid": "88e054328848449f9001220b49fccef0",
+  "name": "StatDef_RadiusExplosion"
+ },
  "StatDef_RangeFind": {
   "path": "Assets/_Main/Data/StatDefinitions/StatDef_RangeFind.asset",
   "guid": "202dc84ee937243c6a9b56374e56765d"
@@ -7119,6 +8244,24 @@
   "guid": "86b7ee7c3972e4369ae3d44050b06329",
   "name": "StatDef_TiLeChiMang"
  },
+ "StatDef_TimeBreak": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_TimeBreak.asset",
+  "guid": "de9b9d742de54c1fbd00921c37d99554"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_TimeBreak.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_TimeBreak.asset",
+  "guid": "de9b9d742de54c1fbd00921c37d99554",
+  "name": "StatDef_TimeBreak"
+ },
+ "StatDef_TimeDelayExplosion": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_TimeDelayExplosion.asset",
+  "guid": "9693c7384fd1459ea3581c7cb831358c"
+ },
+ "__by_path__/Assets/_Main/Data/StatDefinitions/StatDef_TimeDelayExplosion.asset": {
+  "path": "Assets/_Main/Data/StatDefinitions/StatDef_TimeDelayExplosion.asset",
+  "guid": "9693c7384fd1459ea3581c7cb831358c",
+  "name": "StatDef_TimeDelayExplosion"
+ },
  "StatDef_XPMultiplier": {
   "path": "Assets/_Main/Data/StatDefinitions/StatDef_XPMultiplier.asset",
   "guid": "493f66faed04c475986cb2cdbe31c21d"
@@ -7132,6 +8275,15 @@
   "path": "Assets/_Main/Data/Stats/Configs",
   "guid": "4ad789b93d3594487b6f1e6137826581",
   "name": "Configs"
+ },
+ "Player": {
+  "path": "Assets/_Main/Data/Stats/Player",
+  "guid": "d588939055333ae4da80bbbf87b49cb4"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player": {
+  "path": "Assets/_Main/Data/Stats/Player",
+  "guid": "d588939055333ae4da80bbbf87b49cb4",
+  "name": "Player"
  },
  "Stat_Boss_ATK": {
   "path": "Assets/_Main/Data/Stats/Stat_Boss_ATK.asset",
@@ -7259,6 +8411,15 @@
   "guid": "dfa3bed8e36c54cb09ab6bf99dfba3dc",
   "name": "StatsCfg_EliteHound"
  },
+ "StatsCfg_Player": {
+  "path": "Assets/_Main/Data/Stats/Configs/StatsCfg_Player.asset",
+  "guid": "6388f66b178c4796b803a960b5eee481"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Configs/StatsCfg_Player.asset": {
+  "path": "Assets/_Main/Data/Stats/Configs/StatsCfg_Player.asset",
+  "guid": "6388f66b178c4796b803a960b5eee481",
+  "name": "StatsCfg_Player"
+ },
  "StatsCfg_RegularZombie": {
   "path": "Assets/_Main/Data/Stats/Configs/StatsCfg_RegularZombie.asset",
   "guid": "3ddc6d169fd9a4687981d531b3f2d17d"
@@ -7276,6 +8437,69 @@
   "path": "Assets/_Main/Data/Stats/Configs/StatsCfg_ZombieHound.asset",
   "guid": "8757cf00cc3244c6591b6b6474d69efe",
   "name": "StatsCfg_ZombieHound"
+ },
+ "Stat_Player_Armor": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Armor.asset",
+  "guid": "2d95f068fecf43028d6995970ca536dd"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_Armor.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Armor.asset",
+  "guid": "2d95f068fecf43028d6995970ca536dd",
+  "name": "Stat_Player_Armor"
+ },
+ "Stat_Player_ATK": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_ATK.asset",
+  "guid": "9717ef981bdc445a94483876feda065f"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_ATK.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_ATK.asset",
+  "guid": "9717ef981bdc445a94483876feda065f",
+  "name": "Stat_Player_ATK"
+ },
+ "Stat_Player_Heal": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Heal.asset",
+  "guid": "f16cce8220d24850998571c3b127687a"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_Heal.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Heal.asset",
+  "guid": "f16cce8220d24850998571c3b127687a",
+  "name": "Stat_Player_Heal"
+ },
+ "Stat_Player_HPMax": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_HPMax.asset",
+  "guid": "76be018720a54e9b9b296e6646bf7eba"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_HPMax.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_HPMax.asset",
+  "guid": "76be018720a54e9b9b296e6646bf7eba",
+  "name": "Stat_Player_HPMax"
+ },
+ "Stat_Player_Luck": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Luck.asset",
+  "guid": "2ce255d0b65a4808aa275489161e6f11"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_Luck.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Luck.asset",
+  "guid": "2ce255d0b65a4808aa275489161e6f11",
+  "name": "Stat_Player_Luck"
+ },
+ "Stat_Player_RangeFind": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_RangeFind.asset",
+  "guid": "35f549abc8a94a40a75d979b11c8ace7"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_RangeFind.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_RangeFind.asset",
+  "guid": "35f549abc8a94a40a75d979b11c8ace7",
+  "name": "Stat_Player_RangeFind"
+ },
+ "Stat_Player_Speed": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Speed.asset",
+  "guid": "b8fd8079a8ca4c81a7700c8b7fb07cc3"
+ },
+ "__by_path__/Assets/_Main/Data/Stats/Player/Stat_Player_Speed.asset": {
+  "path": "Assets/_Main/Data/Stats/Player/Stat_Player_Speed.asset",
+  "guid": "b8fd8079a8ca4c81a7700c8b7fb07cc3",
+  "name": "Stat_Player_Speed"
  },
  "UIRegistry": {
   "path": "Assets/_Main/Data/UI/UIRegistry.asset",
@@ -8387,10 +9611,6 @@
   "path": "Assets/_Main/Scripts/Gameplay",
   "guid": "25eb64e9177944b858ad3d79b807d018",
   "name": "Gameplay"
- },
- "Player": {
-  "path": "Assets/_Main/Scripts/Player",
-  "guid": "5f152889552d9a149817659eb5caf8a2"
  },
  "__by_path__/Assets/_Main/Scripts/Player": {
   "path": "Assets/_Main/Scripts/Player",

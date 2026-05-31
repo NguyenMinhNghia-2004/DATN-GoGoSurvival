@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Bomb
   _id: ZSk_Durian_Behavior
   _searchTargetType: 0
-  skillBehaviorStats: []
+  skillBehaviorStats:
+  - {fileID: 11400000, guid: 200d5d4a262b4f74a45a0ae1b89e0ad1, type: 2}
+  - {fileID: 11400000, guid: de9b9d742de54c1fbd00921c37d99554, type: 2}
   projectileConfig: {fileID: 11400000, guid: 2a96b2e06fa94e959a5690b0e2065da4, type: 2}
