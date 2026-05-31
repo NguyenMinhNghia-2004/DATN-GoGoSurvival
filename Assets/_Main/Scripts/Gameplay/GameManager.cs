@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public SpawenManager Spawner;
     // Phase B1 migrated: legacy TimerManager removed. Game time owned by Luzart.GameController.
     public ManagerFloatingBtn ManagerDownBtn;
-    public ManagerWeapons WeaponSpawn;
+    // W2 nuke: ManagerWeapons + SpriteWeapons deleted.
     public UIManager ManagerUI;
 
     [Header("GameObject ScreenMainMenu")]

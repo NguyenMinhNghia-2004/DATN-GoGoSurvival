@@ -24,7 +24,6 @@ namespace Luzart
                     catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunBegin {participants[i]} : {e}"); }
                 }
             }
-            SetLegacyWeaponsEnabled(true);
         }
 
         public void EndRun()
@@ -43,7 +42,6 @@ namespace Luzart
                     catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunEnd {participants[i]} : {e}"); }
                 }
             }
-            SetLegacyWeaponsEnabled(false);
             // Belt against IRunParticipant chain failure: if EnemySpawnerManager.OnRunEnd
             // didn't fire (or fires too late), directly destroy every Enemy-tagged GO so the
             // Win/Lose world isn't filled with chasing zombies. Idempotent with the spawner's
@@ -69,18 +67,6 @@ namespace Luzart
             var enemies = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < enemies.Length; i++)
                 if (enemies[i] != null) Object.Destroy(enemies[i]);
-        }
-
-        /// <summary>Temporary bridge — legacy <c>GunManager</c> fires bolts every ~2s and
-        /// has no run-lifecycle hook of its own, so without this it kept firing under the
-        /// Win/Lose screen (and through Continue). Toggle enabled at run boundaries until
-        /// the legacy weapon stack is retired in favour of Luzart ZSkillRuntime weapons.
-        /// Find is O(n) but runs only twice per game (BeginRun/EndRun), not per frame.</summary>
-        private static void SetLegacyWeaponsEnabled(bool enabled)
-        {
-            var guns = Object.FindObjectsByType<GunManager>(FindObjectsSortMode.None);
-            for (int i = 0; i < guns.Length; i++)
-                if (guns[i] != null) guns[i].enabled = enabled;
         }
 
         /// <summary>Reset the framework state (counters, mode→Idle) + player stats so the next

@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     // Phase B1 migrated: legacy TimerManager removed. Game time is owned by Luzart.GameController._countTime.
     public BooleanManager Bool;
     // Phase D.7: LevelsManager removed. Default level prefab now resolved via Domain.Get<LevelCatalog>().
-    public SpriteWeapons Weapons;
+    // W2 nuke: legacy SpriteWeapons removed — Weapons.DesactivateAll() calls dropped from BackBtn / BackFinish / BackFinishSafe.
     // Phase B2 migrated: ManagerMecanique removed. CurrencyManager singleton owns Coins/Gems.
 
     [Header("Componenet Player")]
@@ -118,7 +118,6 @@ public class UIManager : MonoBehaviour
         MapReady = false;
         EffectFadeGamePlay.SetActive(true);
         DestroyEnemys = true;
-        Weapons.DesactivateAll();
         Destroy(CurrentLevel);
         StartCoroutine(StartBacking());
     }
@@ -128,7 +127,6 @@ public class UIManager : MonoBehaviour
         DestroyEnemys = true;
         EffectFadeGamePlay.SetActive(true);
         FinishScreen.SetActive(false);
-        Weapons.DesactivateAll();
         Destroy(CurrentLevel);
         StartCoroutine(StartBacking());
     }
@@ -142,7 +140,6 @@ public class UIManager : MonoBehaviour
         DestroyEnemys = true;
         if (EffectFadeGamePlay != null) EffectFadeGamePlay.SetActive(true);
         if (FinishScreen != null) FinishScreen.SetActive(false);
-        if (Weapons != null) Weapons.DesactivateAll();
         if (CurrentLevel != null) Destroy(CurrentLevel);
         StartCoroutine(StartBacking());
     }
