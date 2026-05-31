@@ -99,7 +99,9 @@ After approval to continue, three more slices landed (see commit log):
 
 2. ~~Passive skill effects aren't applied at runtime~~ — **RESOLVED** in second pass (see "Second-pass additions").
 
-3. **Skill `modifierFactors` lists are empty** — both active and passive upgrade configs use the `stats` list only. Equipping items via `RuntimeModifierFactorGroup.Activate()` won't apply equipment bonuses at runtime until `AssetModifier_*` SOs are authored + each item config's `_equippedModifierFactorGroups` is populated. (Equipment `EquipmentData` SOs already carry the numeric data; modifier wiring is the gap.)
+3. ~~Skill `modifierFactors` empty / `AssetModifier_*` SOs missing~~ — **RESOLVED** in third pass (commit `dbc1aaf`). Full Luzart modifier pipeline authored: 96 SOs at `Data/ModifierAndInGame/Player/<Stat>/` covering 8 player stats (HPMax/ATK/Speed/Cooldown/FireSpeed/Heal/Armor/RangeFind) — each stat gets 1 Constant base + 3 ModDef + 3 Modifier + 4 Aggregation + 1 SimpleBoosted Final number. Plus 26 `ItemConfig_*` SOs at `Data/Items/` mirroring each `Eq_*.asset` (heuristic-typed via atk/hp data because EquipmentData.slot enum is dead since its script was deleted in the W-nuke). Each item has 10 levels of modifierFactors using AddNormal mode. **Follow-up needed**: `StatsCfg_Player` still uses `Stat_Player_*` constants. To activate the modifier pipeline at runtime, edit each `Stat_Player_<Stat>.asset` to change `value.mode` from 0 (Constant) → 1 (AssetNumber) and point `value.asset` at the corresponding `Number_Player_InGame_Final_<Stat>` SO.
+
+3b. **`ZSkillUpgradeConfig.GetStat/GetStatCalculator` lazy-init guard added** (same commit) — previously NullRef'd when SOs are loaded via guid ref outside Domain bootstrap. Fixes the "[ZSkill] CreateSkill ZSk_Kunai Bug" runtime exception that appeared when Kunai's behavior config tried to read its upgrade config's Cooldown.
 
 4. **EVO skills** (1-Ton Iron, Caltrops, Defender, Force Barrier, Fuel Barrel, Magnetic Rebounder, Moonhalo Slash, Quantum Ball, Sharkmaw Gun, Spirit Shuriken, Whistling Arrow) — 11 SO shells exist in `Skills/EVO/`, no data populated. Not in GDD primary scope tonight.
 
@@ -112,7 +114,10 @@ After approval to continue, three more slices landed (see commit log):
 ## Commit log (overnight contributions)
 
 ```
-<HEAD>   feat: passive runtime + behavior-stats + cleanup [autonomous]   (second pass)
+dbc1aaf  feat(SO): full Luzart modifier pipeline + 26 ItemConfig SOs   (third pass)
+b9888a6  fix(stats): remove invalid Action.Invoke from RemoveStatBonus (CS0079)
+76092f1  docs(morning-report): add second-pass additions section
+ae8fe80  feat: passive runtime + behavior-stats + cleanup              (second pass)
 3c5684a  report(overnight-2026-06-01): morning summary [autonomous]
 ddb728b  feat(scene): wire LuzartPlayerEntityRoot _statsConfig + _startingSkills [autonomous]
 127694a  feat(SO): wire SV_SkillCatalog -> Luzart configs + Eq_Kunai starting skill [autonomous]
