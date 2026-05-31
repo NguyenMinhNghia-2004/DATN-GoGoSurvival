@@ -38,7 +38,16 @@ namespace Luzart
             _coordinator = _domain.Get<GameCoordinator>();
         }
 
-        /// <summary>Begin a run (MainMenu Play / Retry). Idempotent while already Playing.</summary>
+        /// <summary>Begin a run (MainMenu Play / Retry). Idempotent while already Playing.
+        ///
+        /// <para>Post-nuke wiring (replaces deleted <c>DATN.Legacy.UIManager.PlayBtn</c>):
+        /// after starting the wave timer + participants, this method also:
+        /// (1) spawns the level prefab via <see cref="GameController.SpawnDefaultLevel"/>,
+        /// (2) flips <see cref="GameController.MapReady"/> = true (the gate that
+        /// <see cref="LuzartPlayerController.Update"/> blocks on), and
+        /// (3) activates the legacy "Joystick Table" UI which was saved inactive in scene.
+        /// Without (1)(2)(3) the player has no map, can't move, and has no input surface.</para>
+        /// </summary>
         public void StartGame()
         {
             if (State == ClassicModeState.Playing) return;
@@ -47,6 +56,39 @@ namespace Luzart
             EnsureRefs();
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
+
+            // (1) Spawn the level prefab once per run. Idempotent guard via static flag —
+            // SpawnDefaultLevel itself does not check for an existing instance, and we
+            // don't want a second map stacked on top after Retry.
+            if (_gameController != null && !_levelSpawned)
+            {
+                var lvl = _gameController.SpawnDefaultLevel();
+                if (lvl != null) _levelSpawned = true;
+            }
+
+            // (2) Flip MapReady — gates LuzartPlayerController.Update + camera spawn + pickups.
+            if (_gameController != null) _gameController.MapReady = true;
+
+            // (3) Re-activate the legacy Joystick Table (saved as inactive in scene; legacy
+            // PlayBtn used to SetActive it). Scanning Resources.FindObjectsOfTypeAll so we
+            // find inactive GameObjects too. Skip prefab assets via hideFlags + scene check.
+            ActivateLegacyJoystickTable();
+        }
+
+        private static bool _levelSpawned;
+
+        private static void ActivateLegacyJoystickTable()
+        {
+            var all = Resources.FindObjectsOfTypeAll<Transform>();
+            for (int i = 0; i < all.Length; i++)
+            {
+                var t = all[i];
+                if (t == null || t.name != "Joystick Table") continue;
+                if (t.hideFlags != HideFlags.None) continue; // skip prefab/editor assets
+                if (!t.gameObject.scene.IsValid()) continue; // skip non-scene objects
+                if (!t.gameObject.activeSelf) t.gameObject.SetActive(true);
+                break;
+            }
         }
 
         /// <summary>The ONLY way a run ends. Guarded so it runs exactly once while Playing —
