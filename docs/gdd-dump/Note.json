@@ -1,0 +1,102 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "Yêu cầu, nội dung sản phẩm",
+   "- Nghiên cứu Engine Unity và các kỹ thuật tối ưu hóa trong phát triển game.\n- Sử dụng ngôn ngữ lập trình C#\n- Thiết kế màn chơi, cơ chế vật lý, và hệ thống nâng cấp nhân vật/trang bị.\n- Tích hợp lưu trữ dữ liệu người chơi trực tuyến (ví dụ: Unity Cloud Save) và hệ thống cửa hàng.\n- Sản phẩm: 01 Game 2D/3D hoạt động hoàn chỉnh; 01 Báo cáo tổng kết; Source code."
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "",
+   "Hệ thống"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "Tài nguyên",
+   "Enegy, Coin, Gem"
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "Setting",
+   "Music, Sound, Vibration"
+  ]
+ },
+ {
+  "r": 6,
+  "cells": [
+   "",
+   "Level Nhân vật"
+  ]
+ },
+ {
+  "r": 10,
+  "cells": [
+   "Level",
+   "Upgrades",
+   "XP win 1 game level",
+   "Level Up",
+   "1-20",
+   "21-40",
+   "41-60",
+   "61-80",
+   "81-100",
+   "101-999"
+  ]
+ },
+ {
+  "r": 11,
+  "cells": [
+   "20.0",
+   "HP +1 000",
+   "10.0",
+   "XP Total",
+   "50",
+   "60",
+   "70",
+   "80",
+   "80",
+   "100"
+  ]
+ },
+ {
+  "r": 12,
+  "cells": [
+   "40.0",
+   "Crit Rate +5%"
+  ]
+ },
+ {
+  "r": 13,
+  "cells": [
+   "60.0",
+   "ATK +600"
+  ]
+ },
+ {
+  "r": 14,
+  "cells": [
+   "80.0",
+   "Heal +5% when on level up"
+  ]
+ },
+ {
+  "r": 15,
+  "cells": [
+   "100.0",
+   "+1 000"
+  ]
+ },
+ {
+  "r": 16,
+  "cells": [
+   "120.0",
+   "Crit Rate +5%"
+  ]
+ }
+]

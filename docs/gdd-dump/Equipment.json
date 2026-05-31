@@ -1,0 +1,1428 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "No.",
+   "Icon",
+   "Name",
+   "Category",
+   "Stats Category",
+   "",
+   "Quality",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Quality"
+  ]
+ },
+ {
+  "r": 2,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "1.0",
+   "",
+   "Kunai",
+   "Weapon",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "ATK +10%",
+   "Kunai damage +30%",
+   "Start of with LV.2 Kunai",
+   "ATK +15%",
+   "",
+   "Max lv Item",
+   "10.0",
+   "20.0",
+   "40.0",
+   "60.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "20.0",
+   "40.0",
+   "70.0",
+   "130.0",
+   "",
+   "1 piece category item per level"
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "3.0",
+   "4.0",
+   "5.0",
+   "8.0",
+   "12.0"
+  ]
+ },
+ {
+  "r": 6,
+  "cells": [
+   "",
+   "Army Set",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Merge Item"
+  ]
+ },
+ {
+  "r": 7,
+  "cells": [
+   "2.0",
+   "",
+   "Army Nameplate",
+   "Neacklace",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Gain +50% Dame in 10s from Elites/Bosses kills",
+   "ATK +15%",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 8,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0",
+   "",
+   "",
+   "3.0",
+   "3.0",
+   "3.0",
+   "3.0"
+  ]
+ },
+ {
+  "r": 9,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0",
+   "",
+   "",
+   "Cần 3 item giống nhau để nâng lên bậc cao hơn 1 bậc, lấy level theo level cao nhất trong 3 items"
+  ]
+ },
+ {
+  "r": 11,
+  "cells": [
+   "3.0",
+   "",
+   "Army Gloves\n",
+   "Gloves",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Damage to Elites and Bosses +20%",
+   "ATK +15%"
+  ]
+ },
+ {
+  "r": 12,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 13,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0"
+  ]
+ },
+ {
+  "r": 15,
+  "cells": [
+   "4.0",
+   "",
+   "Army Uniform",
+   "Armor",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Heal 3% HP/5s",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 16,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "50.0",
+   "70.0",
+   "100.0",
+   "200.0",
+   "350.0"
+  ]
+ },
+ {
+  "r": 17,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "5.0",
+   "10.0",
+   "15.0",
+   "20.0",
+   "30.0"
+  ]
+ },
+ {
+  "r": 19,
+  "cells": [
+   "5.0",
+   "",
+   "Army Belt",
+   "Belt",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +20% CD in 10s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 20,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 21,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 23,
+  "cells": [
+   "6.0",
+   "",
+   "Army Boots",
+   "Shoes",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +30% Movement speed in 20s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 24,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 25,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 26,
+  "cells": [
+   "",
+   "Monster Set"
+  ]
+ },
+ {
+  "r": 27,
+  "cells": [
+   "7.0",
+   "",
+   "Bone Pendant",
+   "Neacklace",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Monsters in range are Slowed",
+   "ATK +15%",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 28,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0",
+   "",
+   "",
+   "3.0",
+   "3.0",
+   "3.0",
+   "3.0"
+  ]
+ },
+ {
+  "r": 29,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0",
+   "",
+   "",
+   "Cần 3 item giống nhau để nâng lên bậc cao hơn 1 bậc, lấy level theo level cao nhất trong 3 items"
+  ]
+ },
+ {
+  "r": 31,
+  "cells": [
+   "8.0",
+   "",
+   "Leather Gloves\n",
+   "Gloves",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Attacks have 5% chance to Crit",
+   "ATK +15%"
+  ]
+ },
+ {
+  "r": 32,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 33,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0"
+  ]
+ },
+ {
+  "r": 35,
+  "cells": [
+   "9.0",
+   "",
+   "Carapace",
+   "Armor",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Bullet damage received -100%, +10% for each bullet received. Max 0%.",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 36,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "50.0",
+   "70.0",
+   "100.0",
+   "200.0",
+   "350.0"
+  ]
+ },
+ {
+  "r": 37,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "5.0",
+   "10.0",
+   "15.0",
+   "20.0",
+   "30.0"
+  ]
+ },
+ {
+  "r": 39,
+  "cells": [
+   "10.0",
+   "",
+   "Leather Belt",
+   "Belt",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Healing +5% when looting food (Max 30%)",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 40,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 41,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 43,
+  "cells": [
+   "11.0",
+   "",
+   "Prosthetic Legs",
+   "Shoes",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Base Movement Speed +1",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 44,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 45,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 46,
+  "cells": [
+   "",
+   "Protective Set"
+  ]
+ },
+ {
+  "r": 47,
+  "cells": [
+   "12.0",
+   "",
+   "Emerald Pendant",
+   "Neacklace",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Generates radiation ring that deals damage over time",
+   "ATK +15%",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 48,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0",
+   "",
+   "",
+   "3.0",
+   "3.0",
+   "3.0",
+   "3.0"
+  ]
+ },
+ {
+  "r": 49,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0",
+   "",
+   "",
+   "Cần 3 item giống nhau để nâng lên bậc cao hơn 1 bậc, lấy level theo level cao nhất trong 3 items"
+  ]
+ },
+ {
+  "r": 51,
+  "cells": [
+   "13.0",
+   "",
+   "Protective Gloves\n",
+   "Gloves",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Damage to Elites and Bosses +20%",
+   "ATK +15%"
+  ]
+ },
+ {
+  "r": 52,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 53,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0"
+  ]
+ },
+ {
+  "r": 55,
+  "cells": [
+   "14.0",
+   "",
+   "Protective Suit",
+   "Armor",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Heal 3% HP/5s",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 56,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "50.0",
+   "70.0",
+   "100.0",
+   "200.0",
+   "350.0"
+  ]
+ },
+ {
+  "r": 57,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "5.0",
+   "10.0",
+   "15.0",
+   "20.0",
+   "30.0"
+  ]
+ },
+ {
+  "r": 59,
+  "cells": [
+   "15.0",
+   "",
+   "Broad Waistguard",
+   "Belt",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +20% CD in 10s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 60,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 61,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 63,
+  "cells": [
+   "16.0",
+   "",
+   "Layered Snowshoes",
+   "Shoes",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +30% Movement speed in 20s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 64,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 65,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 66,
+  "cells": [
+   "",
+   "Metal Set"
+  ]
+ },
+ {
+  "r": 67,
+  "cells": [
+   "17.0",
+   "",
+   "Metal Neckguard",
+   "Neacklace",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Gain +50% Dame in 10s from Elites/Bosses kills",
+   "ATK +15%",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 68,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0",
+   "",
+   "",
+   "3.0",
+   "3.0",
+   "3.0",
+   "3.0"
+  ]
+ },
+ {
+  "r": 69,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0",
+   "",
+   "",
+   "Cần 3 item giống nhau để nâng lên bậc cao hơn 1 bậc, lấy level theo level cao nhất trong 3 items"
+  ]
+ },
+ {
+  "r": 71,
+  "cells": [
+   "18.0",
+   "",
+   "Shiny Wristguard\n",
+   "Gloves",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Damage to Elites and Bosses +20%",
+   "ATK +15%"
+  ]
+ },
+ {
+  "r": 72,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 73,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0"
+  ]
+ },
+ {
+  "r": 75,
+  "cells": [
+   "19.0",
+   "",
+   "Full Metal Suit",
+   "Armor",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Heal 3% HP/5s",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 76,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "50.0",
+   "70.0",
+   "100.0",
+   "200.0",
+   "350.0"
+  ]
+ },
+ {
+  "r": 77,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "5.0",
+   "10.0",
+   "15.0",
+   "20.0",
+   "30.0"
+  ]
+ },
+ {
+  "r": 79,
+  "cells": [
+   "20.0",
+   "",
+   "Waist Sensor",
+   "Belt",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +20% CD in 10s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 80,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 81,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 83,
+  "cells": [
+   "21.0",
+   "",
+   "Light Runners",
+   "Shoes",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +30% Movement speed in 20s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 84,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 85,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 86,
+  "cells": [
+   "",
+   "Stylish Set"
+  ]
+ },
+ {
+  "r": 87,
+  "cells": [
+   "22.0",
+   "",
+   "Trendy Charm",
+   "Neacklace",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Gain +50% Dame in 10s from Elites/Bosses kills",
+   "ATK +15%",
+   "",
+   "",
+   "Normal",
+   "Good",
+   "Better",
+   "Excellent",
+   "Epic"
+  ]
+ },
+ {
+  "r": 88,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0",
+   "",
+   "",
+   "3.0",
+   "3.0",
+   "3.0",
+   "3.0"
+  ]
+ },
+ {
+  "r": 89,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0",
+   "",
+   "",
+   "Cần 3 item giống nhau để nâng lên bậc cao hơn 1 bậc, lấy level theo level cao nhất trong 3 items"
+  ]
+ },
+ {
+  "r": 91,
+  "cells": [
+   "23.0",
+   "",
+   "Fingerless Gloves\n",
+   "Gloves",
+   "ATK",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "ATK +10%",
+   "Damage to Elites and Bosses +20%",
+   "ATK +15%"
+  ]
+ },
+ {
+  "r": 92,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "10.0",
+   "15.0",
+   "30.0",
+   "50.0",
+   "100.0"
+  ]
+ },
+ {
+  "r": 93,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "2.0",
+   "3.0",
+   "4.0",
+   "7.0",
+   "10.0"
+  ]
+ },
+ {
+  "r": 95,
+  "cells": [
+   "24.0",
+   "",
+   "Traveler's Jacket",
+   "Armor",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Heal 3% HP/5s",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 96,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "50.0",
+   "70.0",
+   "100.0",
+   "200.0",
+   "350.0"
+  ]
+ },
+ {
+  "r": 97,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "5.0",
+   "10.0",
+   "15.0",
+   "20.0",
+   "30.0"
+  ]
+ },
+ {
+  "r": 99,
+  "cells": [
+   "25.0",
+   "",
+   "Stylish Belt",
+   "Belt",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +20% CD in 10s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 100,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 101,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ },
+ {
+  "r": 103,
+  "cells": [
+   "26.0",
+   "",
+   "Highboots",
+   "Shoes",
+   "HP",
+   "Grade skill",
+   "n/a",
+   "n/a",
+   "HP +15%",
+   "Gain +30% Movement speed in 20s from Elites/Bosses kills",
+   "HP +20%"
+  ]
+ },
+ {
+  "r": 104,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats base",
+   "40.0",
+   "55.0",
+   "75.0",
+   "150.0",
+   "250.0"
+  ]
+ },
+ {
+  "r": 105,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Stats bonus with each level",
+   "4.0",
+   "6.0",
+   "8.0",
+   "12.0",
+   "20.0"
+  ]
+ }
+]

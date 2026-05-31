@@ -1,0 +1,131 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "No.",
+   "Icon",
+   "Name",
+   "Enemy Category",
+   "Detail"
+  ]
+ },
+ {
+  "r": 2,
+  "cells": [
+   "1.0",
+   "",
+   "Small Biofuel",
+   "XP",
+   "10.0",
+   "",
+   "Level Up",
+   "2026-10-01 00:00:00",
+   "11-20",
+   "21-30",
+   "31-40",
+   "41-50",
+   "51-60",
+   "61-999"
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "2.0",
+   "",
+   "Medium Biofuel",
+   "XP",
+   "20.0",
+   "",
+   "XP Total",
+   "300.0",
+   "600.0",
+   "1000.0",
+   "1500.0",
+   "2200.0",
+   "3000.0",
+   "4000.0"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "3.0",
+   "",
+   "Big Biofuel",
+   "XP",
+   "50.0"
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "4.0",
+   "",
+   "Small Coin",
+   "Coin",
+   "10.0"
+  ]
+ },
+ {
+  "r": 6,
+  "cells": [
+   "5.0",
+   "",
+   "Medium Coin",
+   "Coin",
+   "20.0"
+  ]
+ },
+ {
+  "r": 7,
+  "cells": [
+   "6.0",
+   "",
+   "Big Coin",
+   "Coin",
+   "50.0"
+  ]
+ },
+ {
+  "r": 8,
+  "cells": [
+   "3.0",
+   "",
+   "Magnet",
+   "Magnet",
+   "Absorb all Coins and XP within a range of 'y'"
+  ]
+ },
+ {
+  "r": 9,
+  "cells": [
+   "4.0",
+   "",
+   "Food",
+   "Heal",
+   "Heal 20%HP"
+  ]
+ },
+ {
+  "r": 10,
+  "cells": [
+   "5.0",
+   "",
+   "Bomb",
+   "Bomb",
+   "Inflicts 'x' damage to enemies within a range of 'y'"
+  ]
+ },
+ {
+  "r": 11,
+  "cells": [
+   "6.0",
+   "",
+   "Upgrade Box",
+   "Box",
+   "Bỏ nhé, cái này code thêm kha khá, sợ k kịp",
+   "delete"
+  ]
+ }
+]

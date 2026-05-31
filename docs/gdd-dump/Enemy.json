@@ -1,0 +1,68 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "No.",
+   "Icon",
+   "Name",
+   "Enemy Category",
+   "Drop",
+   "Skill",
+   "Detail Skill",
+   "Movement Speed",
+   "Dame",
+   "Bullet"
+  ]
+ },
+ {
+  "r": 2,
+  "cells": [
+   "1.0",
+   "",
+   "Regular Zombie",
+   "Nomal",
+   "Small Biofuel ",
+   "N/A",
+   "Va chạm với player thì gây damage",
+   "Có thể sửa đổi mỗi màn",
+   "5.0"
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "2.0",
+   "",
+   "Zombie Hound",
+   "Nomal",
+   "Small Biofuel ",
+   "N/A",
+   "Va chạm với player thì gây damage",
+   "Có thể sửa đổi mỗi màn",
+   "5.0"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "1.0",
+   "",
+   "Boucebloom",
+   "Boss",
+   "Upgrade Box",
+   "N/A",
+   "This flower boss will throw out three shots at set intervals, these spread out and bounce around."
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "2.0",
+   "",
+   "Zombie Hound",
+   "Elite",
+   "Upgrade Box",
+   "N/A"
+  ]
+ }
+]

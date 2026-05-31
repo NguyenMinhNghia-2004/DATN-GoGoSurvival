@@ -1,0 +1,222 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "No.",
+   "Icon",
+   "Name",
+   "Detail Skill",
+   "Stats Category",
+   "",
+   "Level"
+  ]
+ },
+ {
+  "r": 2,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "★",
+   "★★",
+   "★★★",
+   "★★★★",
+   "★★★★★"
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "1.0",
+   "",
+   "Hi-Power Magnet",
+   "Hi-Power Magnet is a passive skill that increases the pickup range for EXP and items",
+   "Passive",
+   "Description",
+   "Item loot range +100%",
+   "Item loot range +200%",
+   "Item loot range +300%",
+   "Item loot range +400%",
+   "Item loot range +500%"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "2.0",
+   "",
+   "Fitness Guide",
+   "The Fitness Guide is a passive skill that increases player health",
+   "Passive",
+   "Description",
+   "Max HP +20%",
+   "Max HP +40%",
+   "Max HP +60%",
+   "Max HP +80%",
+   "Max HP +100%"
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "3.0",
+   "",
+   "Ammo Thruster",
+   "Ammo Thruster is a passive skill that makes projectiles move faster",
+   "Passive",
+   "Description",
+   "Bullet flight speed +10%",
+   "Bullet flight speed +20%",
+   "Bullet flight speed +30%",
+   "Bullet flight speed +40%",
+   "Bullet flight speed +50%"
+  ]
+ },
+ {
+  "r": 6,
+  "cells": [
+   "4.0",
+   "",
+   "HE Fuel",
+   "HE Fuel is a passive skill that increases the size and range of skills",
+   "Passive",
+   "Description",
+   "All ammo and weapon range +10%",
+   "All ammo and weapon range +20%",
+   "All ammo and weapon range +30%",
+   "All ammo and weapon range +40%",
+   "All ammo and weapon range +50%"
+  ]
+ },
+ {
+  "r": 7,
+  "cells": [
+   "5.0",
+   "",
+   "Energy Drink",
+   "The Energy Drink is a passive skill that provides healing to the player every 5 seconds",
+   "Passive",
+   "Description",
+   "Restores 1% HP/5s",
+   "Restores 2% HP/5s",
+   "Restores 3% HP/5s",
+   "Restores 4% HP/5s",
+   "Restores 5% HP/5s"
+  ]
+ },
+ {
+  "r": 8,
+  "cells": [
+   "6.0",
+   "",
+   "Exo-Bracer",
+   "Exo-Bracer is a passive skill that increases the time skills stay active before resetting",
+   "Passive",
+   "Description",
+   "Over-time effect duration +10%",
+   "Over-time effect duration +20%",
+   "Over-time effect duration +30%",
+   "Over-time effect duration +40%",
+   "Over-time effect duration +50%"
+  ]
+ },
+ {
+  "r": 9,
+  "cells": [
+   "7.0",
+   "",
+   "Energy Cube",
+   "The Energy Cube is a passive skill that lowers the cooldown of all attack skills",
+   "Passive",
+   "Description",
+   "All attack CD -8%",
+   "All attack CD -16%",
+   "All attack CD -24%",
+   "All attack CD -32%",
+   "All attack CD -40%"
+  ]
+ },
+ {
+  "r": 10,
+  "cells": [
+   "8.0",
+   "",
+   "Oil Bond",
+   "Oil Bond is a passive skill that increases the value of Gold picked up by the player",
+   "Passive",
+   "Description",
+   "Gold gain +8%",
+   "Gold gain +16%",
+   "Gold gain +24%",
+   "Gold gain +32%",
+   "Gold gain +40%"
+  ]
+ },
+ {
+  "r": 11,
+  "cells": [
+   "9.0",
+   "",
+   "Ronin Oyoroi",
+   "The Ronin Oyoroi is a passive skil, each upgrade reduces the damage taken by 10% to a maximum of 50%",
+   "Passive",
+   "Description",
+   "Received damage -10%",
+   "Received damage -20%",
+   "Received damage -30%",
+   "Received damage -40%",
+   "Received damage -50%"
+  ]
+ },
+ {
+  "r": 12,
+  "cells": [
+   "10.0",
+   "",
+   "Sports Shoes",
+   "Sports Shoes is a passive skill that increases player speed",
+   "Passive",
+   "Description",
+   "Movement Speed +10%",
+   "Movement Speed +20%",
+   "Movement Speed +30%",
+   "Movement Speed +40%",
+   "Movement Speed +50%"
+  ]
+ },
+ {
+  "r": 13,
+  "cells": [
+   "11.0",
+   "",
+   "Hi-Power Bullet",
+   "Hi-Power Bullet is a passive skill that increases ATK",
+   "Passive",
+   "Description",
+   "ATK +10%",
+   "ATK +20%",
+   "ATK +30%",
+   "ATK +40%",
+   "ATK +50%"
+  ]
+ },
+ {
+  "r": 14,
+  "cells": [
+   "12.0",
+   "",
+   "Koga Ninja Scroll",
+   "Koga Ninja Scroll is a passive skill that increases EXP during matches",
+   "Passive",
+   "Description",
+   "EXP gain +8%",
+   "EXP gain +16%",
+   "EXP gain +24%",
+   "EXP gain +32%",
+   "EXP gain +40%"
+  ]
+ }
+]

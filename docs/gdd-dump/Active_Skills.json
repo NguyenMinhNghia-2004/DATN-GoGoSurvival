@@ -1,0 +1,510 @@
+[
+ {
+  "r": 1,
+  "cells": [
+   "No.",
+   "Icon",
+   "Name",
+   "Detail Skill",
+   "Stats Category",
+   "",
+   "Level"
+  ]
+ },
+ {
+  "r": 2,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "★",
+   "★★",
+   "★★★",
+   "★★★★",
+   "★★★★★"
+  ]
+ },
+ {
+  "r": 3,
+  "cells": [
+   "1.0",
+   "",
+   "Kunai",
+   "The Kunai is the default weapon, even if no weapon is equipped. It is a great all around weapon that features auto-targeting. \nThis allows the player to focus on avoiding enemies and collecting pickups while the weapon continuously chips away at the horde",
+   "Active",
+   "ATK Multiplier",
+   "1.5",
+   "2",
+   "3",
+   "4",
+   "5.5"
+  ]
+ },
+ {
+  "r": 4,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ]
+ },
+ {
+  "r": 5,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "+1 Kunai \nAdds damage",
+   "+1 Kunai \nAdds damage",
+   "+1 Kunai \nAdds damage",
+   "+1 Kunai \nAdds damage",
+   "+1 Kunai \nAdds damage"
+  ]
+ },
+ {
+  "r": 7,
+  "cells": [
+   "2.0",
+   "",
+   "Boomerang",
+   "Boomerang is an active skill that launches boomerangs from the player. \nBoomerangs will fly a given distance, before returning and flying in the opposite direction off the screen",
+   "Active",
+   "ATK Multiplier",
+   "2.4",
+   "2.4",
+   "4.8",
+   "4.8",
+   "6"
+  ]
+ },
+ {
+  "r": 8,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1",
+   "1",
+   "1",
+   "1.2",
+   "1.5"
+  ]
+ },
+ {
+  "r": 9,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Throws 1 boomerang",
+   "+1 boomerang",
+   "Boomerang damage doubled",
+   "Adds boomerang size",
+   "Adds boomerang size"
+  ]
+ },
+ {
+  "r": 11,
+  "cells": [
+   "3.0",
+   "",
+   "Brick",
+   "Brick is an active skill that launches bricks above the player that'll eventually fall down with knockback and a limited amount of durability",
+   "Active",
+   "ATK Multiplier",
+   "1",
+   "1",
+   "1",
+   "1.5",
+   "1.5"
+  ]
+ },
+ {
+  "r": 12,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1.0",
+   "1.0",
+   "1.0",
+   "2026-02-01 00:00:00",
+   "2026-05-01 00:00:00"
+  ]
+ },
+ {
+  "r": 13,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Throws 1 brick",
+   "+1 brick\nAdds damage",
+   "+1 brick\nAdds damage",
+   "+1 brick\nAdds damage",
+   "+1 brick\nAdds damage"
+  ]
+ },
+ {
+  "r": 15,
+  "cells": [
+   "4.0",
+   "",
+   "Drill Shot",
+   "Drill Shot is an active skill that launches drills that bounce around the screen, piercing enemies. \nAfter a short period of time they will disappear and be re-launched from the player.",
+   "Active",
+   "ATK Multiplier",
+   "1.5",
+   "2",
+   "3",
+   "4",
+   "5.5"
+  ]
+ },
+ {
+  "r": 16,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Speed bullet Multiplier",
+   "1",
+   "1",
+   "2",
+   "3",
+   "3"
+  ]
+ },
+ {
+  "r": 17,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Fires a drill",
+   "+1 drill",
+   "Drill flight speed doubled",
+   "Drill speed up\nAdds damage",
+   "+1 drill"
+  ]
+ },
+ {
+  "r": 19,
+  "cells": [
+   "5.0",
+   "",
+   "Durian",
+   "Durian is an active skill that launches a durian that bounces around the screen with knockback.",
+   "Active",
+   "ATK Multiplier",
+   "6",
+   "6",
+   "8",
+   "10",
+   "10"
+  ]
+ },
+ {
+  "r": 20,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ]
+ },
+ {
+  "r": 21,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Throws a durian that sticks around",
+   "Durian damage doubled",
+   "Durian size doubled",
+   "Adds more durian damage",
+   "Durian damage doubled"
+  ]
+ },
+ {
+  "r": 23,
+  "cells": [
+   "6.0",
+   "",
+   "Forcefield",
+   "Forcefield is an active skill that creates a damaging forcefield to mobs around the player",
+   "Active",
+   "ATK Multiplier",
+   "1",
+   "1.5",
+   "2",
+   "2.25",
+   "2.5"
+  ]
+ },
+ {
+  "r": 24,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1.0",
+   "1.15",
+   "2026-03-01 00:00:00",
+   "1.45",
+   "2026-06-01 00:00:00"
+  ]
+ },
+ {
+  "r": 25,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Generates a dissolving forcefield",
+   "Adds area size\nAdds damage",
+   "Adds area size\nAdds damage",
+   "Adds area size\nAdds damage",
+   "Adds area size\nAdds damage"
+  ]
+ },
+ {
+  "r": 27,
+  "cells": [
+   "7.0",
+   "",
+   "Guardian",
+   "Guardian is an active skill that launches tops that rotate around the player. \nThey will eventually disappear briefly before being re-launched. \nThe tops will block most enemy projectiles and deal knockback damage to enemies that come close to the player.",
+   "Active",
+   "ATK Multiplier",
+   "0.5",
+   "0.6",
+   "0.7",
+   "0.9",
+   "0.9"
+  ]
+ },
+ {
+  "r": 28,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Speed bullet Multiplier",
+   "1",
+   "1.15",
+   "1.3",
+   "1.45",
+   "1.6"
+  ]
+ },
+ {
+  "r": 29,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Summons 2 tops that circle you\nStops bullets",
+   "+1 top\nAdds spin speed and damage",
+   "+1 top\nAdds spin speed and damage",
+   "+1 top\nAdds spin speed and damage",
+   "+1 top\nAdds spin speed and damage"
+  ]
+ },
+ {
+  "r": 31,
+  "cells": [
+   "8.0",
+   "",
+   "Molotov",
+   "Molotov is an active skill that launches Molotov's around the player that leave a patch of fire on the ground. \nWhen evolved it creates a ring around you that slowly closes in on you. \nPatches of fire will remove Poison from the ground. ",
+   "Active",
+   "ATK Multiplier",
+   "0.6",
+   "0.8",
+   "0.9",
+   "1.1",
+   "1.2"
+  ]
+ },
+ {
+  "r": 32,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ]
+ },
+ {
+  "r": 33,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Throws 2 molotovs",
+   "+1 molotov\nBigger burn area\nAdds damage",
+   "+1 molotov\nBigger burn area\nAdds damage",
+   "+1 molotov\nBigger burn area\nAdds damage",
+   "+1 molotov\nBigger burn area\nAdds damage"
+  ]
+ },
+ {
+  "r": 35,
+  "cells": [
+   "9.0",
+   "",
+   "RPG",
+   "RPG is an active skill that launches RPGs from the player, exploding upon impact with an enemy.",
+   "Active",
+   "ATK Multiplier",
+   "2",
+   "4",
+   "4",
+   "6",
+   "6"
+  ]
+ },
+ {
+  "r": 36,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Scale",
+   "1.0",
+   "1.0",
+   "1.0",
+   "1.0",
+   "1.0"
+  ]
+ },
+ {
+  "r": 37,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Fires an explosive rocket",
+   "Rocket damage doubled",
+   "+1 rocket",
+   "Adds more rocket damage",
+   "+1 rocket"
+  ]
+ },
+ {
+  "r": 39,
+  "cells": [
+   "10.0",
+   "",
+   "Soccer Ball\n",
+   "Drill Shot is an active skill that launches drills that bounce around the screen, piercing enemies. \nAfter a short period of time they will disappear and be re-launched from the player.",
+   "Active",
+   "ATK Multiplier",
+   "1",
+   "1",
+   "4",
+   "5",
+   "5"
+  ]
+ },
+ {
+  "r": 40,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Speed bullet Multiplier",
+   "1",
+   "1",
+   "1",
+   "1",
+   "1"
+  ]
+ },
+ {
+  "r": 41,
+  "cells": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Description",
+   "Throws 1 football that bounces",
+   "+1 football",
+   "Increases flight speed + damage",
+   "Increases flight speed + damage",
+   "+1 football"
+  ]
+ }
+]
