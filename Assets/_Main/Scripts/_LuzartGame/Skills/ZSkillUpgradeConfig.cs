@@ -35,6 +35,7 @@ namespace Luzart
         }
         public double GetStatCalculator(StatType statType)
         {
+            TryInit();  // lazy-init if Domain.Initialize never ran (e.g. when SO is loaded directly via guid ref)
             if (_statDict.TryGetValue(statType, out var stat))
             {
                 return stat.Value.Value;
@@ -43,6 +44,7 @@ namespace Luzart
         }
         public INumber GetStat(StatType statType)
         {
+            TryInit();
             if (_statDict.TryGetValue(statType, out var stat))
             {
                 return stat.Value;

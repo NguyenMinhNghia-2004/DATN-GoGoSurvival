@@ -5794,6 +5794,15 @@
   "guid": "e7664ab35848e854f96930c936731925",
   "name": "Migration"
  },
+ "ModifierAndInGame": {
+  "path": "Assets/_Main/Data/ModifierAndInGame",
+  "guid": "a5f617b7d62449f4b8ba53e3a919b2d3"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame": {
+  "path": "Assets/_Main/Data/ModifierAndInGame",
+  "guid": "a5f617b7d62449f4b8ba53e3a919b2d3",
+  "name": "ModifierAndInGame"
+ },
  "NewEquipment": {
   "path": "Assets/_Main/Data/NewEquipment.asset",
   "guid": "ca2054594b042bb43bf77fc81bd3a077"
@@ -6338,6 +6347,1039 @@
   "path": "Assets/_Main/Data/Migration/MigrationFlagsContent.asset",
   "guid": "f0a221c51d9f74b45bae64b1e2d419ab",
   "name": "MigrationFlagsContent"
+ },
+ "Player": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player",
+  "guid": "a569191a9dac1de499f210b00cc68934"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player",
+  "guid": "a569191a9dac1de499f210b00cc68934",
+  "name": "Player"
+ },
+ "Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor",
+  "guid": "932aacbf0e600a141b3997278bc636ec"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor",
+  "guid": "932aacbf0e600a141b3997278bc636ec",
+  "name": "Armor"
+ },
+ "ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK",
+  "guid": "ea559698f79f0564eae2c37b83a5da00"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK",
+  "guid": "ea559698f79f0564eae2c37b83a5da00",
+  "name": "ATK"
+ },
+ "Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown",
+  "guid": "a7ab3d6bdf3cdfb4da15263e1783aa24"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown",
+  "guid": "a7ab3d6bdf3cdfb4da15263e1783aa24",
+  "name": "Cooldown"
+ },
+ "FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed",
+  "guid": "2877895460a5df34e8953309db43d580"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed",
+  "guid": "2877895460a5df34e8953309db43d580",
+  "name": "FireSpeed"
+ },
+ "Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal",
+  "guid": "467b02be91065d54bb033db7dc4e512e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal",
+  "guid": "467b02be91065d54bb033db7dc4e512e",
+  "name": "Heal"
+ },
+ "HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax",
+  "guid": "b184856645609b6458de0e57a208f1b2"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax",
+  "guid": "b184856645609b6458de0e57a208f1b2",
+  "name": "HPMax"
+ },
+ "RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind",
+  "guid": "60f9ac0c26c0d884496a2fd102216792"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind",
+  "guid": "60f9ac0c26c0d884496a2fd102216792",
+  "name": "RangeFind"
+ },
+ "Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed",
+  "guid": "202e689bf5f15a649af941efc0fec255"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed",
+  "guid": "202e689bf5f15a649af941efc0fec255",
+  "name": "Speed"
+ },
+ "Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition",
+  "guid": "2a7d75a056d44184891ac5e91ad0a612"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition",
+  "guid": "2a7d75a056d44184891ac5e91ad0a612",
+  "name": "Definition"
+ },
+ "Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier",
+  "guid": "0cafcd58a31267a408de5947b7afb13e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier",
+  "guid": "0cafcd58a31267a408de5947b7afb13e",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Base_Armor.asset",
+  "guid": "984c79f9c2c2470392847bc67795b22a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Base_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Base_Armor.asset",
+  "guid": "984c79f9c2c2470392847bc67795b22a",
+  "name": "Number_Player_InGame_Base_Armor"
+ },
+ "Number_Player_InGame_Final_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Final_Armor.asset",
+  "guid": "023d1e3d3ceb45629eedd4deabd5d282"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Final_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_Final_Armor.asset",
+  "guid": "023d1e3d3ceb45629eedd4deabd5d282",
+  "name": "Number_Player_InGame_Final_Armor"
+ },
+ "Number_Player_InGame_TotalAddNormal_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddNormal_Armor.asset",
+  "guid": "6e55ecf245aa473a9252eeabe74695d5"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddNormal_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddNormal_Armor.asset",
+  "guid": "6e55ecf245aa473a9252eeabe74695d5",
+  "name": "Number_Player_InGame_TotalAddNormal_Armor"
+ },
+ "Number_Player_InGame_TotalAddRatio_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddRatio_Armor.asset",
+  "guid": "9808ef42942848b3b8f8f3fc446193e7"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddRatio_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddRatio_Armor.asset",
+  "guid": "9808ef42942848b3b8f8f3fc446193e7",
+  "name": "Number_Player_InGame_TotalAddRatio_Armor"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddSubRatio_Armor.asset",
+  "guid": "1bc9698bf9da4dafab2455b06a16f536"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddSubRatio_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalAddSubRatio_Armor.asset",
+  "guid": "1bc9698bf9da4dafab2455b06a16f536",
+  "name": "Number_Player_InGame_TotalAddSubRatio_Armor"
+ },
+ "Number_Player_InGame_TotalMultiply_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalMultiply_Armor.asset",
+  "guid": "069ccce9b0c04d5ca686c9675e3572f2"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalMultiply_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Number_Player_InGame_TotalMultiply_Armor.asset",
+  "guid": "069ccce9b0c04d5ca686c9675e3572f2",
+  "name": "Number_Player_InGame_TotalMultiply_Armor"
+ },
+ "ModDef_Player_AddNormal_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddNormal_Armor.asset",
+  "guid": "8f72022d86314c659c6d249f708fa2d3"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddNormal_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddNormal_Armor.asset",
+  "guid": "8f72022d86314c659c6d249f708fa2d3",
+  "name": "ModDef_Player_AddNormal_Armor"
+ },
+ "ModDef_Player_AddRatio_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddRatio_Armor.asset",
+  "guid": "a34416f015634598a2a87be12333f6ac"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddRatio_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_AddRatio_Armor.asset",
+  "guid": "a34416f015634598a2a87be12333f6ac",
+  "name": "ModDef_Player_AddRatio_Armor"
+ },
+ "ModDef_Player_Multiply_Armor": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_Multiply_Armor.asset",
+  "guid": "37480ffb4e5943b2944847e9795751db"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_Multiply_Armor.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Definition/ModDef_Player_Multiply_Armor.asset",
+  "guid": "37480ffb4e5943b2944847e9795751db",
+  "name": "ModDef_Player_Multiply_Armor"
+ },
+ "Mod_Player_InGame_Armor_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddNormal.asset",
+  "guid": "7fb2787bf28a4301ae0a22e24ca3a181"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddNormal.asset",
+  "guid": "7fb2787bf28a4301ae0a22e24ca3a181",
+  "name": "Mod_Player_InGame_Armor_AddNormal"
+ },
+ "Mod_Player_InGame_Armor_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddRatio.asset",
+  "guid": "2e1b59f81e3849a3b18620a3decba076"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_AddRatio.asset",
+  "guid": "2e1b59f81e3849a3b18620a3decba076",
+  "name": "Mod_Player_InGame_Armor_AddRatio"
+ },
+ "Mod_Player_InGame_Armor_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_Multiply.asset",
+  "guid": "fe8a8d943d41471a8c9bc2cbdc667f86"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Armor/Modifier/Mod_Player_InGame_Armor_Multiply.asset",
+  "guid": "fe8a8d943d41471a8c9bc2cbdc667f86",
+  "name": "Mod_Player_InGame_Armor_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition",
+  "guid": "32a18b16f52aba64e8a89a16d994e80f",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier",
+  "guid": "ae1be37dfb1bc9f4da0308701c4cdf42",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Base_ATK.asset",
+  "guid": "acc499513a9e470c9095f9d0b1d2c185"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Base_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Base_ATK.asset",
+  "guid": "acc499513a9e470c9095f9d0b1d2c185",
+  "name": "Number_Player_InGame_Base_ATK"
+ },
+ "Number_Player_InGame_Final_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Final_ATK.asset",
+  "guid": "69cee5a43887487c88872a045a64ced9"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Final_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_Final_ATK.asset",
+  "guid": "69cee5a43887487c88872a045a64ced9",
+  "name": "Number_Player_InGame_Final_ATK"
+ },
+ "Number_Player_InGame_TotalAddNormal_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddNormal_ATK.asset",
+  "guid": "bd63f8df7d92424a95530edb336bd98f"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddNormal_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddNormal_ATK.asset",
+  "guid": "bd63f8df7d92424a95530edb336bd98f",
+  "name": "Number_Player_InGame_TotalAddNormal_ATK"
+ },
+ "Number_Player_InGame_TotalAddRatio_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddRatio_ATK.asset",
+  "guid": "65df842d72d6418db35f9a91cea3066a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddRatio_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddRatio_ATK.asset",
+  "guid": "65df842d72d6418db35f9a91cea3066a",
+  "name": "Number_Player_InGame_TotalAddRatio_ATK"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddSubRatio_ATK.asset",
+  "guid": "ab981d864fa044f781815ad4be653ab3"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddSubRatio_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalAddSubRatio_ATK.asset",
+  "guid": "ab981d864fa044f781815ad4be653ab3",
+  "name": "Number_Player_InGame_TotalAddSubRatio_ATK"
+ },
+ "Number_Player_InGame_TotalMultiply_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalMultiply_ATK.asset",
+  "guid": "212607d66a1f4247b27326ee07d5a917"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalMultiply_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Number_Player_InGame_TotalMultiply_ATK.asset",
+  "guid": "212607d66a1f4247b27326ee07d5a917",
+  "name": "Number_Player_InGame_TotalMultiply_ATK"
+ },
+ "ModDef_Player_AddNormal_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddNormal_ATK.asset",
+  "guid": "fd888948627a418cb52ddf2ffa321437"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddNormal_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddNormal_ATK.asset",
+  "guid": "fd888948627a418cb52ddf2ffa321437",
+  "name": "ModDef_Player_AddNormal_ATK"
+ },
+ "ModDef_Player_AddRatio_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddRatio_ATK.asset",
+  "guid": "fd518feda9824dd5940da5e8fdcc4883"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddRatio_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_AddRatio_ATK.asset",
+  "guid": "fd518feda9824dd5940da5e8fdcc4883",
+  "name": "ModDef_Player_AddRatio_ATK"
+ },
+ "ModDef_Player_Multiply_ATK": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_Multiply_ATK.asset",
+  "guid": "ef162de08cd14b5087dffaf394009e85"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_Multiply_ATK.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Definition/ModDef_Player_Multiply_ATK.asset",
+  "guid": "ef162de08cd14b5087dffaf394009e85",
+  "name": "ModDef_Player_Multiply_ATK"
+ },
+ "Mod_Player_InGame_ATK_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddNormal.asset",
+  "guid": "1d75f835264b487ea9bfa40ca15ccae1"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddNormal.asset",
+  "guid": "1d75f835264b487ea9bfa40ca15ccae1",
+  "name": "Mod_Player_InGame_ATK_AddNormal"
+ },
+ "Mod_Player_InGame_ATK_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddRatio.asset",
+  "guid": "612b0656b2d04d6793d7261f03cd7a9b"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_AddRatio.asset",
+  "guid": "612b0656b2d04d6793d7261f03cd7a9b",
+  "name": "Mod_Player_InGame_ATK_AddRatio"
+ },
+ "Mod_Player_InGame_ATK_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_Multiply.asset",
+  "guid": "fac0c528ff994e3b87434839cc383037"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/ATK/Modifier/Mod_Player_InGame_ATK_Multiply.asset",
+  "guid": "fac0c528ff994e3b87434839cc383037",
+  "name": "Mod_Player_InGame_ATK_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition",
+  "guid": "def5a1e8f5c6b3541b63bc398d60fcec",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier",
+  "guid": "0cb5081bcd5494b4899d9ce7c72dc142",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Base_Cooldown.asset",
+  "guid": "866ef25f4b12428d8489929de35b4f3b"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Base_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Base_Cooldown.asset",
+  "guid": "866ef25f4b12428d8489929de35b4f3b",
+  "name": "Number_Player_InGame_Base_Cooldown"
+ },
+ "Number_Player_InGame_Final_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Final_Cooldown.asset",
+  "guid": "c12daca46be542cc8d13e1a7a70b0e48"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Final_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_Final_Cooldown.asset",
+  "guid": "c12daca46be542cc8d13e1a7a70b0e48",
+  "name": "Number_Player_InGame_Final_Cooldown"
+ },
+ "Number_Player_InGame_TotalAddNormal_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddNormal_Cooldown.asset",
+  "guid": "1113a3465be74eaab8b74cdd335ef13c"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddNormal_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddNormal_Cooldown.asset",
+  "guid": "1113a3465be74eaab8b74cdd335ef13c",
+  "name": "Number_Player_InGame_TotalAddNormal_Cooldown"
+ },
+ "Number_Player_InGame_TotalAddRatio_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddRatio_Cooldown.asset",
+  "guid": "39da646c69704dc99e820f30b7f6d5aa"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddRatio_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddRatio_Cooldown.asset",
+  "guid": "39da646c69704dc99e820f30b7f6d5aa",
+  "name": "Number_Player_InGame_TotalAddRatio_Cooldown"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddSubRatio_Cooldown.asset",
+  "guid": "7c76bed1507e4378ae7cf7f23c6a5e84"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddSubRatio_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalAddSubRatio_Cooldown.asset",
+  "guid": "7c76bed1507e4378ae7cf7f23c6a5e84",
+  "name": "Number_Player_InGame_TotalAddSubRatio_Cooldown"
+ },
+ "Number_Player_InGame_TotalMultiply_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalMultiply_Cooldown.asset",
+  "guid": "04d11daa60f94a59ac9d64a628cd7bea"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalMultiply_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Number_Player_InGame_TotalMultiply_Cooldown.asset",
+  "guid": "04d11daa60f94a59ac9d64a628cd7bea",
+  "name": "Number_Player_InGame_TotalMultiply_Cooldown"
+ },
+ "ModDef_Player_AddNormal_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddNormal_Cooldown.asset",
+  "guid": "79b5d3a7da104f9eb64c8837b20a2b60"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddNormal_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddNormal_Cooldown.asset",
+  "guid": "79b5d3a7da104f9eb64c8837b20a2b60",
+  "name": "ModDef_Player_AddNormal_Cooldown"
+ },
+ "ModDef_Player_AddRatio_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddRatio_Cooldown.asset",
+  "guid": "166e79ebcdc8478089e0ed68d9803c2e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddRatio_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_AddRatio_Cooldown.asset",
+  "guid": "166e79ebcdc8478089e0ed68d9803c2e",
+  "name": "ModDef_Player_AddRatio_Cooldown"
+ },
+ "ModDef_Player_Multiply_Cooldown": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_Multiply_Cooldown.asset",
+  "guid": "a6fd0d45664c4265a6408e774214f319"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_Multiply_Cooldown.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Definition/ModDef_Player_Multiply_Cooldown.asset",
+  "guid": "a6fd0d45664c4265a6408e774214f319",
+  "name": "ModDef_Player_Multiply_Cooldown"
+ },
+ "Mod_Player_InGame_Cooldown_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddNormal.asset",
+  "guid": "8c0b01683daf4f32a6f1171bd94c7298"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddNormal.asset",
+  "guid": "8c0b01683daf4f32a6f1171bd94c7298",
+  "name": "Mod_Player_InGame_Cooldown_AddNormal"
+ },
+ "Mod_Player_InGame_Cooldown_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddRatio.asset",
+  "guid": "5d3429d426d541aeaf3b024986ace3d0"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_AddRatio.asset",
+  "guid": "5d3429d426d541aeaf3b024986ace3d0",
+  "name": "Mod_Player_InGame_Cooldown_AddRatio"
+ },
+ "Mod_Player_InGame_Cooldown_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_Multiply.asset",
+  "guid": "4fe899b551ec4164b07a366c755d5ecc"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Cooldown/Modifier/Mod_Player_InGame_Cooldown_Multiply.asset",
+  "guid": "4fe899b551ec4164b07a366c755d5ecc",
+  "name": "Mod_Player_InGame_Cooldown_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition",
+  "guid": "7ca38b7720880e54583d78895c318605",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier",
+  "guid": "3b1b4f0e1a1973d4f872d7dd3900ccef",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Base_FireSpeed.asset",
+  "guid": "69f80bf846c4434bb5361c243b47910f"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Base_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Base_FireSpeed.asset",
+  "guid": "69f80bf846c4434bb5361c243b47910f",
+  "name": "Number_Player_InGame_Base_FireSpeed"
+ },
+ "Number_Player_InGame_Final_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Final_FireSpeed.asset",
+  "guid": "67e8450dd4504aaf91eeccd628c4f5de"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Final_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_Final_FireSpeed.asset",
+  "guid": "67e8450dd4504aaf91eeccd628c4f5de",
+  "name": "Number_Player_InGame_Final_FireSpeed"
+ },
+ "Number_Player_InGame_TotalAddNormal_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddNormal_FireSpeed.asset",
+  "guid": "351cd36ddbdc482089faf0a0e496660a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddNormal_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddNormal_FireSpeed.asset",
+  "guid": "351cd36ddbdc482089faf0a0e496660a",
+  "name": "Number_Player_InGame_TotalAddNormal_FireSpeed"
+ },
+ "Number_Player_InGame_TotalAddRatio_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddRatio_FireSpeed.asset",
+  "guid": "b8dcc5615cca47a2838ebbaa43e9f7d4"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddRatio_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddRatio_FireSpeed.asset",
+  "guid": "b8dcc5615cca47a2838ebbaa43e9f7d4",
+  "name": "Number_Player_InGame_TotalAddRatio_FireSpeed"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddSubRatio_FireSpeed.asset",
+  "guid": "4a3379a385634e9993bc6480205f87b7"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddSubRatio_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalAddSubRatio_FireSpeed.asset",
+  "guid": "4a3379a385634e9993bc6480205f87b7",
+  "name": "Number_Player_InGame_TotalAddSubRatio_FireSpeed"
+ },
+ "Number_Player_InGame_TotalMultiply_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalMultiply_FireSpeed.asset",
+  "guid": "cee1d9b215b04e08865eacdda02f9391"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalMultiply_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Number_Player_InGame_TotalMultiply_FireSpeed.asset",
+  "guid": "cee1d9b215b04e08865eacdda02f9391",
+  "name": "Number_Player_InGame_TotalMultiply_FireSpeed"
+ },
+ "ModDef_Player_AddNormal_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddNormal_FireSpeed.asset",
+  "guid": "4026e7e5fe964133b8529043042aa3ff"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddNormal_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddNormal_FireSpeed.asset",
+  "guid": "4026e7e5fe964133b8529043042aa3ff",
+  "name": "ModDef_Player_AddNormal_FireSpeed"
+ },
+ "ModDef_Player_AddRatio_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddRatio_FireSpeed.asset",
+  "guid": "3116cadab67b422d8cafa51f5625be2b"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddRatio_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_AddRatio_FireSpeed.asset",
+  "guid": "3116cadab67b422d8cafa51f5625be2b",
+  "name": "ModDef_Player_AddRatio_FireSpeed"
+ },
+ "ModDef_Player_Multiply_FireSpeed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_Multiply_FireSpeed.asset",
+  "guid": "e140723d2082412ab676fad5ca46731e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_Multiply_FireSpeed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Definition/ModDef_Player_Multiply_FireSpeed.asset",
+  "guid": "e140723d2082412ab676fad5ca46731e",
+  "name": "ModDef_Player_Multiply_FireSpeed"
+ },
+ "Mod_Player_InGame_FireSpeed_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddNormal.asset",
+  "guid": "ddb80d0f02934e5b9450020c300ae6c1"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddNormal.asset",
+  "guid": "ddb80d0f02934e5b9450020c300ae6c1",
+  "name": "Mod_Player_InGame_FireSpeed_AddNormal"
+ },
+ "Mod_Player_InGame_FireSpeed_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddRatio.asset",
+  "guid": "f619d8bb07c34453bd89c80e4facad31"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_AddRatio.asset",
+  "guid": "f619d8bb07c34453bd89c80e4facad31",
+  "name": "Mod_Player_InGame_FireSpeed_AddRatio"
+ },
+ "Mod_Player_InGame_FireSpeed_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_Multiply.asset",
+  "guid": "e0abc38ac2e04afba0324f51ff5852db"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/FireSpeed/Modifier/Mod_Player_InGame_FireSpeed_Multiply.asset",
+  "guid": "e0abc38ac2e04afba0324f51ff5852db",
+  "name": "Mod_Player_InGame_FireSpeed_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition",
+  "guid": "4d61fe45151ea1c419e5420eb27b3ece",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier",
+  "guid": "a5f423d2430379942aec4619bd1868e5",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Base_Heal.asset",
+  "guid": "300ccd1f83cb4422926a336068857736"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Base_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Base_Heal.asset",
+  "guid": "300ccd1f83cb4422926a336068857736",
+  "name": "Number_Player_InGame_Base_Heal"
+ },
+ "Number_Player_InGame_Final_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Final_Heal.asset",
+  "guid": "b7535de2594a4a8faf216ffae8ae3d10"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Final_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_Final_Heal.asset",
+  "guid": "b7535de2594a4a8faf216ffae8ae3d10",
+  "name": "Number_Player_InGame_Final_Heal"
+ },
+ "Number_Player_InGame_TotalAddNormal_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddNormal_Heal.asset",
+  "guid": "c8bd1fb6da8d403b928ad96fad1a5117"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddNormal_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddNormal_Heal.asset",
+  "guid": "c8bd1fb6da8d403b928ad96fad1a5117",
+  "name": "Number_Player_InGame_TotalAddNormal_Heal"
+ },
+ "Number_Player_InGame_TotalAddRatio_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddRatio_Heal.asset",
+  "guid": "9fd909040b814be2a3c444e8d3eccaa8"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddRatio_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddRatio_Heal.asset",
+  "guid": "9fd909040b814be2a3c444e8d3eccaa8",
+  "name": "Number_Player_InGame_TotalAddRatio_Heal"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddSubRatio_Heal.asset",
+  "guid": "233b763d865a49d18ab32f66ce830b73"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddSubRatio_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalAddSubRatio_Heal.asset",
+  "guid": "233b763d865a49d18ab32f66ce830b73",
+  "name": "Number_Player_InGame_TotalAddSubRatio_Heal"
+ },
+ "Number_Player_InGame_TotalMultiply_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalMultiply_Heal.asset",
+  "guid": "b04b0d5625504e63b861cc5b9afd1a96"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalMultiply_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Number_Player_InGame_TotalMultiply_Heal.asset",
+  "guid": "b04b0d5625504e63b861cc5b9afd1a96",
+  "name": "Number_Player_InGame_TotalMultiply_Heal"
+ },
+ "ModDef_Player_AddNormal_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddNormal_Heal.asset",
+  "guid": "caf5d57bb2354321a4673c936ef02783"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddNormal_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddNormal_Heal.asset",
+  "guid": "caf5d57bb2354321a4673c936ef02783",
+  "name": "ModDef_Player_AddNormal_Heal"
+ },
+ "ModDef_Player_AddRatio_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddRatio_Heal.asset",
+  "guid": "ed899645c79b43efb5ed605429743eb6"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddRatio_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_AddRatio_Heal.asset",
+  "guid": "ed899645c79b43efb5ed605429743eb6",
+  "name": "ModDef_Player_AddRatio_Heal"
+ },
+ "ModDef_Player_Multiply_Heal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_Multiply_Heal.asset",
+  "guid": "380c8b903e884b6fa99d5e6b8ffcb807"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_Multiply_Heal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Definition/ModDef_Player_Multiply_Heal.asset",
+  "guid": "380c8b903e884b6fa99d5e6b8ffcb807",
+  "name": "ModDef_Player_Multiply_Heal"
+ },
+ "Mod_Player_InGame_Heal_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddNormal.asset",
+  "guid": "6316737157c942a48081b4f32c16aabd"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddNormal.asset",
+  "guid": "6316737157c942a48081b4f32c16aabd",
+  "name": "Mod_Player_InGame_Heal_AddNormal"
+ },
+ "Mod_Player_InGame_Heal_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddRatio.asset",
+  "guid": "028e520d06364bdf971f942ba3bdfbdd"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_AddRatio.asset",
+  "guid": "028e520d06364bdf971f942ba3bdfbdd",
+  "name": "Mod_Player_InGame_Heal_AddRatio"
+ },
+ "Mod_Player_InGame_Heal_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_Multiply.asset",
+  "guid": "c533cf606e514a4da707cac389a2f2eb"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Heal/Modifier/Mod_Player_InGame_Heal_Multiply.asset",
+  "guid": "c533cf606e514a4da707cac389a2f2eb",
+  "name": "Mod_Player_InGame_Heal_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition",
+  "guid": "a794b91e13162fb43bd3558cf19747d6",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier",
+  "guid": "03eed139c7daa9142b45678b53a81a86",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Base_HPMax.asset",
+  "guid": "ed773551042d436d927940ca793f835f"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Base_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Base_HPMax.asset",
+  "guid": "ed773551042d436d927940ca793f835f",
+  "name": "Number_Player_InGame_Base_HPMax"
+ },
+ "Number_Player_InGame_Final_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Final_HPMax.asset",
+  "guid": "5b30b88526b6411f9e0e9fe34bb9bcf4"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Final_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_Final_HPMax.asset",
+  "guid": "5b30b88526b6411f9e0e9fe34bb9bcf4",
+  "name": "Number_Player_InGame_Final_HPMax"
+ },
+ "Number_Player_InGame_TotalAddNormal_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddNormal_HPMax.asset",
+  "guid": "168a0b9e17a84d0292d459b28372b47f"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddNormal_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddNormal_HPMax.asset",
+  "guid": "168a0b9e17a84d0292d459b28372b47f",
+  "name": "Number_Player_InGame_TotalAddNormal_HPMax"
+ },
+ "Number_Player_InGame_TotalAddRatio_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddRatio_HPMax.asset",
+  "guid": "0a12c1d424a84cddbb944462f8e960f9"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddRatio_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddRatio_HPMax.asset",
+  "guid": "0a12c1d424a84cddbb944462f8e960f9",
+  "name": "Number_Player_InGame_TotalAddRatio_HPMax"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddSubRatio_HPMax.asset",
+  "guid": "18fcec8ac85a4523a3f82bcf97388322"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddSubRatio_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalAddSubRatio_HPMax.asset",
+  "guid": "18fcec8ac85a4523a3f82bcf97388322",
+  "name": "Number_Player_InGame_TotalAddSubRatio_HPMax"
+ },
+ "Number_Player_InGame_TotalMultiply_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalMultiply_HPMax.asset",
+  "guid": "c06ef4513c5b42c9bd64e634f71dbd2d"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalMultiply_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Number_Player_InGame_TotalMultiply_HPMax.asset",
+  "guid": "c06ef4513c5b42c9bd64e634f71dbd2d",
+  "name": "Number_Player_InGame_TotalMultiply_HPMax"
+ },
+ "ModDef_Player_AddNormal_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddNormal_HPMax.asset",
+  "guid": "f771bd9f5a7d43618989d1e2e9b56f0a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddNormal_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddNormal_HPMax.asset",
+  "guid": "f771bd9f5a7d43618989d1e2e9b56f0a",
+  "name": "ModDef_Player_AddNormal_HPMax"
+ },
+ "ModDef_Player_AddRatio_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddRatio_HPMax.asset",
+  "guid": "9a18ead5726742b2ad923c06de0bfc9a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddRatio_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_AddRatio_HPMax.asset",
+  "guid": "9a18ead5726742b2ad923c06de0bfc9a",
+  "name": "ModDef_Player_AddRatio_HPMax"
+ },
+ "ModDef_Player_Multiply_HPMax": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_Multiply_HPMax.asset",
+  "guid": "50db6795ea1e4639b0718b1f8ebf7b2e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_Multiply_HPMax.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Definition/ModDef_Player_Multiply_HPMax.asset",
+  "guid": "50db6795ea1e4639b0718b1f8ebf7b2e",
+  "name": "ModDef_Player_Multiply_HPMax"
+ },
+ "Mod_Player_InGame_HPMax_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddNormal.asset",
+  "guid": "cf0a3cf030414e06be40def3d831e6f4"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddNormal.asset",
+  "guid": "cf0a3cf030414e06be40def3d831e6f4",
+  "name": "Mod_Player_InGame_HPMax_AddNormal"
+ },
+ "Mod_Player_InGame_HPMax_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddRatio.asset",
+  "guid": "5fdc0256b3b34c389e1b001a4287262b"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_AddRatio.asset",
+  "guid": "5fdc0256b3b34c389e1b001a4287262b",
+  "name": "Mod_Player_InGame_HPMax_AddRatio"
+ },
+ "Mod_Player_InGame_HPMax_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_Multiply.asset",
+  "guid": "955e7bcd0c954c9d963f50fb9e8ca8f3"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/HPMax/Modifier/Mod_Player_InGame_HPMax_Multiply.asset",
+  "guid": "955e7bcd0c954c9d963f50fb9e8ca8f3",
+  "name": "Mod_Player_InGame_HPMax_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition",
+  "guid": "912c0c7bf5341ef48bfe495da9281926",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier",
+  "guid": "ee295901f2cc6af48a38290f430172b9",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Base_RangeFind.asset",
+  "guid": "3800aaf8a78647eb8238715446b31d1e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Base_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Base_RangeFind.asset",
+  "guid": "3800aaf8a78647eb8238715446b31d1e",
+  "name": "Number_Player_InGame_Base_RangeFind"
+ },
+ "Number_Player_InGame_Final_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Final_RangeFind.asset",
+  "guid": "46442c3bcca04279a13be0dfc98bdfed"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Final_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_Final_RangeFind.asset",
+  "guid": "46442c3bcca04279a13be0dfc98bdfed",
+  "name": "Number_Player_InGame_Final_RangeFind"
+ },
+ "Number_Player_InGame_TotalAddNormal_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddNormal_RangeFind.asset",
+  "guid": "dae5695848b046b991d83729e8d53416"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddNormal_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddNormal_RangeFind.asset",
+  "guid": "dae5695848b046b991d83729e8d53416",
+  "name": "Number_Player_InGame_TotalAddNormal_RangeFind"
+ },
+ "Number_Player_InGame_TotalAddRatio_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddRatio_RangeFind.asset",
+  "guid": "0c8b5311b8b74524a28ad4b64a3c4b4a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddRatio_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddRatio_RangeFind.asset",
+  "guid": "0c8b5311b8b74524a28ad4b64a3c4b4a",
+  "name": "Number_Player_InGame_TotalAddRatio_RangeFind"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddSubRatio_RangeFind.asset",
+  "guid": "d0651c3831ea4349b602cf3b7a02253e"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddSubRatio_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalAddSubRatio_RangeFind.asset",
+  "guid": "d0651c3831ea4349b602cf3b7a02253e",
+  "name": "Number_Player_InGame_TotalAddSubRatio_RangeFind"
+ },
+ "Number_Player_InGame_TotalMultiply_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalMultiply_RangeFind.asset",
+  "guid": "93b259ff70cb49f5b6ccbbb98ff2cbe1"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalMultiply_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Number_Player_InGame_TotalMultiply_RangeFind.asset",
+  "guid": "93b259ff70cb49f5b6ccbbb98ff2cbe1",
+  "name": "Number_Player_InGame_TotalMultiply_RangeFind"
+ },
+ "ModDef_Player_AddNormal_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddNormal_RangeFind.asset",
+  "guid": "fa4bdae1c2744a788e21238121f3a48a"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddNormal_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddNormal_RangeFind.asset",
+  "guid": "fa4bdae1c2744a788e21238121f3a48a",
+  "name": "ModDef_Player_AddNormal_RangeFind"
+ },
+ "ModDef_Player_AddRatio_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddRatio_RangeFind.asset",
+  "guid": "f4251e97ee3546fd880077aaa4f19094"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddRatio_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_AddRatio_RangeFind.asset",
+  "guid": "f4251e97ee3546fd880077aaa4f19094",
+  "name": "ModDef_Player_AddRatio_RangeFind"
+ },
+ "ModDef_Player_Multiply_RangeFind": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_Multiply_RangeFind.asset",
+  "guid": "b6d9ce02c24b4838ac843981de0dd3a5"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_Multiply_RangeFind.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Definition/ModDef_Player_Multiply_RangeFind.asset",
+  "guid": "b6d9ce02c24b4838ac843981de0dd3a5",
+  "name": "ModDef_Player_Multiply_RangeFind"
+ },
+ "Mod_Player_InGame_RangeFind_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddNormal.asset",
+  "guid": "c806bd7b8ad74394a3c30e93d84c7480"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddNormal.asset",
+  "guid": "c806bd7b8ad74394a3c30e93d84c7480",
+  "name": "Mod_Player_InGame_RangeFind_AddNormal"
+ },
+ "Mod_Player_InGame_RangeFind_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddRatio.asset",
+  "guid": "ca4ad17a08b149c2a28a23765e5d0768"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_AddRatio.asset",
+  "guid": "ca4ad17a08b149c2a28a23765e5d0768",
+  "name": "Mod_Player_InGame_RangeFind_AddRatio"
+ },
+ "Mod_Player_InGame_RangeFind_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_Multiply.asset",
+  "guid": "676825a7b3ca4603a5c3455c43cd8ffa"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/RangeFind/Modifier/Mod_Player_InGame_RangeFind_Multiply.asset",
+  "guid": "676825a7b3ca4603a5c3455c43cd8ffa",
+  "name": "Mod_Player_InGame_RangeFind_Multiply"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition",
+  "guid": "9696f6adff792b842b04384d034935de",
+  "name": "Definition"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier",
+  "guid": "bf4aed2134740e846b7a59196aebb7eb",
+  "name": "Modifier"
+ },
+ "Number_Player_InGame_Base_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Base_Speed.asset",
+  "guid": "e88414ecfffe444483498fe07e831686"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Base_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Base_Speed.asset",
+  "guid": "e88414ecfffe444483498fe07e831686",
+  "name": "Number_Player_InGame_Base_Speed"
+ },
+ "Number_Player_InGame_Final_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Final_Speed.asset",
+  "guid": "4703a0f55a85417d9baa5b2fa8b77e9d"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Final_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_Final_Speed.asset",
+  "guid": "4703a0f55a85417d9baa5b2fa8b77e9d",
+  "name": "Number_Player_InGame_Final_Speed"
+ },
+ "Number_Player_InGame_TotalAddNormal_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddNormal_Speed.asset",
+  "guid": "601e23cd613c4febbc9191b1d8ef2a1c"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddNormal_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddNormal_Speed.asset",
+  "guid": "601e23cd613c4febbc9191b1d8ef2a1c",
+  "name": "Number_Player_InGame_TotalAddNormal_Speed"
+ },
+ "Number_Player_InGame_TotalAddRatio_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddRatio_Speed.asset",
+  "guid": "17e73d043e614dcdb95916574f20a6fa"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddRatio_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddRatio_Speed.asset",
+  "guid": "17e73d043e614dcdb95916574f20a6fa",
+  "name": "Number_Player_InGame_TotalAddRatio_Speed"
+ },
+ "Number_Player_InGame_TotalAddSubRatio_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddSubRatio_Speed.asset",
+  "guid": "32f1238c03044e9bb1a5d8d11bda1735"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddSubRatio_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalAddSubRatio_Speed.asset",
+  "guid": "32f1238c03044e9bb1a5d8d11bda1735",
+  "name": "Number_Player_InGame_TotalAddSubRatio_Speed"
+ },
+ "Number_Player_InGame_TotalMultiply_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalMultiply_Speed.asset",
+  "guid": "a2e5a6a802374dd6ab634deac116a349"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalMultiply_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Number_Player_InGame_TotalMultiply_Speed.asset",
+  "guid": "a2e5a6a802374dd6ab634deac116a349",
+  "name": "Number_Player_InGame_TotalMultiply_Speed"
+ },
+ "ModDef_Player_AddNormal_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddNormal_Speed.asset",
+  "guid": "f4114bcfc32049579ef1449e63aff4e3"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddNormal_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddNormal_Speed.asset",
+  "guid": "f4114bcfc32049579ef1449e63aff4e3",
+  "name": "ModDef_Player_AddNormal_Speed"
+ },
+ "ModDef_Player_AddRatio_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddRatio_Speed.asset",
+  "guid": "751bf17b715844689739bdca9b4e6ced"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddRatio_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_AddRatio_Speed.asset",
+  "guid": "751bf17b715844689739bdca9b4e6ced",
+  "name": "ModDef_Player_AddRatio_Speed"
+ },
+ "ModDef_Player_Multiply_Speed": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_Multiply_Speed.asset",
+  "guid": "f4c8b726d97a4853a827e6843720c101"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_Multiply_Speed.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Definition/ModDef_Player_Multiply_Speed.asset",
+  "guid": "f4c8b726d97a4853a827e6843720c101",
+  "name": "ModDef_Player_Multiply_Speed"
+ },
+ "Mod_Player_InGame_Speed_AddNormal": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddNormal.asset",
+  "guid": "8ab5bcef6d814b3c96709a1d62ad079f"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddNormal.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddNormal.asset",
+  "guid": "8ab5bcef6d814b3c96709a1d62ad079f",
+  "name": "Mod_Player_InGame_Speed_AddNormal"
+ },
+ "Mod_Player_InGame_Speed_AddRatio": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddRatio.asset",
+  "guid": "cb1aaa17ab5643c7a75c258ef2b3b0cd"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddRatio.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_AddRatio.asset",
+  "guid": "cb1aaa17ab5643c7a75c258ef2b3b0cd",
+  "name": "Mod_Player_InGame_Speed_AddRatio"
+ },
+ "Mod_Player_InGame_Speed_Multiply": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_Multiply.asset",
+  "guid": "b2f28afbcd244b0c9cdd084faea58509"
+ },
+ "__by_path__/Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_Multiply.asset": {
+  "path": "Assets/_Main/Data/ModifierAndInGame/Player/Speed/Modifier/Mod_Player_InGame_Speed_Multiply.asset",
+  "guid": "b2f28afbcd244b0c9cdd084faea58509",
+  "name": "Mod_Player_InGame_Speed_Multiply"
  },
  "ProjCfg_Boomerang": {
   "path": "Assets/_Main/Data/Projectiles/ProjCfg_Boomerang.asset",
@@ -8275,10 +9317,6 @@
   "path": "Assets/_Main/Data/Stats/Configs",
   "guid": "4ad789b93d3594487b6f1e6137826581",
   "name": "Configs"
- },
- "Player": {
-  "path": "Assets/_Main/Data/Stats/Player",
-  "guid": "d588939055333ae4da80bbbf87b49cb4"
  },
  "__by_path__/Assets/_Main/Data/Stats/Player": {
   "path": "Assets/_Main/Data/Stats/Player",
@@ -10310,10 +11348,6 @@
   "guid": "48341c27b72ef4481acea4e64275b71e",
   "name": "Map"
  },
- "Modifier": {
-  "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Modifier",
-  "guid": "92e3e87fb5f614438a9f4b8a87f052c3"
- },
  "__by_path__/Assets/_Main/Scripts/_LuzartGame/Gameplay/Modifier": {
   "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Modifier",
   "guid": "92e3e87fb5f614438a9f4b8a87f052c3",
@@ -11357,10 +12391,6 @@
   "path": "Assets/_Main/Scripts/_LuzartGame/LuzartTechnical/ThanhDemo",
   "guid": "925864dd2cd4d0b4e961b5d06d797411",
   "name": "ThanhDemo"
- },
- "Definition": {
-  "path": "Assets/_Main/Scripts/_LuzartGame/LuzartTechnical/DataResources/Definition",
-  "guid": "08e2e5faed56d9f4e8bc4720cd5b9435"
  },
  "__by_path__/Assets/_Main/Scripts/_LuzartGame/LuzartTechnical/DataResources/Definition": {
   "path": "Assets/_Main/Scripts/_LuzartGame/LuzartTechnical/DataResources/Definition",

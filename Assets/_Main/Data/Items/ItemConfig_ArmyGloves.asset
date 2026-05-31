@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eefce1cbce4c1041841728c81fbe626, type: 3}
+  m_Name: ItemConfig_ArmyGloves
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
+  _id: ItemConfig_ArmyGloves
+  _name: Army Gloves
+  _sprite: {fileID: 0}
+  _eRarity: 0
+  _eTypeItem: 5
+  unlockable: {fileID: 0}
+  assetLevel: {fileID: 0}
+  upgradeItemConfigs:
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 10.0
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 10.5
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 11.0
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 11.5
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 12.0
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 12.5
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 13.0
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 13.5
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 14.0
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  - modifierFactors:
+    - factor:
+        definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
+        value:
+          mode: 0
+          constant: 14.5
+          asset: {fileID: 0}
+      modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
+  artifactModifierFactor: []
