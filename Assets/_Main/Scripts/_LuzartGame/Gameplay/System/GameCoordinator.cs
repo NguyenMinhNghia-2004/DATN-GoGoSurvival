@@ -16,23 +16,49 @@ namespace Luzart
         public void BeginRun()
         {
             var participants = _domain?.GetAll<IRunParticipant>();
-            if (participants == null) return;
-            for (int i = 0; i < participants.Count; i++)
+            if (participants != null)
             {
-                try { participants[i].OnRunBegin(); }
-                catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunBegin {participants[i]} : {e}"); }
+                for (int i = 0; i < participants.Count; i++)
+                {
+                    try { participants[i].OnRunBegin(); }
+                    catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunBegin {participants[i]} : {e}"); }
+                }
             }
+            SetLegacyWeaponsEnabled(true);
         }
 
         public void EndRun()
         {
             var participants = _domain?.GetAll<IRunParticipant>();
-            if (participants == null) return;
-            for (int i = 0; i < participants.Count; i++)
+            if (participants != null)
             {
-                try { participants[i].OnRunEnd(); }
-                catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunEnd {participants[i]} : {e}"); }
+                for (int i = 0; i < participants.Count; i++)
+                {
+                    try { participants[i].OnRunEnd(); }
+                    catch (System.Exception e) { Debug.LogError($"[GameCoordinator] OnRunEnd {participants[i]} : {e}"); }
+                }
             }
+            SetLegacyWeaponsEnabled(false);
+            // Drop MapReady so legacy ControllerSpawening flips its Spawner GO inactive →
+            // SpawenManager's spawn coroutines stop via OnDisable. LuzartPlayerController
+            // also gates on MapReady; this is defense-in-depth alongside slice 1's
+            // ClassicMode.IsPlaying gate. legacy.BackFinishSafe normally drops MapReady on
+            // Continue press; doing it here moves it forward to EndGame so the world
+            // stops spawning new enemies + frozen-state takes effect the instant Win/Lose fires.
+            var gc = _domain?.Get<GameController>();
+            if (gc != null) gc.MapReady = false;
+        }
+
+        /// <summary>Temporary bridge — legacy <c>GunManager</c> fires bolts every ~2s and
+        /// has no run-lifecycle hook of its own, so without this it kept firing under the
+        /// Win/Lose screen (and through Continue). Toggle enabled at run boundaries until
+        /// the legacy weapon stack is retired in favour of Luzart ZSkillRuntime weapons.
+        /// Find is O(n) but runs only twice per game (BeginRun/EndRun), not per frame.</summary>
+        private static void SetLegacyWeaponsEnabled(bool enabled)
+        {
+            var guns = Object.FindObjectsByType<GunManager>(FindObjectsSortMode.None);
+            for (int i = 0; i < guns.Length; i++)
+                if (guns[i] != null) guns[i].enabled = enabled;
         }
 
         /// <summary>Reset the framework state (counters, mode→Idle) + player stats so the next
