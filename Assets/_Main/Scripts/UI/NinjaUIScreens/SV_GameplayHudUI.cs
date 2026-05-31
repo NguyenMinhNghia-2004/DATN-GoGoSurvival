@@ -119,9 +119,9 @@ public class SV_GameplayHudUI : UIBase
         // New path under NinjaUI Hud lane.
         var go = GameObject.Find("/_NinjaUI/2_Hud/Joystick Table");
         if (go != null) return go.transform;
-        // Fallback: search by component for the rare case it got reparented elsewhere.
-        var js = UnityEngine.Object.FindFirstObjectByType<movementJoystick>(UnityEngine.FindObjectsInactive.Include);
-        return js != null ? js.transform : null;
+        // W4 nuke: legacy movementJoystick class deleted — fallback by-type lookup removed.
+        // If the canonical path doesn't resolve, just return null; caller null-guards.
+        return null;
     }
 
     /// <summary>After the /UI → _LegacyManagers migration, the Joystick Table sits directly

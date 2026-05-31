@@ -52,19 +52,17 @@ namespace Luzart.Migration.EditorTools
         public static void ForceActivateJoystick()
         {
             if (!Application.isPlaying) { Debug.LogWarning("[TestXPHelper] Enter Play mode first."); return; }
-            var js = Object.FindFirstObjectByType<movementJoystick>(FindObjectsInactive.Include);
-            if (js == null) { Debug.LogWarning("[TestXPHelper] movementJoystick not found in scene."); return; }
-            // movementJoystick is on Joystick Table itself, so js.gameObject is the
-            // GO we need to activate (not its parent which is _NinjaUI/2_Hud).
-            js.gameObject.SetActive(true);
-            // Also activate any inactive ancestor chain up to root so it shows.
-            var t = js.transform.parent;
+            // W4 nuke: legacy movementJoystick class deleted — resolve Joystick Table by canonical scene path.
+            var jt = GameObject.Find("/_NinjaUI/2_Hud/Joystick Table");
+            if (jt == null) { Debug.LogWarning("[TestXPHelper] Joystick Table not found at /_NinjaUI/2_Hud/Joystick Table."); return; }
+            jt.SetActive(true);
+            var t = jt.transform.parent;
             while (t != null)
             {
                 if (!t.gameObject.activeSelf) t.gameObject.SetActive(true);
                 t = t.parent;
             }
-            Debug.Log($"[TestXPHelper] Activated {js.gameObject.name} + ancestor chain. activeInHierarchy={js.gameObject.activeInHierarchy}");
+            Debug.Log($"[TestXPHelper] Activated {jt.name} + ancestor chain. activeInHierarchy={jt.activeInHierarchy}");
         }
 
         [MenuItem("Tools/Migration/Test — Force CurrentLevel +1 (skip XP, fast popup test)")]
@@ -151,14 +149,9 @@ namespace Luzart.Migration.EditorTools
                 sb.AppendLine("  _rb=" + (rb != null ? "v=" + rb.linearVelocity + " bodyType=" + rb.bodyType + " simulated=" + rb.simulated : "NULL"));
             }
 
-            // Joystick discovery
-            var allJs = Object.FindObjectsByType<movementJoystick>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-            sb.AppendLine("movementJoystick count=" + allJs.Length);
-            foreach (var j in allJs)
-            {
-                sb.AppendLine("  -> '" + j.gameObject.name + "' active=" + j.gameObject.activeInHierarchy + " parent='" + (j.transform.parent != null ? j.transform.parent.name : "(root)") + "' scene=" + j.gameObject.scene.name);
-                sb.AppendLine("     joystickVec=" + j.joystickVec + " hasBG=" + (j.joystickBG != null) + " hasJS=" + (j.joystick != null));
-            }
+            // Joystick discovery — W4 nuke: legacy movementJoystick class deleted, just check canonical path.
+            var jtDiag = GameObject.Find("/_NinjaUI/2_Hud/Joystick Table");
+            sb.AppendLine("JoystickTable: " + (jtDiag != null ? $"found, active={jtDiag.activeInHierarchy}" : "NOT FOUND at canonical path"));
 
             // UI Canvas
             var uim = UIManager.Instance;

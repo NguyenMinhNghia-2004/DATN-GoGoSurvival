@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
 {
     [Header("Manager Controller")]
     public BooleanManager Boolean;
-    public PlayerManager PlayerPerfb;
+    // W4 nuke: PlayerManager + movementJoystick deleted. PlayerPerfb retyped to GameObject so
+    // Rigidbody2D.simulated toggles still work; JoystManager field dropped (no usage).
+    public GameObject PlayerPerfb;
     public AudioManager Sounds;
-    public movementJoystick JoystManager;
     public SpawenManager Spawner;
     // Phase B1 migrated: legacy TimerManager removed. Game time owned by Luzart.GameController.
     public ManagerFloatingBtn ManagerDownBtn;
@@ -151,7 +152,6 @@ public class GameManager : MonoBehaviour
     {
         AvailabelWeapon = false;
         /* Phase B1: Times.timerIsRunning = false → Luzart.GameController paused via Time.timeScale */
-        PlayerPerfb.GetComponent<PlayerManager>().enabled = false;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = false;
         if (EnemyAvailable == true)
         {
@@ -165,7 +165,6 @@ public class GameManager : MonoBehaviour
         AvailabelWeapon = true;
         Checkenemys = true;
         /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
-        PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
         {
@@ -233,7 +232,6 @@ public class GameManager : MonoBehaviour
     {
         ScreenAddonWap.SetActive(false);
         /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
-        PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
         {
@@ -250,7 +248,6 @@ public class GameManager : MonoBehaviour
     {
         ScreenAddonWap.SetActive(false);
         /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
-        PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         if (EnemyAvailable == true)
         {
@@ -267,7 +264,6 @@ public class GameManager : MonoBehaviour
     {
         ScreenAddonWap.SetActive(false);
         /* Phase B1: Times.timerIsRunning = true → Luzart.GameController resumed via Time.timeScale */
-        PlayerPerfb.GetComponent<PlayerManager>().enabled = true;
         PlayerPerfb.GetComponent<Rigidbody2D>().simulated = true;
         //Spawner.enabled = true;
         if (EnemyAvailable == true)
