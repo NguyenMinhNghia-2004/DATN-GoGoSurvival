@@ -79,11 +79,25 @@ Assets/_Main/Data/           299 .asset files total
 └── Weapons/                 catalog
 ```
 
+## Second-pass additions (user approved continuation, same night)
+
+After approval to continue, three more slices landed (see commit log):
+
+- **Orphan cleanup**: deleted `Assets/_Main/Data/SkillDatabase.asset` + .meta (script reference dead since W6 nuke). The functional skill database remains at `Skills/SV_SkillCatalog.asset`.
+
+- **Behavior stats wired** (`docs/tools/gen_behavior_stats.py`): all 10 `ZSk_*_Behavior.skillBehaviorStats` now reference appropriate AssetStatDefinition SOs — `[AmountProjectile, TimeBreak]` for the 7 normal projectiles, `[AmountProjectile, TimeBreak, RadiusExplosion, TimeDelayExplosion]` for the 3 bomb behaviors (Brick, Molotov, RPG).
+
+- **Passive runtime application** (Luzart-side C# additions):
+  - `StatsBehavior.ApplyStatBonus(StatType, double, StatBonusMode)` + `RemoveStatBonus(...)` — minimal stat-bonus API with 3 modes (Additive / PercentMultiply / PercentSubtract). Mutates the stored `INumber` so subsequent `Get(key)` reads return the new value.
+  - `ZSkillBehavior_Stat`: rewrote `UpgradeStat()` to apply all 10 passive stat types (HPMax/ATK/Speed/FireSpeed/RangeFind/XPMultiplier/Luck via PercentMultiply, Cooldown via PercentSubtract, Armor+Heal via Additive). Delta-tracked via per-instance dict so level-ups undo the previous tier before applying the new. `DoDispose` undoes any bonuses on teardown.
+
+  This finishes the **runtime side of the passive pipeline** — level-up popups can now grant a passive and the player's stats will update via `Get(StatType.HPMax)` etc. No `AssetModifier_*` SO infrastructure was needed; passives use the simple inline path.
+
 ## Known issues (not blocking, can be addressed later)
 
-1. **Top-level `Assets/_Main/Data/SkillDatabase.asset` is orphaned** — script guid `65533bf10470fe946ad7bac160834a6f` no longer maps to any .cs file in the project. The asset is harmless (no code reads it) but appears as "Missing Script" in Inspector. To clean up: delete the asset.
+1. ~~Top-level `Assets/_Main/Data/SkillDatabase.asset` is orphaned~~ — **RESOLVED** in second pass (file deleted).
 
-2. **Passive skill effects aren't applied at runtime yet** — `ZSkillBehavior_AddStat` has its actual stat-replacement code commented out; the stats live in `ZPsUp_*_Lv*.stats` but no system reads them to apply modifiers to the player. To wire: implement the `RuntimeModifierFactorGroup` flow, or add a small reader in `LuzartPlayerEntityRoot` that mirrors passive upgrade stats into the player's `StatsBehavior`.
+2. ~~Passive skill effects aren't applied at runtime~~ — **RESOLVED** in second pass (see "Second-pass additions").
 
 3. **Skill `modifierFactors` lists are empty** — both active and passive upgrade configs use the `stats` list only. Equipping items via `RuntimeModifierFactorGroup.Activate()` won't apply equipment bonuses at runtime until `AssetModifier_*` SOs are authored + each item config's `_equippedModifierFactorGroups` is populated. (Equipment `EquipmentData` SOs already carry the numeric data; modifier wiring is the gap.)
 
@@ -98,11 +112,13 @@ Assets/_Main/Data/           299 .asset files total
 ## Commit log (overnight contributions)
 
 ```
-ddb728b feat(scene): wire LuzartPlayerEntityRoot _statsConfig + _startingSkills [autonomous]
-127694a feat(SO): wire SV_SkillCatalog -> Luzart configs + Eq_Kunai starting skill [autonomous]
-61f151c feat(SO): populate 12 passive skills (60 upgrade configs) [autonomous]
-939646e feat(SO): populate skills/projectiles/player-stats from GDD [autonomous]
-191ce20 plan(overnight-2026-06-01): GDD->SO mapping + 8-phase exec strategy [autonomous]
+<HEAD>   feat: passive runtime + behavior-stats + cleanup [autonomous]   (second pass)
+3c5684a  report(overnight-2026-06-01): morning summary [autonomous]
+ddb728b  feat(scene): wire LuzartPlayerEntityRoot _statsConfig + _startingSkills [autonomous]
+127694a  feat(SO): wire SV_SkillCatalog -> Luzart configs + Eq_Kunai starting skill [autonomous]
+61f151c  feat(SO): populate 12 passive skills (60 upgrade configs) [autonomous]
+939646e  feat(SO): populate skills/projectiles/player-stats from GDD [autonomous]
+191ce20  plan(overnight-2026-06-01): GDD->SO mapping + 8-phase exec strategy [autonomous]
 ```
 
 ## Recommended morning workflow
