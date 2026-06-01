@@ -15,10 +15,30 @@ public class SV_SkillCatalog : ScriptableObject
     public List<SV_SkillEntry> activeSkills = new List<SV_SkillEntry>();
     public List<SV_SkillEntry> passiveSkills = new List<SV_SkillEntry>();
 
+    /// <summary>Resolve a SV_SkillEntry by its skillId. Handles the Z-prefix mismatch
+    /// internally so callers don't need to know the convention.
+    ///
+    /// <para>Convention: <c>ZSkillConfig.name</c> is <c>"ZSk_Kunai"</c> / <c>"ZPs_HiPowerMagnet"</c>
+    /// (with the 'Z' to distinguish the deep Luzart config SO from this lightweight catalog).
+    /// Catalog <c>skillId</c> is <c>"Sk_Kunai"</c> / <c>"Ps_HiPowerMagnet"</c> (no Z, matching
+    /// the original survivor.io naming). FindById is the single point that bridges them.</para>
+    /// </summary>
     public SV_SkillEntry FindById(string id)
     {
+        if (string.IsNullOrEmpty(id)) return null;
+
+        // 1) Exact match first.
         foreach (var e in activeSkills) if (e != null && e.skillId == id) return e;
         foreach (var e in passiveSkills) if (e != null && e.skillId == id) return e;
+
+        // 2) Retry with the Luzart 'Z' framework prefix stripped.
+        if (id.Length > 1 && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+        {
+            string stripped = id.Substring(1);
+            foreach (var e in activeSkills) if (e != null && e.skillId == stripped) return e;
+            foreach (var e in passiveSkills) if (e != null && e.skillId == stripped) return e;
+        }
+
         return null;
     }
 }

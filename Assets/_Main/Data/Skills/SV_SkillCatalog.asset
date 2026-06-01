@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SV_SkillCatalog
   m_EditorClassIdentifier: Assembly-CSharp::SV_SkillCatalog
   activeSkills:
-  - skillId: ZSk_Kunai
+  - skillId: Sk_Kunai
     displayName: Kunai
     icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
     description: Default weapon, auto-targets nearest enemy.
@@ -49,7 +49,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
-  - skillId: ZSk_Boomerang
+  - skillId: Sk_Boomerang
     displayName: Boomerang
     icon: {fileID: 6946876648732156625, guid: 7900cb034bcf9374ab359b6746b151e0, type: 3}
     description: Launches returning boomerangs.
@@ -85,7 +85,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 3e7dc562c2565463fac2e845644befad, type: 2}
-  - skillId: ZSk_Brick
+  - skillId: Sk_Brick
     displayName: Brick
     icon: {fileID: 8222420645925065664, guid: 16cae9f3a889d0c4a95042c84e2ae30d, type: 3}
     description: Bricks fall from above with knockback.
@@ -121,7 +121,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 464e653bbcfbc447a91909dc83218334, type: 2}
-  - skillId: ZSk_DrillShot
+  - skillId: Sk_DrillShot
     displayName: Drill Shot
     icon: {fileID: -7287322145768585120, guid: 490ad36d9a1cca7459cbcd186a7c776c, type: 3}
     description: Drills bounce around piercing enemies.
@@ -157,7 +157,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 019cab7d7cb124980b39e460de2e72b0, type: 2}
-  - skillId: ZSk_Durian
+  - skillId: Sk_Durian
     displayName: Durian
     icon: {fileID: -5919972264516495945, guid: aa7081b60409518408959c9e3f80c9f5, type: 3}
     description: Bouncing durian with knockback.
@@ -193,7 +193,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 35ac501edbf324ee09453028e066e818, type: 2}
-  - skillId: ZSk_Forcefield
+  - skillId: Sk_Forcefield
     displayName: Forcefield
     icon: {fileID: -2294684798004565974, guid: 5b82f57458df752478bcfb6a7aa71ef2, type: 3}
     description: Damaging forcefield around player.
@@ -229,7 +229,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 4cdca3636f0dd41d1865cd12d9851396, type: 2}
-  - skillId: ZSk_Guardian
+  - skillId: Sk_Guardian
     displayName: Guardian
     icon: {fileID: 287197706594284169, guid: 3a28dfe0204f97f4d839f260eab0b9a0, type: 3}
     description: Orbiting tops that block bullets.
@@ -265,7 +265,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: fbe1195b5ae9c41ca9409084fc84dc4e, type: 2}
-  - skillId: ZSk_Molotov
+  - skillId: Sk_Molotov
     displayName: Molotov
     icon: {fileID: -8596323334576517715, guid: a2496589f15c4534cacd73c276343d65, type: 3}
     description: Fire patches on ground.
@@ -301,7 +301,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 28011642d278641879422345f94da01e, type: 2}
-  - skillId: ZSk_RPG
+  - skillId: Sk_RPG
     displayName: RPG
     icon: {fileID: -8138264534235535264, guid: a9883fb5cd2265b4a8af2dcf4480c1a2, type: 3}
     description: Explosive rockets.
@@ -337,7 +337,7 @@ MonoBehaviour:
     - 0
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: f740878e5d77a4a83ab8d39c3a0e1433, type: 2}
-  - skillId: ZSk_SoccerBall
+  - skillId: Sk_SoccerBall
     displayName: Soccer Ball
     icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
     description: Bouncing football.
@@ -374,7 +374,7 @@ MonoBehaviour:
     passiveStatType: 0
     zSkillConfigRef: {fileID: 11400000, guid: 83e9467188fac4723abcfeaee1a00a1d, type: 2}
   passiveSkills:
-  - skillId: ZPs_HiPowerMagnet
+  - skillId: Ps_HiPowerMagnet
     displayName: Hi-Power Magnet
     icon: {fileID: 8040655671284959246, guid: ae56a81887d203d4c9f5db87b52edfec, type: 3}
     description: Increases pickup range for EXP and items.
@@ -410,7 +410,7 @@ MonoBehaviour:
     - 5
     passiveStatType: 8
     zSkillConfigRef: {fileID: 11400000, guid: c16a3dfc72b5542328802a50ae9d68ee, type: 2}
-  - skillId: ZPs_FitnessGuide
+  - skillId: Ps_FitnessGuide
     displayName: Fitness Guide
     icon: {fileID: -9128804391785536619, guid: 51cb50ee5d833ae4893b7cbd92510e90, type: 3}
     description: Increases player Max HP.
@@ -446,7 +446,7 @@ MonoBehaviour:
     - 1
     passiveStatType: 2
     zSkillConfigRef: {fileID: 11400000, guid: 044649d3527ec457c849c88f7d1a96ea, type: 2}
-  - skillId: ZPs_AmmoThruster
+  - skillId: Ps_AmmoThruster
     displayName: Ammo Thruster
     icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
     description: Increases bullet flight speed.
@@ -482,7 +482,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 10
     zSkillConfigRef: {fileID: 11400000, guid: e63c207b900934416a00537b3e71aeb1, type: 2}
-  - skillId: ZPs_HEFuel
+  - skillId: Ps_HEFuel
     displayName: HE Fuel
     icon: {fileID: -6570297543699491653, guid: f1340ba91d7017744a36a927fc17ab41, type: 3}
     description: Increases size and range of skills.
@@ -518,7 +518,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 1
     zSkillConfigRef: {fileID: 11400000, guid: ca733a2a5c3654254bfbb7fd8774db7a, type: 2}
-  - skillId: ZPs_EnergyDrink
+  - skillId: Ps_EnergyDrink
     displayName: Energy Drink
     icon: {fileID: -4884214388169493030, guid: f495bc086efecbe4dab18d6c2b66dab0, type: 3}
     description: Restores HP periodically.
@@ -554,7 +554,7 @@ MonoBehaviour:
     - 0.05
     passiveStatType: 9
     zSkillConfigRef: {fileID: 11400000, guid: 027cdb3486ca2403d91012fd19754bfe, type: 2}
-  - skillId: ZPs_ExoBracer
+  - skillId: Ps_ExoBracer
     displayName: Exo-Bracer
     icon: {fileID: 2864072112647360154, guid: c76246179aebad94cbf0336b12c01883, type: 3}
     description: Increases over-time skill duration.
@@ -590,7 +590,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 11
     zSkillConfigRef: {fileID: 11400000, guid: d9e2a47c24cbc4f05aa1fcc683e0a2bf, type: 2}
-  - skillId: ZPs_EnergyCube
+  - skillId: Ps_EnergyCube
     displayName: Energy Cube
     icon: {fileID: -1901870353399733498, guid: b2efdbd4a737e39438bd1f974833dd75, type: 3}
     description: Lowers attack skill cooldown.
@@ -626,7 +626,7 @@ MonoBehaviour:
     - 0.4
     passiveStatType: 4
     zSkillConfigRef: {fileID: 11400000, guid: adbd64a504b6d4f02a924a0e83b89f9a, type: 2}
-  - skillId: ZPs_OilBond
+  - skillId: Ps_OilBond
     displayName: Oil Bond
     icon: {fileID: -4342990106867435157, guid: 1d80e1e7aeb0ef54cbdcb3a73ed7ab81, type: 3}
     description: Increases Gold value picked up.
@@ -662,7 +662,7 @@ MonoBehaviour:
     - 0.4
     passiveStatType: 6
     zSkillConfigRef: {fileID: 11400000, guid: 7c3fc923bccd64539bb81c8d1d0abe44, type: 2}
-  - skillId: ZPs_RoninOyoroi
+  - skillId: Ps_RoninOyoroi
     displayName: Ronin Oyoroi
     icon: {fileID: 4139055994545622896, guid: 2bdb7755e37ae5c45bb230b4a8587a53, type: 3}
     description: Reduces damage taken.
@@ -698,7 +698,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 5
     zSkillConfigRef: {fileID: 11400000, guid: 577d70d6d6df34110be25ba8cbe39e81, type: 2}
-  - skillId: ZPs_SportsShoes
+  - skillId: Ps_SportsShoes
     displayName: Sports Shoes
     icon: {fileID: -6449449655468660855, guid: 00472e27574e3c2448bbc51ab246be85, type: 3}
     description: Increases movement speed.
@@ -734,7 +734,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 3
     zSkillConfigRef: {fileID: 11400000, guid: 7ad3062029c97411b97b809c9217972d, type: 2}
-  - skillId: ZPs_HiPowerBullet
+  - skillId: Ps_HiPowerBullet
     displayName: Hi-Power Bullet
     icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
     description: Increases ATK damage.
@@ -770,7 +770,7 @@ MonoBehaviour:
     - 0.5
     passiveStatType: 1
     zSkillConfigRef: {fileID: 11400000, guid: f40eaa3f6dca24f719acb511d807e5ce, type: 2}
-  - skillId: ZPs_KogaNinjaScroll
+  - skillId: Ps_KogaNinjaScroll
     displayName: Koga Ninja Scroll
     icon: {fileID: -5725786655984018465, guid: d96bb841610a35b42913dc1f3af07d5a, type: 3}
     description: Increases EXP gain.
