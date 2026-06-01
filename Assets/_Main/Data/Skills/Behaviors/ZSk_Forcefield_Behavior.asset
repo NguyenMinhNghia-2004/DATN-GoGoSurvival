@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b74dc508a319a47866cda538695f55, type: 3}
+  m_Script: {fileID: 11500000, guid: a93cafeb6f59d6c489554589de11dfb8, type: 3}
   m_Name: ZSk_Forcefield_Behavior
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Bomb
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Aura
   _id: ZSk_Forcefield_Behavior
   _searchTargetType: 0
   skillBehaviorStats:
   - {fileID: 11400000, guid: 200d5d4a262b4f74a45a0ae1b89e0ad1, type: 2}
   - {fileID: 11400000, guid: de9b9d742de54c1fbd00921c37d99554, type: 2}
-  projectileConfig: {fileID: 11400000, guid: 08e828d27ddb499bb2eaa6c2199a2fcc, type: 2}
+  _behaviorPrefab: {fileID: 0}
+  _tickInterval: 0.5
+  _visualPrefab: {fileID: 8127691040998294271, guid: e215bcc2338943aea4ecdef06b72274d, type: 3}
+  _visualUnitSize: 2.56

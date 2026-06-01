@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
   - {fileID: 11400000, guid: afaff64959479453abb513b76ead9cc0, type: 2}
   - {fileID: 11400000, guid: 54576d2eb8e445c0bcdec56a9c818c12, type: 2}
-  _acceration: -8
+  _acceration: 8
   _accerationReturn: 12
   _rotationSpeed: 720
   _damageCooldown: 0.5

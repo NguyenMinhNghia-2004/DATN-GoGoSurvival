@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4514705b2b5707a42a5dc0b1db0bd059, type: 3}
+  m_Script: {fileID: 11500000, guid: 561afeb9998b64246abfb692a20ce453, type: 3}
   m_Name: ProjCfg_DrillShot
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LaserProjectileConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.BouncingProjectileConfig
   _id: ProjCfg_DrillShot
   _sprite: {fileID: 21300000, guid: f50673b214fb52044a54ee81afd79131, type: 3}
   _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
@@ -23,3 +23,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
   - {fileID: 11400000, guid: afaff64959479453abb513b76ead9cc0, type: 2}
   - {fileID: 11400000, guid: 54576d2eb8e445c0bcdec56a9c818c12, type: 2}
+  _maxBounces: -1
+  _pierceEnemies: 1
+  _knockbackOnHit: 0
+  _knockbackForce: 1.5
+  _damageCooldown: 0.3

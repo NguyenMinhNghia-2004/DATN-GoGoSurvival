@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b74dc508a319a47866cda538695f55, type: 3}
+  m_Script: {fileID: 11500000, guid: eb7c0f0703db1554db9eb2e0e23b7184, type: 3}
   m_Name: ZSk_Molotov_Behavior
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Bomb
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_GroundPatch
   _id: ZSk_Molotov_Behavior
   _searchTargetType: 0
   skillBehaviorStats:
@@ -19,4 +19,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de9b9d742de54c1fbd00921c37d99554, type: 2}
   - {fileID: 11400000, guid: 88e054328848449f9001220b49fccef0, type: 2}
   - {fileID: 11400000, guid: 9693c7384fd1459ea3581c7cb831358c, type: 2}
+  _behaviorPrefab: {fileID: 0}
   projectileConfig: {fileID: 11400000, guid: 7c005245a39a4797ab8a8257d960f3cf, type: 2}
+  _patchPrefab: {fileID: 0}
+  _patchDuration: 3
+  _patchTickInterval: 0.4

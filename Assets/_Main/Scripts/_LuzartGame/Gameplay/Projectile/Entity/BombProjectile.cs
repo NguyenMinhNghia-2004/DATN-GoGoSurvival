@@ -38,6 +38,14 @@ namespace Luzart
         }
         public override void OnCollision(IEntity hitEntity)
         {
+            // RPG-style: impact explosion (config flag). Otherwise classic bomb that
+            // only damages the direct hit and lets ground-landing trigger the AoE.
+            if (_bombProjectileConfig.ExplodeOnImpact)
+            {
+                TakeDamage(hitEntity);
+                Explode();
+                return;
+            }
             TakeDamage(hitEntity);
         }
         public void Explode()

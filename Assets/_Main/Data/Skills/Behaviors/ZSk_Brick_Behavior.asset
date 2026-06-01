@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b74dc508a319a47866cda538695f55, type: 3}
+  m_Script: {fileID: 11500000, guid: c6a142f131fb335459fe7416c03fbb05, type: 3}
   m_Name: ZSk_Brick_Behavior
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Bomb
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.ZSkillBehaviorConfig_Falling
   _id: ZSk_Brick_Behavior
   _searchTargetType: 0
   skillBehaviorStats:
@@ -19,4 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de9b9d742de54c1fbd00921c37d99554, type: 2}
   - {fileID: 11400000, guid: 88e054328848449f9001220b49fccef0, type: 2}
   - {fileID: 11400000, guid: 9693c7384fd1459ea3581c7cb831358c, type: 2}
+  _behaviorPrefab: {fileID: 0}
   projectileConfig: {fileID: 11400000, guid: f0a88328a1384eafaa3be45b3d4e12ab, type: 2}
+  _dropHeight: 5
+  _randomFallbackRadius: 2.5

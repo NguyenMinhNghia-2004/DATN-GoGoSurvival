@@ -9498,7 +9498,7 @@ MonoBehaviour:
   maxDistanceFromCamera: 15
   autoDespawnFarEnemies: 1
   prefabRegistry: {fileID: 11400000, guid: 7436de735b8974996bea8430b83a6fce, type: 2}
-  spawnParent: {fileID: 204604325}
+  spawnParent: {fileID: 0}
 --- !u!114 &1515392214
 MonoBehaviour:
   m_ObjectHideFlags: 0

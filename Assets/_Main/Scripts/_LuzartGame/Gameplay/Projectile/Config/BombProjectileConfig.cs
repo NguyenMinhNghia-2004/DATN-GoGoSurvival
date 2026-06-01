@@ -12,9 +12,13 @@ namespace Luzart
         [SerializeField] private float _gravity = 20f;
         [SerializeField] private float _maxDistance = 4f;
         [SerializeField] private RenderConfig _explosionEffect;
+        [Tooltip("When true, projectile explodes on contacting an enemy (rocket-style). " +
+                 "When false (default), only ground-landing triggers explosion (bomb-style).")]
+        [SerializeField] private bool _explodeOnImpact = false;
         public float Gravity => _gravity;
         public RenderConfig ExplosionEffect => _explosionEffect;
         public float MaxDistance => _maxDistance;
+        public bool ExplodeOnImpact => _explodeOnImpact;
         public override ProjectileEntity CreateProjectile(IEntity owner)
         {
             return new BombProjectile(this, owner);

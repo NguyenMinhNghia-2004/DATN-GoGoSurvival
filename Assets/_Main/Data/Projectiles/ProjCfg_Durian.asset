@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ccf55ea415b7284e9e332b31e93b44b, type: 3}
+  m_Script: {fileID: 11500000, guid: 561afeb9998b64246abfb692a20ce453, type: 3}
   m_Name: ProjCfg_Durian
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.NormalProjectileConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.BouncingProjectileConfig
   _id: ProjCfg_Durian
   _sprite: {fileID: 21300000, guid: 2de6daf9f660b4042885e5555971a673, type: 3}
   _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
@@ -23,3 +23,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
   - {fileID: 11400000, guid: afaff64959479453abb513b76ead9cc0, type: 2}
   - {fileID: 11400000, guid: 54576d2eb8e445c0bcdec56a9c818c12, type: 2}
+  _maxBounces: 4
+  _pierceEnemies: 0
+  _knockbackOnHit: 1
+  _knockbackForce: 1.5
+  _damageCooldown: 0.3
