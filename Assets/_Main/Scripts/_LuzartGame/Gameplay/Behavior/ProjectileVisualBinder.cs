@@ -10,15 +10,18 @@ namespace Luzart
     ///
     /// <para>Lifecycle:</para>
     /// <list type="bullet">
-    /// <item>Attach by <see cref="ProjectileEntity"/> right after Instantiate.</item>
-    /// <item>Self-destroys (GameObject.Destroy) when its bound entity dies.</item>
+    /// <item>Attached on the Pf_*.prefab so it's visible in the Inspector.</item>
+    /// <item><see cref="Bind"/> is called by <see cref="ProjectileEntity.Initialize"/>
+    ///   right after Instantiate to wire up the entity.</item>
+    /// <item>Self-destroys (GameObject.Destroy) when its bound entity reports
+    ///   <see cref="IEntity.IsDead"/> (polled in LateUpdate — IEntity doesn't expose
+    ///   the OnDead event publicly, so we poll instead of subscribing).</item>
     /// </list>
     ///
-    /// <para>Why this exists: the Luzart framework's <see cref="RenderBehavior"/> uses
-    /// a centralized RenderingManager + batch-rendering with Material/Sprite — which
-    /// is invisible when the material isn't wired. Prefab-based visuals are simpler:
-    /// the prefab already has a SpriteRenderer / Animator / particles authored, and
-    /// this binder just keeps its transform in sync with the entity.</para>
+    /// <para>Why this exists: prefab-based visuals are simpler than the framework's
+    /// RenderingManager batch-rendering — the prefab already has SpriteRenderer /
+    /// Animator / particles authored. This binder just keeps the prefab transform
+    /// in sync with the entity.</para>
     /// </summary>
     [DisallowMultipleComponent]
     public sealed class ProjectileVisualBinder : MonoBehaviour
@@ -30,28 +33,23 @@ namespace Luzart
         {
             _entity = entity;
             _t = transform;
-            if (_entity?.OnDead != null)
-            {
-                _entity.OnDead -= OnEntityDead;
-            }
-            if (_entity != null)
-            {
-                _entity.OnDead += OnEntityDead;
-                // Initial sync — avoid a one-frame lag where the prefab renders at
-                // Instantiate position before LateUpdate runs.
-                if (_entity.Transform != null) ApplyTransform();
-            }
-        }
-
-        private void OnEntityDead(IEntity _)
-        {
-            if (this == null) return;
-            if (gameObject != null) Destroy(gameObject);
+            // Initial sync — avoid a one-frame lag where the prefab renders at the
+            // Instantiate position before LateUpdate runs.
+            if (_entity != null && _entity.Transform != null) ApplyTransform();
         }
 
         private void LateUpdate()
         {
             if (_entity == null || _entity.Transform == null) return;
+            // Polled teardown — IEntity exposes IsDead but not OnDead, so we check
+            // it here every frame. Cheap (just a bool read) and keeps the binder
+            // independent of EntityBase's concrete event field.
+            if (_entity.IsDead)
+            {
+                _entity = null;
+                Destroy(gameObject);
+                return;
+            }
             ApplyTransform();
         }
 
@@ -65,7 +63,6 @@ namespace Luzart
 
         private void OnDestroy()
         {
-            if (_entity != null) _entity.OnDead -= OnEntityDead;
             _entity = null;
         }
     }
