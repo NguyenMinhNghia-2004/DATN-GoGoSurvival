@@ -97,15 +97,43 @@ namespace Luzart
 // (consumers null-guard).
 // ============================================================
 
-/// <summary>Stub for the deleted global <c>CurrencyManager</c> singleton. SV_GameplayHudUI and
-/// SV_EndGameBridge type-reference Instance / Coins / OnCoinChanged / FormatNumber. With no
-/// real currency owner, Instance stays null forever — consumers null-guard, so coin display
-/// reads as 0. FormatNumber kept as a pure utility for any caller that still wants it.</summary>
+/// <summary>Post-nuke <c>CurrencyManager</c> upgraded from no-op stub → self-instantiating
+/// singleton so the restored <c>Coin</c> pickup can award coins and notify subscribers.
+/// SV_GameplayHudUI subscribes to <see cref="OnCoinChanged"/> for the HUD label;
+/// <see cref="AddCoin"/> is the single write entry point.</summary>
 public class CurrencyManager : UnityEngine.MonoBehaviour
 {
-    public static CurrencyManager Instance { get; private set; }
+    private static CurrencyManager _instance;
+    public static CurrencyManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                var go = new UnityEngine.GameObject("[CurrencyManager]");
+                UnityEngine.Object.DontDestroyOnLoad(go);
+                _instance = go.AddComponent<CurrencyManager>();
+            }
+            return _instance;
+        }
+    }
     public event System.Action<long> OnCoinChanged;
     public long Coins { get; private set; }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this) { Destroy(gameObject); return; }
+        _instance = this;
+    }
+
+    /// <summary>Add <paramref name="amount"/> coins and broadcast <see cref="OnCoinChanged"/>.
+    /// Called by <c>Coin</c> on pickup. Negative amounts allowed for spend flows.</summary>
+    public void AddCoin(long amount)
+    {
+        if (amount == 0) return;
+        Coins += amount;
+        OnCoinChanged?.Invoke(Coins);
+    }
 
     public static string FormatNumber(long value)
     {
@@ -116,9 +144,6 @@ public class CurrencyManager : UnityEngine.MonoBehaviour
         float k = value / 1000f;
         return k >= 100f ? $"{k:0}K" : k >= 10f ? $"{k:0.#}K" : $"{k:0.##}K";
     }
-
-    // Silence "event never used" warning without exposing real behaviour.
-    private void _SilenceUnusedWarning() { OnCoinChanged?.Invoke(0); }
 }
 
 namespace DATN.Legacy
