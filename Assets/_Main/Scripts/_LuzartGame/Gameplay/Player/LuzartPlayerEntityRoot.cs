@@ -222,9 +222,23 @@ namespace Luzart
 
         private ZSkill SpawnSkill(ZSkillConfig cfg, Transform parent)
         {
-            var go = new GameObject($"ZSkill_{cfg.name}");
-            go.transform.SetParent(parent, false);
-            var runtime = go.AddComponent<ZSkill>();
+            ZSkill runtime;
+            if (cfg.SkillPrefab != null)
+            {
+                // Preferred: Instantiate the SO-authored prefab (carries ZSkill + any per-skill
+                // visuals/particles as children). No AddComponent ceremony.
+                var go = Object.Instantiate(cfg.SkillPrefab, parent, false);
+                go.name = $"ZSkill_{cfg.name}";
+                runtime = go.GetComponent<ZSkill>();
+                if (runtime == null) runtime = go.AddComponent<ZSkill>();
+            }
+            else
+            {
+                // Fallback for configs without an authored prefab.
+                var go = new GameObject($"ZSkill_{cfg.name}");
+                go.transform.SetParent(parent, false);
+                runtime = go.AddComponent<ZSkill>();
+            }
             runtime.Bind(_character, cfg);
             _skillRuntimes.Add(runtime);
             return runtime;

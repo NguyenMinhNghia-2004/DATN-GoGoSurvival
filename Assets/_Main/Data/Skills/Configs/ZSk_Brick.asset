@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_Brick
   eTypeSkill: 1
   skillDefine: 5
+  _skillPrefab: {fileID: 7000000000000000001, guid: b3c5f15a012e4d0b89e586b496292efa, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 02042e673b5445fd986894231c4afce8, type: 2}
   - {fileID: 11400000, guid: 3e5407ecfb164e4fb05a4460076a0585, type: 2}

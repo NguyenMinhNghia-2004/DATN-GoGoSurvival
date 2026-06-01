@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_EnergyDrink
   eTypeSkill: 0
   skillDefine: 57
+  _skillPrefab: {fileID: 7000000000000000001, guid: 4a026f9d2f5642b19ea9a32808829f56, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 9350d3d476974faa9c86b8ba308dfe4c, type: 2}
   - {fileID: 11400000, guid: b3a7706d07cf42c2beb1c3f1acffb1b2, type: 2}

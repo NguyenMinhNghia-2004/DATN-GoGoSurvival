@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_Kunai
   eTypeSkill: 1
   skillDefine: 0
+  _skillPrefab: {fileID: 7000000000000000001, guid: bbd3fbe9b47e4d369255ec3fd642a385, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 989ac6ed95224cdd8f36b0288582e2bb, type: 2}
   - {fileID: 11400000, guid: bbeec01f0c10475cb0450d292e2c1f64, type: 2}

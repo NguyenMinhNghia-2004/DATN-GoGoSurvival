@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_FitnessGuide
   eTypeSkill: 0
   skillDefine: 53
+  _skillPrefab: {fileID: 7000000000000000001, guid: 604b684a2c8546dc9050759468704ffc, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 2cfba3c93dbb4769b83f6cdbb7ed0621, type: 2}
   - {fileID: 11400000, guid: ce84eec844db4b78b2cd5802dc5fe09c, type: 2}

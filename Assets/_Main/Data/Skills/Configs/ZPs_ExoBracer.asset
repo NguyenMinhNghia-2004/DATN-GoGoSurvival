@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_ExoBracer
   eTypeSkill: 0
   skillDefine: 55
+  _skillPrefab: {fileID: 7000000000000000001, guid: ec5319206ef547c988e3466212e65d89, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 3a15f939c35f45b4a5e5891681638a46, type: 2}
   - {fileID: 11400000, guid: 3e824e9632ee429e99fa97b6628d1a37, type: 2}

@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_Guardian
   eTypeSkill: 1
   skillDefine: 4
+  _skillPrefab: {fileID: 7000000000000000001, guid: 27dafd10a82a4ed5beb06150fbb1e598, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: c7c89703d7524aa7a1dfadaa897b8346, type: 2}
   - {fileID: 11400000, guid: a152c5c0a1e346cb966954ea3cbbe6f1, type: 2}

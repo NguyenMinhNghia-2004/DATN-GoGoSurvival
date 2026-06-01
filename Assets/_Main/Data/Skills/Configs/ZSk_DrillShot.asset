@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_DrillShot
   eTypeSkill: 1
   skillDefine: 1
+  _skillPrefab: {fileID: 7000000000000000001, guid: aaef97264eac48c2a2e4ebbf52767ef5, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: b1d90c2c38d24a2280fbb97e457d3010, type: 2}
   - {fileID: 11400000, guid: d32f8b313b2a4717a7c9b154945a8e08, type: 2}

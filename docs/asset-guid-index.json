@@ -6303,6 +6303,1221 @@
   "guid": "ed61b1df1edb04285a027dd5e82068e7",
   "name": "Eq_WaistSensor"
  },
+ "Better": {
+  "path": "Assets/_Main/Data/Items/Better",
+  "guid": "62debc2b5665d1d4fad6fdf495880020"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better": {
+  "path": "Assets/_Main/Data/Items/Better",
+  "guid": "62debc2b5665d1d4fad6fdf495880020",
+  "name": "Better"
+ },
+ "Epic": {
+  "path": "Assets/_Main/Data/Items/Epic",
+  "guid": "7f6ce9d855ba9e348b24e668258a3cde"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic": {
+  "path": "Assets/_Main/Data/Items/Epic",
+  "guid": "7f6ce9d855ba9e348b24e668258a3cde",
+  "name": "Epic"
+ },
+ "Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent",
+  "guid": "1ef919e5529299c429e79dfc77aa8206"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent",
+  "guid": "1ef919e5529299c429e79dfc77aa8206",
+  "name": "Excellent"
+ },
+ "Good": {
+  "path": "Assets/_Main/Data/Items/Good",
+  "guid": "0dbcca28234f9e14290388c8b5c9247b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good": {
+  "path": "Assets/_Main/Data/Items/Good",
+  "guid": "0dbcca28234f9e14290388c8b5c9247b",
+  "name": "Good"
+ },
+ "Normal": {
+  "path": "Assets/_Main/Data/Items/Normal",
+  "guid": "9c1dcc0cfef50b04899167f815a4c997"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal": {
+  "path": "Assets/_Main/Data/Items/Normal",
+  "guid": "9c1dcc0cfef50b04899167f815a4c997",
+  "name": "Normal"
+ },
+ "ItemConfig_Army_Belt_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Belt_Better.asset",
+  "guid": "05bbfdc9419b4a209fed6370abfeeb6c"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Army_Belt_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Belt_Better.asset",
+  "guid": "05bbfdc9419b4a209fed6370abfeeb6c",
+  "name": "ItemConfig_Army_Belt_Better"
+ },
+ "ItemConfig_Army_Boots_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Boots_Better.asset",
+  "guid": "e17499c7449542de82d244c72bee32e5"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Army_Boots_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Boots_Better.asset",
+  "guid": "e17499c7449542de82d244c72bee32e5",
+  "name": "ItemConfig_Army_Boots_Better"
+ },
+ "ItemConfig_Army_Gloves_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Gloves_Better.asset",
+  "guid": "dabcb904287642a78590de026ede293f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Army_Gloves_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Gloves_Better.asset",
+  "guid": "dabcb904287642a78590de026ede293f",
+  "name": "ItemConfig_Army_Gloves_Better"
+ },
+ "ItemConfig_Army_Nameplate_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Nameplate_Better.asset",
+  "guid": "f9fd05f6addd4979b740d1e765b7bc40"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Army_Nameplate_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Nameplate_Better.asset",
+  "guid": "f9fd05f6addd4979b740d1e765b7bc40",
+  "name": "ItemConfig_Army_Nameplate_Better"
+ },
+ "ItemConfig_Army_Uniform_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Uniform_Better.asset",
+  "guid": "896dd86e94ab4894a68947f6e9d97237"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Army_Uniform_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Army_Uniform_Better.asset",
+  "guid": "896dd86e94ab4894a68947f6e9d97237",
+  "name": "ItemConfig_Army_Uniform_Better"
+ },
+ "ItemConfig_Bone_Pendant_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Bone_Pendant_Better.asset",
+  "guid": "dceaac18833a47d88fefdf12ca11e9f2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Bone_Pendant_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Bone_Pendant_Better.asset",
+  "guid": "dceaac18833a47d88fefdf12ca11e9f2",
+  "name": "ItemConfig_Bone_Pendant_Better"
+ },
+ "ItemConfig_Broad_Waistguard_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Broad_Waistguard_Better.asset",
+  "guid": "8c444def1015462baf56195024757f94"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Broad_Waistguard_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Broad_Waistguard_Better.asset",
+  "guid": "8c444def1015462baf56195024757f94",
+  "name": "ItemConfig_Broad_Waistguard_Better"
+ },
+ "ItemConfig_Carapace_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Carapace_Better.asset",
+  "guid": "084ec39e30a74bfabaeba6ab8f756e32"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Carapace_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Carapace_Better.asset",
+  "guid": "084ec39e30a74bfabaeba6ab8f756e32",
+  "name": "ItemConfig_Carapace_Better"
+ },
+ "ItemConfig_Emerald_Pendant_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Emerald_Pendant_Better.asset",
+  "guid": "ef23b76fe9214c72b97db456f26cb4a3"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Emerald_Pendant_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Emerald_Pendant_Better.asset",
+  "guid": "ef23b76fe9214c72b97db456f26cb4a3",
+  "name": "ItemConfig_Emerald_Pendant_Better"
+ },
+ "ItemConfig_Fingerless_Gloves_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Fingerless_Gloves_Better.asset",
+  "guid": "a3dc4e85706d4c9e9f907040e16427d7"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Fingerless_Gloves_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Fingerless_Gloves_Better.asset",
+  "guid": "a3dc4e85706d4c9e9f907040e16427d7",
+  "name": "ItemConfig_Fingerless_Gloves_Better"
+ },
+ "ItemConfig_Full_Metal_Suit_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Full_Metal_Suit_Better.asset",
+  "guid": "a1045197d2604c71858265e6b902d43e"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Full_Metal_Suit_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Full_Metal_Suit_Better.asset",
+  "guid": "a1045197d2604c71858265e6b902d43e",
+  "name": "ItemConfig_Full_Metal_Suit_Better"
+ },
+ "ItemConfig_Highboots_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Highboots_Better.asset",
+  "guid": "7f585c99e389414eb30e03742df41713"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Highboots_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Highboots_Better.asset",
+  "guid": "7f585c99e389414eb30e03742df41713",
+  "name": "ItemConfig_Highboots_Better"
+ },
+ "ItemConfig_Kunai_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Kunai_Better.asset",
+  "guid": "e67383fb5bd54200ac1bf88f3fc11e4c"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Kunai_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Kunai_Better.asset",
+  "guid": "e67383fb5bd54200ac1bf88f3fc11e4c",
+  "name": "ItemConfig_Kunai_Better"
+ },
+ "ItemConfig_Layered_Snowshoes_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Layered_Snowshoes_Better.asset",
+  "guid": "352819abb62a44af88a6164d54f07362"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Layered_Snowshoes_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Layered_Snowshoes_Better.asset",
+  "guid": "352819abb62a44af88a6164d54f07362",
+  "name": "ItemConfig_Layered_Snowshoes_Better"
+ },
+ "ItemConfig_Leather_Belt_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Leather_Belt_Better.asset",
+  "guid": "239947fda9174e17bcca5e3911249fc0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Leather_Belt_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Leather_Belt_Better.asset",
+  "guid": "239947fda9174e17bcca5e3911249fc0",
+  "name": "ItemConfig_Leather_Belt_Better"
+ },
+ "ItemConfig_Leather_Gloves_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Leather_Gloves_Better.asset",
+  "guid": "09360d4c0cdf4622b61085e3ec787c4e"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Leather_Gloves_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Leather_Gloves_Better.asset",
+  "guid": "09360d4c0cdf4622b61085e3ec787c4e",
+  "name": "ItemConfig_Leather_Gloves_Better"
+ },
+ "ItemConfig_Light_Runners_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Light_Runners_Better.asset",
+  "guid": "e66d27bc5f624877954ac32219374302"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Light_Runners_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Light_Runners_Better.asset",
+  "guid": "e66d27bc5f624877954ac32219374302",
+  "name": "ItemConfig_Light_Runners_Better"
+ },
+ "ItemConfig_Metal_Neckguard_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Metal_Neckguard_Better.asset",
+  "guid": "afb486899ba94df7bf024dc6d72faf53"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Metal_Neckguard_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Metal_Neckguard_Better.asset",
+  "guid": "afb486899ba94df7bf024dc6d72faf53",
+  "name": "ItemConfig_Metal_Neckguard_Better"
+ },
+ "ItemConfig_Prosthetic_Legs_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Prosthetic_Legs_Better.asset",
+  "guid": "8037dd9ebdb74766acf8afcc66a8fb08"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Prosthetic_Legs_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Prosthetic_Legs_Better.asset",
+  "guid": "8037dd9ebdb74766acf8afcc66a8fb08",
+  "name": "ItemConfig_Prosthetic_Legs_Better"
+ },
+ "ItemConfig_Protective_Gloves_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Protective_Gloves_Better.asset",
+  "guid": "5055e91283c9445aa40911528adf4a70"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Protective_Gloves_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Protective_Gloves_Better.asset",
+  "guid": "5055e91283c9445aa40911528adf4a70",
+  "name": "ItemConfig_Protective_Gloves_Better"
+ },
+ "ItemConfig_Protective_Suit_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Protective_Suit_Better.asset",
+  "guid": "01578f943cce4137963d6a55a5b2b374"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Protective_Suit_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Protective_Suit_Better.asset",
+  "guid": "01578f943cce4137963d6a55a5b2b374",
+  "name": "ItemConfig_Protective_Suit_Better"
+ },
+ "ItemConfig_Shiny_Wristguard_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Shiny_Wristguard_Better.asset",
+  "guid": "8c2e80e8db5f49e9b6c50bcd9164381a"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Shiny_Wristguard_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Shiny_Wristguard_Better.asset",
+  "guid": "8c2e80e8db5f49e9b6c50bcd9164381a",
+  "name": "ItemConfig_Shiny_Wristguard_Better"
+ },
+ "ItemConfig_Stylish_Belt_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Stylish_Belt_Better.asset",
+  "guid": "5326dec84c54456c808024c7b1cbdab1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Stylish_Belt_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Stylish_Belt_Better.asset",
+  "guid": "5326dec84c54456c808024c7b1cbdab1",
+  "name": "ItemConfig_Stylish_Belt_Better"
+ },
+ "ItemConfig_Traveler_s_Jacket_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Traveler_s_Jacket_Better.asset",
+  "guid": "a8acae61a50249248d797cfb8d55ee96"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Traveler_s_Jacket_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Traveler_s_Jacket_Better.asset",
+  "guid": "a8acae61a50249248d797cfb8d55ee96",
+  "name": "ItemConfig_Traveler_s_Jacket_Better"
+ },
+ "ItemConfig_Trendy_Charm_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Trendy_Charm_Better.asset",
+  "guid": "d199a8651a664ca6a302083c663f7148"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Trendy_Charm_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Trendy_Charm_Better.asset",
+  "guid": "d199a8651a664ca6a302083c663f7148",
+  "name": "ItemConfig_Trendy_Charm_Better"
+ },
+ "ItemConfig_Waist_Sensor_Better": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Waist_Sensor_Better.asset",
+  "guid": "4dc5af64c8054c5b9997a9f588097d6b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Better/ItemConfig_Waist_Sensor_Better.asset": {
+  "path": "Assets/_Main/Data/Items/Better/ItemConfig_Waist_Sensor_Better.asset",
+  "guid": "4dc5af64c8054c5b9997a9f588097d6b",
+  "name": "ItemConfig_Waist_Sensor_Better"
+ },
+ "ItemConfig_Army_Belt_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Belt_Epic.asset",
+  "guid": "78f4193c43424095b412b2c0428366d8"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Army_Belt_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Belt_Epic.asset",
+  "guid": "78f4193c43424095b412b2c0428366d8",
+  "name": "ItemConfig_Army_Belt_Epic"
+ },
+ "ItemConfig_Army_Boots_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Boots_Epic.asset",
+  "guid": "5fc8589e9f304d6d9db7f29bcfd0965f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Army_Boots_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Boots_Epic.asset",
+  "guid": "5fc8589e9f304d6d9db7f29bcfd0965f",
+  "name": "ItemConfig_Army_Boots_Epic"
+ },
+ "ItemConfig_Army_Gloves_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Gloves_Epic.asset",
+  "guid": "d955ee8ad6934323a183c55ddc846fc0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Army_Gloves_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Gloves_Epic.asset",
+  "guid": "d955ee8ad6934323a183c55ddc846fc0",
+  "name": "ItemConfig_Army_Gloves_Epic"
+ },
+ "ItemConfig_Army_Nameplate_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Nameplate_Epic.asset",
+  "guid": "f06c80d511954ab99db42ad9ce1518fd"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Army_Nameplate_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Nameplate_Epic.asset",
+  "guid": "f06c80d511954ab99db42ad9ce1518fd",
+  "name": "ItemConfig_Army_Nameplate_Epic"
+ },
+ "ItemConfig_Army_Uniform_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Uniform_Epic.asset",
+  "guid": "4a7ce7c8eb1c450eb61c2e0615569ab5"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Army_Uniform_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Army_Uniform_Epic.asset",
+  "guid": "4a7ce7c8eb1c450eb61c2e0615569ab5",
+  "name": "ItemConfig_Army_Uniform_Epic"
+ },
+ "ItemConfig_Bone_Pendant_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Bone_Pendant_Epic.asset",
+  "guid": "05d0c1f1b6a440a3a78a928ce78cb010"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Bone_Pendant_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Bone_Pendant_Epic.asset",
+  "guid": "05d0c1f1b6a440a3a78a928ce78cb010",
+  "name": "ItemConfig_Bone_Pendant_Epic"
+ },
+ "ItemConfig_Broad_Waistguard_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Broad_Waistguard_Epic.asset",
+  "guid": "22d557c747f343d1baa3e5222bb7329c"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Broad_Waistguard_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Broad_Waistguard_Epic.asset",
+  "guid": "22d557c747f343d1baa3e5222bb7329c",
+  "name": "ItemConfig_Broad_Waistguard_Epic"
+ },
+ "ItemConfig_Carapace_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Carapace_Epic.asset",
+  "guid": "bd0383131b274aa99a32cd82e65c4de1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Carapace_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Carapace_Epic.asset",
+  "guid": "bd0383131b274aa99a32cd82e65c4de1",
+  "name": "ItemConfig_Carapace_Epic"
+ },
+ "ItemConfig_Emerald_Pendant_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Emerald_Pendant_Epic.asset",
+  "guid": "338936a30f8e43eaab4eea7a62a58abb"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Emerald_Pendant_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Emerald_Pendant_Epic.asset",
+  "guid": "338936a30f8e43eaab4eea7a62a58abb",
+  "name": "ItemConfig_Emerald_Pendant_Epic"
+ },
+ "ItemConfig_Fingerless_Gloves_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Fingerless_Gloves_Epic.asset",
+  "guid": "cb0dcdfa84114b7bb8e85ff564f6559b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Fingerless_Gloves_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Fingerless_Gloves_Epic.asset",
+  "guid": "cb0dcdfa84114b7bb8e85ff564f6559b",
+  "name": "ItemConfig_Fingerless_Gloves_Epic"
+ },
+ "ItemConfig_Full_Metal_Suit_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Full_Metal_Suit_Epic.asset",
+  "guid": "079e919f0fd14248a679e1f136de9ce2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Full_Metal_Suit_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Full_Metal_Suit_Epic.asset",
+  "guid": "079e919f0fd14248a679e1f136de9ce2",
+  "name": "ItemConfig_Full_Metal_Suit_Epic"
+ },
+ "ItemConfig_Highboots_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Highboots_Epic.asset",
+  "guid": "cf748f489ba449c190127f66300e5143"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Highboots_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Highboots_Epic.asset",
+  "guid": "cf748f489ba449c190127f66300e5143",
+  "name": "ItemConfig_Highboots_Epic"
+ },
+ "ItemConfig_Kunai_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Kunai_Epic.asset",
+  "guid": "66a5fba2564a45aaae49480488dd9ce0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Kunai_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Kunai_Epic.asset",
+  "guid": "66a5fba2564a45aaae49480488dd9ce0",
+  "name": "ItemConfig_Kunai_Epic"
+ },
+ "ItemConfig_Layered_Snowshoes_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Layered_Snowshoes_Epic.asset",
+  "guid": "9345ed2aa7dc422086ca787a6f4f43f8"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Layered_Snowshoes_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Layered_Snowshoes_Epic.asset",
+  "guid": "9345ed2aa7dc422086ca787a6f4f43f8",
+  "name": "ItemConfig_Layered_Snowshoes_Epic"
+ },
+ "ItemConfig_Leather_Belt_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Belt_Epic.asset",
+  "guid": "dbd9154cf5314b4284e9f20dca420bb7"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Belt_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Belt_Epic.asset",
+  "guid": "dbd9154cf5314b4284e9f20dca420bb7",
+  "name": "ItemConfig_Leather_Belt_Epic"
+ },
+ "ItemConfig_Leather_Gloves_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Gloves_Epic.asset",
+  "guid": "3bd9ec27f40d447fbed9c52380763b4d"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Gloves_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Leather_Gloves_Epic.asset",
+  "guid": "3bd9ec27f40d447fbed9c52380763b4d",
+  "name": "ItemConfig_Leather_Gloves_Epic"
+ },
+ "ItemConfig_Light_Runners_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Light_Runners_Epic.asset",
+  "guid": "bdb0511cec524066b9c4074edf9ad638"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Light_Runners_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Light_Runners_Epic.asset",
+  "guid": "bdb0511cec524066b9c4074edf9ad638",
+  "name": "ItemConfig_Light_Runners_Epic"
+ },
+ "ItemConfig_Metal_Neckguard_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Metal_Neckguard_Epic.asset",
+  "guid": "60c9830ce5fa4a0aa04ca6ea7a7e6544"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Metal_Neckguard_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Metal_Neckguard_Epic.asset",
+  "guid": "60c9830ce5fa4a0aa04ca6ea7a7e6544",
+  "name": "ItemConfig_Metal_Neckguard_Epic"
+ },
+ "ItemConfig_Prosthetic_Legs_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Prosthetic_Legs_Epic.asset",
+  "guid": "df487107c62b44369c6ce92e9680cff9"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Prosthetic_Legs_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Prosthetic_Legs_Epic.asset",
+  "guid": "df487107c62b44369c6ce92e9680cff9",
+  "name": "ItemConfig_Prosthetic_Legs_Epic"
+ },
+ "ItemConfig_Protective_Gloves_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Gloves_Epic.asset",
+  "guid": "cc1998af43e043f99e7f1d4288f0c9b2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Gloves_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Gloves_Epic.asset",
+  "guid": "cc1998af43e043f99e7f1d4288f0c9b2",
+  "name": "ItemConfig_Protective_Gloves_Epic"
+ },
+ "ItemConfig_Protective_Suit_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Suit_Epic.asset",
+  "guid": "9f7ed83a745c48b9ae019a63c6539852"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Suit_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Protective_Suit_Epic.asset",
+  "guid": "9f7ed83a745c48b9ae019a63c6539852",
+  "name": "ItemConfig_Protective_Suit_Epic"
+ },
+ "ItemConfig_Shiny_Wristguard_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Shiny_Wristguard_Epic.asset",
+  "guid": "83b2732d82da4349babeb1da41573201"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Shiny_Wristguard_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Shiny_Wristguard_Epic.asset",
+  "guid": "83b2732d82da4349babeb1da41573201",
+  "name": "ItemConfig_Shiny_Wristguard_Epic"
+ },
+ "ItemConfig_Stylish_Belt_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Stylish_Belt_Epic.asset",
+  "guid": "07802375385e4b9094bfd458f4e93def"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Stylish_Belt_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Stylish_Belt_Epic.asset",
+  "guid": "07802375385e4b9094bfd458f4e93def",
+  "name": "ItemConfig_Stylish_Belt_Epic"
+ },
+ "ItemConfig_Traveler_s_Jacket_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Traveler_s_Jacket_Epic.asset",
+  "guid": "688691bff8ad4cf2ba7fad7b5b122622"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Traveler_s_Jacket_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Traveler_s_Jacket_Epic.asset",
+  "guid": "688691bff8ad4cf2ba7fad7b5b122622",
+  "name": "ItemConfig_Traveler_s_Jacket_Epic"
+ },
+ "ItemConfig_Trendy_Charm_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Trendy_Charm_Epic.asset",
+  "guid": "fd9d92b5054f4cfba820d5ed12e413fe"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Trendy_Charm_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Trendy_Charm_Epic.asset",
+  "guid": "fd9d92b5054f4cfba820d5ed12e413fe",
+  "name": "ItemConfig_Trendy_Charm_Epic"
+ },
+ "ItemConfig_Waist_Sensor_Epic": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Waist_Sensor_Epic.asset",
+  "guid": "0008f17278f14cb0988cd2fbe4eaf245"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Epic/ItemConfig_Waist_Sensor_Epic.asset": {
+  "path": "Assets/_Main/Data/Items/Epic/ItemConfig_Waist_Sensor_Epic.asset",
+  "guid": "0008f17278f14cb0988cd2fbe4eaf245",
+  "name": "ItemConfig_Waist_Sensor_Epic"
+ },
+ "ItemConfig_Army_Belt_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Belt_Excellent.asset",
+  "guid": "226d676e75c74fe5838ad81f1d99d167"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Belt_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Belt_Excellent.asset",
+  "guid": "226d676e75c74fe5838ad81f1d99d167",
+  "name": "ItemConfig_Army_Belt_Excellent"
+ },
+ "ItemConfig_Army_Boots_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Boots_Excellent.asset",
+  "guid": "25b528be58c342af837f404e60985122"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Boots_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Boots_Excellent.asset",
+  "guid": "25b528be58c342af837f404e60985122",
+  "name": "ItemConfig_Army_Boots_Excellent"
+ },
+ "ItemConfig_Army_Gloves_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Gloves_Excellent.asset",
+  "guid": "501cb33937244df0a54d53a7169613a6"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Gloves_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Gloves_Excellent.asset",
+  "guid": "501cb33937244df0a54d53a7169613a6",
+  "name": "ItemConfig_Army_Gloves_Excellent"
+ },
+ "ItemConfig_Army_Nameplate_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Nameplate_Excellent.asset",
+  "guid": "10bf20cd9bdd4776bf09dc20f8449f8a"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Nameplate_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Nameplate_Excellent.asset",
+  "guid": "10bf20cd9bdd4776bf09dc20f8449f8a",
+  "name": "ItemConfig_Army_Nameplate_Excellent"
+ },
+ "ItemConfig_Army_Uniform_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Uniform_Excellent.asset",
+  "guid": "ac4b41a001d14df4a0978991c8d8c9c4"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Uniform_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Army_Uniform_Excellent.asset",
+  "guid": "ac4b41a001d14df4a0978991c8d8c9c4",
+  "name": "ItemConfig_Army_Uniform_Excellent"
+ },
+ "ItemConfig_Bone_Pendant_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Bone_Pendant_Excellent.asset",
+  "guid": "6c2a8b82f9ce47748e66086aa6096796"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Bone_Pendant_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Bone_Pendant_Excellent.asset",
+  "guid": "6c2a8b82f9ce47748e66086aa6096796",
+  "name": "ItemConfig_Bone_Pendant_Excellent"
+ },
+ "ItemConfig_Broad_Waistguard_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Broad_Waistguard_Excellent.asset",
+  "guid": "d0d5f7b4217342b5a16b14271c6fb623"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Broad_Waistguard_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Broad_Waistguard_Excellent.asset",
+  "guid": "d0d5f7b4217342b5a16b14271c6fb623",
+  "name": "ItemConfig_Broad_Waistguard_Excellent"
+ },
+ "ItemConfig_Carapace_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Carapace_Excellent.asset",
+  "guid": "5eafd77c2aa24d12ad03a4322cbf13c7"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Carapace_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Carapace_Excellent.asset",
+  "guid": "5eafd77c2aa24d12ad03a4322cbf13c7",
+  "name": "ItemConfig_Carapace_Excellent"
+ },
+ "ItemConfig_Emerald_Pendant_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Emerald_Pendant_Excellent.asset",
+  "guid": "7075e93a2c124dcbb4252b0251f30c0a"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Emerald_Pendant_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Emerald_Pendant_Excellent.asset",
+  "guid": "7075e93a2c124dcbb4252b0251f30c0a",
+  "name": "ItemConfig_Emerald_Pendant_Excellent"
+ },
+ "ItemConfig_Fingerless_Gloves_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Fingerless_Gloves_Excellent.asset",
+  "guid": "175ace221b56430cb1278e25484cd414"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Fingerless_Gloves_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Fingerless_Gloves_Excellent.asset",
+  "guid": "175ace221b56430cb1278e25484cd414",
+  "name": "ItemConfig_Fingerless_Gloves_Excellent"
+ },
+ "ItemConfig_Full_Metal_Suit_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Full_Metal_Suit_Excellent.asset",
+  "guid": "36061f70d56849dc88e4a2ef10bb924b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Full_Metal_Suit_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Full_Metal_Suit_Excellent.asset",
+  "guid": "36061f70d56849dc88e4a2ef10bb924b",
+  "name": "ItemConfig_Full_Metal_Suit_Excellent"
+ },
+ "ItemConfig_Highboots_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Highboots_Excellent.asset",
+  "guid": "5bcd9404b136460c93132344c8911a9d"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Highboots_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Highboots_Excellent.asset",
+  "guid": "5bcd9404b136460c93132344c8911a9d",
+  "name": "ItemConfig_Highboots_Excellent"
+ },
+ "ItemConfig_Kunai_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Kunai_Excellent.asset",
+  "guid": "20fb6ff439aa47a187c31d3cc2d0bfe6"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Kunai_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Kunai_Excellent.asset",
+  "guid": "20fb6ff439aa47a187c31d3cc2d0bfe6",
+  "name": "ItemConfig_Kunai_Excellent"
+ },
+ "ItemConfig_Layered_Snowshoes_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Layered_Snowshoes_Excellent.asset",
+  "guid": "6e25e689e23d410db4b71c4d9fee1acf"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Layered_Snowshoes_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Layered_Snowshoes_Excellent.asset",
+  "guid": "6e25e689e23d410db4b71c4d9fee1acf",
+  "name": "ItemConfig_Layered_Snowshoes_Excellent"
+ },
+ "ItemConfig_Leather_Belt_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Belt_Excellent.asset",
+  "guid": "13b795522f624ba595f640f609c03eed"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Belt_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Belt_Excellent.asset",
+  "guid": "13b795522f624ba595f640f609c03eed",
+  "name": "ItemConfig_Leather_Belt_Excellent"
+ },
+ "ItemConfig_Leather_Gloves_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Gloves_Excellent.asset",
+  "guid": "e5957572f8bd4c3daad7a113557fc7cd"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Gloves_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Leather_Gloves_Excellent.asset",
+  "guid": "e5957572f8bd4c3daad7a113557fc7cd",
+  "name": "ItemConfig_Leather_Gloves_Excellent"
+ },
+ "ItemConfig_Light_Runners_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Light_Runners_Excellent.asset",
+  "guid": "e68a1ad9004444c7aba05a2bc1c28d97"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Light_Runners_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Light_Runners_Excellent.asset",
+  "guid": "e68a1ad9004444c7aba05a2bc1c28d97",
+  "name": "ItemConfig_Light_Runners_Excellent"
+ },
+ "ItemConfig_Metal_Neckguard_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Metal_Neckguard_Excellent.asset",
+  "guid": "278a67658bad43f6ad7b1cdb9cc68fe2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Metal_Neckguard_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Metal_Neckguard_Excellent.asset",
+  "guid": "278a67658bad43f6ad7b1cdb9cc68fe2",
+  "name": "ItemConfig_Metal_Neckguard_Excellent"
+ },
+ "ItemConfig_Prosthetic_Legs_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Prosthetic_Legs_Excellent.asset",
+  "guid": "cbf9d910626641938436c8ee363e3da2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Prosthetic_Legs_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Prosthetic_Legs_Excellent.asset",
+  "guid": "cbf9d910626641938436c8ee363e3da2",
+  "name": "ItemConfig_Prosthetic_Legs_Excellent"
+ },
+ "ItemConfig_Protective_Gloves_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Gloves_Excellent.asset",
+  "guid": "ed17eb35cda946c784df8d930827583c"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Gloves_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Gloves_Excellent.asset",
+  "guid": "ed17eb35cda946c784df8d930827583c",
+  "name": "ItemConfig_Protective_Gloves_Excellent"
+ },
+ "ItemConfig_Protective_Suit_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Suit_Excellent.asset",
+  "guid": "ed60b604cda546a8b6481ebaa5b526b2"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Suit_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Protective_Suit_Excellent.asset",
+  "guid": "ed60b604cda546a8b6481ebaa5b526b2",
+  "name": "ItemConfig_Protective_Suit_Excellent"
+ },
+ "ItemConfig_Shiny_Wristguard_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Shiny_Wristguard_Excellent.asset",
+  "guid": "418e021460f049d2b474cb82b994ed4d"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Shiny_Wristguard_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Shiny_Wristguard_Excellent.asset",
+  "guid": "418e021460f049d2b474cb82b994ed4d",
+  "name": "ItemConfig_Shiny_Wristguard_Excellent"
+ },
+ "ItemConfig_Stylish_Belt_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Stylish_Belt_Excellent.asset",
+  "guid": "e99c0d19c7394e75a2b10f55e2ac4c67"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Stylish_Belt_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Stylish_Belt_Excellent.asset",
+  "guid": "e99c0d19c7394e75a2b10f55e2ac4c67",
+  "name": "ItemConfig_Stylish_Belt_Excellent"
+ },
+ "ItemConfig_Traveler_s_Jacket_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Traveler_s_Jacket_Excellent.asset",
+  "guid": "97e31b1abb964a72a1f46aefc9d82a41"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Traveler_s_Jacket_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Traveler_s_Jacket_Excellent.asset",
+  "guid": "97e31b1abb964a72a1f46aefc9d82a41",
+  "name": "ItemConfig_Traveler_s_Jacket_Excellent"
+ },
+ "ItemConfig_Trendy_Charm_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Trendy_Charm_Excellent.asset",
+  "guid": "41a02cd35ec8492e89318fd953afbc95"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Trendy_Charm_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Trendy_Charm_Excellent.asset",
+  "guid": "41a02cd35ec8492e89318fd953afbc95",
+  "name": "ItemConfig_Trendy_Charm_Excellent"
+ },
+ "ItemConfig_Waist_Sensor_Excellent": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Waist_Sensor_Excellent.asset",
+  "guid": "04fc9bf9b972414b8a3f7d628a22c02f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Excellent/ItemConfig_Waist_Sensor_Excellent.asset": {
+  "path": "Assets/_Main/Data/Items/Excellent/ItemConfig_Waist_Sensor_Excellent.asset",
+  "guid": "04fc9bf9b972414b8a3f7d628a22c02f",
+  "name": "ItemConfig_Waist_Sensor_Excellent"
+ },
+ "ItemConfig_Army_Belt_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Belt_Good.asset",
+  "guid": "ee63593c88db422aac2c0e0e1d2d88a9"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Army_Belt_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Belt_Good.asset",
+  "guid": "ee63593c88db422aac2c0e0e1d2d88a9",
+  "name": "ItemConfig_Army_Belt_Good"
+ },
+ "ItemConfig_Army_Boots_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Boots_Good.asset",
+  "guid": "897c3e5ccc094da98c1cfdce4228b141"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Army_Boots_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Boots_Good.asset",
+  "guid": "897c3e5ccc094da98c1cfdce4228b141",
+  "name": "ItemConfig_Army_Boots_Good"
+ },
+ "ItemConfig_Army_Gloves_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Gloves_Good.asset",
+  "guid": "767f027a99464cad8ef21a018e2736fd"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Army_Gloves_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Gloves_Good.asset",
+  "guid": "767f027a99464cad8ef21a018e2736fd",
+  "name": "ItemConfig_Army_Gloves_Good"
+ },
+ "ItemConfig_Army_Nameplate_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Nameplate_Good.asset",
+  "guid": "87dd2bd92e9449bf895e8bea9eb36844"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Army_Nameplate_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Nameplate_Good.asset",
+  "guid": "87dd2bd92e9449bf895e8bea9eb36844",
+  "name": "ItemConfig_Army_Nameplate_Good"
+ },
+ "ItemConfig_Army_Uniform_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Uniform_Good.asset",
+  "guid": "dcb3edcd4164401f96361f079fd7acf4"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Army_Uniform_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Army_Uniform_Good.asset",
+  "guid": "dcb3edcd4164401f96361f079fd7acf4",
+  "name": "ItemConfig_Army_Uniform_Good"
+ },
+ "ItemConfig_Bone_Pendant_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Bone_Pendant_Good.asset",
+  "guid": "c64d3420c30144938ef62d4a83543d54"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Bone_Pendant_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Bone_Pendant_Good.asset",
+  "guid": "c64d3420c30144938ef62d4a83543d54",
+  "name": "ItemConfig_Bone_Pendant_Good"
+ },
+ "ItemConfig_Broad_Waistguard_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Broad_Waistguard_Good.asset",
+  "guid": "ed1ec7880b914803aa46bd9c1bdadd7c"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Broad_Waistguard_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Broad_Waistguard_Good.asset",
+  "guid": "ed1ec7880b914803aa46bd9c1bdadd7c",
+  "name": "ItemConfig_Broad_Waistguard_Good"
+ },
+ "ItemConfig_Carapace_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Carapace_Good.asset",
+  "guid": "268987c3f4db41589cf988461fad874d"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Carapace_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Carapace_Good.asset",
+  "guid": "268987c3f4db41589cf988461fad874d",
+  "name": "ItemConfig_Carapace_Good"
+ },
+ "ItemConfig_Emerald_Pendant_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Emerald_Pendant_Good.asset",
+  "guid": "6a279ba58a45418a993c0c5cc8684fd0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Emerald_Pendant_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Emerald_Pendant_Good.asset",
+  "guid": "6a279ba58a45418a993c0c5cc8684fd0",
+  "name": "ItemConfig_Emerald_Pendant_Good"
+ },
+ "ItemConfig_Fingerless_Gloves_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Fingerless_Gloves_Good.asset",
+  "guid": "1714a477f8a14fddb4729b70c213b73e"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Fingerless_Gloves_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Fingerless_Gloves_Good.asset",
+  "guid": "1714a477f8a14fddb4729b70c213b73e",
+  "name": "ItemConfig_Fingerless_Gloves_Good"
+ },
+ "ItemConfig_Full_Metal_Suit_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Full_Metal_Suit_Good.asset",
+  "guid": "77619bfdcff546b7ac578effd21b7428"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Full_Metal_Suit_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Full_Metal_Suit_Good.asset",
+  "guid": "77619bfdcff546b7ac578effd21b7428",
+  "name": "ItemConfig_Full_Metal_Suit_Good"
+ },
+ "ItemConfig_Highboots_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Highboots_Good.asset",
+  "guid": "0a20dad15bf84d7d889e70a52bd22419"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Highboots_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Highboots_Good.asset",
+  "guid": "0a20dad15bf84d7d889e70a52bd22419",
+  "name": "ItemConfig_Highboots_Good"
+ },
+ "ItemConfig_Kunai_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Kunai_Good.asset",
+  "guid": "28dcaec1c8164fddac8e3e1fa0b174e1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Kunai_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Kunai_Good.asset",
+  "guid": "28dcaec1c8164fddac8e3e1fa0b174e1",
+  "name": "ItemConfig_Kunai_Good"
+ },
+ "ItemConfig_Layered_Snowshoes_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Layered_Snowshoes_Good.asset",
+  "guid": "ee073f38716d4679a457278b5188e62e"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Layered_Snowshoes_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Layered_Snowshoes_Good.asset",
+  "guid": "ee073f38716d4679a457278b5188e62e",
+  "name": "ItemConfig_Layered_Snowshoes_Good"
+ },
+ "ItemConfig_Leather_Belt_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Leather_Belt_Good.asset",
+  "guid": "97e737bbab9c4c0d8c1d27e0fb022fca"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Leather_Belt_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Leather_Belt_Good.asset",
+  "guid": "97e737bbab9c4c0d8c1d27e0fb022fca",
+  "name": "ItemConfig_Leather_Belt_Good"
+ },
+ "ItemConfig_Leather_Gloves_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Leather_Gloves_Good.asset",
+  "guid": "314e60c74f454973a05cc4c3cb4562fa"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Leather_Gloves_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Leather_Gloves_Good.asset",
+  "guid": "314e60c74f454973a05cc4c3cb4562fa",
+  "name": "ItemConfig_Leather_Gloves_Good"
+ },
+ "ItemConfig_Light_Runners_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Light_Runners_Good.asset",
+  "guid": "1f6e0e78c7784d4ea860c3e85fe62d15"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Light_Runners_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Light_Runners_Good.asset",
+  "guid": "1f6e0e78c7784d4ea860c3e85fe62d15",
+  "name": "ItemConfig_Light_Runners_Good"
+ },
+ "ItemConfig_Metal_Neckguard_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Metal_Neckguard_Good.asset",
+  "guid": "0828b90b5c704ba9ae64b0e8706baae0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Metal_Neckguard_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Metal_Neckguard_Good.asset",
+  "guid": "0828b90b5c704ba9ae64b0e8706baae0",
+  "name": "ItemConfig_Metal_Neckguard_Good"
+ },
+ "ItemConfig_Prosthetic_Legs_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Prosthetic_Legs_Good.asset",
+  "guid": "ff736cea0f534bd8b9159f56ab25c986"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Prosthetic_Legs_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Prosthetic_Legs_Good.asset",
+  "guid": "ff736cea0f534bd8b9159f56ab25c986",
+  "name": "ItemConfig_Prosthetic_Legs_Good"
+ },
+ "ItemConfig_Protective_Gloves_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Protective_Gloves_Good.asset",
+  "guid": "f942d27a2aef4063a5e35fb29c716ad1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Protective_Gloves_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Protective_Gloves_Good.asset",
+  "guid": "f942d27a2aef4063a5e35fb29c716ad1",
+  "name": "ItemConfig_Protective_Gloves_Good"
+ },
+ "ItemConfig_Protective_Suit_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Protective_Suit_Good.asset",
+  "guid": "b388767c24084e079add0867a7f0aa30"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Protective_Suit_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Protective_Suit_Good.asset",
+  "guid": "b388767c24084e079add0867a7f0aa30",
+  "name": "ItemConfig_Protective_Suit_Good"
+ },
+ "ItemConfig_Shiny_Wristguard_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Shiny_Wristguard_Good.asset",
+  "guid": "6a9323fab66e424591262749c2dd8ac1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Shiny_Wristguard_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Shiny_Wristguard_Good.asset",
+  "guid": "6a9323fab66e424591262749c2dd8ac1",
+  "name": "ItemConfig_Shiny_Wristguard_Good"
+ },
+ "ItemConfig_Stylish_Belt_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Stylish_Belt_Good.asset",
+  "guid": "3fde3aa00c3246da8d33cbc81c6e7757"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Stylish_Belt_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Stylish_Belt_Good.asset",
+  "guid": "3fde3aa00c3246da8d33cbc81c6e7757",
+  "name": "ItemConfig_Stylish_Belt_Good"
+ },
+ "ItemConfig_Traveler_s_Jacket_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Traveler_s_Jacket_Good.asset",
+  "guid": "545340d253004208be21ca2e53db4200"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Traveler_s_Jacket_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Traveler_s_Jacket_Good.asset",
+  "guid": "545340d253004208be21ca2e53db4200",
+  "name": "ItemConfig_Traveler_s_Jacket_Good"
+ },
+ "ItemConfig_Trendy_Charm_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Trendy_Charm_Good.asset",
+  "guid": "8f8e4b86c2d742849898eb9f27a13a97"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Trendy_Charm_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Trendy_Charm_Good.asset",
+  "guid": "8f8e4b86c2d742849898eb9f27a13a97",
+  "name": "ItemConfig_Trendy_Charm_Good"
+ },
+ "ItemConfig_Waist_Sensor_Good": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Waist_Sensor_Good.asset",
+  "guid": "aa2a2cc2a9434108947f6fd35b05ab18"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Good/ItemConfig_Waist_Sensor_Good.asset": {
+  "path": "Assets/_Main/Data/Items/Good/ItemConfig_Waist_Sensor_Good.asset",
+  "guid": "aa2a2cc2a9434108947f6fd35b05ab18",
+  "name": "ItemConfig_Waist_Sensor_Good"
+ },
+ "ItemConfig_Army_Belt_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Belt_Normal.asset",
+  "guid": "b64880468fe24077ab38309d846dd0a5"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Army_Belt_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Belt_Normal.asset",
+  "guid": "b64880468fe24077ab38309d846dd0a5",
+  "name": "ItemConfig_Army_Belt_Normal"
+ },
+ "ItemConfig_Army_Boots_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Boots_Normal.asset",
+  "guid": "b9f6386923d843f0b27c8150e8f8c166"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Army_Boots_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Boots_Normal.asset",
+  "guid": "b9f6386923d843f0b27c8150e8f8c166",
+  "name": "ItemConfig_Army_Boots_Normal"
+ },
+ "ItemConfig_Army_Gloves_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Gloves_Normal.asset",
+  "guid": "4a49a5e0ae804f65b7c4f732a3aa4434"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Army_Gloves_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Gloves_Normal.asset",
+  "guid": "4a49a5e0ae804f65b7c4f732a3aa4434",
+  "name": "ItemConfig_Army_Gloves_Normal"
+ },
+ "ItemConfig_Army_Nameplate_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Nameplate_Normal.asset",
+  "guid": "a4b81fbff6a84de18ba5f33e72aa2d0b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Army_Nameplate_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Nameplate_Normal.asset",
+  "guid": "a4b81fbff6a84de18ba5f33e72aa2d0b",
+  "name": "ItemConfig_Army_Nameplate_Normal"
+ },
+ "ItemConfig_Army_Uniform_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Uniform_Normal.asset",
+  "guid": "8e01e8128e8e4ce78e00d28a16d47b55"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Army_Uniform_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Army_Uniform_Normal.asset",
+  "guid": "8e01e8128e8e4ce78e00d28a16d47b55",
+  "name": "ItemConfig_Army_Uniform_Normal"
+ },
+ "ItemConfig_Bone_Pendant_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Bone_Pendant_Normal.asset",
+  "guid": "d576ce5cec8e42a383c0d1710fcf4683"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Bone_Pendant_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Bone_Pendant_Normal.asset",
+  "guid": "d576ce5cec8e42a383c0d1710fcf4683",
+  "name": "ItemConfig_Bone_Pendant_Normal"
+ },
+ "ItemConfig_Broad_Waistguard_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Broad_Waistguard_Normal.asset",
+  "guid": "43bf0c03611a4171b153f3cd3a3d0511"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Broad_Waistguard_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Broad_Waistguard_Normal.asset",
+  "guid": "43bf0c03611a4171b153f3cd3a3d0511",
+  "name": "ItemConfig_Broad_Waistguard_Normal"
+ },
+ "ItemConfig_Carapace_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Carapace_Normal.asset",
+  "guid": "14c9d7aa8c554d3bb1607a96adfcd9ea"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Carapace_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Carapace_Normal.asset",
+  "guid": "14c9d7aa8c554d3bb1607a96adfcd9ea",
+  "name": "ItemConfig_Carapace_Normal"
+ },
+ "ItemConfig_Emerald_Pendant_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Emerald_Pendant_Normal.asset",
+  "guid": "c48e87df53b3450abd71f0a913827bc7"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Emerald_Pendant_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Emerald_Pendant_Normal.asset",
+  "guid": "c48e87df53b3450abd71f0a913827bc7",
+  "name": "ItemConfig_Emerald_Pendant_Normal"
+ },
+ "ItemConfig_Fingerless_Gloves_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Fingerless_Gloves_Normal.asset",
+  "guid": "3b0bad14e6104e20b32c8a7d323ce5f0"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Fingerless_Gloves_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Fingerless_Gloves_Normal.asset",
+  "guid": "3b0bad14e6104e20b32c8a7d323ce5f0",
+  "name": "ItemConfig_Fingerless_Gloves_Normal"
+ },
+ "ItemConfig_Full_Metal_Suit_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Full_Metal_Suit_Normal.asset",
+  "guid": "9961bca7e91248d9803e5a2e6e160355"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Full_Metal_Suit_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Full_Metal_Suit_Normal.asset",
+  "guid": "9961bca7e91248d9803e5a2e6e160355",
+  "name": "ItemConfig_Full_Metal_Suit_Normal"
+ },
+ "ItemConfig_Highboots_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Highboots_Normal.asset",
+  "guid": "9197226e579e46a3bf337247c0c40275"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Highboots_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Highboots_Normal.asset",
+  "guid": "9197226e579e46a3bf337247c0c40275",
+  "name": "ItemConfig_Highboots_Normal"
+ },
+ "ItemConfig_Kunai_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Kunai_Normal.asset",
+  "guid": "d1950f0baf134edead79f22f60914f16"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Kunai_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Kunai_Normal.asset",
+  "guid": "d1950f0baf134edead79f22f60914f16",
+  "name": "ItemConfig_Kunai_Normal"
+ },
+ "ItemConfig_Layered_Snowshoes_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Layered_Snowshoes_Normal.asset",
+  "guid": "95c1b0dae8a74396addb9570bac9cbbf"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Layered_Snowshoes_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Layered_Snowshoes_Normal.asset",
+  "guid": "95c1b0dae8a74396addb9570bac9cbbf",
+  "name": "ItemConfig_Layered_Snowshoes_Normal"
+ },
+ "ItemConfig_Leather_Belt_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Belt_Normal.asset",
+  "guid": "2e807f08ae654470979d0644c72bc611"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Belt_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Belt_Normal.asset",
+  "guid": "2e807f08ae654470979d0644c72bc611",
+  "name": "ItemConfig_Leather_Belt_Normal"
+ },
+ "ItemConfig_Leather_Gloves_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Gloves_Normal.asset",
+  "guid": "9627fd4682f3416eb58746489e35c421"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Gloves_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Leather_Gloves_Normal.asset",
+  "guid": "9627fd4682f3416eb58746489e35c421",
+  "name": "ItemConfig_Leather_Gloves_Normal"
+ },
+ "ItemConfig_Light_Runners_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Light_Runners_Normal.asset",
+  "guid": "bf1facd1bfb54d20b94736509c42e1df"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Light_Runners_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Light_Runners_Normal.asset",
+  "guid": "bf1facd1bfb54d20b94736509c42e1df",
+  "name": "ItemConfig_Light_Runners_Normal"
+ },
+ "ItemConfig_Metal_Neckguard_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Metal_Neckguard_Normal.asset",
+  "guid": "62e40c6d152448939a4e417c23533c2f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Metal_Neckguard_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Metal_Neckguard_Normal.asset",
+  "guid": "62e40c6d152448939a4e417c23533c2f",
+  "name": "ItemConfig_Metal_Neckguard_Normal"
+ },
+ "ItemConfig_Prosthetic_Legs_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Prosthetic_Legs_Normal.asset",
+  "guid": "a6807baab9034f0f84710844a593e64b"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Prosthetic_Legs_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Prosthetic_Legs_Normal.asset",
+  "guid": "a6807baab9034f0f84710844a593e64b",
+  "name": "ItemConfig_Prosthetic_Legs_Normal"
+ },
+ "ItemConfig_Protective_Gloves_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Gloves_Normal.asset",
+  "guid": "744c1480805b432d93bf578aab04a428"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Gloves_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Gloves_Normal.asset",
+  "guid": "744c1480805b432d93bf578aab04a428",
+  "name": "ItemConfig_Protective_Gloves_Normal"
+ },
+ "ItemConfig_Protective_Suit_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Suit_Normal.asset",
+  "guid": "35bbbbd6e7a746ba9dda3b7f491b481f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Suit_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Protective_Suit_Normal.asset",
+  "guid": "35bbbbd6e7a746ba9dda3b7f491b481f",
+  "name": "ItemConfig_Protective_Suit_Normal"
+ },
+ "ItemConfig_Shiny_Wristguard_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Shiny_Wristguard_Normal.asset",
+  "guid": "09d813499e2c4046919679e22b33c1d6"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Shiny_Wristguard_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Shiny_Wristguard_Normal.asset",
+  "guid": "09d813499e2c4046919679e22b33c1d6",
+  "name": "ItemConfig_Shiny_Wristguard_Normal"
+ },
+ "ItemConfig_Stylish_Belt_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Stylish_Belt_Normal.asset",
+  "guid": "313e003219af49c48e081c6b1f3ab8e1"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Stylish_Belt_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Stylish_Belt_Normal.asset",
+  "guid": "313e003219af49c48e081c6b1f3ab8e1",
+  "name": "ItemConfig_Stylish_Belt_Normal"
+ },
+ "ItemConfig_Traveler_s_Jacket_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Traveler_s_Jacket_Normal.asset",
+  "guid": "4ddbd9eeb8cf4426a9f661e4a8bd527f"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Traveler_s_Jacket_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Traveler_s_Jacket_Normal.asset",
+  "guid": "4ddbd9eeb8cf4426a9f661e4a8bd527f",
+  "name": "ItemConfig_Traveler_s_Jacket_Normal"
+ },
+ "ItemConfig_Trendy_Charm_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Trendy_Charm_Normal.asset",
+  "guid": "d322855241254d0db570b06fb5734161"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Trendy_Charm_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Trendy_Charm_Normal.asset",
+  "guid": "d322855241254d0db570b06fb5734161",
+  "name": "ItemConfig_Trendy_Charm_Normal"
+ },
+ "ItemConfig_Waist_Sensor_Normal": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Waist_Sensor_Normal.asset",
+  "guid": "2c7b95128bc54fb397de9e463ba8d78d"
+ },
+ "__by_path__/Assets/_Main/Data/Items/Normal/ItemConfig_Waist_Sensor_Normal.asset": {
+  "path": "Assets/_Main/Data/Items/Normal/ItemConfig_Waist_Sensor_Normal.asset",
+  "guid": "2c7b95128bc54fb397de9e463ba8d78d",
+  "name": "ItemConfig_Waist_Sensor_Normal"
+ },
  "DATNEnemyPrefabRegistry": {
   "path": "Assets/_Main/Data/Levels/DATNEnemyPrefabRegistry.asset",
   "guid": "7436de735b8974996bea8430b83a6fce"
@@ -9625,14 +10840,15 @@
   "guid": "eafca8c8927e5bd448c77f4406a7d966",
   "name": "Levels"
  },
- "Normal": {
-  "path": "Assets/_Main/Perfabes/Normal",
-  "guid": "6d31d47e86ff3f5489d5edee51a3ca97"
- },
  "__by_path__/Assets/_Main/Perfabes/Normal": {
   "path": "Assets/_Main/Perfabes/Normal",
   "guid": "6d31d47e86ff3f5489d5edee51a3ca97",
   "name": "Normal"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles": {
+  "path": "Assets/_Main/Perfabes/Projectiles",
+  "guid": "113ae46ca3e913442ab667379e1c9667",
+  "name": "Projectiles"
  },
  "__by_path__/Assets/_Main/Perfabes/UI": {
   "path": "Assets/_Main/Perfabes/UI",
@@ -9930,6 +11146,96 @@
   "path": "Assets/_Main/Perfabes/Normal/Zombie.prefab",
   "guid": "a4be2570a2e23844d97eda6847bcfe92",
   "name": "Zombie"
+ },
+ "Pf_Boomerang": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Boomerang.prefab",
+  "guid": "40b300cc3eeb47e3a89a2816ef1da8f6"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Boomerang.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Boomerang.prefab",
+  "guid": "40b300cc3eeb47e3a89a2816ef1da8f6",
+  "name": "Pf_Boomerang"
+ },
+ "Pf_Brick": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Brick.prefab",
+  "guid": "dfaa62fb70c243f9a692a81f4dc61e32"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Brick.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Brick.prefab",
+  "guid": "dfaa62fb70c243f9a692a81f4dc61e32",
+  "name": "Pf_Brick"
+ },
+ "Pf_DrillShot": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_DrillShot.prefab",
+  "guid": "52c1aff59f884ede80fc141a044156f1"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_DrillShot.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_DrillShot.prefab",
+  "guid": "52c1aff59f884ede80fc141a044156f1",
+  "name": "Pf_DrillShot"
+ },
+ "Pf_Durian": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Durian.prefab",
+  "guid": "9a20602648cd4e498bd441709e52fee4"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Durian.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Durian.prefab",
+  "guid": "9a20602648cd4e498bd441709e52fee4",
+  "name": "Pf_Durian"
+ },
+ "Pf_Forcefield": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Forcefield.prefab",
+  "guid": "e215bcc2338943aea4ecdef06b72274d"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Forcefield.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Forcefield.prefab",
+  "guid": "e215bcc2338943aea4ecdef06b72274d",
+  "name": "Pf_Forcefield"
+ },
+ "Pf_Guardian": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Guardian.prefab",
+  "guid": "4a0f46d7ed084919b10e358d68e271ef"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Guardian.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Guardian.prefab",
+  "guid": "4a0f46d7ed084919b10e358d68e271ef",
+  "name": "Pf_Guardian"
+ },
+ "Pf_Kunai": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Kunai.prefab",
+  "guid": "b4893363697e47c2a0fc97a9a3d99e28"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Kunai.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Kunai.prefab",
+  "guid": "b4893363697e47c2a0fc97a9a3d99e28",
+  "name": "Pf_Kunai"
+ },
+ "Pf_Molotov": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Molotov.prefab",
+  "guid": "3aabd623abb4436dafcaf639cde89984"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_Molotov.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_Molotov.prefab",
+  "guid": "3aabd623abb4436dafcaf639cde89984",
+  "name": "Pf_Molotov"
+ },
+ "Pf_RPG": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_RPG.prefab",
+  "guid": "426395175e704ae1884a376e836d93d4"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_RPG.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_RPG.prefab",
+  "guid": "426395175e704ae1884a376e836d93d4",
+  "name": "Pf_RPG"
+ },
+ "Pf_SoccerBall": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_SoccerBall.prefab",
+  "guid": "521255ceb45b4427a344419f93e1c773"
+ },
+ "__by_path__/Assets/_Main/Perfabes/Projectiles/Pf_SoccerBall.prefab": {
+  "path": "Assets/_Main/Perfabes/Projectiles/Pf_SoccerBall.prefab",
+  "guid": "521255ceb45b4427a344419f93e1c773",
+  "name": "Pf_SoccerBall"
  },
  "SV_Equipement": {
   "path": "Assets/_Main/Perfabes/UI/SV_Equipement.prefab",
@@ -10791,10 +12097,24 @@
   "guid": "023670327f82342c4b712e9b3cb9dcc6",
   "name": "UIBootstrap"
  },
+ "__by_path__/Assets/_Main/Scripts/_LegacyCompat/Coin.cs": {
+  "path": "Assets/_Main/Scripts/_LegacyCompat/Coin.cs",
+  "guid": "ee0fceb031db4134fafaa69a2a97b60b",
+  "name": "Coin"
+ },
  "__by_path__/Assets/_Main/Scripts/_LegacyCompat/Diamond.cs": {
   "path": "Assets/_Main/Scripts/_LegacyCompat/Diamond.cs",
   "guid": "34cd61dbc7186ac4583e66814713b55b",
   "name": "Diamond"
+ },
+ "LevelDiamond": {
+  "path": "Assets/_Main/Scripts/_LegacyCompat/LevelDiamond.cs",
+  "guid": "681ed9a302e746e488b01c05eb9639c9"
+ },
+ "__by_path__/Assets/_Main/Scripts/_LegacyCompat/LevelDiamond.cs": {
+  "path": "Assets/_Main/Scripts/_LegacyCompat/LevelDiamond.cs",
+  "guid": "681ed9a302e746e488b01c05eb9639c9",
+  "name": "LevelDiamond"
  },
  "movementJoystick": {
   "path": "Assets/_Main/Scripts/_LegacyCompat/movementJoystick.cs",
@@ -10859,6 +12179,11 @@
   "path": "Assets/_Main/Scripts/_LuzartGame/DependencyInjection",
   "guid": "f044422b154fe41aebb47aa8a0f3dc1a",
   "name": "DependencyInjection"
+ },
+ "__by_path__/Assets/_Main/Scripts/_LuzartGame/Editor": {
+  "path": "Assets/_Main/Scripts/_LuzartGame/Editor",
+  "guid": "19652f73c56aa6341a4b0c89542c1483",
+  "name": "Editor"
  },
  "EditorItem": {
   "path": "Assets/_Main/Scripts/_LuzartGame/EditorItem",
@@ -11458,6 +12783,15 @@
   "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Behavior/Projectile",
   "guid": "ad951251da3dfec47ae4329ecfd580cd",
   "name": "Projectile"
+ },
+ "ProjectileVisualBinder": {
+  "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Behavior/ProjectileVisualBinder.cs",
+  "guid": "b06ada8f92616f4499e6873aae17093f"
+ },
+ "__by_path__/Assets/_Main/Scripts/_LuzartGame/Gameplay/Behavior/ProjectileVisualBinder.cs": {
+  "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Behavior/ProjectileVisualBinder.cs",
+  "guid": "b06ada8f92616f4499e6873aae17093f",
+  "name": "ProjectileVisualBinder"
  },
  "RenderBehavior": {
   "path": "Assets/_Main/Scripts/_LuzartGame/Gameplay/Behavior/RenderBehavior.cs",
@@ -13021,15 +14355,6 @@
   "path": "Assets/_Main/Scripts/_LuzartGame/Skills/ZSkillConfig.cs",
   "guid": "655acc4e29cfe5b46a86227af5f4eb31",
   "name": "ZSkillConfig"
- },
- "ZSkillRuntime": {
-  "path": "Assets/_Main/Scripts/_LuzartGame/Skills/ZSkillRuntime.cs",
-  "guid": "a2561292c28bdfb4da02a1d74abd442c"
- },
- "__by_path__/Assets/_Main/Scripts/_LuzartGame/Skills/ZSkillRuntime.cs": {
-  "path": "Assets/_Main/Scripts/_LuzartGame/Skills/ZSkillRuntime.cs",
-  "guid": "a2561292c28bdfb4da02a1d74abd442c",
-  "name": "ZSkillRuntime"
  },
  "ZSkillUpgradeConfig": {
   "path": "Assets/_Main/Scripts/_LuzartGame/Skills/ZSkillUpgradeConfig.cs",

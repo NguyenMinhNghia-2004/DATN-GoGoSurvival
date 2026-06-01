@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_AmmoThruster
   eTypeSkill: 0
   skillDefine: 55
+  _skillPrefab: {fileID: 7000000000000000001, guid: 754f3d3f624441c1a3aa2748ce038e83, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 74c564579a174af3892b28ea9e0e622a, type: 2}
   - {fileID: 11400000, guid: 9af8041e296c48dfabcac83696f494cb, type: 2}

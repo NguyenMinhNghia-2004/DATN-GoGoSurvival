@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_KogaNinjaScroll
   eTypeSkill: 0
   skillDefine: 61
+  _skillPrefab: {fileID: 7000000000000000001, guid: ab6175a17adb4d0eaf163343d4672a12, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 1eff22afd9b54ca4b419b69a5279fbd6, type: 2}
   - {fileID: 11400000, guid: 9ace7212486644aeafdfdc34ab422fb5, type: 2}

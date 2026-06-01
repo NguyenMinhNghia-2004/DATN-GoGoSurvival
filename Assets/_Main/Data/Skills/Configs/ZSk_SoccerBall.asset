@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_SoccerBall
   eTypeSkill: 1
   skillDefine: 3
+  _skillPrefab: {fileID: 7000000000000000001, guid: 63900898b48b49f69127088d9a9ed11d, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 8aae5c69dc4f4f949e2ff60667140e6f, type: 2}
   - {fileID: 11400000, guid: 6bb2cc7e0b144e15a12ded271e2d3700, type: 2}

@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_HiPowerBullet
   eTypeSkill: 0
   skillDefine: 51
+  _skillPrefab: {fileID: 7000000000000000001, guid: aef4d8a402294686aa0a7db2fdd1832f, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 196bd3f0ad8b4567b9c838fbc61034da, type: 2}
   - {fileID: 11400000, guid: 1c6bfc09584c4c68b1d892dc65ff5610, type: 2}

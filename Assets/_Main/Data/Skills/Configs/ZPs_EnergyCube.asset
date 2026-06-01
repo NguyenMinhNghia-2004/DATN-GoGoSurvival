@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_EnergyCube
   eTypeSkill: 0
   skillDefine: 56
+  _skillPrefab: {fileID: 7000000000000000001, guid: 9847497eeb3e4e85bfbf419b83e079e4, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 11b12e825e8447ab91bf63d0b0dc4767, type: 2}
   - {fileID: 11400000, guid: 6017fc09b91f473d92b4c19426e404fb, type: 2}

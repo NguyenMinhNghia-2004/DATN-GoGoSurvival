@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZSk_Boomerang
   eTypeSkill: 1
   skillDefine: 3
+  _skillPrefab: {fileID: 7000000000000000001, guid: beb9d97554054227a458a40219194be0, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: 3d9924f93bb94cedab23b30255bf6ed5, type: 2}
   - {fileID: 11400000, guid: 19bdefb38532438c9d9a4a190985f38a, type: 2}

@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: ZPs_OilBond
   eTypeSkill: 0
   skillDefine: 102
+  _skillPrefab: {fileID: 7000000000000000001, guid: c3408c5910504a61b8355ab6ba3aa3a2, type: 3}
   upgradeConfigs:
   - {fileID: 11400000, guid: c0009c10ee1e441cb2f9aa16c5e65340, type: 2}
   - {fileID: 11400000, guid: 3696a0629e384bb086a6068876d97147, type: 2}
