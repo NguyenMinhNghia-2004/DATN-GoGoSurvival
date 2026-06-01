@@ -1,3 +1,4 @@
+using System.Collections;
 using Luzart;
 using UnityEngine;
 
@@ -8,15 +9,12 @@ using UnityEngine;
 /// serialized fields <c>Player</c>, <c>Manager</c>, <c>UIManager</c>, <c>Green</c>,
 /// <c>WorkOn</c>. BoxCollider2D on those prefabs is already <c>isTrigger=true</c>.
 ///
-/// <para>This file restores the class behind the SAME guid (see .cs.meta) so Unity auto-rebinds
-/// the Missing Script reference across all 4 colored Diamond prefabs without prefab edits.
-/// Field names + types match the YAML so serialized values rebind cleanly.</para>
-///
-/// <para>Behaviour: on trigger overlap with the Player, add <see cref="xpReward"/> to
-/// <c>StatType.Runtime_XP</c> (GameController already watches via <c>OnXPChange</c>) and
-/// destroy self. Legacy Player/Manager/UIManager fields kept for serialization compatibility;
-/// runtime resolves PlayerCharacter from Domain instead (so the gem works even if Inspector
-/// refs are null post-nuke).</para>
+/// <para>Pickup behaviour: trigger overlap with the Player (body collider or the
+/// "RoadDetections" magnet zone) triggers a Survivor.io-style <b>InBack</b> tween —
+/// the gem first eases AWAY from the player (overshoot), then accelerates back into
+/// them. Award XP + destroy when the tween completes. Without this animation, gems
+/// dropped inside the magnet zone vanished in the same frame they spawned, leaving
+/// the user with no visual feedback.</para>
 /// </summary>
 [DisallowMultipleComponent]
 public class Diamond : MonoBehaviour
@@ -36,32 +34,68 @@ public class Diamond : MonoBehaviour
     // ---- Pickup tuning ---------------------------------------------------
     [Tooltip("XP awarded to the player on pickup. Tune per gem prefab via Inspector.")]
     [SerializeField] private float xpReward = 1f;
-    // Removed `destroyOnPickup` toggle — when Diamond is rehydrated on a prefab whose YAML
-    // pre-dates this class, Unity may default new bool serialized fields to false even with
-    // a C# field initializer, leaving the gem visible after pickup. Always destroy now.
 
-    private bool _consumed; // Guard against multiple trigger frames in a single overlap pass.
+    [Tooltip("Duration of the InBack fly-to-player animation (seconds).")]
+    [SerializeField] private float flyDuration = 0.45f;
+
+    private bool _consumed;
+    private bool _flying;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_consumed || other == null) return;
-        // Player has two colliders relevant here:
-        //   1) Body collider on the Player GO itself (tag "Player") — damage hitbox.
-        //   2) "DetecteurRoad" child collider (tag "RoadDetections") — pickup magnet zone,
-        //      scale ~2.3× larger than the body so gems are vacuumed before touching the player.
-        // Either qualifies as a pickup trigger. transform.root.tag fallback future-proofs
-        // any other Player-child colliders.
+        if (_consumed || _flying || other == null) return;
+        // Accept Player body collider OR the "RoadDetections" magnet zone OR anything
+        // under a Player-tagged root (covers future child colliders).
         bool isPlayerSide =
             other.CompareTag("Player") ||
             other.CompareTag("RoadDetections") ||
             (other.transform.root != null && other.transform.root.CompareTag("Player"));
         if (!isPlayerSide) return;
-        if (!TryAwardXP()) return;
+
+        _flying = true;
+
+        // Disable our own collider so the magnet doesn't re-trigger us mid-fly.
+        var col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        // Resolve a stable player Transform to track (the magnet's collider was on a
+        // child, so walk up to the tagged root).
+        Transform playerTr = other.transform.root != null && other.transform.root.CompareTag("Player")
+            ? other.transform.root
+            : other.transform;
+        StartCoroutine(FlyToPlayerInBack(playerTr));
+    }
+
+    /// <summary>
+    /// Tween position from current pos → player pos over <c>flyDuration</c> using the
+    /// Penner InBack easing curve. EaseInBack goes NEGATIVE briefly at the start, so
+    /// LerpUnclamped drives the gem past the spawn point in the opposite direction of
+    /// the player (the "back" overshoot) before rushing inward.
+    /// </summary>
+    private IEnumerator FlyToPlayerInBack(Transform player)
+    {
+        Vector3 start = transform.position;
+        float t = 0f;
+        while (t < flyDuration && player != null && this != null)
+        {
+            t += Time.deltaTime;
+            float p = Mathf.Clamp01(t / flyDuration);
+            float eased = EaseInBack(p);
+            // LerpUnclamped is important — clamped Lerp would clip the negative overshoot
+            // back to 0, killing the "fly out" half of the animation.
+            transform.position = Vector3.LerpUnclamped(start, player.position, eased);
+            yield return null;
+        }
+        TryAwardXP();
         _consumed = true;
-        // Hide immediately + destroy at end of frame. SetActive(false) ensures the visual
-        // is gone in the same frame, not waiting on the destroy queue.
-        gameObject.SetActive(false);
         Destroy(gameObject);
+    }
+
+    /// <summary>Penner's InBack easing — t² × ((s+1)t − s) with s = 1.70158.</summary>
+    private static float EaseInBack(float t)
+    {
+        const float s = 1.70158f;
+        return t * t * ((s + 1f) * t - s);
     }
 
     private bool TryAwardXP()
@@ -71,8 +105,6 @@ public class Diamond : MonoBehaviour
         if (pc == null || pc.Stats == null) return false;
         var xp = pc.Stats.GetRuntime(StatType.Runtime_XP);
         if (xp == null) return false;
-        // Legacy "Green" flag historically doubled the reward; preserve that bias so existing
-        // gem placements that toggled this in scene still feel weighted.
         float reward = xpReward * (Green ? 2f : 1f);
         xp.Set(xp.Value + reward);
         return true;
