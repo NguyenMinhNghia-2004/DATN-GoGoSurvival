@@ -73,8 +73,6 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent, IRunParticipant
     }
     public IEnumerator StartSpawning(List<EnemyWaveConfig> list)
     {
-        Debug.Log($"[DBG-CHAIN] S: EnemySpawnerManager.StartSpawning ENTRY (list count={list?.Count ?? 0}, instance='{name}', enabled={enabled})");
-        Debug.Log($"[EnemySpawnerManager] StartSpawning: {list?.Count ?? 0} wave configs");
         if (list == null || list.Count == 0) yield break;
 
         float minDelay = float.MaxValue;
@@ -89,7 +87,6 @@ public class EnemySpawnerManager : AbstractMonoBehaviorContent, IRunParticipant
         for (int i = 0; i < countList; i++)
         {
             var config = list[i];
-            Debug.Log($"[EnemySpawnerManager] → spawning {config.EnemyDefinition?.name} every {config.TimeIntervalSpawn}s for {config.TotalTimeSpawn}s");
             StartCoroutine(SpawnWaveEnemy(config));
         }
     }

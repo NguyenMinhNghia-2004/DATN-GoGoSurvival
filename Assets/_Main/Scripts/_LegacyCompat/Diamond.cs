@@ -42,12 +42,6 @@ public class Diamond : MonoBehaviour
 
     private bool _consumed; // Guard against multiple trigger frames in a single overlap pass.
 
-    private bool _dbgLoggedAwake;
-    private void Awake()
-    {
-        if (!_dbgLoggedAwake) { _dbgLoggedAwake = true; Debug.Log($"[DBG-CHAIN] DIA: Diamond.Awake on '{name}' tag='{tag}' layer={gameObject.layer} hasCol2D={GetComponent<Collider2D>()!=null}"); }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_consumed || other == null) return;
@@ -55,36 +49,32 @@ public class Diamond : MonoBehaviour
         //   1) Body collider on the Player GO itself (tag "Player") — damage hitbox.
         //   2) "DetecteurRoad" child collider (tag "RoadDetections") — pickup magnet zone,
         //      scale ~2.3× larger than the body so gems are vacuumed before touching the player.
-        // Either qualifies as a pickup trigger. Climbing transform.root.tag also covers any
-        // future child colliders authored under Player.
+        // Either qualifies as a pickup trigger. transform.root.tag fallback future-proofs
+        // any other Player-child colliders.
         bool isPlayerSide =
             other.CompareTag("Player") ||
             other.CompareTag("RoadDetections") ||
             (other.transform.root != null && other.transform.root.CompareTag("Player"));
         if (!isPlayerSide) return;
-        if (!TryAwardXP()) { Debug.LogWarning($"[DBG-CHAIN] DIA: '{name}' TryAwardXP returned false"); return; }
+        if (!TryAwardXP()) return;
         _consumed = true;
         // Hide immediately + destroy at end of frame. SetActive(false) ensures the visual
-        // is gone NOW even if Destroy is deferred or somehow skipped.
+        // is gone in the same frame, not waiting on the destroy queue.
         gameObject.SetActive(false);
         Destroy(gameObject);
-        Debug.Log($"[DBG-CHAIN] DIA: destroyed '{name}'");
     }
 
     private bool TryAwardXP()
     {
         var srm = SceneRootManager.Instance;
         var pc = srm != null ? srm.Domain?.Get<PlayerCharacter>() : null;
-        if (pc == null) { Debug.LogWarning($"[DBG-CHAIN] DIA: PlayerCharacter null (srm={(srm==null?"NULL":"OK")})"); return false; }
-        if (pc.Stats == null) { Debug.LogWarning("[DBG-CHAIN] DIA: pc.Stats null"); return false; }
+        if (pc == null || pc.Stats == null) return false;
         var xp = pc.Stats.GetRuntime(StatType.Runtime_XP);
-        if (xp == null) { Debug.LogWarning("[DBG-CHAIN] DIA: Runtime_XP stat null"); return false; }
+        if (xp == null) return false;
         // Legacy "Green" flag historically doubled the reward; preserve that bias so existing
         // gem placements that toggled this in scene still feel weighted.
         float reward = xpReward * (Green ? 2f : 1f);
-        float before = (float)xp.Value;
         xp.Set(xp.Value + reward);
-        Debug.Log($"[DBG-CHAIN] DIA: awarded {reward} XP (before={before} after={xp.Value})");
         return true;
     }
 }

@@ -57,7 +57,6 @@ namespace Luzart
         /// <summary>Public entry point — call from UI Play button (or DATN.Legacy.UIManager.PlayBtn).</summary>
         public void StartGameplay()
         {
-            Debug.Log($"[DBG-CHAIN] G: GameController.StartGameplay entry, _gameplayActive={_gameplayActive}, _levelConfig={(_levelConfig==null?"NULL":"OK")}, _enemyManager={(_enemyManager==null?"NULL":"OK")}, _domain={(_domain==null?"NULL":"OK")}");
             if (_gameplayActive) return;
             _gameplayActive = true;
             // F.G.3: Re-resolve PlayerCharacter from Domain. DoInitialize ran while
@@ -66,7 +65,6 @@ namespace Luzart
             // between that and GameController.DoInitialize is non-deterministic. Re-reading
             // here ensures HP/XP subscriptions target the canonical (Luzart) character.
             _playerCharacter = _domain.Get<PlayerCharacter>();
-            Debug.Log($"[DBG-CHAIN] G: about to SpawnNewWave, _playerCharacter={(_playerCharacter==null?"NULL":"OK")} IndexWave={IndexWave?.Value} EnemyWaves.Count={(_levelConfig==null?"N/A":_levelConfig.EnemyWaves?.Count.ToString() ?? "NULL")}");
             SpawnNewWave(IndexWave);
             IndexWave.Changed += SpawnNewWave;
             XP.Changed += OnXPChange;
@@ -99,25 +97,12 @@ namespace Luzart
         private Coroutine _timerCoroutine;
         private void SpawnNewWave(IValue<int> indexWave)
         {
-            Debug.Log($"[DBG-CHAIN] G: SpawnNewWave called, indexWave.Value={indexWave?.Value}, _levelConfig={(_levelConfig==null?"NULL":"OK")}");
-            if (_levelConfig == null || _levelConfig.EnemyWaves == null) { Debug.LogError("[DBG-CHAIN] G: _levelConfig or EnemyWaves NULL"); return; }
-            if (indexWave.Value >= _levelConfig.EnemyWaves.Count) { Debug.LogError($"[DBG-CHAIN] G: indexWave {indexWave.Value} out of range (wave count={_levelConfig.EnemyWaves.Count})"); return; }
+            if (_levelConfig == null || _levelConfig.EnemyWaves == null) return;
+            if (indexWave.Value >= _levelConfig.EnemyWaves.Count) return;
             _dataWaveCurrent = _levelConfig.EnemyWaves[indexWave.Value];
             List<EnemyWaveConfig> listEnemyWaveConfig = _dataWaveCurrent.GetListWaveEnemy(indexWave.Value);
-            Debug.Log($"[DBG-CHAIN] G: SpawnNewWave got {listEnemyWaveConfig?.Count ?? 0} wave configs for indexWave={indexWave.Value}");
-            if (_enemyManager == null) { Debug.LogError("[DBG-CHAIN] G: _enemyManager NULL"); return; }
-            Debug.Log($"[DBG-CHAIN] G: _enemyManager type={_enemyManager.GetType().Name} on '{_enemyManager.gameObject?.name ?? "?"}' active={_enemyManager.gameObject?.activeInHierarchy} enabled={_enemyManager.enabled}");
-            try
-            {
-                var it = _enemyManager.StartSpawning(listEnemyWaveConfig);
-                Debug.Log($"[DBG-CHAIN] G: got IEnumerator={(it==null?"NULL":"OK")}, calling StartCoroutine");
-                var co = StartCoroutine(it);
-                Debug.Log($"[DBG-CHAIN] G: StartCoroutine returned {(co==null?"NULL":"OK")}");
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogError($"[DBG-CHAIN] G: StartCoroutine threw: {e.GetType().Name}: {e.Message}\n{e.StackTrace}");
-            }
+            if (_enemyManager == null) return;
+            StartCoroutine(_enemyManager.StartSpawning(listEnemyWaveConfig));
         }
         public override void DoStop()
         {

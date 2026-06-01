@@ -50,12 +50,10 @@ namespace Luzart
         /// </summary>
         public void StartGame()
         {
-            Debug.Log($"[DBG-CHAIN] B: StartGame entry, State={State}, gc={(_gameController==null?"null":"OK")}, coord={(_coordinator==null?"null":"OK")}");
             if (State == ClassicModeState.Playing) return;
             State = ClassicModeState.Playing;
             Time.timeScale = 1f;
             EnsureRefs();
-            Debug.Log($"[DBG-CHAIN] B: after EnsureRefs, gc={(_gameController==null?"null":"OK")}");
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
 
@@ -66,13 +64,10 @@ namespace Luzart
             {
                 var lvl = _gameController.SpawnDefaultLevel();
                 if (lvl != null) _levelSpawned = true;
-                Debug.Log($"[DBG-CHAIN] B(1): SpawnDefaultLevel returned {(lvl==null?"NULL":"OK name="+lvl.name)}");
             }
-            else Debug.Log($"[DBG-CHAIN] B(1): SKIP SpawnDefaultLevel (gc null={_gameController==null}, alreadySpawned={_levelSpawned})");
 
             // (2) Flip MapReady — gates LuzartPlayerController.Update + camera spawn + pickups.
             if (_gameController != null) _gameController.MapReady = true;
-            Debug.Log($"[DBG-CHAIN] B(2): MapReady now {_gameController?.MapReady}");
 
             // (3) Re-activate the legacy Joystick Table (saved as inactive in scene; legacy
             // PlayBtn used to SetActive it). Scanning Resources.FindObjectsOfTypeAll so we
@@ -85,18 +80,15 @@ namespace Luzart
         private static void ActivateLegacyJoystickTable()
         {
             var all = Resources.FindObjectsOfTypeAll<Transform>();
-            int found = 0, activated = 0;
             for (int i = 0; i < all.Length; i++)
             {
                 var t = all[i];
                 if (t == null || t.name != "Joystick Table") continue;
                 if (t.hideFlags != HideFlags.None) continue; // skip prefab/editor assets
                 if (!t.gameObject.scene.IsValid()) continue; // skip non-scene objects
-                found++;
-                if (!t.gameObject.activeSelf) { t.gameObject.SetActive(true); activated++; }
+                if (!t.gameObject.activeSelf) t.gameObject.SetActive(true);
                 break;
             }
-            Debug.Log($"[DBG-CHAIN] B(3): ActivateLegacyJoystickTable found={found} activated={activated}");
         }
 
         /// <summary>The ONLY way a run ends. Guarded so it runs exactly once while Playing —
