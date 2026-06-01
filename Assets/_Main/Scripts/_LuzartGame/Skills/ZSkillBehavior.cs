@@ -25,8 +25,19 @@ namespace Luzart
             this._behaviorConfig = behaviorConfig;
             this._cancellationTokenSource = new CancellationTokenSource();
             this._skill.LevelIndex.Changed += LevelIndex_Changed;
-            _entityManager = _domain.Get<EntityManager>();
+            // EntityManager may not be registered yet at ctor time (Domain bootstrap order).
+            // Use the property below to lazy-fetch on first need.
+            _entityManager = _domain?.Get<EntityManager>();
             RefreshNumbers();
+        }
+        // Lazy accessor — guarantees Domain lookup is retried if the field was null at ctor time.
+        protected EntityManager EntityManager
+        {
+            get
+            {
+                if (_entityManager == null && _domain != null) _entityManager = _domain.Get<EntityManager>();
+                return _entityManager;
+            }
         }
         protected void LevelIndex_Changed(INumber obj)
         {
