@@ -97,9 +97,9 @@ namespace Luzart
         }
         protected virtual void DoUpdate(float dt)
         {
-            if (_zSkillUpgradeConfig == null) return; // no upgrade rows configured — skill is inert
-            _coolDown+= dt;
-            if(_coolDown >= _coolDownReset)
+            if (_zSkillUpgradeConfig == null) return;
+            _coolDown += dt;
+            if (_coolDown >= _coolDownReset)
             {
                 _coolDown = 0;
                 Attack();

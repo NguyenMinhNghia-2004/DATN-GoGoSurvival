@@ -26,8 +26,26 @@ namespace Luzart
             // _domain.Get<TargetProvider>() in DoStart may return null. Retry per-Attack.
             if (_targetProvider == null)
             {
+                // Resolve in order: player Domain → scene Domain → scene search → spawn one.
+                // Background: per the W-nuke, no GameObject with TargetProvider was kept in the
+                // scene, and no system auto-spawns one. Without TargetProvider, skills can never
+                // find a target — they spin Attack() forever and never spawn projectiles.
                 _targetProvider = _domain?.Get<TargetProvider>();
-                if (_targetProvider == null) return; // still not registered
+                if (_targetProvider == null && SceneRootManager.Instance != null)
+                    _targetProvider = SceneRootManager.Instance.Domain?.Get<TargetProvider>();
+                if (_targetProvider == null)
+                    _targetProvider = UnityEngine.Object.FindFirstObjectByType<TargetProvider>();
+                if (_targetProvider == null)
+                {
+                    // Last-resort: spawn one. Register with SceneRootManager so it goes through
+                    // the IContent Inject→Initialize→Start lifecycle, which is required for
+                    // its CollisionManager/Mapping deps to wire up.
+                    var go = new GameObject("TargetProvider (auto-spawned)");
+                    _targetProvider = go.AddComponent<TargetProvider>();
+                    if (SceneRootManager.Instance != null)
+                        SceneRootManager.Instance.RegisterContent(_targetProvider);
+                    Debug.LogWarning($"[Skill] No TargetProvider in scene — auto-spawned one for {_skill?.Config?.name}");
+                }
             }
             float range = (float)_zSkillUpgradeConfig.GetStat(StatType.RangeFind).Value;
             IEntity partner = _targetProvider.GetTarget(_owner, range, _behaviorConfig.SearchTargetType);
