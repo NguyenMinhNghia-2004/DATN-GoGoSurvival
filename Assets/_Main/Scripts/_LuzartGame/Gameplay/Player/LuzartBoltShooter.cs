@@ -64,13 +64,19 @@ namespace Luzart
 
         private void Update()
         {
+            // SUPERSEDED 2026-06-01 — when LuzartPlayerEntityRoot is active, skill firing is
+            // handled by ZSkillRuntime + ZSkillBehavior_CreateProjectile (the Luzart skill
+            // pipeline). This MonoBehaviour was the Phase-F bridge that spawned the legacy
+            // `Wapeon` prefab — its controller script was deleted in the W-nuke, leaving the
+            // bolt as a stationary "Missing Script" GameObject. The user's symptom of
+            // "kunai chỉ instantiate xong đứng yên" was this legacy bolt, NOT the Luzart
+            // projectile. Disable when the new pipeline is wired.
             if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
+            if (flags.UseLuzartPlayerEntityRoot) return;  // skill pipeline owns firing now
 
-            // Same MapReady gate as LuzartPlayerController.
             var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
             if (gc != null && !gc.MapReady) return;
 
-            // Don't fire after death.
             var rb = GetComponent<Rigidbody2D>();
             if (rb != null && !rb.simulated) return;
 

@@ -47,7 +47,7 @@ namespace Luzart
             int length = (int)_zSkillUpgradeConfig.GetStat(StatType.AmountProjectile).Value;
             double timeBreakDouble = _zSkillUpgradeConfig.GetStat(StatType.TimeBreak).Value;
             float timeBreak = (float)timeBreakDouble;
-            if (length <= 0) length = 1; // safety: AmountProjectile must be >= 1
+            if (length <= 0) length = 1;
             for (int i = 0; i < length; i++)
             {
                 _cancellationTokenSource.Token.ThrowIfCancellationRequested();
