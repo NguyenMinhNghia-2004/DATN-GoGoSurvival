@@ -208,14 +208,29 @@ namespace Luzart
 
         public override void Initialize()
         {
-            // Intentionally skip base.Initialize(). Phase F.G can add framework
-            // behaviors here if needed.
+            // NOTE: do NOT call base.Initialize() — it would add Render/Animation
+            // behaviors that conflict with the legacy Zombie.prefab's own
+            // SpriteRenderer + Animator. BUT we DO need a framework ColliderBehavior
+            // to register this enemy into the spatial hash on SpatialLayer.Enemies —
+            // otherwise TargetProvider.GetTarget(player, range, ...) returns null
+            // forever and player skills can never find targets.
+            AddBehavior(new ColliderBehavior(this, SpatialLayer.Enemies, radius: 0.5f));
         }
 
         public override void Start()
         {
-            // Skip HP-changed subscription — LuzartEnemyEntityRoot.TakeDamage owns
-            // visual HP for now via legacy SpriteRenderer + animator.
+            // Don't call base.Start() — EnemyCharacter.Start subscribes to
+            // Stats.GetRuntime(Runtime_HP) which throws here because
+            // StatsBehavior wasn't added in our Initialize override. Instead,
+            // iterate behaviors directly so ColliderBehavior.DoStart still fires.
+            for (int i = 0; i < Behaviors.Count; i++) Behaviors[i].Start();
+        }
+
+        public override void Stop()
+        {
+            // Same reason as Start — don't go through EnemyCharacter.Stop which
+            // tries to unsubscribe an HP listener we never subscribed.
+            for (int i = 0; i < Behaviors.Count; i++) Behaviors[i].OnDestroy();
         }
     }
 }
