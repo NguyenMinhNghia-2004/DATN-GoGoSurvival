@@ -16,7 +16,7 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 4a6ab8fb58e321e49a50865dcd6f309a, type: 3}
   _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
   _scale: {x: 1.0, y: 1.0, z: 1.0}
-  _visualPrefab: {fileID: 100100000, guid: ced1180168eaa1d44a3a6f1c3d38ebcf, type: 3}
+  _visualPrefab: {fileID: 100100000, guid: 3aabd623abb4436dafcaf639cde89984, type: 3}
   _lifeTime: 5.0
   animationConfig: {fileID: 0}
   statDefinitions:
