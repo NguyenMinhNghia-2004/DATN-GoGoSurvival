@@ -36,9 +36,9 @@ public class Diamond : MonoBehaviour
     // ---- Pickup tuning ---------------------------------------------------
     [Tooltip("XP awarded to the player on pickup. Tune per gem prefab via Inspector.")]
     [SerializeField] private float xpReward = 1f;
-
-    [Tooltip("If true, destroy the gem on pickup. Off only for debugging.")]
-    [SerializeField] private bool destroyOnPickup = true;
+    // Removed `destroyOnPickup` toggle — when Diamond is rehydrated on a prefab whose YAML
+    // pre-dates this class, Unity may default new bool serialized fields to false even with
+    // a C# field initializer, leaving the gem visible after pickup. Always destroy now.
 
     private bool _consumed; // Guard against multiple trigger frames in a single overlap pass.
 
@@ -64,7 +64,11 @@ public class Diamond : MonoBehaviour
         if (!isPlayerSide) return;
         if (!TryAwardXP()) { Debug.LogWarning($"[DBG-CHAIN] DIA: '{name}' TryAwardXP returned false"); return; }
         _consumed = true;
-        if (destroyOnPickup) Destroy(gameObject);
+        // Hide immediately + destroy at end of frame. SetActive(false) ensures the visual
+        // is gone NOW even if Destroy is deferred or somehow skipped.
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+        Debug.Log($"[DBG-CHAIN] DIA: destroyed '{name}'");
     }
 
     private bool TryAwardXP()
