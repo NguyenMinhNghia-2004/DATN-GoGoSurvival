@@ -12,6 +12,10 @@ namespace Luzart
     {
         protected ProjectileConfig _projectileConfig;
         protected IEntity _owner;
+
+        // Public accessors for the prefab-side ProjectileVisualBinder (Unity Physics2D path).
+        public IEntity Owner => _owner;
+        public double GetStat(StatType statType) => _statBehavior != null ? _statBehavior.Get(statType).Value : 0;
         protected RenderBehavior _renderBehavior;
         protected AnimationBehavior _animationBehavior;
         protected StatsBehavior _statBehavior;
