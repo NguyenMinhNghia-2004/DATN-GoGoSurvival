@@ -56,10 +56,38 @@ namespace Luzart
         protected override void DoStart()
         {
             base.DoStart();
-            _collisionManager = this.MyDomain.Get<CollisionManager>();
-            _mapping = this.MyDomain.Get<Mapping>();
+            // Resolve deps. The scene may not have a CollisionManager (post-W-nuke);
+            // auto-spawn one + register with SceneRootManager so its IContent
+            // Initialize/Start fires. Mapping is added to Domain directly if absent.
+            _collisionManager = this.MyDomain?.Get<CollisionManager>();
+            if (_collisionManager == null && SceneRootManager.Instance != null)
+            {
+                _collisionManager = UnityEngine.Object.FindFirstObjectByType<CollisionManager>();
+                if (_collisionManager == null)
+                {
+                    var go = new GameObject("CollisionManager (auto-spawned)");
+                    _collisionManager = go.AddComponent<CollisionManager>();
+                    SceneRootManager.Instance.RegisterContent(_collisionManager);
+                    UnityEngine.Debug.LogWarning("[ColliderBehavior] No CollisionManager in scene — auto-spawned one.");
+                }
+            }
+            _mapping = this.MyDomain?.Get<Mapping>();
+            if (_mapping == null && this.MyDomain != null)
+            {
+                _mapping = new Mapping();
+                this.MyDomain.Add<Mapping>(_mapping);
+                UnityEngine.Debug.LogWarning("[ColliderBehavior] No Mapping in Domain — auto-added.");
+            }
+
+            // Defensive null checks — if any dep still missing, skip registration
+            // (entity won't be searchable via TargetProvider but won't crash).
+            if (_collisionManager == null || _mapping == null)
+            {
+                UnityEngine.Debug.LogError($"[ColliderBehavior] Cannot register {this.Owner?.Id} — CollisionManager={_collisionManager} Mapping={_mapping}");
+                return;
+            }
+
             _collisionManager.Add(_collider);
-            // Register với mapping system
             _mapping.AddCollider(this.Owner, _collider);
             _collider.UpdatePosition(this.Owner.Transform.Position.Value);
         }
@@ -70,8 +98,8 @@ namespace Luzart
         //}
         protected override void DoDestroy()
         {
-            _collisionManager.Remove(_collider);
-            if(Owner.Transform != null)
+            _collisionManager?.Remove(_collider);
+            if (Owner?.Transform != null)
             {
                 Owner.Transform.Position.Changed -= OnChangePosition;
             }
