@@ -160,7 +160,6 @@ namespace Luzart
             if (_animator != null) _animator.Play("ZombieDeath");
 
             // Route kill count to framework GameController.AddEnemyDead.
-            // F.G cleanup: legacy GameManager.CurrentKilled fallback removed.
             var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
             if (gc != null) gc.AddEnemyDead(1);
 
