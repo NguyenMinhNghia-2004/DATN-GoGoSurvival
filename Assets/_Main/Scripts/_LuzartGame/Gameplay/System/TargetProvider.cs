@@ -169,6 +169,20 @@ namespace Luzart
         }
         private void CollectTargetsUsingSpatialHash(IEntity owner, float range, SpatialLayer targetLayer, List<IEntity> results)
         {
+            // Lazy-init deps that may not have been ready during DoInitialize (e.g. when this
+            // TargetProvider was auto-spawned by a skill at MainMenu — before CollisionManager
+            // is registered in Domain).
+            if (_spatialHash == null)
+            {
+                _collisionManager ??= _domain?.Get<CollisionManager>();
+                if (_collisionManager?.ActiveImplementation != null)
+                    _spatialHash = _collisionManager.ActiveImplementation.spatialHashSystem;
+            }
+            _mapping ??= _domain?.Get<Mapping>();
+
+            // Still missing? return empty — caller will see no targets, no NRE.
+            if (_spatialHash == null || _mapping == null) return;
+
             var colliders = ListPool<ICollider>.Get();
             _spatialHash.GetNearby(targetLayer, owner.Transform.Position.Value, range, colliders);
             ConvertCollidersToUniqueEntities(owner, colliders, range, results);

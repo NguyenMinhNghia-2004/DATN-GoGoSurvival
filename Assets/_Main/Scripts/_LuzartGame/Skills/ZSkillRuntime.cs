@@ -54,9 +54,27 @@ namespace Luzart
             _bound = true;
         }
 
+        // Cached lookup — ClassicModeController never changes identity at runtime.
+        private ClassicModeController _classicMode;
+        private bool _classicLookedUp;
+
         private void Update()
         {
             if (!_bound || _skill == null) return;
+
+            // Gate ticking on the run actually being active. At MainMenu / Pause /
+            // post-end states the player exists but the skill shouldn't be searching
+            // for targets or firing — also avoids NRE spam when CollisionManager/
+            // SpatialHash aren't initialized yet (pre-Play).
+            if (!_classicLookedUp)
+            {
+                _classicMode = SceneRootManager.Instance != null
+                    ? SceneRootManager.Instance.Domain?.Get<ClassicModeController>()
+                    : null;
+                _classicLookedUp = true;
+            }
+            if (_classicMode != null && !_classicMode.IsPlaying) return;
+
             ((IBehavior)_skill).Update(Time.deltaTime);
         }
 
