@@ -27,16 +27,39 @@ namespace Luzart
             this.Id = $"Projectile_{projectileConfig.Id}_{UnityEngine.Random.Range(1000, 9999)}";
             _cancellationTokenSource = new CancellationTokenSource();
         }
+        // Optional visual GameObject spawned from ProjectileConfig._visualPrefab.
+        // Takes ownership of all visuals; batch-render path is skipped to avoid double-draw.
+        protected GameObject _visualInstance;
+
         public override void Initialize()
         {
             base.Initialize();
             Transform.SetScale(_projectileConfig.Scale);
-            _renderBehavior = new RenderBehavior(this);
-            _renderBehavior.Configure(_projectileConfig.Material, SortingLayerRender.Projectiles);
-            AddBehavior(_renderBehavior);
-            _animationBehavior = new AnimationBehavior(this);
-            AddBehavior(_animationBehavior);
-            _animationBehavior.Configure(_projectileConfig.AnimationConfig);
+
+            // PREFAB PATH (preferred when _visualPrefab is wired on the SO): instantiate the
+            // prefab + attach ProjectileVisualBinder which syncs its transform to this entity
+            // every LateUpdate. Prefab carries SpriteRenderer/Animator/particles authored in
+            // Unity — no RenderingManager batching, no Material required.
+            var visualPrefab = _projectileConfig.VisualPrefab;
+            if (visualPrefab != null)
+            {
+                _visualInstance = UnityEngine.Object.Instantiate(visualPrefab);
+                _visualInstance.name = $"Visual_{Id}";
+                var binder = _visualInstance.GetComponent<ProjectileVisualBinder>();
+                if (binder == null) binder = _visualInstance.AddComponent<ProjectileVisualBinder>();
+                binder.Bind(this);
+            }
+            else
+            {
+                // FALLBACK: batch-render path (Material + Sprite required on the config).
+                _renderBehavior = new RenderBehavior(this);
+                _renderBehavior.Configure(_projectileConfig.Material, SortingLayerRender.Projectiles);
+                AddBehavior(_renderBehavior);
+                _animationBehavior = new AnimationBehavior(this);
+                AddBehavior(_animationBehavior);
+                _animationBehavior.Configure(_projectileConfig.AnimationConfig);
+            }
+
             _statBehavior = new StatsBehavior(this);
             AddBehavior(_statBehavior);
             _statBehavior.Add(_projectileConfig.Stats);
@@ -81,6 +104,13 @@ namespace Luzart
             if (_cancellationTokenSource != null && !_cancellationTokenSource.IsCancellationRequested)
             {
                 _cancellationTokenSource.Cancel();
+            }
+            // Belt-and-suspenders: ProjectileVisualBinder also destroys itself via OnDead,
+            // but Terminate may run on Stop without OnDead firing — clean up here too.
+            if (_visualInstance != null)
+            {
+                UnityEngine.Object.Destroy(_visualInstance);
+                _visualInstance = null;
             }
         }
     }

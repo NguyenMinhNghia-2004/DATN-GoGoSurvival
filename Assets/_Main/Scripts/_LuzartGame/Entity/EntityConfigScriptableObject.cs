@@ -8,8 +8,15 @@ namespace Luzart
         [SerializeField] private Sprite _sprite;
         [SerializeField] private Material _material;
         [SerializeField] private Vector3 _scale = Vector3.one;
+        [Tooltip("Optional visual prefab. When assigned, ProjectileEntity instantiates this " +
+                 "GameObject and syncs its transform to the entity's logical Transform each " +
+                 "frame (via ProjectileVisualBinder). When null, the framework's batch-render " +
+                 "RenderBehavior is used (requires _material + _sprite).")]
+        [SerializeField] private GameObject _visualPrefab;
         [Space, Header("Infor Entity")]
         [SerializeField] protected float _lifeTime = 10000f;
+
+        public GameObject VisualPrefab => _visualPrefab;
         // Runtime material cache
         protected Material _runtimeMaterial;
         public Material Material
