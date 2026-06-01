@@ -23,12 +23,9 @@ namespace Luzart
             base.DoInitialize();
             _player = _domain.Get<PlayerCharacter>();
             _enemyManager = _domain.Get<EnemySpawnerManager>();
-            _collisionManager = _domain.Get<CollisionManager>();
-            _mapping = _domain.Get<Mapping>();
-            if (_collisionManager?.ActiveImplementation != null)
-            {
-                _spatialHash = _collisionManager.ActiveImplementation.spatialHashSystem;
-            }
+            // Note: _collisionManager / _mapping / _spatialHash are no longer needed —
+            // CollectTargetsInRange uses Physics2D.OverlapCircleNonAlloc + EntityRef.
+            // Kept as fields for any legacy callers that still reference them.
         }
         public override void DoStop()
         {
@@ -44,27 +41,27 @@ namespace Luzart
         #region Public API
         public List<IEntity> GetTargetsInRange(Vector2 position, float range, SpatialLayer targetLayer, List<IEntity> results)
         {
+            // Generic position-based range query via Unity Physics2D. Filters hit
+            // colliders by EntityRef + targetLayer hint (Player vs Enemies).
             results.Clear();
-            if (_spatialHash == null || _mapping == null)
-                return results;
-            using var listPool = new ListPoolHelper<ICollider>(null);
-            var colliders = listPool.List;
-            _spatialHash.GetNearby(targetLayer, position, range, colliders);
             _tempEntitySet.Clear();
-            float rangeSqr = range * range;
-            int length = colliders.Count;
-            for (int i = 0; i < length; i++)
+            int hitCount = Physics2D.OverlapCircleNonAlloc(position, range, _physBuffer);
+            for (int i = 0; i < hitCount; i++)
             {
-                var collider = colliders[i];
-                var entity = _mapping.FindEntityWithCollider(collider);
-                if (entity == null) continue;
-                if (_tempEntitySet.Contains(entity)) continue;
-                float distanceSqr = (entity.Transform.Position.Value - position).sqrMagnitude;
-                if (distanceSqr <= rangeSqr)
+                var col = _physBuffer[i];
+                if (col == null) continue;
+                var er = col.GetComponent<EntityRef>();
+                if (er == null || er.Entity == null) continue;
+                if (_tempEntitySet.Contains(er.Entity)) continue;
+                bool matchLayer = targetLayer switch
                 {
-                    _tempEntitySet.Add(entity);
-                    results.Add(entity);
-                }
+                    SpatialLayer.Player => er.Entity is PlayerCharacter,
+                    SpatialLayer.Enemies => er.Entity is EnemyCharacter,
+                    _ => true,
+                };
+                if (!matchLayer) continue;
+                _tempEntitySet.Add(er.Entity);
+                results.Add(er.Entity);
             }
             return results;
         }
@@ -143,75 +140,35 @@ namespace Luzart
             }
             return bestTarget ?? targets[0];
         }
+        // Reusable buffer for Physics2D.OverlapCircleNonAlloc — avoids GC alloc per query.
+        private static readonly Collider2D[] _physBuffer = new Collider2D[64];
+
         private void CollectTargetsInRange(IEntity owner, float range, List<IEntity> results)
         {
-            SpatialLayer targetLayer = GetTargetLayer(owner);
-            // Enemy targeting player
-            if (targetLayer == SpatialLayer.Player && owner is EnemyCharacter)
+            // Unity Physics2D query — Unity's broadphase handles the spatial lookup,
+            // we filter the hit Collider2Ds by their EntityRef's entity type.
+            Vector2 origin = owner.Transform.Position.Value;
+            int hitCount = Physics2D.OverlapCircleNonAlloc(origin, range, _physBuffer);
+            bool wantEnemies = owner is PlayerCharacter; // player → enemies; else → player
+            for (int i = 0; i < hitCount; i++)
             {
-                var player = GetPlayerIfInRange(owner, range);
-                if (player != null) results.Add(player);
-                return;
+                var col = _physBuffer[i];
+                if (col == null) continue;
+                var er = col.GetComponent<EntityRef>();
+                if (er == null || er.Entity == null) continue;
+                if (er.Entity == owner) continue; // skip self
+                bool isEnemy = er.Entity is EnemyCharacter;
+                bool isPlayer = er.Entity is PlayerCharacter;
+                if (wantEnemies && isEnemy) results.Add(er.Entity);
+                else if (!wantEnemies && isPlayer) results.Add(er.Entity);
             }
-            CollectTargetsUsingSpatialHash(owner, range, targetLayer, results);
         }
         private void CollectTargetsInRangeByLayer(IEntity owner, float range, SpatialLayer targetLayer, List<IEntity> results)
         {
-            // Special case: Enemy targeting player with Player layer
-            if (targetLayer == SpatialLayer.Player && owner is EnemyCharacter)
-            {
-                var player = GetPlayerIfInRange(owner, range);
-                if (player != null) results.Add(player);
-                return;
-            }
-            // Use spatial hash for other layers
-            CollectTargetsUsingSpatialHash(owner, range, targetLayer, results);
-        }
-        private void CollectTargetsUsingSpatialHash(IEntity owner, float range, SpatialLayer targetLayer, List<IEntity> results)
-        {
-            // Lazy-init deps that may not have been ready during DoInitialize (e.g. when this
-            // TargetProvider was auto-spawned by a skill at MainMenu — before CollisionManager
-            // is registered in Domain).
-            if (_spatialHash == null)
-            {
-                _collisionManager ??= _domain?.Get<CollisionManager>();
-                if (_collisionManager?.ActiveImplementation != null)
-                    _spatialHash = _collisionManager.ActiveImplementation.spatialHashSystem;
-            }
-            _mapping ??= _domain?.Get<Mapping>();
-
-            // Still missing? return empty — caller will see no targets, no NRE.
-            if (_spatialHash == null || _mapping == null) return;
-
-            var colliders = ListPool<ICollider>.Get();
-            _spatialHash.GetNearby(targetLayer, owner.Transform.Position.Value, range, colliders);
-            ConvertCollidersToUniqueEntities(owner, colliders, range, results);
-            ListPool<ICollider>.Release(colliders);
+            // Delegate to the position-based Physics2D query — same filtering by EntityRef.
+            GetTargetsInRange(owner.Transform.Position.Value, range, targetLayer, results);
         }
         private readonly HashSet<IEntity> _tempEntitySet = new();
-        private void ConvertCollidersToUniqueEntities(IEntity owner, List<ICollider> colliders, float range, List<IEntity> results)
-        {
-            _tempEntitySet.Clear();
-            Vector2 ownerPos = owner.Transform.Position.Value;
-            float rangeSqr = range * range;
-            int length = colliders.Count;
-            for (int i = 0; i < length; i++)
-            {
-                var collider = colliders[i];
-                var entity = _mapping.FindEntityWithCollider(collider);
-                // Skip invalid entities
-                if (entity == null || entity == owner) continue;
-                // Skip duplicates
-                if (_tempEntitySet.Contains(entity)) continue;
-                // Check range
-                float distanceSqr = (entity.Transform.Position.Value - ownerPos).sqrMagnitude;
-                if (distanceSqr <= rangeSqr)
-                {
-                    _tempEntitySet.Add(entity);
-                    results.Add(entity);
-                }
-            }
-        }
         #endregion
         #region Helper Methods
         private bool IsStarted(IEntity owner)

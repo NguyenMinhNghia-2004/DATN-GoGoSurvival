@@ -88,6 +88,12 @@ namespace Luzart
             if (_character.Transform != null)
                 _character.Transform.SetPosition(transform.position);
 
+            // Bridge: lets TargetProvider's Physics2D query resolve hit Collider2D
+            // back to this PlayerCharacter without going through CollisionManager.
+            var refComp = GetComponent<EntityRef>();
+            if (refComp == null) refComp = gameObject.AddComponent<EntityRef>();
+            refComp.Entity = _character;
+
             SpawnStartingSkills();
 
             // F.G.2: Hook framework death state — when Runtime_HP drops to 0,

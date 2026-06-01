@@ -83,6 +83,13 @@ namespace Luzart
             _character.Transform.SetPosition(transform.position);
             _character.Start();
             _entityManager?.Add(_character);
+
+            // Bridge: lets TargetProvider's Physics2D query resolve hit Collider2D
+            // back to this enemy entity. Zombie.prefab already carries CircleCollider2D —
+            // EntityRef is a tiny component that maps it to _character.
+            var refComp = GetComponent<EntityRef>();
+            if (refComp == null) refComp = gameObject.AddComponent<EntityRef>();
+            refComp.Entity = _character;
         }
 
         private int ResolveWave()
@@ -208,29 +215,15 @@ namespace Luzart
 
         public override void Initialize()
         {
-            // NOTE: do NOT call base.Initialize() — it would add Render/Animation
-            // behaviors that conflict with the legacy Zombie.prefab's own
-            // SpriteRenderer + Animator. BUT we DO need a framework ColliderBehavior
-            // to register this enemy into the spatial hash on SpatialLayer.Enemies —
-            // otherwise TargetProvider.GetTarget(player, range, ...) returns null
-            // forever and player skills can never find targets.
-            AddBehavior(new ColliderBehavior(this, SpatialLayer.Enemies, radius: 0.5f));
+            // Intentionally skip base.Initialize(). Spatial-hash registration is no
+            // longer needed — TargetProvider now uses Unity Physics2D + the
+            // EntityRef MonoBehaviour wired on the Zombie.prefab GameObject.
         }
 
         public override void Start()
         {
-            // Don't call base.Start() — EnemyCharacter.Start subscribes to
-            // Stats.GetRuntime(Runtime_HP) which throws here because
-            // StatsBehavior wasn't added in our Initialize override. Instead,
-            // iterate behaviors directly so ColliderBehavior.DoStart still fires.
-            for (int i = 0; i < Behaviors.Count; i++) Behaviors[i].Start();
-        }
-
-        public override void Stop()
-        {
-            // Same reason as Start — don't go through EnemyCharacter.Stop which
-            // tries to unsubscribe an HP listener we never subscribed.
-            for (int i = 0; i < Behaviors.Count; i++) Behaviors[i].OnDestroy();
+            // Skip HP-changed subscription — LuzartEnemyEntityRoot.TakeDamage owns
+            // visual HP for now via legacy SpriteRenderer + animator.
         }
     }
 }

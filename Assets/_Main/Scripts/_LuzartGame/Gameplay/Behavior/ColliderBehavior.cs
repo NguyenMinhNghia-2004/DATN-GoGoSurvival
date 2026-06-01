@@ -56,40 +56,19 @@ namespace Luzart
         protected override void DoStart()
         {
             base.DoStart();
-            // Resolve deps. The scene may not have a CollisionManager (post-W-nuke);
-            // auto-spawn one + register with SceneRootManager so its IContent
-            // Initialize/Start fires. Mapping is added to Domain directly if absent.
+            // 2026-06-01: TargetProvider now uses Unity Physics2D + EntityRef instead of
+            // the framework SpatialHash. CollisionManager + Mapping registration is no
+            // longer required for skill targeting. Still resolve them if present (other
+            // legacy code may query); skip silently if absent.
             _collisionManager = this.MyDomain?.Get<CollisionManager>();
-            if (_collisionManager == null && SceneRootManager.Instance != null)
-            {
-                _collisionManager = UnityEngine.Object.FindFirstObjectByType<CollisionManager>();
-                if (_collisionManager == null)
-                {
-                    var go = new GameObject("CollisionManager (auto-spawned)");
-                    _collisionManager = go.AddComponent<CollisionManager>();
-                    SceneRootManager.Instance.RegisterContent(_collisionManager);
-                    UnityEngine.Debug.LogWarning("[ColliderBehavior] No CollisionManager in scene — auto-spawned one.");
-                }
-            }
             _mapping = this.MyDomain?.Get<Mapping>();
-            if (_mapping == null && this.MyDomain != null)
+            if (_collisionManager != null && _mapping != null)
             {
-                _mapping = new Mapping();
-                this.MyDomain.Add<Mapping>(_mapping);
-                UnityEngine.Debug.LogWarning("[ColliderBehavior] No Mapping in Domain — auto-added.");
+                _collisionManager.Add(_collider);
+                _mapping.AddCollider(this.Owner, _collider);
             }
-
-            // Defensive null checks — if any dep still missing, skip registration
-            // (entity won't be searchable via TargetProvider but won't crash).
-            if (_collisionManager == null || _mapping == null)
-            {
-                UnityEngine.Debug.LogError($"[ColliderBehavior] Cannot register {this.Owner?.Id} — CollisionManager={_collisionManager} Mapping={_mapping}");
-                return;
-            }
-
-            _collisionManager.Add(_collider);
-            _mapping.AddCollider(this.Owner, _collider);
-            _collider.UpdatePosition(this.Owner.Transform.Position.Value);
+            if (this.Owner?.Transform != null)
+                _collider.UpdatePosition(this.Owner.Transform.Position.Value);
         }
         //protected override void DoUpdate(float dt)
         //{
