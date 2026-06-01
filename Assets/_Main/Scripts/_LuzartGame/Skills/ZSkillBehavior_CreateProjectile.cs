@@ -8,9 +8,6 @@ namespace Luzart
     {
         private TargetProvider _targetProvider;
         private Vector3 Direction { get; set; }
-        public ZSkillBehavior_CreateProjectile(IZSkill skill, ZSkillBehaviorConfig_CreateProjectile behaviorConfig) : base(skill, behaviorConfig)
-        {
-        }
         protected override void DoStart()
         {
             base.DoStart();

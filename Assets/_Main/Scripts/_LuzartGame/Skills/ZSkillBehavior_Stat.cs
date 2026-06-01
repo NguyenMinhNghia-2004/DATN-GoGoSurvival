@@ -40,9 +40,9 @@ namespace Luzart
             (StatType.Heal,              StatsBehavior.StatBonusMode.Additive),
         };
 
-        public ZSkillBehavior_Stat(IZSkill skill, ZSkillBehaviorConfig_Stat behaviorConfig) : base(skill, behaviorConfig)
+        protected override void DoBind()
         {
-            _statBehavior = _owner.GetBehavior<StatsBehavior>();
+            _statBehavior = _owner?.GetBehavior<StatsBehavior>();
         }
 
         protected override void DoStart()

@@ -8,9 +8,9 @@ namespace Luzart
     public class ZSkillBehavior_Lighting : ZSkillBehavior<ZSkillBehaviorConfig_Lighting>
     {
         private TargetProvider _targetProvider;
-        public ZSkillBehavior_Lighting(IZSkill skill, ZSkillBehaviorConfig_Lighting behaviorConfig) : base(skill, behaviorConfig)
+        protected override void DoBind()
         {
-            _targetProvider = _domain.Get<TargetProvider>();
+            _targetProvider = _domain?.Get<TargetProvider>();
         }
         public override void Attack()
         {

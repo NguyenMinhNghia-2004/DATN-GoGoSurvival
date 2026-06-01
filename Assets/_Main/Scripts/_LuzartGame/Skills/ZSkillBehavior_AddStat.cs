@@ -7,9 +7,6 @@ namespace Luzart
     public class ZSkillBehavior_AddStat : ZSkillBehavior<ZSkillBehaviorConfig_AddStat>
     {
         private StatsBehavior _statBehavior;
-        public ZSkillBehavior_AddStat(IZSkill skill, ZSkillBehaviorConfig_AddStat behaviorConfig) : base(skill, behaviorConfig)
-        {
-        }
         protected override void DoStart()
         {
             base.DoStart();

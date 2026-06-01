@@ -98,40 +98,23 @@ namespace Luzart
             }
             if (_classicMode != null && !_classicMode.IsPlaying) return;
 
-            DoUpdate(Time.deltaTime);
+            // Behaviors are now MonoBehaviour children — Unity drives their Update.
+            // ZSkill no longer iterates _behaviors here.
         }
 
         private void OnDestroy()
         {
-            if (_behaviors != null)
-            {
-                DoOnDestroy();
-                foreach (var b in _behaviors) b.Dispose();
-                _behaviors = null;
-            }
+            // Behavior GameObjects are children of this — Unity recursively destroys them,
+            // and their OnDestroy/DoDispose fires automatically. Nothing else to do here.
+            _behaviors = null;
             _bound = false;
         }
 
-        // ---- IBehavior dispatch (used by Bind() to call into behavior list) ----
-        void IDisposable.Dispose() { /* handled by OnDestroy */ }
-        void IBehavior.Start() => DoStart();
-        void IBehavior.Update(float dt) => DoUpdate(dt);
-        void IBehavior.OnDestroy() => DoOnDestroy();
-
-        private void DoStart()
-        {
-            for (int i = 0; i < _behaviors.Count; i++) _behaviors[i].Start();
-        }
-
-        private void DoUpdate(float dt)
-        {
-            for (int i = 0; i < _behaviors.Count; i++) _behaviors[i].Update(dt);
-        }
-
-        private void DoOnDestroy()
-        {
-            for (int i = 0; i < _behaviors.Count; i++) _behaviors[i].OnDestroy();
-        }
+        // ---- IBehavior dispatch (interface compat — usually no longer called externally) ----
+        void IDisposable.Dispose() { /* OnDestroy handles cleanup */ }
+        void IBehavior.Start() { /* Unity Start drives behaviors directly */ }
+        void IBehavior.Update(float dt) { /* Unity Update drives behaviors directly */ }
+        void IBehavior.OnDestroy() { /* Unity OnDestroy drives behaviors directly */ }
 
         // ---- IZSkill level / upgrade ----
         void IZSkill.UpgradeSkill()

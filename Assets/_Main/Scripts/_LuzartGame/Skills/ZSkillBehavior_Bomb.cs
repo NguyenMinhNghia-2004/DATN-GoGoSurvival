@@ -9,9 +9,6 @@ namespace Luzart
 {
     public class ZSkillBehavior_Bomb : ZSkillBehavior<ZSkillBehaviorConfig_Bomb>
     {
-        public ZSkillBehavior_Bomb(IZSkill skill, ZSkillBehaviorConfig_Bomb behaviorConfig) : base(skill, behaviorConfig)
-        {
-        }
         public override void Attack()
         {
             base.Attack();
