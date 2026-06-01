@@ -15,7 +15,7 @@ MonoBehaviour:
   activeSkills:
   - skillId: Sk_Kunai
     displayName: Kunai
-    icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
+    icon: {fileID: 21300000, guid: 53e8566a4b3ee7747ba0b7521ed17b9d, type: 3}
     description: Default weapon, auto-targets nearest enemy.
     atkMultiplier:
     - 1.5
@@ -51,7 +51,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
   - skillId: Sk_Boomerang
     displayName: Boomerang
-    icon: {fileID: 6946876648732156625, guid: 7900cb034bcf9374ab359b6746b151e0, type: 3}
+    icon: {fileID: 21300000, guid: 0cf3f348b5505264ba50c8ecc6d38dd8, type: 3}
     description: Launches returning boomerangs.
     atkMultiplier:
     - 2.4
@@ -87,7 +87,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 3e7dc562c2565463fac2e845644befad, type: 2}
   - skillId: Sk_Brick
     displayName: Brick
-    icon: {fileID: 8222420645925065664, guid: 16cae9f3a889d0c4a95042c84e2ae30d, type: 3}
+    icon: {fileID: 21300000, guid: 771542a8331dc6743b94a9403ec1fd1b, type: 3}
     description: Bricks fall from above with knockback.
     atkMultiplier:
     - 1
@@ -123,7 +123,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 464e653bbcfbc447a91909dc83218334, type: 2}
   - skillId: Sk_DrillShot
     displayName: Drill Shot
-    icon: {fileID: -7287322145768585120, guid: 490ad36d9a1cca7459cbcd186a7c776c, type: 3}
+    icon: {fileID: 21300000, guid: 002d2d0202c5b5d42bdcd5fbcde31b5a, type: 3}
     description: Drills bounce around piercing enemies.
     atkMultiplier:
     - 1.5
@@ -159,7 +159,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 019cab7d7cb124980b39e460de2e72b0, type: 2}
   - skillId: Sk_Durian
     displayName: Durian
-    icon: {fileID: -5919972264516495945, guid: aa7081b60409518408959c9e3f80c9f5, type: 3}
+    icon: {fileID: 21300000, guid: 7ab7e6ee0decd2e44abf335ef52e95a8, type: 3}
     description: Bouncing durian with knockback.
     atkMultiplier:
     - 6
@@ -195,7 +195,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 35ac501edbf324ee09453028e066e818, type: 2}
   - skillId: Sk_Forcefield
     displayName: Forcefield
-    icon: {fileID: -2294684798004565974, guid: 5b82f57458df752478bcfb6a7aa71ef2, type: 3}
+    icon: {fileID: 21300000, guid: ac92159d33a056e4080bb2803231c948, type: 3}
     description: Damaging forcefield around player.
     atkMultiplier:
     - 1
@@ -231,7 +231,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 4cdca3636f0dd41d1865cd12d9851396, type: 2}
   - skillId: Sk_Guardian
     displayName: Guardian
-    icon: {fileID: 287197706594284169, guid: 3a28dfe0204f97f4d839f260eab0b9a0, type: 3}
+    icon: {fileID: 21300000, guid: 639c74cddde8b0a45a4ca974bd57e35f, type: 3}
     description: Orbiting tops that block bullets.
     atkMultiplier:
     - 0.5
@@ -267,7 +267,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: fbe1195b5ae9c41ca9409084fc84dc4e, type: 2}
   - skillId: Sk_Molotov
     displayName: Molotov
-    icon: {fileID: -8596323334576517715, guid: a2496589f15c4534cacd73c276343d65, type: 3}
+    icon: {fileID: 21300000, guid: 5f5c4aa1a0a8c3b48ae1b8113b4df9e1, type: 3}
     description: Fire patches on ground.
     atkMultiplier:
     - 0.6
@@ -303,7 +303,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 28011642d278641879422345f94da01e, type: 2}
   - skillId: Sk_RPG
     displayName: RPG
-    icon: {fileID: -8138264534235535264, guid: a9883fb5cd2265b4a8af2dcf4480c1a2, type: 3}
+    icon: {fileID: 21300000, guid: ba0a988585051b7468367e6a644cf368, type: 3}
     description: Explosive rockets.
     atkMultiplier:
     - 2
@@ -339,7 +339,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: f740878e5d77a4a83ab8d39c3a0e1433, type: 2}
   - skillId: Sk_SoccerBall
     displayName: Soccer Ball
-    icon: {fileID: -2812528802495159281, guid: 6946815df03a0fb4f9255240166d327c, type: 3}
+    icon: {fileID: 21300000, guid: a7d6faacbb6e24b46983ded4d0124d5c, type: 3}
     description: Bouncing football.
     atkMultiplier:
     - 1
@@ -376,7 +376,7 @@ MonoBehaviour:
   passiveSkills:
   - skillId: Ps_HiPowerMagnet
     displayName: Hi-Power Magnet
-    icon: {fileID: 8040655671284959246, guid: ae56a81887d203d4c9f5db87b52edfec, type: 3}
+    icon: {fileID: 21300000, guid: 466cf34a43dcbab43beb439af97e09e6, type: 3}
     description: Increases pickup range for EXP and items.
     atkMultiplier:
     - 0
@@ -412,7 +412,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: c16a3dfc72b5542328802a50ae9d68ee, type: 2}
   - skillId: Ps_FitnessGuide
     displayName: Fitness Guide
-    icon: {fileID: -9128804391785536619, guid: 51cb50ee5d833ae4893b7cbd92510e90, type: 3}
+    icon: {fileID: 21300000, guid: 88fbab19e1c219f418380c71aedb1eba, type: 3}
     description: Increases player Max HP.
     atkMultiplier:
     - 0
@@ -448,7 +448,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 044649d3527ec457c849c88f7d1a96ea, type: 2}
   - skillId: Ps_AmmoThruster
     displayName: Ammo Thruster
-    icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
+    icon: {fileID: 21300000, guid: 6dcc725814d487643b7bd0eddaf1af27, type: 3}
     description: Increases bullet flight speed.
     atkMultiplier:
     - 0
@@ -484,7 +484,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: e63c207b900934416a00537b3e71aeb1, type: 2}
   - skillId: Ps_HEFuel
     displayName: HE Fuel
-    icon: {fileID: -6570297543699491653, guid: f1340ba91d7017744a36a927fc17ab41, type: 3}
+    icon: {fileID: 21300000, guid: a674e60ddb77b1340be0d1c0448909f9, type: 3}
     description: Increases size and range of skills.
     atkMultiplier:
     - 0
@@ -520,7 +520,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: ca733a2a5c3654254bfbb7fd8774db7a, type: 2}
   - skillId: Ps_EnergyDrink
     displayName: Energy Drink
-    icon: {fileID: -4884214388169493030, guid: f495bc086efecbe4dab18d6c2b66dab0, type: 3}
+    icon: {fileID: 21300000, guid: 703b95ca3a76f4c4492c9d0de061e860, type: 3}
     description: Restores HP periodically.
     atkMultiplier:
     - 0
@@ -556,7 +556,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 027cdb3486ca2403d91012fd19754bfe, type: 2}
   - skillId: Ps_ExoBracer
     displayName: Exo-Bracer
-    icon: {fileID: 2864072112647360154, guid: c76246179aebad94cbf0336b12c01883, type: 3}
+    icon: {fileID: 21300000, guid: 027551a8f79d60145bc21240d94df8f7, type: 3}
     description: Increases over-time skill duration.
     atkMultiplier:
     - 0
@@ -592,7 +592,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: d9e2a47c24cbc4f05aa1fcc683e0a2bf, type: 2}
   - skillId: Ps_EnergyCube
     displayName: Energy Cube
-    icon: {fileID: -1901870353399733498, guid: b2efdbd4a737e39438bd1f974833dd75, type: 3}
+    icon: {fileID: 21300000, guid: e30af69cec0e4c44eb963847442298da, type: 3}
     description: Lowers attack skill cooldown.
     atkMultiplier:
     - 0
@@ -628,7 +628,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: adbd64a504b6d4f02a924a0e83b89f9a, type: 2}
   - skillId: Ps_OilBond
     displayName: Oil Bond
-    icon: {fileID: -4342990106867435157, guid: 1d80e1e7aeb0ef54cbdcb3a73ed7ab81, type: 3}
+    icon: {fileID: 21300000, guid: f0a68fde40f635441b1be41c2fb11d06, type: 3}
     description: Increases Gold value picked up.
     atkMultiplier:
     - 0
@@ -664,7 +664,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 7c3fc923bccd64539bb81c8d1d0abe44, type: 2}
   - skillId: Ps_RoninOyoroi
     displayName: Ronin Oyoroi
-    icon: {fileID: 4139055994545622896, guid: 2bdb7755e37ae5c45bb230b4a8587a53, type: 3}
+    icon: {fileID: 21300000, guid: e7d97cc4d51d0284dbf3ed70a3b5b4fc, type: 3}
     description: Reduces damage taken.
     atkMultiplier:
     - 0
@@ -700,7 +700,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 577d70d6d6df34110be25ba8cbe39e81, type: 2}
   - skillId: Ps_SportsShoes
     displayName: Sports Shoes
-    icon: {fileID: -6449449655468660855, guid: 00472e27574e3c2448bbc51ab246be85, type: 3}
+    icon: {fileID: 21300000, guid: a92e994ee6c80ab4faabe7f093bc491b, type: 3}
     description: Increases movement speed.
     atkMultiplier:
     - 0
@@ -736,7 +736,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: 7ad3062029c97411b97b809c9217972d, type: 2}
   - skillId: Ps_HiPowerBullet
     displayName: Hi-Power Bullet
-    icon: {fileID: 4574306561243334087, guid: 7eed1cc7eef87a3458507e77dfda1be4, type: 3}
+    icon: {fileID: 21300000, guid: 5241ce73bfac92c468f8d600c9293efb, type: 3}
     description: Increases ATK damage.
     atkMultiplier:
     - 0
@@ -772,7 +772,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: f40eaa3f6dca24f719acb511d807e5ce, type: 2}
   - skillId: Ps_KogaNinjaScroll
     displayName: Koga Ninja Scroll
-    icon: {fileID: -5725786655984018465, guid: d96bb841610a35b42913dc1f3af07d5a, type: 3}
+    icon: {fileID: 21300000, guid: f8dcc5315ea9f5c43a35b09649e6ef95, type: 3}
     description: Increases EXP gain.
     atkMultiplier:
     - 0
