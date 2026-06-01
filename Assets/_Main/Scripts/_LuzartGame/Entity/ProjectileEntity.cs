@@ -37,15 +37,18 @@ namespace Luzart
             Transform.SetScale(_projectileConfig.Scale);
 
             // PREFAB PATH (preferred when _visualPrefab is wired on the SO): instantiate the
-            // prefab + attach ProjectileVisualBinder which syncs its transform to this entity
-            // every LateUpdate. Prefab carries SpriteRenderer/Animator/particles authored in
-            // Unity — no RenderingManager batching, no Material required.
+            // prefab + bind its ProjectileVisualBinder (pre-attached on Pf_*.prefab assets so
+            // it's visible & configurable in the prefab Inspector). The binder syncs the
+            // GameObject's transform to this entity's logical Transform every LateUpdate.
+            // Prefab carries SpriteRenderer/Animator/particles authored in Unity — no
+            // RenderingManager batching, no Material required.
             var visualPrefab = _projectileConfig.VisualPrefab;
             if (visualPrefab != null)
             {
                 _visualInstance = UnityEngine.Object.Instantiate(visualPrefab);
                 _visualInstance.name = $"Visual_{Id}";
                 var binder = _visualInstance.GetComponent<ProjectileVisualBinder>();
+                // Fallback for prefabs that haven't been migrated to ship a binder.
                 if (binder == null) binder = _visualInstance.AddComponent<ProjectileVisualBinder>();
                 binder.Bind(this);
             }
