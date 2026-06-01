@@ -13,7 +13,7 @@ namespace Luzart
     ///
     /// <para><strong>Key difference vs DATN adapter</strong>: instead of attaching a
     /// <see cref="SkillControllerBehavior"/> that owns plain-class IZSkill instances,
-    /// each starting skill becomes a <see cref="ZSkillRuntime"/> child GameObject
+    /// each starting skill becomes a <see cref="ZSkill"/> child GameObject
     /// instantiated under <see cref="_skillsContainer"/> (typically <c>Player/Skills/</c>).
     /// This matches the Survivor.io mental model where each weapon is a thing in the
     /// scene.</para>
@@ -29,20 +29,20 @@ namespace Luzart
         [SerializeField] private StatsConfig _statsConfig;
 
         [Header("Starting skills (drag ZSkillConfig assets here)")]
-        [Tooltip("Picked from Assets/_Main/Data/Skills/Configs/. Each becomes a ZSkillRuntime " +
+        [Tooltip("Picked from Assets/_Main/Data/Skills/Configs/. Each becomes a ZSkill " +
                  "child GameObject under Skills Container at Initialize.")]
         [SerializeField] private List<ZSkillConfig> _startingSkills = new List<ZSkillConfig>();
 
-        [Header("Container for spawned ZSkillRuntime children")]
+        [Header("Container for spawned ZSkill children")]
         [Tooltip("Parent Transform for runtime skill GOs. Defaults to a child named 'Skills' " +
                  "under this GameObject if left unwired.")]
         [SerializeField] private Transform _skillsContainer;
 
         private LuzartPlayerCharacter _character;
-        private readonly List<ZSkillRuntime> _skillRuntimes = new List<ZSkillRuntime>();
+        private readonly List<ZSkill> _skillRuntimes = new List<ZSkill>();
 
         public LuzartPlayerCharacter Character => _character;
-        public IReadOnlyList<ZSkillRuntime> SkillRuntimes => _skillRuntimes;
+        public IReadOnlyList<ZSkill> SkillRuntimes => _skillRuntimes;
 
         private bool ActivePerFlag
         {
@@ -149,7 +149,7 @@ namespace Luzart
         void IRunParticipant.OnRunEnd()
         {
             // Freeze each skill's Update — Unity skips Update on inactive GameObjects,
-            // so ZSkillRuntime.Update no longer ticks IZSkillBehavior. No more projectile
+            // so ZSkill.Update no longer ticks IZSkillBehavior. No more projectile
             // spawns under the Win/Lose screen.
             for (int i = 0; i < _skillRuntimes.Count; i++)
             {
@@ -220,20 +220,20 @@ namespace Luzart
             }
         }
 
-        private ZSkillRuntime SpawnSkill(ZSkillConfig cfg, Transform parent)
+        private ZSkill SpawnSkill(ZSkillConfig cfg, Transform parent)
         {
-            var go = new GameObject($"ZSkillRuntime_{cfg.name}");
+            var go = new GameObject($"ZSkill_{cfg.name}");
             go.transform.SetParent(parent, false);
-            var runtime = go.AddComponent<ZSkillRuntime>();
+            var runtime = go.AddComponent<ZSkill>();
             runtime.Bind(_character, cfg);
             _skillRuntimes.Add(runtime);
             return runtime;
         }
 
-        /// <summary>Runtime API for the level-up flow: ensure a ZSkillRuntime exists for
+        /// <summary>Runtime API for the level-up flow: ensure a ZSkill exists for
         /// <paramref name="cfg"/>. Returns the existing runtime if the player already owns the
-        /// skill, otherwise spawns a new ZSkillRuntime child under the Skills container.</summary>
-        public ZSkillRuntime AddSkill(ZSkillConfig cfg)
+        /// skill, otherwise spawns a new ZSkill child under the Skills container.</summary>
+        public ZSkill AddSkill(ZSkillConfig cfg)
         {
             if (cfg == null || _character == null) return null;
             for (int i = 0; i < _skillRuntimes.Count; i++)
@@ -244,8 +244,8 @@ namespace Luzart
             return SpawnSkill(cfg, ResolveSkillsContainer());
         }
 
-        /// <summary>Find the ZSkillRuntime hosting <paramref name="cfg"/>, or null.</summary>
-        public ZSkillRuntime GetRuntime(ZSkillConfig cfg)
+        /// <summary>Find the ZSkill hosting <paramref name="cfg"/>, or null.</summary>
+        public ZSkill GetRuntime(ZSkillConfig cfg)
         {
             if (cfg == null) return null;
             for (int i = 0; i < _skillRuntimes.Count; i++)
@@ -270,7 +270,7 @@ namespace Luzart
     /// <summary>
     /// PlayerCharacter that skips the EntityBluePrint requirement (mirrors
     /// DATNPlayerCharacter's shim). Initializes StatsBehavior from a StatsConfig SO
-    /// if provided. No SkillControllerBehavior — skills live as ZSkillRuntime
+    /// if provided. No SkillControllerBehavior — skills live as ZSkill
     /// children on the GameObject side instead.
     /// </summary>
     public class LuzartPlayerCharacter : PlayerCharacter

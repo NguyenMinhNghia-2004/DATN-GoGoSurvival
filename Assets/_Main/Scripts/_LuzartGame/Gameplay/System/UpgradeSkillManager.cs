@@ -159,7 +159,7 @@ namespace Luzart
             var runtime = _playerEntityRoot.GetRuntime(config);
             if (runtime != null)
             {
-                runtime.Skill?.UpgradeSkill();
+                ((IZSkill)runtime).UpgradeSkill();
             }
             else
             {
@@ -191,7 +191,7 @@ namespace Luzart
                 foreach (var rt in runtimes)
                 {
                     if (rt == null || rt.Config == null) continue;
-                    bool canUpgrade = rt.Skill != null && rt.Skill.IsUpgradeSkill();
+                    bool canUpgrade = ((IZSkill)rt).IsUpgradeSkill();
                     if (!canUpgrade) ownedMaxed.Add(rt.Config);
                 }
             }
@@ -204,7 +204,7 @@ namespace Luzart
         private int GetSkillLevel(ZSkillConfig config)
         {
             var rt = _playerEntityRoot != null ? _playerEntityRoot.GetRuntime(config) : null;
-            return rt != null && rt.Skill != null ? (int)rt.Skill.LevelIndex.Value : 0;
+            return rt != null ? (int)((IZSkill)rt).LevelIndex.Value : 0;
         }
 
         private void EnsurePlayerEntityRootResolved()

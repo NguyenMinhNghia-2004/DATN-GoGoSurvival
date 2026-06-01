@@ -46,9 +46,16 @@ namespace Luzart
         public IReadOnlyList<ZSkillUpgradeConfig> UpgradeConfigs => upgradeConfigs;
         public IReadOnlyList<ZSkillBehaviorConfig> BehaviorConfigs => behaviorConfigs;
         public IBool IsCanUpgradeLevel => isCanUpgradeLevel == null ? new BoolValue(true) : isCanUpgradeLevel;
+        /// <summary>Create a runtime skill instance bound to <paramref name="entity"/>.
+        /// ZSkill is a MonoBehaviour now, so we spawn a wrapper GameObject + AddComponent.
+        /// Used by SkillControllerBehavior (legacy enemy skill path). For the player, use
+        /// LuzartPlayerEntityRoot.AddSkill / SpawnSkill which create the GO under Player/Skills/.</summary>
         public IZSkill CreateSkill(IEntity entity)
         {
-            return new ZSkill(entity, this);
+            var go = new GameObject($"ZSkill_{name}");
+            var z = go.AddComponent<ZSkill>();
+            z.Bind(entity, this);
+            return z;
         }
     }
     public interface IZSkillBehavior : IBehavior, IDisposable
