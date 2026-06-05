@@ -18,52 +18,10 @@ public class SV_LegacyUIBase : UIBase
     }
 }
 
-/// <summary>Shop screen. Sanitizes the legacy mockup buttons, then overlays a functional
-/// runtime buy-grid + Close button (SV_ShopView). Keeps this class in SV_LegacyWrappers.cs so
-/// the prefab's existing m_Script reference (guid 040bc066) stays valid.</summary>
-public class SV_ShopUI : SV_LegacyUIBase
-{
-    private SV_ShopView _view;
-
-    public override async UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
-    {
-        await base.OnCreateAsync(ctx, ct); // disable broken legacy onClick listeners
-        _view = new SV_ShopView();
-        _view.Build(transform, OnCloseButtonClicked);
-    }
-
-    public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
-    {
-        _view?.OnShow();
-        return UniTask.CompletedTask;
-    }
-
-    public override void OnRelease() => _view?.Dispose();
-}
-
-/// <summary>Equipment screen. Sanitizes the legacy mockup, then overlays a functional
-/// runtime equipment panel (6 slot widgets + owned-item list + Close button). The prefab's
-/// root component had a broken m_Script (guid 0); it is re-pointed to this file (guid 040bc066)
-/// via m_EditorClassIdentifier "Assembly-CSharp::SV_EquipementUI".</summary>
-public class SV_EquipementUI : SV_LegacyUIBase
-{
-    private SV_EquipmentView _view;
-
-    public override async UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
-    {
-        await base.OnCreateAsync(ctx, ct);
-        _view = new SV_EquipmentView();
-        _view.Build(transform, OnCloseButtonClicked);
-    }
-
-    public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
-    {
-        _view?.OnShow();
-        return UniTask.CompletedTask;
-    }
-
-    public override void OnRelease() => _view?.Dispose();
-}
+// SV_ShopUI and SV_EquipementUI live in their OWN files (SV_ShopUI.cs / SV_EquipementUI.cs)
+// so that the prefab m_Script {fileID:11500000} resolves to the correct class. In a multi-class
+// file, fileID 11500000 binds to the class matching the filename (here: none → it fell through
+// to SV_LegacyUIBase, which is why subclass logic never ran).
 public class SV_ProcessUI : SV_LegacyUIBase { }
 public class SV_EvolveUI : SV_LegacyUIBase { }
 public class SV_MailsUI : SV_LegacyUIBase { }

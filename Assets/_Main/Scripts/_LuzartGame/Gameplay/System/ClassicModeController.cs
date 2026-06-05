@@ -57,6 +57,11 @@ namespace Luzart
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
 
+            // Apply the player's equipped-item stat bonuses for this run (idempotent — undoes
+            // the previous run's bonuses first, so equipment changes between runs don't stack).
+            var pc = _domain?.Get<PlayerCharacter>();
+            if (pc != null) SV_EquipmentStatApplier.ApplyTo(pc.Stats);
+
             // (1) Spawn the level prefab once per run. Idempotent guard via static flag —
             // SpawnDefaultLevel itself does not check for an existing instance, and we
             // don't want a second map stacked on top after Retry.
