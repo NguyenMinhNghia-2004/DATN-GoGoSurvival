@@ -41,7 +41,29 @@ public class SV_ShopUI : SV_LegacyUIBase
     public override void OnRelease() => _view?.Dispose();
 }
 
-public class SV_EquipementUI : SV_LegacyUIBase { }
+/// <summary>Equipment screen. Sanitizes the legacy mockup, then overlays a functional
+/// runtime equipment panel (6 slot widgets + owned-item list + Close button). The prefab's
+/// root component had a broken m_Script (guid 0); it is re-pointed to this file (guid 040bc066)
+/// via m_EditorClassIdentifier "Assembly-CSharp::SV_EquipementUI".</summary>
+public class SV_EquipementUI : SV_LegacyUIBase
+{
+    private SV_EquipmentView _view;
+
+    public override async UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
+    {
+        await base.OnCreateAsync(ctx, ct);
+        _view = new SV_EquipmentView();
+        _view.Build(transform, OnCloseButtonClicked);
+    }
+
+    public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
+    {
+        _view?.OnShow();
+        return UniTask.CompletedTask;
+    }
+
+    public override void OnRelease() => _view?.Dispose();
+}
 public class SV_ProcessUI : SV_LegacyUIBase { }
 public class SV_EvolveUI : SV_LegacyUIBase { }
 public class SV_MailsUI : SV_LegacyUIBase { }

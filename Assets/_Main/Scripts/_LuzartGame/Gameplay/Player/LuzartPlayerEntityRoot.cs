@@ -88,6 +88,11 @@ namespace Luzart
             if (_character.Transform != null)
                 _character.Transform.SetPosition(transform.position);
 
+            // Apply persisted equipment bonuses (chosen in the Equipment menu) onto the
+            // freshly-initialized player stats. ApplyTo also RestoreHP so an HPMax bonus
+            // is reflected in the player's starting HP.
+            SV_EquipmentStatApplier.ApplyTo(_character.Stats);
+
             // Bridge: lets TargetProvider's Physics2D query resolve hit Collider2D
             // back to this PlayerCharacter without going through CollisionManager.
             var refComp = GetComponent<EntityRef>();
