@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 4351936435906639613}
   - component: {fileID: 3955261864913140581}
   - component: {fileID: 5098877533859258529}
-  - component: {fileID: 4026583694138251715}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -452,20 +451,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4026583694138251715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589212518093502367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &604008770349457774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1882,6 @@ GameObject:
   - component: {fileID: 5057773205539542619}
   - component: {fileID: 2612913745946487205}
   - component: {fileID: 549227043335028528}
-  - component: {fileID: 3498667040466958743}
   m_Layer: 5
   m_Name: Cnte
   m_TagString: Untagged
@@ -2021,20 +2005,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3498667040466958743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606559917712520128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &1625216159016314882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,7 +2937,6 @@ GameObject:
   - component: {fileID: 7206867969601952091}
   - component: {fileID: 4995207098869851493}
   - component: {fileID: 8672867719451553900}
-  - component: {fileID: 2309244458202038896}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -3091,20 +3060,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2309244458202038896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2666285243216207601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &2687168744163746997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,7 +3394,6 @@ GameObject:
   - component: {fileID: 7259446165479659125}
   - component: {fileID: 8190248517851733400}
   - component: {fileID: 669239189134736669}
-  - component: {fileID: 1687872878850526232}
   m_Layer: 5
   m_Name: Firs
   m_TagString: Untagged
@@ -3576,20 +3530,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1687872878850526232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2908589958097160433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &2982545024690354543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3602,7 +3542,6 @@ GameObject:
   - component: {fileID: 2014744290686451921}
   - component: {fileID: 500853075213129064}
   - component: {fileID: 6163107891546167760}
-  - component: {fileID: 5869071834446166063}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -3726,20 +3665,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5869071834446166063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982545024690354543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &2998607255483445864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,7 +4002,6 @@ GameObject:
   - component: {fileID: 2333599036372822837}
   - component: {fileID: 5220826491439650107}
   - component: {fileID: 6682241216130446810}
-  - component: {fileID: 1018103055813040103}
   m_Layer: 5
   m_Name: Third
   m_TagString: Untagged
@@ -4214,20 +4138,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1018103055813040103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3368388883063928739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &3446155069799934295
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,7 +4431,6 @@ GameObject:
   - component: {fileID: 7832058042874542180}
   - component: {fileID: 9007260657203871051}
   - component: {fileID: 4274877742218965438}
-  - component: {fileID: 4570363021511333111}
   m_Layer: 5
   m_Name: Firs
   m_TagString: Untagged
@@ -4658,20 +4567,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4570363021511333111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3516331945305944392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &3549020228727750027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4655,6 @@ GameObject:
   - component: {fileID: 8320772561172937973}
   - component: {fileID: 2925081961510055222}
   - component: {fileID: 8025819456081041736}
-  - component: {fileID: 6374248811708169120}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -4884,20 +4778,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6374248811708169120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3588827875988949237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &3605978056628194776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5837,7 +5717,6 @@ GameObject:
   - component: {fileID: 451550147768457517}
   - component: {fileID: 1317987917831009575}
   - component: {fileID: 1955379452636094456}
-  - component: {fileID: 5335547056374891628}
   m_Layer: 5
   m_Name: Second
   m_TagString: Untagged
@@ -5974,20 +5853,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5335547056374891628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4207505060314910460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &4307712105246177694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,7 +6432,6 @@ GameObject:
   - component: {fileID: 5394822963933863675}
   - component: {fileID: 2617688847970906291}
   - component: {fileID: 7151443904562499789}
-  - component: {fileID: 7011268178410502384}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -6691,20 +6555,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7011268178410502384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645842656440337316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &4875747580125826726
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6567,6 @@ GameObject:
   - component: {fileID: 4522698211315517583}
   - component: {fileID: 7158279402285432278}
   - component: {fileID: 1154146897617370370}
-  - component: {fileID: 5916942114004647256}
   m_Layer: 5
   m_Name: 'Cnte '
   m_TagString: Untagged
@@ -6841,20 +6690,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5916942114004647256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875747580125826726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &4927072885777032559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,7 +6797,6 @@ GameObject:
   - component: {fileID: 1955094290762110086}
   - component: {fileID: 6301993113652222820}
   - component: {fileID: 6924329334585880950}
-  - component: {fileID: 2967618417628286592}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -7086,20 +6920,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2967618417628286592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011930843082658960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5074322027747190336
 GameObject:
   m_ObjectHideFlags: 0
@@ -7207,7 +7027,6 @@ GameObject:
   - component: {fileID: 826750222341357435}
   - component: {fileID: 876794927919878586}
   - component: {fileID: 2962003632660422307}
-  - component: {fileID: 1790610523788812008}
   m_Layer: 5
   m_Name: Third
   m_TagString: Untagged
@@ -7344,20 +7163,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1790610523788812008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077041144096987463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5088205676039291967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7445,7 +7250,6 @@ GameObject:
   - component: {fileID: 4865460418212279688}
   - component: {fileID: 7274873049244557209}
   - component: {fileID: 7030592352049708977}
-  - component: {fileID: 5795834362336528678}
   m_Layer: 5
   m_Name: Second
   m_TagString: Untagged
@@ -7582,20 +7386,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5795834362336528678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5092810968012253665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5100065432485153351
 GameObject:
   m_ObjectHideFlags: 0
@@ -7680,7 +7470,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114818617770569472}
-  - component: {fileID: 9035807123032312845}
   - component: {fileID: 3748503383684563608}
   m_Layer: 5
   m_Name: Content
@@ -7709,18 +7498,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &9035807123032312845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5100580057490567958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6877739ad1f048043b1efa113c59bb77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3748503383684563608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7877,7 +7654,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162659be5eb69b549bf735d481aeba0e, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SV_EquipementUI
 --- !u!1 &5176206931315469868
 GameObject:
@@ -7966,7 +7743,6 @@ GameObject:
   - component: {fileID: 6768109710353084202}
   - component: {fileID: 6366930527861198613}
   - component: {fileID: 5919777640205168119}
-  - component: {fileID: 5074064833737618858}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -8090,20 +7866,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5074064833737618858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5209887687900258833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5222859963506415780
 GameObject:
   m_ObjectHideFlags: 0
@@ -8191,7 +7953,6 @@ GameObject:
   - component: {fileID: 8729778231529390490}
   - component: {fileID: 51512360395132420}
   - component: {fileID: 5526154044774775886}
-  - component: {fileID: 1476368311368901965}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -8315,20 +8076,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1476368311368901965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5285756997501836129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5295744712139334989
 GameObject:
   m_ObjectHideFlags: 0
@@ -8492,7 +8239,6 @@ GameObject:
   - component: {fileID: 9195231234965811891}
   - component: {fileID: 1691391679601393098}
   - component: {fileID: 8179146863420587285}
-  - component: {fileID: 6951097128505539755}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -8616,20 +8362,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6951097128505539755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391728687181991235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &5398937392043387634
 GameObject:
   m_ObjectHideFlags: 0
@@ -9095,7 +8827,6 @@ GameObject:
   - component: {fileID: 5334795702975510845}
   - component: {fileID: 7926806789381066310}
   - component: {fileID: 7403619567316584062}
-  - component: {fileID: 6453018786354781100}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -9219,20 +8950,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6453018786354781100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200826085927075865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &6342214540236260414
 GameObject:
   m_ObjectHideFlags: 0
@@ -9395,7 +9112,6 @@ GameObject:
   - component: {fileID: 884337253284049593}
   - component: {fileID: 8573285190673787997}
   - component: {fileID: 1026214085051012353}
-  - component: {fileID: 6324074153429453262}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -9519,20 +9235,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6324074153429453262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431260948509054476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &6435800263837935734
 GameObject:
   m_ObjectHideFlags: 0
@@ -10494,7 +10196,6 @@ GameObject:
   - component: {fileID: 7029594581839580598}
   - component: {fileID: 7958976680370512896}
   - component: {fileID: 4727833200416257031}
-  - component: {fileID: 6134241979151364116}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -10618,20 +10319,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6134241979151364116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355300279656622047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &7383127072283991844
 GameObject:
   m_ObjectHideFlags: 0
@@ -11555,7 +11242,6 @@ GameObject:
   - component: {fileID: 6513444927879047587}
   - component: {fileID: 1302192369777452560}
   - component: {fileID: 7273097174341113751}
-  - component: {fileID: 8459284152460389636}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -11679,20 +11365,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8459284152460389636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173311351998792008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &8185905374836328213
 GameObject:
   m_ObjectHideFlags: 0
@@ -12345,7 +12017,6 @@ GameObject:
   - component: {fileID: 8458662222141939125}
   - component: {fileID: 7568867760613286163}
   - component: {fileID: 247364270891798867}
-  - component: {fileID: 5889365130995106623}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -12469,20 +12140,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5889365130995106623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8494874226244829673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &8560792712755045307
 GameObject:
   m_ObjectHideFlags: 0
@@ -13043,7 +12700,6 @@ GameObject:
   - component: {fileID: 3980165445810494652}
   - component: {fileID: 7504479141642457707}
   - component: {fileID: 80533484719723556}
-  - component: {fileID: 6339159400346311037}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -13167,20 +12823,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6339159400346311037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101711424645671810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 7181665142829629147}
-  Weapon: {fileID: 0}
 --- !u!1 &9170275223065541608
 GameObject:
   m_ObjectHideFlags: 0

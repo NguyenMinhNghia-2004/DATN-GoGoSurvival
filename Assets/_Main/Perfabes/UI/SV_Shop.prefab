@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4acf4c6f5866ba34980a62f971ffe6ed, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SV_ShopUI
 --- !u!1 &738643696192768093
 GameObject:
@@ -1188,7 +1188,6 @@ GameObject:
   - component: {fileID: 6952025458427405578}
   - component: {fileID: 2042604708874223763}
   - component: {fileID: 3188853928989217975}
-  - component: {fileID: 1500058065437205837}
   m_Layer: 5
   m_Name: 'Faces '
   m_TagString: Untagged
@@ -1250,20 +1249,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &1500058065437205837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271238619862114393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &1304258329655625135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,7 +2918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ShoesDesign
         m_Mode: 1
@@ -4241,7 +4226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BoneM
         m_Mode: 1
@@ -5758,7 +5743,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BonePendant
         m_Mode: 1
@@ -6331,7 +6316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ClothingDesign
         m_Mode: 1
@@ -7157,7 +7142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Geems
         m_Mode: 1
@@ -8562,7 +8547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: WeaponDesign
         m_Mode: 1
