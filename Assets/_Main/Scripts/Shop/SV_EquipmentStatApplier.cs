@@ -45,8 +45,9 @@ public static class SV_EquipmentStatApplier
         {
             var entry = catalog.GetById(kv.Value);
             if (entry == null) continue;
-            stats.ApplyStatBonus(entry.statType, entry.statAmount, entry.mode);
-            _lastApplied.Add(new Bonus { Stat = entry.statType, Amount = entry.statAmount, Mode = entry.mode });
+            double amount = SV_PlayerInventory.EffectiveStatAmount(entry, inv.GetLevel(entry.id));
+            stats.ApplyStatBonus(entry.statType, amount, entry.mode);
+            _lastApplied.Add(new Bonus { Stat = entry.statType, Amount = amount, Mode = entry.mode });
         }
 
         if (_lastApplied.Count > 0)

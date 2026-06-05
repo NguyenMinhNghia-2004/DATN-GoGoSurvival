@@ -5,43 +5,44 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Binds equip logic onto the EXISTING SV_Equipement mockup (no generated panels):
-///  - the 6 slots around the character (HalfPlayerShow/Left|Right/Firs|Second|Third) become the
-///    6 equipment slots (Weapon/Armor/Necklace/Belt/Gloves/Shoes); tapping a filled slot unequips.
-///  - the item grid (HalfPlayerShow/.../WeaponIcons/Cnte*) lists owned items; tapping one equips
-///    it into its slot (or unequips if already equipped).
-/// A small Close (X) button is added because the mockup has none.
+/// Binds the Equipment screen onto existing prefab visuals, IO_Training style:
+///  - the 6 character slots (Left|Right/Firs|Second|Third → ETypeItem) show the equipped item
+///    (icon + level + rarity tint) or an empty placeholder (LogoNot). Tapping an equipped slot
+///    opens SV_ItemDetailPopup.
+///  - the inventory grid (WeaponIcons/Cnte) is driven by a spawner: one Cnte is the TEMPLATE,
+///    cloned once per owned item (icon/level/rarity injected); pre-placed mockup cells are hidden.
+///    Tapping an owned cell opens SV_ItemDetailPopup.
 /// </summary>
 public class SV_EquipmentView
 {
     private static readonly KeyValuePair<string, ETypeItem>[] SlotMap =
     {
-        new KeyValuePair<string, ETypeItem>("Left/Firs",   ETypeItem.Weapon),
-        new KeyValuePair<string, ETypeItem>("Left/Second", ETypeItem.Armor),
-        new KeyValuePair<string, ETypeItem>("Left/Third",  ETypeItem.Necklace),
-        new KeyValuePair<string, ETypeItem>("Right/Firs",  ETypeItem.Belt),
-        new KeyValuePair<string, ETypeItem>("Right/Second",ETypeItem.Gloves),
-        new KeyValuePair<string, ETypeItem>("Right/Third", ETypeItem.Shoes),
+        new KeyValuePair<string, ETypeItem>("Left/Firs",    ETypeItem.Weapon),
+        new KeyValuePair<string, ETypeItem>("Left/Second",  ETypeItem.Armor),
+        new KeyValuePair<string, ETypeItem>("Left/Third",   ETypeItem.Necklace),
+        new KeyValuePair<string, ETypeItem>("Right/Firs",   ETypeItem.Belt),
+        new KeyValuePair<string, ETypeItem>("Right/Second", ETypeItem.Gloves),
+        new KeyValuePair<string, ETypeItem>("Right/Third",  ETypeItem.Shoes),
     };
 
-    private static readonly Color EquippedTint = new Color(0.4f, 0.9f, 0.45f, 1f);
-    private static readonly Color EmptyTint = new Color(1f, 1f, 1f, 1f);
-
+    private Transform _root;
     private SV_ItemCatalog _catalog;
     private SV_PlayerInventory _inv;
     private readonly List<KeyValuePair<Transform, ETypeItem>> _slots = new();
-    private readonly List<Transform> _cells = new();
+    private Transform _gridParent;
+    private GameObject _gridTemplate;
+    private readonly List<GameObject> _spawned = new();
     private bool _subscribed;
 
     public void Build(Transform root, Action onClose)
     {
+        _root = root;
         _catalog = SV_ItemCatalog.Load();
         _inv = SV_PlayerInventory.Instance;
 
         var half = FindDeep(root, "HalfPlayerShow");
         if (half != null)
         {
-            // 6 equip slots
             foreach (var map in SlotMap)
             {
                 var slot = half.Find(map.Key);
@@ -52,21 +53,23 @@ public class SV_EquipmentView
                 if (btn != null)
                 {
                     btn.onClick.RemoveAllListeners();
-                    btn.onClick.AddListener(() => _inv.Unequip(type));
+                    btn.onClick.AddListener(() => OnSlotClicked(type));
                 }
             }
 
-            // item grid cells
             var grid = FindDeep(half, "WeaponIcons");
             if (grid != null)
+            {
+                _gridParent = grid;
                 for (int i = 0; i < grid.childCount; i++)
                 {
-                    var cell = grid.GetChild(i);
-                    if (cell.GetComponent<Button>() != null) _cells.Add(cell);
+                    var c = grid.GetChild(i);
+                    if (_gridTemplate == null && c.GetComponent<Button>() != null)
+                        _gridTemplate = c.gameObject;
+                    c.gameObject.SetActive(false);
                 }
+            }
         }
-
-        SV_UIKit.CloseButton(root, SV_UIKit.DefaultFont(), onClose);
 
         Refresh();
         _inv.OnChanged += Refresh;
@@ -79,71 +82,96 @@ public class SV_EquipmentView
     {
         if (!_subscribed) return;
         if (_inv != null) _inv.OnChanged -= Refresh;
+        SV_ItemDetailPopup.Close();
         _subscribed = false;
     }
 
     private void Refresh()
     {
-        // Slots
+        RefreshSlots();
+        RefreshGrid();
+    }
+
+    private void RefreshSlots()
+    {
         foreach (var kv in _slots)
         {
-            var slot = kv.Key;
             var id = _inv.GetEquipped(kv.Value);
             var entry = id != null && _catalog != null ? _catalog.GetById(id) : null;
-            SetLabel(slot, entry != null ? entry.displayName : kv.Value.ToString());
-            Tint(slot, entry != null ? EquippedTint : EmptyTint);
+            FillCell(kv.Key, entry, kv.Value.ToString());
         }
+    }
 
-        // Grid = owned items
-        var owned = new List<SV_ItemEntry>();
-        if (_catalog != null)
-            foreach (var e in _catalog.Entries)
-                if (e != null && _inv.IsOwned(e.id)) owned.Add(e);
+    private void RefreshGrid()
+    {
+        for (int i = _spawned.Count - 1; i >= 0; i--)
+            UnityEngine.Object.Destroy(_spawned[i]);
+        _spawned.Clear();
 
-        for (int i = 0; i < _cells.Count; i++)
+        if (_gridTemplate == null || _catalog == null) return;
+
+        foreach (var e in _catalog.Entries)
         {
-            var cell = _cells[i];
+            if (e == null || !_inv.IsOwned(e.id)) continue;
+            var cell = UnityEngine.Object.Instantiate(_gridTemplate, _gridParent);
+            cell.SetActive(true);
+            _spawned.Add(cell);
+            FillCell(cell.transform, e, null);
+            var entry = e;
             var btn = cell.GetComponent<Button>();
-            if (i < owned.Count)
+            if (btn != null)
             {
-                var entry = owned[i];
-                bool equipped = _inv.IsEquipped(entry.id);
-                cell.gameObject.SetActive(true);
-                SetLabel(cell, entry.displayName);
-                Tint(cell, equipped ? EquippedTint : EmptyTint);
-                if (btn != null)
-                {
-                    btn.interactable = true;
-                    btn.onClick.RemoveAllListeners();
-                    var e = entry;
-                    btn.onClick.AddListener(() =>
-                    {
-                        if (_inv.IsEquipped(e.id)) _inv.Unequip(e.slot);
-                        else _inv.Equip(e);
-                    });
-                }
-            }
-            else
-            {
-                // Empty grid cell — blank + non-interactive.
-                SetLabel(cell, "");
-                if (btn != null) { btn.onClick.RemoveAllListeners(); btn.interactable = false; }
+                btn.onClick.RemoveAllListeners();
+                btn.onClick.AddListener(() => SV_ItemDetailPopup.Show(_root, entry));
             }
         }
     }
 
-    private static void SetLabel(Transform node, string value)
+    private void OnSlotClicked(ETypeItem type)
     {
-        var t = node.Find("Text (Legacy)");
-        var tx = t != null ? t.GetComponent<Text>() : node.GetComponentInChildren<Text>();
-        if (tx != null) tx.text = value;
+        var id = _inv.GetEquipped(type);
+        var entry = id != null && _catalog != null ? _catalog.GetById(id) : null;
+        if (entry != null) SV_ItemDetailPopup.Show(_root, entry);
     }
 
-    private static void Tint(Transform node, Color c)
+    /// <summary>Fill a slot/cell with item data, or show its empty placeholder when entry is null.</summary>
+    private void FillCell(Transform node, SV_ItemEntry entry, string emptyLabel)
     {
+        bool has = entry != null;
         var icon = node.Find("Icon");
-        var img = icon != null ? icon.GetComponent<Image>() : node.GetComponent<Image>();
-        if (img != null) img.color = c;
+        var logoNot = node.Find("LogoNot");
+        var lvl = node.Find("Text (Legacy)");
+
+        if (icon != null)
+        {
+            icon.gameObject.SetActive(has);
+            if (has)
+            {
+                var img = icon.GetComponent<Image>();
+                if (img != null && entry.icon != null) img.sprite = entry.icon;
+            }
+        }
+        if (logoNot != null) logoNot.gameObject.SetActive(!has);
+
+        var frame = node.GetComponent<Image>();
+        if (frame != null)
+            frame.color = has ? _catalog.GetRarityColor(entry.rarity) : Color.white;
+
+        if (lvl != null)
+        {
+            var t = lvl.GetComponent<Text>();
+            if (has)
+            {
+                lvl.gameObject.SetActive(true);
+                if (t != null) t.text = "Lv." + _inv.GetLevel(entry.id);
+            }
+            else if (!string.IsNullOrEmpty(emptyLabel))
+            {
+                lvl.gameObject.SetActive(true);
+                if (t != null) t.text = emptyLabel;
+            }
+            else lvl.gameObject.SetActive(false);
+        }
     }
 
     private static Transform FindDeep(Transform root, string name)
