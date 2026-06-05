@@ -51,10 +51,44 @@ public class SV_MainMenuUI : UIBase
         if (btnSettings != null) btnSettings.onClick.AddListener(OnSettings);
         if (btnMessages != null) btnMessages.onClick.AddListener(OnMessages);
 
+        // The middle DownContainer button is "Battle" (a separate GO from the big "BtnPlay"
+        // Start button, which btnPlay resolved to). Wire it as the HOME/close button: tapping it
+        // closes whatever Shop/Equipment screen is open and returns to the menu.
+        var navHome = FindChildButton("Battle");
+        if (navHome != null && navHome != btnPlay) navHome.onClick.AddListener(OnNavHome);
+
         // Wire remaining DownContainer nav buttons (Death/Evolve) → corresponding SV_*UI screens.
         WireExtraNav("Death", UIId.SV_Process);
         WireExtraNav("Evolve", UIId.SV_Evolve);
+
+        // Keep the bottom nav (DownContainer) rendering ON TOP of the Shop/Equipment screens so
+        // it stays tappable while a screen is open (those screens otherwise cover the menu).
+        RaiseNavOnTop();
         return UniTask.CompletedTask;
+    }
+
+    /// <summary>Put the DownContainer on its own sorting canvas above the screen popups so the
+    /// nav stays tappable while Shop/Equipment are open. Wrapped defensively — must never break
+    /// the menu show.</summary>
+    private void RaiseNavOnTop()
+    {
+        try
+        {
+            Transform down = null;
+            foreach (var t in GetComponentsInChildren<Transform>(true))
+                if (t.name == "DownContainer") { down = t; break; }
+            if (down == null) return; // only raise a real nav container; never the whole menu
+            var go = down.gameObject;
+            var canvas = go.GetComponent<Canvas>();
+            if (canvas == null) canvas = go.AddComponent<Canvas>();
+            canvas.overrideSorting = true;
+            canvas.sortingOrder = 500;
+            if (go.GetComponent<GraphicRaycaster>() == null) go.AddComponent<GraphicRaycaster>();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning($"[SV_MainMenuUI] RaiseNavOnTop skipped: {e.Message}");
+        }
     }
 
     private Button FindChildButton(string name)
@@ -79,6 +113,10 @@ public class SV_MainMenuUI : UIBase
 
     private async void OnPlay()
     {
+        // Middle (Battle) button doubles as "close the open screen": if a Shop/Equipment screen is
+        // currently visible, tap it to return to the menu instead of starting a run.
+        if (await TryCloseOpenScreens()) return;
+
         // 1) Kick legacy DATN gameplay flow (sets Bool.GameStart, activates weapons, etc.)
         var legacyUIManager = FindObjectOfType<DATN.Legacy.UIManager>();
         if (legacyUIManager != null) legacyUIManager.PlayBtn();
@@ -99,9 +137,59 @@ public class SV_MainMenuUI : UIBase
         OnCloseButtonClicked(); // close MainMenu
     }
 
-    private async void OnShop() => await SafeShowAsync(UIId.SV_Shop);
-    private async void OnEquipment() => await SafeShowAsync(UIId.SV_ItemEquipment);
+    /// <summary>Middle "Battle" nav button → close any open Shop/Equipment screen (return home).</summary>
+    private async void OnNavHome() => await TryCloseOpenScreens();
+
+    private async void OnShop() => await ToggleScreen(UIId.SV_Shop);
+    private async void OnEquipment() => await ToggleScreen(UIId.SV_ItemEquipment);
     private async void OnSettings() => await SafeShowAsync(UIId.SV_SettingsPopup);
+
+    /// <summary>Tap a nav button to open its screen; tap again (or the middle Battle button) to
+    /// close. Toggle is driven by ACTUAL screen visibility (robust against async timing / multiple
+    /// menu instances) rather than a tracked flag.</summary>
+    private async UniTask ToggleScreen(UIId id)
+    {
+        bool isShop = id == UIId.SV_Shop;
+        bool alreadyVisible = isShop ? IsScreenVisible<SV_ShopUI>() : IsScreenVisible<SV_EquipementUI>();
+        if (alreadyVisible) { await SafeHide(id); return; }
+
+        await TryCloseOpenScreens(); // only one of Shop/Equipment open at a time
+        try
+        {
+            await UIManager.Instance.ShowAsync(id, ct: this.GetCancellationTokenOnDestroy());
+        }
+        catch (System.Collections.Generic.KeyNotFoundException)
+        {
+            Debug.LogWarning($"[SV_MainMenuUI] {id} has no UIRegistry entry — button click ignored.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[SV_MainMenuUI] {id} show failed: {e.Message}");
+        }
+        RaiseNavOnTop(); // keep nav tappable above the newly shown screen
+    }
+
+    /// <summary>Hide whichever Shop/Equipment screen is currently visible. Returns true if any
+    /// were closed (used by the Battle button to return to the menu).</summary>
+    private async UniTask<bool> TryCloseOpenScreens()
+    {
+        bool closed = false;
+        if (IsScreenVisible<SV_ShopUI>()) { await SafeHide(UIId.SV_Shop); closed = true; }
+        if (IsScreenVisible<SV_EquipementUI>()) { await SafeHide(UIId.SV_ItemEquipment); closed = true; }
+        return closed;
+    }
+
+    private static bool IsScreenVisible<T>() where T : UIBase
+    {
+        foreach (var u in Resources.FindObjectsOfTypeAll<T>())
+            if (u != null && u.gameObject.scene.IsValid() && u.IsVisible) return true;
+        return false;
+    }
+
+    private async UniTask SafeHide(UIId id)
+    {
+        try { await UIManager.Instance.HideAsync(id); } catch { }
+    }
 
     private void OnMessages()
     {
