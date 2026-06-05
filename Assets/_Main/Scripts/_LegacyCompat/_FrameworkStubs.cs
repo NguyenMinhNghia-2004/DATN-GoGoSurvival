@@ -120,10 +120,22 @@ public class CurrencyManager : UnityEngine.MonoBehaviour
     public event System.Action<long> OnCoinChanged;
     public long Coins { get; private set; }
 
+    private const string CoinSaveKey = "sv_coins_v1";
+
     private void Awake()
     {
         if (_instance != null && _instance != this) { Destroy(gameObject); return; }
         _instance = this;
+        // Persist coins across sessions so the Shop is spendable from the menu (pickups
+        // accumulate too). Seed a small starting balance on first ever run.
+        if (UnityEngine.PlayerPrefs.HasKey(CoinSaveKey))
+            Coins = (long)UnityEngine.PlayerPrefs.GetInt(CoinSaveKey);
+        else
+        {
+            Coins = 500;
+            UnityEngine.PlayerPrefs.SetInt(CoinSaveKey, (int)Coins);
+            UnityEngine.PlayerPrefs.Save();
+        }
     }
 
     /// <summary>Add <paramref name="amount"/> coins and broadcast <see cref="OnCoinChanged"/>.
@@ -132,6 +144,9 @@ public class CurrencyManager : UnityEngine.MonoBehaviour
     {
         if (amount == 0) return;
         Coins += amount;
+        if (Coins < 0) Coins = 0;
+        UnityEngine.PlayerPrefs.SetInt(CoinSaveKey, (int)Coins);
+        UnityEngine.PlayerPrefs.Save();
         OnCoinChanged?.Invoke(Coins);
     }
 

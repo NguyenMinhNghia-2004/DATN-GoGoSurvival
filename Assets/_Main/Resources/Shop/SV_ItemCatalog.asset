@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b263f480e524acd44a3902fe52412ad3, type: 3}
+  m_Name: SV_ItemCatalog
+  m_EditorClassIdentifier:
+  entries:
+  - id: Eq_Kunai
+    displayName: Kunai
+    icon: {fileID: 0}
+    slot: 0
+    rarity: 0
+    priceCoins: 100
+    statType: 1
+    statAmount: 10
+    mode: 0
+  - id: Eq_Carapace
+    displayName: Carapace
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 0
+    priceCoins: 120
+    statType: 0
+    statAmount: 75
+    mode: 0
+  - id: Eq_Bone_Pendant
+    displayName: Bone Pendant
+    icon: {fileID: 0}
+    slot: 2
+    rarity: 0
+    priceCoins: 100
+    statType: 1
+    statAmount: 0.05
+    mode: 1
+  - id: Eq_Army_Belt
+    displayName: Army Belt
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 0
+    priceCoins: 80
+    statType: 7
+    statAmount: 0.1
+    mode: 0
+  - id: Eq_Silk_Gloves
+    displayName: Silk Gloves
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 1
+    priceCoins: 150
+    statType: 4
+    statAmount: 0.1
+    mode: 1
+  - id: Eq_Light_Runners
+    displayName: Light Runners
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 1
+    priceCoins: 150
+    statType: 2
+    statAmount: 0.5
+    mode: 0
+  - id: Eq_Full_Metal_Suit
+    displayName: Full Metal Suit
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 1
+    priceCoins: 300
+    statType: 0
+    statAmount: 200
+    mode: 0
+  - id: Eq_Emerald_Pendant
+    displayName: Emerald Pendant
+    icon: {fileID: 0}
+    slot: 2
+    rarity: 1
+    priceCoins: 250
+    statType: 1
+    statAmount: 0.15
+    mode: 1
+  - id: Eq_Runesteel_Pauldrons
+    displayName: Runesteel Pauldrons
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 2
+    priceCoins: 500
+    statType: 0
+    statAmount: 0.2
+    mode: 1
+  - id: Eq_Prosthetic_Legs
+    displayName: Prosthetic Legs
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 2
+    priceCoins: 500
+    statType: 2
+    statAmount: 1
+    mode: 0

@@ -18,7 +18,29 @@ public class SV_LegacyUIBase : UIBase
     }
 }
 
-public class SV_ShopUI : SV_LegacyUIBase { }
+/// <summary>Shop screen. Sanitizes the legacy mockup buttons, then overlays a functional
+/// runtime buy-grid + Close button (SV_ShopView). Keeps this class in SV_LegacyWrappers.cs so
+/// the prefab's existing m_Script reference (guid 040bc066) stays valid.</summary>
+public class SV_ShopUI : SV_LegacyUIBase
+{
+    private SV_ShopView _view;
+
+    public override async UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
+    {
+        await base.OnCreateAsync(ctx, ct); // disable broken legacy onClick listeners
+        _view = new SV_ShopView();
+        _view.Build(transform, OnCloseButtonClicked);
+    }
+
+    public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
+    {
+        _view?.OnShow();
+        return UniTask.CompletedTask;
+    }
+
+    public override void OnRelease() => _view?.Dispose();
+}
+
 public class SV_EquipementUI : SV_LegacyUIBase { }
 public class SV_ProcessUI : SV_LegacyUIBase { }
 public class SV_EvolveUI : SV_LegacyUIBase { }
