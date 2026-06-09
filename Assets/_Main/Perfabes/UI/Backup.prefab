@@ -23781,7 +23781,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8128845675928633098}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.35019556
+  m_Size: 0.28733993
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -34616,7 +34616,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1498616702153241707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.3764872}
+  m_AnchorMin: {x: 0, y: 0.48839974}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -38012,7 +38012,7 @@ RectTransform:
   m_Father: {fileID: 4443186611154577832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.35019556}
+  m_AnchorMax: {x: 1, y: 0.28733993}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -38618,7 +38618,7 @@ GameObject:
   - component: {fileID: 7364293340057710925}
   - component: {fileID: 6225858342993304566}
   m_Layer: 5
-  m_Name: SV_MainMenu
+  m_Name: Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38667,10 +38667,10 @@ MonoBehaviour:
   btnPlay: {fileID: 4978289048007234495}
   btnShop: {fileID: 0}
   btnEquipment: {fileID: 0}
-  btnSettings: {fileID: 2542524271581226762}
-  btnMessages: {fileID: 1541590468924506826}
-  panelSettings: {fileID: 1251453546665303976}
-  panelMessages: {fileID: 5222259252587240464}
+  btnSettings: {fileID: 0}
+  btnMessages: {fileID: 0}
+  panelSettings: {fileID: 0}
+  panelMessages: {fileID: 0}
 --- !u!1 &5640080218320285382
 GameObject:
   m_ObjectHideFlags: 0
@@ -42554,7 +42554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3421327412343490588
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46556,7 +46556,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6158186104487759755}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6235128
+  m_Size: 0.51160026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

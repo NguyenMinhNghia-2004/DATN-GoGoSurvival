@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1758347}
   - component: {fileID: 1758349}
-  - component: {fileID: 1758348}
   - component: {fileID: 1758350}
   m_Layer: 0
   m_Name: DroneC
@@ -153,18 +152,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1699266928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1758348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1758349
 SpriteRenderer:
   serializedVersion: 2
@@ -332,7 +319,6 @@ GameObject:
   - component: {fileID: 11743675}
   - component: {fileID: 11743679}
   - component: {fileID: 11743677}
-  - component: {fileID: 11743676}
   - component: {fileID: 11743680}
   m_Layer: 0
   m_Name: Spine6
@@ -356,18 +342,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 698135714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11743676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11743674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &11743677
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -860,7 +834,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189845730}
-  - component: {fileID: 189845729}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -868,18 +841,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &189845729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189845728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68aa399b0c0c2e0478187695089f9037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &189845730
 Transform:
   m_ObjectHideFlags: 0
@@ -1186,7 +1147,6 @@ GameObject:
   m_Component:
   - component: {fileID: 238384984}
   - component: {fileID: 238384986}
-  - component: {fileID: 238384985}
   m_Layer: 5
   m_Name: SpinerWeapon
   m_TagString: Untagged
@@ -1215,18 +1175,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0, y: 0.65}
   m_SizeDelta: {x: 1.2075, y: 1.2075}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &238384985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238384983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04a7040a946d0e4c93afd42831fdb5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &238384986
 SpriteRenderer:
   serializedVersion: 2
@@ -1297,7 +1245,6 @@ GameObject:
   - component: {fileID: 238848392}
   - component: {fileID: 238848393}
   - component: {fileID: 238848395}
-  - component: {fileID: 238848396}
   - component: {fileID: 238848397}
   m_Layer: 0
   m_Name: Spine4
@@ -1416,18 +1363,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.64
---- !u!114 &238848396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238848391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &238848397
 Animator:
   serializedVersion: 7
@@ -1606,7 +1541,6 @@ GameObject:
   - component: {fileID: 280080302}
   - component: {fileID: 280080304}
   - component: {fileID: 280080303}
-  - component: {fileID: 280080305}
   m_Layer: 0
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -1734,18 +1668,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &280080305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280080301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &284921910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +1952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 342113887}
   - component: {fileID: 342113889}
-  - component: {fileID: 342113888}
   m_Layer: 0
   m_Name: ProtectedYollow
   m_TagString: Untagged
@@ -2054,18 +1975,6 @@ Transform:
   - {fileID: 1734697387}
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &342113888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342113886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c60f180eb740914eb6d8cf30e9d93f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &342113889
 SpriteRenderer:
   serializedVersion: 2
@@ -2648,7 +2557,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486259332}
-  - component: {fileID: 486259333}
   m_Layer: 0
   m_Name: FireGase
   m_TagString: Untagged
@@ -2671,18 +2579,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425635221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486259333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486259331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13498dbee6053e54e8d4a8a067079198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &490207654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,7 +2728,6 @@ GameObject:
   - component: {fileID: 493301574}
   - component: {fileID: 493301578}
   - component: {fileID: 493301577}
-  - component: {fileID: 493301576}
   - component: {fileID: 493301575}
   m_Layer: 0
   m_Name: Spine4
@@ -2878,18 +2773,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &493301576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493301573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &493301577
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2994,7 +2877,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496602086}
-  - component: {fileID: 496602087}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Untagged
@@ -3017,18 +2899,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &496602087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496602085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 581ac44e0fbfbde4db129fa398101bd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &508095343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,7 +2910,6 @@ GameObject:
   - component: {fileID: 508095344}
   - component: {fileID: 508095348}
   - component: {fileID: 508095347}
-  - component: {fileID: 508095346}
   - component: {fileID: 508095345}
   m_Layer: 0
   m_Name: Spine3
@@ -3086,18 +2955,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &508095346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508095343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &508095347
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3202,7 +3059,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516912234}
-  - component: {fileID: 516912235}
   m_Layer: 0
   m_Name: ContainerFollow
   m_TagString: Untagged
@@ -3226,18 +3082,6 @@ Transform:
   - {fileID: 1895536239}
   m_Father: {fileID: 1266608739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &516912235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516912233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495dc240104af444db91f4f2eb77b23c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,8 +3094,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Camera
@@ -3379,30 +3221,6 @@ Transform:
   - {fileID: 204604325}
   m_Father: {fileID: 2040973965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3cb9cd94424674c9ab27b16ef001c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531185d8940e3aa4298e2139e15afd95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3430,7 +3248,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541733046}
-  - component: {fileID: 541733047}
   m_Layer: 0
   m_Name: AiguleA
   m_TagString: Untagged
@@ -3453,18 +3270,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &541733047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541733045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b146b34d4e50c14998802b47620544b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &579531792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,7 +3281,6 @@ GameObject:
   - component: {fileID: 579531793}
   - component: {fileID: 579531794}
   - component: {fileID: 579531796}
-  - component: {fileID: 579531797}
   - component: {fileID: 579531798}
   m_Layer: 0
   m_Name: Spine3
@@ -3595,18 +3399,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.64
---- !u!114 &579531797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579531792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &579531798
 Animator:
   serializedVersion: 7
@@ -3834,7 +3626,6 @@ GameObject:
   - component: {fileID: 688845339}
   - component: {fileID: 688845341}
   - component: {fileID: 688845340}
-  - component: {fileID: 688845342}
   m_Layer: 0
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -3962,18 +3753,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &688845342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688845338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &694311459
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4129,6 @@ GameObject:
   - component: {fileID: 726909806}
   - component: {fileID: 726909807}
   - component: {fileID: 726909809}
-  - component: {fileID: 726909810}
   - component: {fileID: 726909811}
   m_Layer: 0
   m_Name: Spine2
@@ -4469,18 +4247,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.64
---- !u!114 &726909810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726909805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &726909811
 Animator:
   serializedVersion: 7
@@ -4513,7 +4279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 730407840}
   - component: {fileID: 730407841}
-  - component: {fileID: 730407842}
   m_Layer: 0
   m_Name: Swipe
   m_TagString: Untagged
@@ -4633,18 +4398,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &730407842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730407839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7ec2c5bdc870d4996664ee80ab39a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &795584358
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,7 +4749,6 @@ GameObject:
   - component: {fileID: 862600824}
   - component: {fileID: 862600828}
   - component: {fileID: 862600827}
-  - component: {fileID: 862600826}
   - component: {fileID: 862600825}
   m_Layer: 0
   m_Name: Spine8
@@ -5042,18 +4794,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &862600826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862600823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &862600827
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5506,7 +5246,6 @@ GameObject:
   - component: {fileID: 947935945}
   - component: {fileID: 947935947}
   - component: {fileID: 947935946}
-  - component: {fileID: 947935948}
   m_Layer: 0
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -5634,18 +5373,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &947935948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947935944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &949337937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,7 +5383,6 @@ GameObject:
   m_Component:
   - component: {fileID: 949337939}
   - component: {fileID: 949337938}
-  - component: {fileID: 949337940}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -5739,18 +5465,6 @@ Transform:
   - {fileID: 1924596210}
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &949337940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949337937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4415879f0b6358742a2a31f8641d1270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &957329717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,7 +5603,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983836718}
-  - component: {fileID: 983836719}
   m_Layer: 0
   m_Name: Ranshoan
   m_TagString: Untagged
@@ -5912,18 +5625,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425635221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &983836719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983836717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13498dbee6053e54e8d4a8a067079198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1001853821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,7 +5636,6 @@ GameObject:
   - component: {fileID: 1001853822}
   - component: {fileID: 1001853826}
   - component: {fileID: 1001853825}
-  - component: {fileID: 1001853824}
   - component: {fileID: 1001853823}
   m_Layer: 0
   m_Name: Spine7
@@ -5981,18 +5681,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1001853824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001853821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1001853825
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6290,7 +5978,6 @@ GameObject:
   - component: {fileID: 1050820115}
   - component: {fileID: 1050820119}
   - component: {fileID: 1050820117}
-  - component: {fileID: 1050820116}
   - component: {fileID: 1050820120}
   m_Layer: 0
   m_Name: Spine5
@@ -6314,18 +6001,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 698135714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1050820116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050820114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1050820117
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6647,7 +6322,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111218154}
-  - component: {fileID: 1111218155}
   m_Layer: 0
   m_Name: MonsetrsZone
   m_TagString: Untagged
@@ -6670,18 +6344,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 204604325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1111218155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111218153}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a128190934d71fd4cb2017f3738aa004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1121717384
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,7 +6458,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121729826}
-  - component: {fileID: 1121729827}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -6823,18 +6484,6 @@ Transform:
   - {fileID: 1148875773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1121729827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121729825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ec92c85e7317b4cbe82b1bb8eae744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1148875772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6884,7 +6533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1159968569}
   - component: {fileID: 1159968570}
-  - component: {fileID: 1159968571}
   m_Layer: 0
   m_Name: ClickBtn
   m_TagString: Untagged
@@ -7004,18 +6652,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1159968571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159968568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7ec2c5bdc870d4996664ee80ab39a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1177642138
 GameObject:
   m_ObjectHideFlags: 0
@@ -7027,7 +6663,6 @@ GameObject:
   - component: {fileID: 1177642139}
   - component: {fileID: 1177642140}
   - component: {fileID: 1177642143}
-  - component: {fileID: 1177642144}
   - component: {fileID: 1177642145}
   - component: {fileID: 1177642149}
   - component: {fileID: 1177642148}
@@ -7131,18 +6766,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.72, y: 0.63}
   m_EdgeRadius: 0
---- !u!114 &1177642144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177642138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7161c7bf9f808f947b564d3d79921d5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1177642145
 SpriteRenderer:
   serializedVersion: 2
@@ -7493,7 +7116,6 @@ GameObject:
   - component: {fileID: 1243075227}
   - component: {fileID: 1243075231}
   - component: {fileID: 1243075230}
-  - component: {fileID: 1243075229}
   - component: {fileID: 1243075228}
   m_Layer: 0
   m_Name: Spine2
@@ -7539,18 +7161,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1243075229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243075226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1243075230
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7657,7 +7267,6 @@ GameObject:
   - component: {fileID: 1245956382}
   - component: {fileID: 1245956386}
   - component: {fileID: 1245956385}
-  - component: {fileID: 1245956384}
   - component: {fileID: 1245956383}
   m_Layer: 0
   m_Name: Spine6
@@ -7703,18 +7312,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1245956384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245956381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1245956385
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7961,7 +7558,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1326619054}
-  - component: {fileID: 1326619055}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -7985,18 +7581,6 @@ Transform:
   - {fileID: 1714467962}
   m_Father: {fileID: 320060364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1326619055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326619053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495dc240104af444db91f4f2eb77b23c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1364735511
 GameObject:
   m_ObjectHideFlags: 0
@@ -8007,7 +7591,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1364735512}
   - component: {fileID: 1364735514}
-  - component: {fileID: 1364735513}
   - component: {fileID: 1364735515}
   m_Layer: 0
   m_Name: DroneB
@@ -8031,18 +7614,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1699266928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1364735513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364735511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1364735514
 SpriteRenderer:
   serializedVersion: 2
@@ -8302,7 +7873,6 @@ GameObject:
   - component: {fileID: 1377907536}
   - component: {fileID: 1377907535}
   - component: {fileID: 1377907534}
-  - component: {fileID: 1377907533}
   m_Layer: 0
   m_Name: Ball
   m_TagString: ball
@@ -8325,18 +7895,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425635221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1377907533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377907531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb5b5623bf6c5041ba93cafe5dc7d4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1377907534
 Rigidbody2D:
   serializedVersion: 5
@@ -8730,7 +8288,6 @@ GameObject:
   - component: {fileID: 1424964233}
   - component: {fileID: 1424964237}
   - component: {fileID: 1424964236}
-  - component: {fileID: 1424964235}
   - component: {fileID: 1424964234}
   m_Layer: 0
   m_Name: Spine1
@@ -8776,18 +8333,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1424964235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424964232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1424964236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9622,7 +9167,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1542972280}
   - component: {fileID: 1542972279}
-  - component: {fileID: 1542972281}
   m_Layer: 0
   m_Name: ProtectedGreen
   m_TagString: Bolt
@@ -9705,18 +9249,6 @@ Transform:
   - {fileID: 943481340}
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542972281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542972278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c60f180eb740914eb6d8cf30e9d93f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1597210390
 GameObject:
   m_ObjectHideFlags: 0
@@ -9941,7 +9473,6 @@ GameObject:
   - component: {fileID: 1689234165}
   - component: {fileID: 1689234166}
   - component: {fileID: 1689234168}
-  - component: {fileID: 1689234169}
   - component: {fileID: 1689234170}
   m_Layer: 0
   m_Name: Spine1
@@ -10060,18 +9591,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.64
---- !u!114 &1689234169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689234164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1689234170
 Animator:
   serializedVersion: 7
@@ -10415,7 +9934,6 @@ GameObject:
   - component: {fileID: 1748111794}
   - component: {fileID: 1748111798}
   - component: {fileID: 1748111796}
-  - component: {fileID: 1748111795}
   - component: {fileID: 1748111799}
   m_Layer: 0
   m_Name: Spine7
@@ -10439,18 +9957,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 698135714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1748111795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748111793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1748111796
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10577,7 +10083,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749197985}
-  - component: {fileID: 1749197984}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -10585,18 +10090,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1749197984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749197983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50b0974a632a234daca72f53bb22435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1749197985
 Transform:
   m_ObjectHideFlags: 0
@@ -10805,7 +10298,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1832252269}
-  - component: {fileID: 1832252270}
   m_Layer: 0
   m_Name: CurrencyManager
   m_TagString: Untagged
@@ -10828,18 +10320,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1832252270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832252268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5833995dcb431b148b45e23dc99792d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1852245298
 GameObject:
   m_ObjectHideFlags: 0
@@ -10891,8 +10371,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858125657}
-  - component: {fileID: 1858125658}
-  - component: {fileID: 1858125659}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -10915,30 +10393,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1858125658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858125656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f638ed77bc5d2a4e9186503863bb31b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1858125659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858125656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f82e15807c0d5548b5d803592c806e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1859455147
 GameObject:
   m_ObjectHideFlags: 0
@@ -10950,7 +10404,6 @@ GameObject:
   - component: {fileID: 1859455148}
   - component: {fileID: 1859455150}
   - component: {fileID: 1859455149}
-  - component: {fileID: 1859455151}
   m_Layer: 0
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -11078,18 +10531,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1859455151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859455147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a35492875e014c9da5f87f2bc2905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1865977341
 GameObject:
   m_ObjectHideFlags: 0
@@ -11100,7 +10541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1865977342}
   - component: {fileID: 1865977344}
-  - component: {fileID: 1865977343}
   - component: {fileID: 1865977345}
   m_Layer: 0
   m_Name: DroneA
@@ -11124,18 +10564,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1699266928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1865977343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865977341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb286e5b2507ea4cabf493abfd1d5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1865977344
 SpriteRenderer:
   serializedVersion: 2
@@ -11744,7 +11172,6 @@ GameObject:
   - component: {fileID: 1962416136}
   - component: {fileID: 1962416140}
   - component: {fileID: 1962416138}
-  - component: {fileID: 1962416137}
   - component: {fileID: 1962416141}
   m_Layer: 0
   m_Name: Spine8
@@ -11768,18 +11195,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 698135714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1962416137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962416135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1962416138
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12460,7 +11875,6 @@ GameObject:
   - component: {fileID: 2140942152}
   - component: {fileID: 2140942156}
   - component: {fileID: 2140942155}
-  - component: {fileID: 2140942154}
   - component: {fileID: 2140942153}
   m_Layer: 0
   m_Name: Spine5
@@ -12506,18 +11920,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2140942154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140942151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0fc9b32293c394cb854a4d6716ecd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &2140942155
 CircleCollider2D:
   m_ObjectHideFlags: 0

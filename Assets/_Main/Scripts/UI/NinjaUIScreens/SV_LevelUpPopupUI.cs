@@ -34,10 +34,77 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
 
     [Header("Header")]
     [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI playerLevelText;
 
     [Header("Anim")]
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private float fadeDuration = 0.22f;
+
+    [Header("Skill BG Sprites")]
+    [SerializeField] private Sprite activeSkillBG;
+    [SerializeField] private Sprite passiveSkillBG;
+
+    [Header("Current Owned Skills Display")]
+    [SerializeField] private RectTransform shotYollowContainer;
+    [SerializeField] private RectTransform packGreenContainer;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (activeSkillBG == null || passiveSkillBG == null)
+        {
+            var assets = UnityEditor.AssetDatabase.LoadAllAssetRepresentationsAtPath("Assets/_Main/UI/User Interface/7.png");
+            if (assets != null)
+            {
+                foreach (var asset in assets)
+                {
+                    if (asset is Sprite s)
+                    {
+                        if (s.name == "WeaponItemBG_Normal") activeSkillBG = s;
+                        else if (s.name == "SupplyItemBG_Normal") passiveSkillBG = s;
+                    }
+                }
+            }
+        }
+
+        if (shotYollowContainer == null)
+        {
+            var panel = transform.Find("CurrentSkill");
+            if (panel != null)
+            {
+                var tr = panel.Find("ShotYollow");
+                if (tr != null) shotYollowContainer = tr.GetComponent<RectTransform>();
+            }
+        }
+
+        if (packGreenContainer == null)
+        {
+            var panel = transform.Find("CurrentSkill");
+            if (panel != null)
+            {
+                var tr = panel.Find("PackGreen");
+                if (tr != null) packGreenContainer = tr.GetComponent<RectTransform>();
+            }
+        }
+
+        if (playerLevelText == null)
+        {
+            var header = transform.Find("Header");
+            if (header != null)
+            {
+                var tr = header.Find("LevelText");
+                if (tr == null) tr = header.Find("Level");
+                if (tr != null) playerLevelText = tr.GetComponent<TextMeshProUGUI>();
+            }
+            if (playerLevelText == null)
+            {
+                var tr = transform.Find("LevelText");
+                if (tr == null) tr = transform.Find("Level");
+                if (tr != null) playerLevelText = tr.GetComponent<TextMeshProUGUI>();
+            }
+        }
+    }
+#endif
 
     protected override UniTask OnBeforeShowAsync(SV_LevelUpData data, CancellationToken ct)
     {
@@ -49,6 +116,15 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
         if (data == null || data.Options == null || slotContainer == null) return UniTask.CompletedTask;
 
         if (titleText != null) titleText.text = "LEVEL UP! Choose a skill";
+
+        if (playerLevelText != null)
+        {
+            var gameController = SceneRootManager.Instance?.Domain?.Get<GameController>();
+            if (gameController != null)
+            {
+                playerLevelText.text = $"{gameController.CurrentLevel.Value}";
+            }
+        }
 
         // Bind to the fixed child slots already present in the prefab (Left/Center/Right etc.).
         // If slotPrefab is assigned, fall back to instantiation for legacy flows.
@@ -65,12 +141,92 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
             BindSlot(slotTr.gameObject, data.Options[i]);
         }
 
+        UpdateCurrentSkills();
+
         Time.timeScale = 0f;
         return UniTask.CompletedTask;
     }
 
+    private void UpdateCurrentSkills()
+    {
+        if (shotYollowContainer == null || packGreenContainer == null) return;
+        var playerRoot = Object.FindObjectOfType<LuzartPlayerEntityRoot>();
+        if (playerRoot == null) return;
+        var runtimes = playerRoot.SkillRuntimes;
+        if (runtimes == null) return;
+        var activeSkills = new List<ZSkill>();
+        var passiveSkills = new List<ZSkill>();
+        foreach (var rt in runtimes)
+        {
+            if (rt == null || rt.Config == null) continue;
+            if (rt.Config.ETypeSkill == ETypeSkill.Active) activeSkills.Add(rt);
+            else if (rt.Config.ETypeSkill == ETypeSkill.Stat) passiveSkills.Add(rt);
+        }
+        var catalog = SV_LevelUpSlot.LookupCatalog();
+        PopulateSkillIcons(shotYollowContainer, activeSkills, catalog);
+        PopulateSkillIcons(packGreenContainer, passiveSkills, catalog);
+    }
+
+    private void PopulateSkillIcons(RectTransform container, List<ZSkill> skills, SV_SkillCatalog catalog)
+    {
+        int childCount = container.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var slotTr = container.GetChild(i);
+            var iconTr = slotTr.Find("ICON");
+            if (iconTr == null) continue;
+            var img = iconTr.GetComponent<Image>();
+            if (img == null) continue;
+
+            var starsContainer = FindChildLoose(slotTr, "Stars");
+            if (starsContainer != null)
+            {
+                starsContainer.gameObject.SetActive(false);
+            }
+
+            if (i < skills.Count)
+            {
+                var skill = skills[i];
+                Sprite iconSprite = null;
+                if (catalog != null)
+                {
+                    string id = skill.Config.name;
+                    var entry = catalog.FindById(id);
+                    if (entry == null && id != null && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+                    {
+                        entry = catalog.FindById(id.Substring(1));
+                    }
+                    if (entry != null)
+                    {
+                        iconSprite = entry.icon;
+                    }
+                }
+                if (iconSprite != null)
+                {
+                    img.sprite = iconSprite;
+                    img.enabled = true;
+                }
+                else
+                {
+                    img.enabled = false;
+                }
+            }
+            else
+            {
+                img.enabled = false;
+            }
+        }
+    }
+
     private void BindSlot(GameObject slotGO, Data_UpgradeSkill opt)
     {
+        var bgImage = slotGO.GetComponent<Image>();
+        if (bgImage != null && opt.SkillConfig != null)
+        {
+            bool isActive = opt.SkillConfig.ETypeSkill == ETypeSkill.Active;
+            bgImage.sprite = isActive ? activeSkillBG : passiveSkillBG;
+        }
+
         var slot = slotGO.GetComponent<SV_LevelUpSlot>();
         if (slot != null)
         {
@@ -111,28 +267,22 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
         var nameTr = FindChildLoose(slotGO.transform, "Name");
         if (nameTr != null) SetText(nameTr, displayName);
 
-        // Description: per-star description if available, else "Lv.X".
-        string descText = $"Lv.{opt.LevelIndex + 1}";
+        var playerRoot = Object.FindObjectOfType<LuzartPlayerEntityRoot>();
+        var owned = playerRoot != null && opt.SkillConfig != null ? playerRoot.GetRuntime(opt.SkillConfig) : null;
+        int nextLevelIndex = owned != null ? (int)((IZSkill)owned).LevelIndex.Value + 1 : 0;
+
+        string descText = $"Lv.{nextLevelIndex + 1}";
         if (entry != null && entry.perStarDescription != null && entry.perStarDescription.Length > 0)
         {
-            int starIdx = Mathf.Clamp(opt.LevelIndex, 0, entry.perStarDescription.Length - 1);
+            int starIdx = Mathf.Clamp(nextLevelIndex, 0, entry.perStarDescription.Length - 1);
             descText = entry.perStarDescription[starIdx];
         }
         var descTr = FindChildLoose(slotGO.transform, "Description");
         if (descTr != null) SetText(descTr, descText);
 
-        // Stars: turn on Stars1..Stars(LevelIndex+1) Active children, hide Inactive.
-        int starsLit = Mathf.Clamp(opt.LevelIndex + 1, 1, 5);
-        for (int s = 1; s <= 5; s++)
-        {
-            var starTr = FindChildLoose(slotGO.transform, "Stars" + s);
-            if (starTr == null) continue;
-            var active = starTr.Find("Active");
-            var inactive = starTr.Find("Inactive");
-            bool on = s <= starsLit;
-            if (active != null) active.gameObject.SetActive(on);
-            if (inactive != null) inactive.gameObject.SetActive(!on);
-        }
+        var starsContainer = FindChildLoose(slotGO.transform, "Stars");
+        int maxLevel = opt.SkillConfig != null && opt.SkillConfig.UpgradeConfigs != null ? opt.SkillConfig.UpgradeConfigs.Count : 5;
+        UpdateStars(starsContainer, nextLevelIndex, maxLevel);
 
         // Attach click handler — either on the root or on the Background child.
         var btn = slotGO.GetComponent<Button>();
@@ -165,6 +315,28 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
             if (found != null) return found;
         }
         return null;
+    }
+
+    private static void UpdateStars(Transform starsContainer, int levelIndex, int maxLevel)
+    {
+        if (starsContainer == null) return;
+        starsContainer.gameObject.SetActive(true);
+        int starsLit = Mathf.Clamp(levelIndex + 1, 1, maxLevel);
+        for (int s = 1; s <= 5; s++)
+        {
+            var starTr = FindChildLoose(starsContainer, "Stars" + s);
+            if (starTr == null) continue;
+            bool isVisible = s <= maxLevel;
+            starTr.gameObject.SetActive(isVisible);
+            if (isVisible)
+            {
+                var active = starTr.Find("Active");
+                var inactive = starTr.Find("Inactive");
+                bool on = s <= starsLit;
+                if (active != null) active.gameObject.SetActive(on);
+                if (inactive != null) inactive.gameObject.SetActive(!on);
+            }
+        }
     }
 
     private static void SetText(Transform tr, string text)

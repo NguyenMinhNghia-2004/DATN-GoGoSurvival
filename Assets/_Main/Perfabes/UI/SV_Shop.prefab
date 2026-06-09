@@ -461,8 +461,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2809984711032664442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.18970507}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -679,7 +679,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3512984588691348793}
-  - component: {fileID: 4341642458500338961}
   - component: {fileID: 2436627991123635262}
   m_Layer: 5
   m_Name: SV_Shop
@@ -687,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3512984588691348793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -709,25 +708,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4341642458500338961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633671582974439601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb038d2d54ad214eb612c5e36853d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mecanique: {fileID: 0}
-  btn0: {fileID: 2258403840670917437}
-  btn1: {fileID: 3405384502753896592}
-  btn2: {fileID: 7708391682308929517}
-  btn3: {fileID: 40634746546834124}
-  btn4: {fileID: 3430105025391682016}
-  btn5: {fileID: 5889127555562018766}
 --- !u!114 &2436627991123635262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,7 +1135,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2369.5076}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8438661823765529344
 MonoBehaviour:
@@ -1208,7 +1188,6 @@ GameObject:
   - component: {fileID: 6952025458427405578}
   - component: {fileID: 2042604708874223763}
   - component: {fileID: 3188853928989217975}
-  - component: {fileID: 1500058065437205837}
   m_Layer: 5
   m_Name: 'Faces '
   m_TagString: Untagged
@@ -1270,20 +1249,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &1500058065437205837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271238619862114393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &1304258329655625135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,10 +2675,10 @@ RectTransform:
   - {fileID: 6654955031652606993}
   m_Father: {fileID: 7984426673539263194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -121}
-  m_SizeDelta: {x: 1080, y: 1160.6978}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1160.6978}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &627455152037076677
 CanvasRenderer:
@@ -2953,7 +2918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ShoesDesign
         m_Mode: 1
@@ -3511,10 +3476,10 @@ RectTransform:
   - {fileID: 8300520005760840096}
   m_Father: {fileID: 7984426673539263194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -1305.5677}
-  m_SizeDelta: {x: 1080, y: 960.94}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 960.94}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4369612083436597350
 CanvasRenderer:
@@ -4261,7 +4226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BoneM
         m_Mode: 1
@@ -5778,7 +5743,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BonePendant
         m_Mode: 1
@@ -6351,7 +6316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ClothingDesign
         m_Mode: 1
@@ -7177,7 +7142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Geems
         m_Mode: 1
@@ -8221,7 +8186,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8616021888644028267}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.8102949
+  m_Size: 0.987547
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8582,7 +8547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4341642458500338961}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: WeaponDesign
         m_Mode: 1
