@@ -61,10 +61,25 @@ public class SV_MainMenuUI : UIBase
         WireExtraNav("Death", UIId.SV_Process);
         WireExtraNav("Evolve", UIId.SV_Evolve);
 
+        // The menu prefab embeds "Shop" and "Equipement" SECTIONS as children that ship ACTIVE
+        // (they stack on top of the "MainMenu" home → boot would show the equipment view). Hide
+        // them so boot lands on the home; the nav opens the standalone SV_Shop/SV_Equipement
+        // screens instead.
+        HideEmbeddedScreenSections();
+
         // Keep the bottom nav (DownContainer) rendering ON TOP of the Shop/Equipment screens so
         // it stays tappable while a screen is open (those screens otherwise cover the menu).
         RaiseNavOnTop();
         return UniTask.CompletedTask;
+    }
+
+    /// <summary>Hide the menu's embedded Shop/Equipement sections so the home (MainMenu) shows on
+    /// boot. These are redundant with the standalone SV_Shop/SV_Equipement screens the nav opens.</summary>
+    private void HideEmbeddedScreenSections()
+    {
+        foreach (Transform c in transform)
+            if (c.name == "Shop" || c.name == "Equipement")
+                c.gameObject.SetActive(false);
     }
 
     /// <summary>Put the DownContainer on its own sorting canvas above the screen popups so the

@@ -19,8 +19,19 @@ MonoBehaviour:
     slot: 0
     rarity: 0
     priceCoins: 100
+    maxLevel: 5
     statType: 1
     statAmount: 10
+    mode: 0
+  - id: Eq_ArmyUniform
+    displayName: Army Uniform
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 0
+    priceCoins: 100
+    maxLevel: 5
+    statType: 0
+    statAmount: 60
     mode: 0
   - id: Eq_Carapace
     displayName: Carapace
@@ -28,78 +39,238 @@ MonoBehaviour:
     slot: 1
     rarity: 0
     priceCoins: 120
+    maxLevel: 5
     statType: 0
     statAmount: 75
     mode: 0
-  - id: Eq_Bone_Pendant
-    displayName: Bone Pendant
-    icon: {fileID: 0}
-    slot: 2
-    rarity: 0
-    priceCoins: 100
-    statType: 1
-    statAmount: 0.05
-    mode: 1
-  - id: Eq_Army_Belt
-    displayName: Army Belt
-    icon: {fileID: 0}
-    slot: 3
-    rarity: 0
-    priceCoins: 80
-    statType: 7
-    statAmount: 0.1
-    mode: 0
-  - id: Eq_Silk_Gloves
-    displayName: Silk Gloves
-    icon: {fileID: 0}
-    slot: 4
-    rarity: 1
-    priceCoins: 150
-    statType: 4
-    statAmount: 0.1
-    mode: 1
-  - id: Eq_Light_Runners
-    displayName: Light Runners
-    icon: {fileID: 0}
-    slot: 5
-    rarity: 1
-    priceCoins: 150
-    statType: 2
-    statAmount: 0.5
-    mode: 0
-  - id: Eq_Full_Metal_Suit
+  - id: Eq_FullMetalSuit
     displayName: Full Metal Suit
     icon: {fileID: 0}
     slot: 1
     rarity: 1
     priceCoins: 300
+    maxLevel: 5
     statType: 0
     statAmount: 200
     mode: 0
-  - id: Eq_Emerald_Pendant
+  - id: Eq_ProtectiveSuit
+    displayName: Protective Suit
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 1
+    priceCoins: 260
+    maxLevel: 5
+    statType: 0
+    statAmount: 160
+    mode: 0
+  - id: Eq_TravelersJacket
+    displayName: Traveler's Jacket
+    icon: {fileID: 0}
+    slot: 1
+    rarity: 2
+    priceCoins: 500
+    maxLevel: 5
+    statType: 0
+    statAmount: 0.2
+    mode: 1
+  - id: Eq_BonePendant
+    displayName: Bone Pendant
+    icon: {fileID: 0}
+    slot: 2
+    rarity: 0
+    priceCoins: 100
+    maxLevel: 5
+    statType: 1
+    statAmount: 0.05
+    mode: 1
+  - id: Eq_MetalNeckguard
+    displayName: Metal Neckguard
+    icon: {fileID: 0}
+    slot: 2
+    rarity: 0
+    priceCoins: 110
+    maxLevel: 5
+    statType: 1
+    statAmount: 0.06
+    mode: 1
+  - id: Eq_TrendyCharm
+    displayName: Trendy Charm
+    icon: {fileID: 0}
+    slot: 2
+    rarity: 1
+    priceCoins: 240
+    maxLevel: 5
+    statType: 1
+    statAmount: 0.12
+    mode: 1
+  - id: Eq_EmeraldPendant
     displayName: Emerald Pendant
     icon: {fileID: 0}
     slot: 2
     rarity: 1
     priceCoins: 250
+    maxLevel: 5
     statType: 1
     statAmount: 0.15
     mode: 1
-  - id: Eq_Runesteel_Pauldrons
-    displayName: Runesteel Pauldrons
+  - id: Eq_ArmyNameplate
+    displayName: Army Nameplate
     icon: {fileID: 0}
-    slot: 1
+    slot: 2
     rarity: 2
     priceCoins: 500
-    statType: 0
+    maxLevel: 5
+    statType: 1
+    statAmount: 0.25
+    mode: 1
+  - id: Eq_ArmyBelt
+    displayName: Army Belt
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 0
+    priceCoins: 80
+    maxLevel: 5
+    statType: 7
+    statAmount: 0.1
+    mode: 0
+  - id: Eq_LeatherBelt
+    displayName: Leather Belt
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 0
+    priceCoins: 90
+    maxLevel: 5
+    statType: 7
+    statAmount: 0.12
+    mode: 0
+  - id: Eq_StylishBelt
+    displayName: Stylish Belt
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 1
+    priceCoins: 230
+    maxLevel: 5
+    statType: 7
+    statAmount: 0.22
+    mode: 0
+  - id: Eq_BroadWaistguard
+    displayName: Broad Waistguard
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 1
+    priceCoins: 220
+    maxLevel: 5
+    statType: 7
+    statAmount: 0.25
+    mode: 0
+  - id: Eq_WaistSensor
+    displayName: Waist Sensor
+    icon: {fileID: 0}
+    slot: 3
+    rarity: 2
+    priceCoins: 500
+    maxLevel: 5
+    statType: 7
+    statAmount: 0.4
+    mode: 0
+  - id: Eq_ArmyGloves
+    displayName: Army Gloves
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 0
+    priceCoins: 100
+    maxLevel: 5
+    statType: 4
+    statAmount: 0.08
+    mode: 1
+  - id: Eq_FingerlessGloves
+    displayName: Fingerless Gloves
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 0
+    priceCoins: 110
+    maxLevel: 5
+    statType: 4
+    statAmount: 0.1
+    mode: 1
+  - id: Eq_LeatherGloves
+    displayName: Leather Gloves
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 1
+    priceCoins: 240
+    maxLevel: 5
+    statType: 4
+    statAmount: 0.18
+    mode: 1
+  - id: Eq_ProtectiveGloves
+    displayName: Protective Gloves
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 1
+    priceCoins: 250
+    maxLevel: 5
+    statType: 4
     statAmount: 0.2
     mode: 1
-  - id: Eq_Prosthetic_Legs
+  - id: Eq_ShinyWristguard
+    displayName: Shiny Wristguard
+    icon: {fileID: 0}
+    slot: 4
+    rarity: 2
+    priceCoins: 500
+    maxLevel: 5
+    statType: 4
+    statAmount: 0.35
+    mode: 1
+  - id: Eq_ArmyBoots
+    displayName: Army Boots
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 0
+    priceCoins: 100
+    maxLevel: 5
+    statType: 2
+    statAmount: 0.3
+    mode: 0
+  - id: Eq_LayeredSnowshoes
+    displayName: Layered Snowshoes
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 0
+    priceCoins: 110
+    maxLevel: 5
+    statType: 2
+    statAmount: 0.4
+    mode: 0
+  - id: Eq_StylishBoots
+    displayName: Stylish Boots
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 1
+    priceCoins: 230
+    maxLevel: 5
+    statType: 2
+    statAmount: 0.5
+    mode: 0
+  - id: Eq_LightRunners
+    displayName: Light Runners
+    icon: {fileID: 0}
+    slot: 5
+    rarity: 1
+    priceCoins: 240
+    maxLevel: 5
+    statType: 2
+    statAmount: 0.6
+    mode: 0
+  - id: Eq_ProstheticLegs
     displayName: Prosthetic Legs
     icon: {fileID: 0}
     slot: 5
     rarity: 2
     priceCoins: 500
+    maxLevel: 5
     statType: 2
     statAmount: 1
     mode: 0
+  rarityVisuals: []
