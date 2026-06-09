@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Luzart
@@ -8,6 +9,14 @@ namespace Luzart
         public List<AssetEquipmentSlot> AssetEquipmentSlotsRight => GetAssetEquipmentSlotRight();
         public List<AssetEquipmentSlot> AssetEquipmentSlotsLeft => GetAssetEquipmentSlotLeft();
         public List<FrameStatInventoryVM> FrameStatInventoryVMs => Data.FrameStatInventoryVM;
+
+        // Accessors so ViewChilding-driven children can consume the slots/inventory.
+        // UIItemSpawnerGeneric needs IEnumerable<object>; ScrollViewItemInventoryData needs the InventoryItemData itself.
+        public IEnumerable<object> SlotsRightObj => AssetEquipmentSlotsRight.Cast<object>();
+        public IEnumerable<object> SlotsLeftObj => AssetEquipmentSlotsLeft.Cast<object>();
+        public IEnumerable<object> AllSlotsObj => Data.AssetEquipmentSlots.Cast<object>();
+        public IEnumerable<object> FrameStatsObj => FrameStatInventoryVMs.Cast<object>();
+        public InventoryItemData Inventory => Data;
 
         private List<AssetEquipmentSlot> _assetEquipmentSlotsLeft = null;
         private List<AssetEquipmentSlot> GetAssetEquipmentSlotLeft()

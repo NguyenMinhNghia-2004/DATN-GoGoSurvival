@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CostVisual_ResourcePool
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetCostVisualResolver_ResourcePool
   _id: io_costvisual
-  resourceCostView_singleLine: {fileID: 0}
+  resourceCostView_singleLine: {fileID: 7136543210660414352, guid: 6b40539c2a9bcd045aab3b97ec13d8ef, type: 3}

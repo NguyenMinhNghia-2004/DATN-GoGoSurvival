@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: PopupVisualResolver
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.PopupVisualResolver
   _id: io_popupresolver
-  popupPrefabs: []
+  popupPrefabs:
+  - {fileID: 8310776055716209706, guid: cb936ba566f5b4743985e1f135711bd5, type: 3}
+  - {fileID: 3292876319339145143, guid: ad7b7c99c6fa9f040a8e4c59a6f491fb, type: 3}
+  - {fileID: 2798625844031561163, guid: 387256e0882944546941b1d1742fce07, type: 3}
