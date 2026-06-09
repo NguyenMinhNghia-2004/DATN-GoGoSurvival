@@ -155,8 +155,16 @@ public class SV_MainMenuUI : UIBase
     /// <summary>Middle "Battle" nav button → close any open Shop/Equipment screen (return home).</summary>
     private async void OnNavHome() => await TryCloseOpenScreens();
 
-    private async void OnShop() => await ToggleScreen(UIId.SV_Shop);
-    private async void OnEquipment() => await ToggleScreen(UIId.SV_ItemEquipment);
+    // Faithful IO_Training port: nav opens the PopupService-driven screens via IOPortBootstrap
+    // instead of the old SV_Shop/SV_Equipement NinjaUI screens.
+    private void OnShop() => GetIOPort()?.OpenShop();
+    private void OnEquipment() => GetIOPort()?.OpenEquipment();
+
+    private static Luzart.IOPortBootstrap GetIOPort()
+    {
+        var srm = Luzart.SceneRootManager.Instance;
+        return srm != null && srm.Domain != null ? srm.Domain.GetFirst<Luzart.IOPortBootstrap>() : null;
+    }
     private async void OnSettings() => await SafeShowAsync(UIId.SV_SettingsPopup);
 
     /// <summary>Tap a nav button to open its screen; tap again (or the middle Battle button) to
@@ -191,6 +199,8 @@ public class SV_MainMenuUI : UIBase
         bool closed = false;
         if (IsScreenVisible<SV_ShopUI>()) { await SafeHide(UIId.SV_Shop); closed = true; }
         if (IsScreenVisible<SV_EquipementUI>()) { await SafeHide(UIId.SV_ItemEquipment); closed = true; }
+        // Also close any open IO_Training-port popup.
+        GetIOPort()?.CloseAllPopups();
         return closed;
     }
 
