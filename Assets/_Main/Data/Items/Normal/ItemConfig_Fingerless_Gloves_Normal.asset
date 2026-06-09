@@ -1,5 +1,171 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6187124644874098801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ff8ab2c34d0bf4fb1fae56205c3151, type: 3}
+  m_Name: Level_ItemConfig_Fingerless_Gloves_Normal
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetLevel
+  _id: ItemConfig_Fingerless_Gloves_Normal_level
+  levelIndex: 0
+  maxLevelIndex: 10
+  levelUpCosts:
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 5
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 1
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 6
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 2
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 7
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 3
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 8
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 4
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 9
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 5
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 10
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 6
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 11
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 7
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 12
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 8
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 13
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 9
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 14
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 10
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,15 +183,15 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _eRarity: 0
   _eTypeItem: 4
-  unlockable: {fileID: 0}
-  assetLevel: {fileID: 0}
+  unlockable: {fileID: 1017996056255743756}
+  assetLevel: {fileID: -6187124644874098801}
   upgradeItemConfigs:
   - modifierFactors:
     - factor:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 10.0
+          constant: 10
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -33,7 +199,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 12.0
+          constant: 12
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -41,7 +207,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 14.0
+          constant: 14
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -49,7 +215,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 16.0
+          constant: 16
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -57,7 +223,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 18.0
+          constant: 18
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -65,7 +231,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 20.0
+          constant: 20
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -73,7 +239,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 22.0
+          constant: 22
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -81,7 +247,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 24.0
+          constant: 24
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -89,7 +255,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 26.0
+          constant: 26
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   - modifierFactors:
@@ -97,7 +263,35 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: fd888948627a418cb52ddf2ffa321437, type: 2}
         value:
           mode: 0
-          constant: 28.0
+          constant: 28
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: 1d75f835264b487ea9bfa40ca15ccae1, type: 2}
   artifactModifierFactor: []
+--- !u!114 &1017996056255743756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2f0dcbf506dec4bbbfdde0e38b2d62, type: 3}
+  m_Name: Unlock_ItemConfig_Fingerless_Gloves_Normal
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetUnlockable
+  _id: ItemConfig_Fingerless_Gloves_Normal_unlock
+  unlockCosts:
+  - mode: 1
+    resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+    resourceAmount:
+      mode: 0
+      constant: 50
+      asset: {fileID: 0}
+    assetCost: {fileID: 0}
+  - mode: 1
+    resourcePool: {fileID: 11400000, guid: bb103affdc77c7246ab32b210c7bf81d, type: 2}
+    resourceAmount:
+      mode: 0
+      constant: 10
+      asset: {fileID: 0}
+    assetCost: {fileID: 0}

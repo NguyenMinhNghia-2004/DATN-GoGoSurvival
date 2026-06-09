@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a486b35f886a62f48ab234a4794123af, type: 3}
+  m_Name: InventoryItemData
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.InventoryItemData
+  _id: io_inventory
+  _frameStatInventoryVM: []
+  _assetEquipmentSlots:
+  - {fileID: 11400000, guid: 0659df8279d8c354b84d7fcd1340e6d2, type: 2}
+  - {fileID: 11400000, guid: d037e31e8153424459dc7756a8658418, type: 2}
+  - {fileID: 11400000, guid: 610acbfdf82cf1d46bb285065ce74a57, type: 2}
+  - {fileID: 11400000, guid: 8190531594d3e2a41be428e2aea450c5, type: 2}
+  - {fileID: 11400000, guid: a1eeae91d30f2fa43a1fbb0ddfc7a602, type: 2}
+  - {fileID: 11400000, guid: 823a7fa504e593f46af8491e919b288c, type: 2}

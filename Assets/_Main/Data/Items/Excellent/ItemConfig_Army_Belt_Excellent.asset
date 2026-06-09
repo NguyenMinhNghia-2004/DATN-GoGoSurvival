@@ -1,5 +1,921 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-737713588076602497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ff8ab2c34d0bf4fb1fae56205c3151, type: 3}
+  m_Name: Level_ItemConfig_Army_Belt_Excellent
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetLevel
+  _id: ItemConfig_Army_Belt_Excellent_level
+  levelIndex: 0
+  maxLevelIndex: 60
+  levelUpCosts:
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 5
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 1
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 6
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 2
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 7
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 3
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 8
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 4
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 9
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 5
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 10
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 6
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 11
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 7
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 12
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 8
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 13
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 9
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 14
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 10
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 15
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 11
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 16
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 12
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 17
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 13
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 18
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 14
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 19
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 15
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 20
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 16
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 21
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 17
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 22
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 18
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 23
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 19
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 24
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 20
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 25
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 21
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 26
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 22
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 27
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 23
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 28
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 24
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 29
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 25
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 30
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 26
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 31
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 27
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 32
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 28
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 33
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 29
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 34
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 30
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 35
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 31
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 36
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 32
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 37
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 33
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 38
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 34
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 39
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 35
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 40
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 36
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 41
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 37
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 42
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 38
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 43
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 39
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 44
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 40
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 45
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 41
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 46
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 42
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 47
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 43
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 48
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 44
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 49
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 45
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 50
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 46
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 51
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 47
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 52
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 48
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 53
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 49
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 54
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 50
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 55
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 51
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 56
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 52
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 57
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 53
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 58
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 54
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 59
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 55
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 60
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 56
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 61
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 57
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 62
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 58
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 63
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 59
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+  - List:
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 64
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
+    - mode: 1
+      resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+      resourceAmount:
+        mode: 0
+        constant: 60
+        asset: {fileID: 0}
+      assetCost: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,15 +933,15 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _eRarity: 1
   _eTypeItem: 3
-  unlockable: {fileID: 0}
-  assetLevel: {fileID: 0}
+  unlockable: {fileID: 2986633755707627384}
+  assetLevel: {fileID: -737713588076602497}
   upgradeItemConfigs:
   - modifierFactors:
     - factor:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 150.0
+          constant: 150
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -33,7 +949,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 162.0
+          constant: 162
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -41,7 +957,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 174.0
+          constant: 174
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -49,7 +965,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 186.0
+          constant: 186
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -57,7 +973,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 198.0
+          constant: 198
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -65,7 +981,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 210.0
+          constant: 210
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -73,7 +989,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 222.0
+          constant: 222
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -81,7 +997,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 234.0
+          constant: 234
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -89,7 +1005,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 246.0
+          constant: 246
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -97,7 +1013,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 258.0
+          constant: 258
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -105,7 +1021,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 270.0
+          constant: 270
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -113,7 +1029,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 282.0
+          constant: 282
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -121,7 +1037,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 294.0
+          constant: 294
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -129,7 +1045,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 306.0
+          constant: 306
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -137,7 +1053,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 318.0
+          constant: 318
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -145,7 +1061,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 330.0
+          constant: 330
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -153,7 +1069,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 342.0
+          constant: 342
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -161,7 +1077,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 354.0
+          constant: 354
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -169,7 +1085,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 366.0
+          constant: 366
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -177,7 +1093,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 378.0
+          constant: 378
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -185,7 +1101,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 390.0
+          constant: 390
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -193,7 +1109,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 402.0
+          constant: 402
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -201,7 +1117,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 414.0
+          constant: 414
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -209,7 +1125,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 426.0
+          constant: 426
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -217,7 +1133,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 438.0
+          constant: 438
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -225,7 +1141,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 450.0
+          constant: 450
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -233,7 +1149,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 462.0
+          constant: 462
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -241,7 +1157,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 474.0
+          constant: 474
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -249,7 +1165,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 486.0
+          constant: 486
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -257,7 +1173,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 498.0
+          constant: 498
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -265,7 +1181,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 510.0
+          constant: 510
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -273,7 +1189,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 522.0
+          constant: 522
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -281,7 +1197,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 534.0
+          constant: 534
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -289,7 +1205,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 546.0
+          constant: 546
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -297,7 +1213,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 558.0
+          constant: 558
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -305,7 +1221,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 570.0
+          constant: 570
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -313,7 +1229,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 582.0
+          constant: 582
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -321,7 +1237,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 594.0
+          constant: 594
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -329,7 +1245,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 606.0
+          constant: 606
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -337,7 +1253,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 618.0
+          constant: 618
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -345,7 +1261,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 630.0
+          constant: 630
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -353,7 +1269,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 642.0
+          constant: 642
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -361,7 +1277,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 654.0
+          constant: 654
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -369,7 +1285,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 666.0
+          constant: 666
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -377,7 +1293,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 678.0
+          constant: 678
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -385,7 +1301,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 690.0
+          constant: 690
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -393,7 +1309,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 702.0
+          constant: 702
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -401,7 +1317,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 714.0
+          constant: 714
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -409,7 +1325,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 726.0
+          constant: 726
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -417,7 +1333,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 738.0
+          constant: 738
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -425,7 +1341,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 750.0
+          constant: 750
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -433,7 +1349,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 762.0
+          constant: 762
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -441,7 +1357,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 774.0
+          constant: 774
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -449,7 +1365,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 786.0
+          constant: 786
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -457,7 +1373,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 798.0
+          constant: 798
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -465,7 +1381,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 810.0
+          constant: 810
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -473,7 +1389,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 822.0
+          constant: 822
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -481,7 +1397,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 834.0
+          constant: 834
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -489,7 +1405,7 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 846.0
+          constant: 846
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   - modifierFactors:
@@ -497,7 +1413,35 @@ MonoBehaviour:
         definition: {fileID: 11400000, guid: f771bd9f5a7d43618989d1e2e9b56f0a, type: 2}
         value:
           mode: 0
-          constant: 858.0
+          constant: 858
           asset: {fileID: 0}
       modifier: {fileID: 11400000, guid: cf0a3cf030414e06be40def3d831e6f4, type: 2}
   artifactModifierFactor: []
+--- !u!114 &2986633755707627384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2f0dcbf506dec4bbbfdde0e38b2d62, type: 3}
+  m_Name: Unlock_ItemConfig_Army_Belt_Excellent
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetUnlockable
+  _id: ItemConfig_Army_Belt_Excellent_unlock
+  unlockCosts:
+  - mode: 1
+    resourcePool: {fileID: 11400000, guid: 0c7143df3f325a34d91ccca22b5687de, type: 2}
+    resourceAmount:
+      mode: 0
+      constant: 100
+      asset: {fileID: 0}
+    assetCost: {fileID: 0}
+  - mode: 1
+    resourcePool: {fileID: 11400000, guid: 1cb2ecffaed08b744933a07edb2ed5a0, type: 2}
+    resourceAmount:
+      mode: 0
+      constant: 15
+      asset: {fileID: 0}
+    assetCost: {fileID: 0}

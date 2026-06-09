@@ -20,6 +20,9 @@ namespace Luzart
         [Header("SO assets to register in Domain")]
         [SerializeField] private List<AbstractScriptableContent> contents = new List<AbstractScriptableContent>();
 
+        [Header("SO services to register in Domain (e.g. PopupService, SaveService)")]
+        [SerializeField] private List<AbstractScriptableService> services = new List<AbstractScriptableService>();
+
         [Header("Camera registration")]
         [Tooltip("Register a Camera under id 'MainCamera' so behaviors can resolve it via _domain.Get<Camera>(\"MainCamera\").")]
         [SerializeField] private Camera mainCamera;
@@ -36,6 +39,15 @@ namespace Luzart
                 ic.Inject(domain);
                 domain.Add(ic, ic.Id);
             }
+            // Register services (PopupService, SaveService, ...). AddService injects them.
+            for (int i = 0; i < services.Count; i++)
+            {
+                var s = services[i];
+                if (s == null) continue;
+                IService isv = s;
+                domain.AddService(isv, isv.Id);
+            }
+
             if (mainCamera == null) mainCamera = Camera.main;
             if (mainCamera != null)
                 domain.Add(mainCamera, "MainCamera");
@@ -55,6 +67,14 @@ namespace Luzart
         public override void DoStart()
         {
             base.DoStart();
+            // Start services first (e.g. SaveService.LoadAllData) so content Start sees loaded data.
+            for (int i = 0; i < services.Count; i++)
+            {
+                var s = services[i];
+                if (s == null) continue;
+                ((IService)s).Initialize();
+                ((IService)s).StartService();
+            }
             for (int i = 0; i < contents.Count; i++)
             {
                 var c = contents[i];
