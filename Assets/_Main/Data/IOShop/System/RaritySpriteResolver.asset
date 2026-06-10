@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: RaritySpriteResolver
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.RaritySpriteResolver
   _id: io_rarity
-  _listSpriteRarity: []
+  _listSpriteRarity:
+  - eRarity: 0
+    sprite: {fileID: 21300134, guid: 1263f101bd3658846bfa6ca84e97543c, type: 3}
+  - eRarity: 1
+    sprite: {fileID: 21300130, guid: 1263f101bd3658846bfa6ca84e97543c, type: 3}
+  - eRarity: 2
+    sprite: {fileID: 21300038, guid: 1263f101bd3658846bfa6ca84e97543c, type: 3}

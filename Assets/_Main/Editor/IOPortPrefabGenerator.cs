@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEditor.Events;
@@ -145,9 +146,32 @@ public static class IOPortPrefabGenerator
 
         BuildPopupCanvas();
 
+        AssignRarityFrames();
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Debug.Log("[IOPortPF] Prefabs built + registered.");
+    }
+
+    // Rarity frames come from the game's equip-quality sheet (13.png, guid 1263f101...).
+    // Map our 3 rarities onto ascending EquipUI_Quality_* frames so imBg shows a tier color.
+    const string RARITY_SHEET_GUID = "1263f101bd3658846bfa6ca84e97543c";
+    static void AssignRarityFrames()
+    {
+        var resolver = AssetDatabase.LoadAssetAtPath<RaritySpriteResolver>(ROOT + "/System/RaritySpriteResolver.asset");
+        if (resolver == null) { Debug.LogError("[IOPortPF] RaritySpriteResolver asset missing"); return; }
+        var sheetPath = AssetDatabase.GUIDToAssetPath(RARITY_SHEET_GUID);
+        var sprites = AssetDatabase.LoadAllAssetsAtPath(sheetPath).OfType<Sprite>().ToList();
+        Sprite Pick(string n) => sprites.FirstOrDefault(s => s.name == n);
+        var list = new List<SpriteRarity>
+        {
+            new SpriteRarity { eRarity = ERarity.Rare,   sprite = Pick("EquipUI_Quality_2") },
+            new SpriteRarity { eRarity = ERarity.Epic,   sprite = Pick("EquipUI_Quality_3") },
+            new SpriteRarity { eRarity = ERarity.Legend, sprite = Pick("EquipUI_Quality_4") },
+        };
+        Set(resolver, "_listSpriteRarity", list);
+        EditorUtility.SetDirty(resolver);
+        Debug.Log($"[IOPortPF] Rarity frames assigned: Rare={list[0].sprite?.name}, Epic={list[1].sprite?.name}, Legend={list[2].sprite?.name}");
     }
 
     static GameObject BuildItemConfigView()
