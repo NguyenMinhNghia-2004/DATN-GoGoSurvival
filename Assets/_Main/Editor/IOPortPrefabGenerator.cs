@@ -400,22 +400,56 @@ public static class IOPortPrefabGenerator
 
     static GameObject BuildPopupShop(GameObject shopCardPf)
     {
-        var (root, close) = BuildPopupShell("Shop");
+        // Full-screen overlay root with dim backdrop.
+        var root = NewGO("Shop", null, new Vector2(1080, 1920));
+        Stretch((RectTransform)root.transform);
+        AddImage(root, new Color(0, 0, 0, 0.55f));
         var popup = root.AddComponent<PopupShop>();
         var view = root.AddComponent<PopupShopView>();
 
-        var cardsContainer = NewGO("Cards", root.transform, new Vector2(980, 1200));
-        ((RectTransform)cardsContainer.transform).anchoredPosition = new Vector2(0, -100);
-        var grid = cardsContainer.AddComponent<GridLayoutGroup>();
-        grid.cellSize = new Vector2(200,260); grid.spacing = new Vector2(16,16);
-        grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 4;
-        grid.childAlignment = TextAnchor.UpperCenter;
+        // Clone the old shop scroll frame (Items/Viewport(Mask)/Content + Scrollbar) for the look.
+        var container = CloneSubtree(SV_SHOP, "Container");
+        Transform gridParent;
+        if (container != null)
+        {
+            container.transform.SetParent(root.transform, false);
+            Stretch((RectTransform)container.transform);
+            var content = FindDeep(container.transform, "Content");
+            var host = content != null ? content : container.transform;
+            // drop the hand-placed static sections; spawn into a fresh responsive grid
+            for (int i = host.childCount - 1; i >= 0; i--)
+                UnityEngine.Object.DestroyImmediate(host.GetChild(i).gameObject);
+            var gridGo = new GameObject("Grid", typeof(RectTransform));
+            gridGo.transform.SetParent(host, false);
+            var grid = gridGo.AddComponent<GridLayoutGroup>();
+            grid.cellSize = new Vector2(325, 443); grid.spacing = new Vector2(16, 16);
+            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 3;
+            grid.childAlignment = TextAnchor.UpperCenter; grid.padding = new RectOffset(10, 10, 10, 10);
+            var csf = gridGo.AddComponent<ContentSizeFitter>();
+            csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            gridParent = gridGo.transform;
+        }
+        else
+        {
+            var gridGo = NewGO("Grid", root.transform, new Vector2(980, 1200));
+            var grid = gridGo.AddComponent<GridLayoutGroup>();
+            grid.cellSize = new Vector2(325, 443); grid.spacing = new Vector2(16, 16);
+            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 3;
+            gridParent = gridGo.transform;
+        }
 
-        var unlockedViewGo = NewGO("ShopUnlocked", root.transform, new Vector2(10,10));
+        // generated close X (old screen had no close affordance)
+        var closeGo = NewGO("CloseButton", root.transform, new Vector2(90, 90));
+        AddImage(closeGo, new Color(0.8f, 0.25f, 0.25f, 1f));
+        var close = closeGo.AddComponent<Button>();
+        AddText(NewGO("X", closeGo.transform, new Vector2(90, 90)), "X", 44, TextAlignmentOptions.Center);
+        var crt = (RectTransform)closeGo.transform; crt.anchorMin = new Vector2(1, 1); crt.anchorMax = new Vector2(1, 1); crt.anchoredPosition = new Vector2(-60, -60);
+
+        var unlockedViewGo = NewGO("ShopUnlocked", root.transform, new Vector2(10, 10));
         var unlockedView = unlockedViewGo.AddComponent<ShopPopupUnlockedView>();
-        var spawnerGo = NewGO("CardSpawner", cardsContainer.transform, new Vector2(10,10));
+        var spawnerGo = NewGO("CardSpawner", root.transform, new Vector2(10, 10));
         var spawner = spawnerGo.AddComponent<UIItemSpawnerGeneric>();
-        Set(spawner, "parent", cardsContainer.transform);
+        Set(spawner, "parent", gridParent);
         Set(spawner, "viewPrefab", shopCardPf.GetComponent<View>());
         Set(spawner, "children", new ViewChilding[0]);
         Set(unlockedView, "uIItemSpawnerGeneric", spawner);
