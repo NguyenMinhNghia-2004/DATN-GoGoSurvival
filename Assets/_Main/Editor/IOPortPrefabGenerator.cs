@@ -419,5 +419,68 @@ public static class IOPortPrefabGenerator
         rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one;
         rt.offsetMin = Vector2.zero; rt.offsetMax = Vector2.zero;
     }
+
+    // ---------- old-visual cloning ----------
+
+    // Deep-copy a named subtree out of a source prefab asset. Returned GO is detached
+    // (parent null), foreign MonoBehaviours + missing scripts stripped. Caller reparents + saves.
+    static GameObject CloneSubtree(string sourcePrefabPath, string childPath)
+    {
+        var contents = PrefabUtility.LoadPrefabContents(sourcePrefabPath);
+        try
+        {
+            var node = string.IsNullOrEmpty(childPath)
+                ? contents.transform
+                : contents.transform.Find(childPath);
+            if (node == null)
+            {
+                Debug.LogError($"[IOPortPF] subtree '{childPath}' not found in {sourcePrefabPath}");
+                return null;
+            }
+            var clone = UnityEngine.Object.Instantiate(node.gameObject);
+            clone.name = node.gameObject.name;
+            StripForeignBehaviours(clone);
+            return clone;
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(contents);
+        }
+    }
+
+    // Remove missing-script components + any MonoBehaviour whose type name starts with "SV_"
+    // (old NinjaUI binders) so the clone carries only pure visual components (Image/Text/etc).
+    static void StripForeignBehaviours(GameObject root)
+    {
+        foreach (var t in root.GetComponentsInChildren<Transform>(true))
+        {
+            GameObjectUtility.RemoveMonoBehavioursWithMissingScript(t.gameObject);
+            foreach (var c in t.GetComponents<MonoBehaviour>())
+            {
+                if (c == null) continue;
+                var n = c.GetType().Name;
+                if (n.StartsWith("SV_")) UnityEngine.Object.DestroyImmediate(c);
+            }
+        }
+    }
+
+    // Find a descendant by exact name (depth-first). Returns null if absent.
+    static Transform FindDeep(Transform root, string name)
+    {
+        if (root.name == name) return root;
+        for (int i = 0; i < root.childCount; i++)
+        {
+            var r = FindDeep(root.GetChild(i), name);
+            if (r != null) return r;
+        }
+        return null;
+    }
+
+    // Build a single-object SelectSwitchGameObject group (or empty group when go is null).
+    static Luzart.NewBase.SelectSwitchGameObject.GroupGameObject Grp(GameObject go)
+    {
+        return new Luzart.NewBase.SelectSwitchGameObject.GroupGameObject
+        { obGroups = go != null ? new[] { go } : new GameObject[0] };
+    }
 }
 #endif
