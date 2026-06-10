@@ -241,21 +241,47 @@ public static class IOPortPrefabGenerator
         return SavePrefab(root, PF + "/ItemViewInventory.prefab");
     }
 
+    const string SV_SHOP = "Assets/_Main/Perfabes/UI/SV_Shop.prefab";
+    const string SV_EQUIP = "Assets/_Main/Perfabes/UI/SV_Equipement.prefab";
+
     static GameObject BuildItemShopUnlockView(GameObject objectViewPf)
     {
-        var root = NewGO("ShopCard", null, new Vector2(200, 260));
-        AddImage(root, CARD);
-        var btn = root.AddComponent<Button>();
+        // Clone the old "Weapon Design" shop card (bg Image + Button + Name/Icon/Coins/Done).
+        var root = CloneSubtree(SV_SHOP, "Container/Items/Viewport/Content/Daily Shop/Weapon Design");
+        if (root == null) { root = NewGO("ShopCard", null, new Vector2(200, 260)); AddImage(root, CARD); }
+        root.name = "ShopCard";
+        var btn = root.GetComponent<Button>() ?? root.AddComponent<Button>();
         var v = root.AddComponent<ItemShopUnlockView>();
+
+        // Item icon + rarity frame render through ObjectView spawned into the card's Icon slot.
+        var iconNode = FindDeep(root.transform, "Icon");
+        if (iconNode != null)
+            foreach (Transform ch in iconNode) ch.gameObject.SetActive(false);
         var ov = (GameObject)PrefabUtility.InstantiatePrefab(objectViewPf);
-        ov.transform.SetParent(root.transform, false);
-        ((RectTransform)ov.transform).anchoredPosition = new Vector2(0, 50);
-        var costParent = NewGO("Costs", root.transform, new Vector2(190, 70));
-        ((RectTransform)costParent.transform).anchoredPosition = new Vector2(0, -90);
-        var vlg = costParent.AddComponent<VerticalLayoutGroup>();
-        vlg.childControlHeight = true; vlg.childForceExpandHeight = false;
+        ov.transform.SetParent(iconNode != null ? iconNode : root.transform, false);
+        Stretch((RectTransform)ov.transform);
+
+        // Cost rows spawn in a VLG placed over the old static price ("Coins"); blank static labels.
+        var coins = FindDeep(root.transform, "Coins");
+        var costGo = new GameObject("Costs", typeof(RectTransform));
+        costGo.transform.SetParent(root.transform, false);
+        var crt = (RectTransform)costGo.transform;
+        if (coins != null)
+        {
+            var cr = (RectTransform)coins;
+            crt.anchorMin = cr.anchorMin; crt.anchorMax = cr.anchorMax;
+            crt.pivot = cr.pivot; crt.anchoredPosition = cr.anchoredPosition; crt.sizeDelta = cr.sizeDelta;
+            coins.gameObject.SetActive(false);
+        }
+        var vlg = costGo.AddComponent<VerticalLayoutGroup>();
+        vlg.childControlHeight = true; vlg.childForceExpandHeight = false; vlg.childAlignment = TextAnchor.MiddleCenter;
+        var nameNode = FindDeep(root.transform, "Name");
+        if (nameNode != null) { var nt = nameNode.GetComponent<Text>(); if (nt != null) nt.text = ""; }
+        var done = FindDeep(root.transform, "Done");
+        if (done != null) done.gameObject.SetActive(false);
+
         Set(v, "objectView", ov.GetComponent<ObjectView>());
-        Set(v, "parentSpawnCost", costParent.transform);
+        Set(v, "parentSpawnCost", costGo.transform);
         Set(v, "children", new ViewChilding[0]);
         AddClick(btn, v.OnClickUnlock);
         return SavePrefab(root, PF + "/ShopCard.prefab");
