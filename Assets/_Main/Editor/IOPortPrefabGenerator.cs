@@ -287,15 +287,38 @@ public static class IOPortPrefabGenerator
         return SavePrefab(root, PF + "/ShopCard.prefab");
     }
 
+    const string SLOT_PATH = "Background/Scrolling/Viewport/Content/HalfPlayerShow/Left/Firs";
+
     static GameObject BuildSlotItemEquipmentView(GameObject lvlViewPf)
     {
-        var root = NewGO("SlotItem", null, new Vector2(130, 130));
-        AddImage(root, SLOT);
-        var btn = root.AddComponent<Button>();
+        // Clone an old equipment slot frame (Image + Button + Icon/LogoNot/Text/Reward).
+        var root = CloneSubtree(SV_EQUIP, SLOT_PATH);
+        if (root == null) { root = NewGO("SlotItem", null, new Vector2(130, 130)); AddImage(root, SLOT); }
+        root.name = "SlotItem";
+        var btn = root.GetComponent<Button>() ?? root.AddComponent<Button>();
         var v = root.AddComponent<SlotItemEquipmentView>();
-        var child = (GameObject)PrefabUtility.InstantiatePrefab(lvlViewPf);
-        child.transform.SetParent(root.transform, false);
-        Set(v, "itemView", child.GetComponent<ItemViewWithLevelInventory>());
+        var iv = root.AddComponent<ItemViewWithLevelInventory>();
+
+        var icon = FindDeep(root.transform, "Icon");
+        var logoNot = FindDeep(root.transform, "LogoNot");
+        var legacyLvl = FindDeep(root.transform, "Text (Legacy)");
+        var frameImg = root.GetComponent<Image>();
+        Set(iv, "imIcon", icon != null ? icon.GetComponent<Image>() : null);
+        Set(iv, "imBg", frameImg);
+        Set(iv, "txtLevel", legacyLvl != null ? AddTmpAtLegacy(legacyLvl) : null);
+
+        // bsState: 0=equipped(show Icon), 1=empty(show LogoNot), 2=locked(reuse LogoNot)
+        var bsState = root.AddComponent<Luzart.NewBase.SelectSwitchGameObject>();
+        bsState.obSelects = new[]
+        {
+            Grp(icon != null ? icon.gameObject : null),
+            Grp(logoNot != null ? logoNot.gameObject : null),
+            Grp(logoNot != null ? logoNot.gameObject : null),
+        };
+        DisableByPrefix(root.transform, "Reward");
+
+        Set(v, "itemView", iv);
+        Set(v, "bsState", bsState);
         Set(v, "children", new ViewChilding[0]);
         AddClick(btn, v.OnClickItemView);
         return SavePrefab(root, PF + "/SlotItem.prefab");
@@ -565,6 +588,30 @@ public static class IOPortPrefabGenerator
     {
         return new Luzart.NewBase.SelectSwitchGameObject.GroupGameObject
         { obGroups = go != null ? new[] { go } : new GameObject[0] };
+    }
+
+    // ItemViewWithLevelInventory.txtLevel is TMP, but old level nodes are legacy Text.
+    // Add a TMP sibling at the legacy node's rect, disable the legacy node, return the TMP.
+    static TMP_Text AddTmpAtLegacy(Transform legacy)
+    {
+        var src = legacy.GetComponent<Text>();
+        var go = new GameObject("LevelTMP", typeof(RectTransform));
+        go.transform.SetParent(legacy.parent, false);
+        var rt = (RectTransform)go.transform; var srt = (RectTransform)legacy;
+        rt.anchorMin = srt.anchorMin; rt.anchorMax = srt.anchorMax; rt.pivot = srt.pivot;
+        rt.anchoredPosition = srt.anchoredPosition; rt.sizeDelta = srt.sizeDelta;
+        var t = go.AddComponent<TextMeshProUGUI>();
+        t.text = src != null ? src.text : "Lv.0";
+        t.fontSize = 26; t.alignment = TextAlignmentOptions.Center; t.color = Color.white;
+        legacy.gameObject.SetActive(false);
+        return t;
+    }
+
+    // Disable every descendant whose name starts with prefix (e.g. "Reward" ad badges).
+    static void DisableByPrefix(Transform root, string prefix)
+    {
+        foreach (var t in root.GetComponentsInChildren<Transform>(true))
+            if (t != root && t.name.StartsWith(prefix)) t.gameObject.SetActive(false);
     }
 }
 #endif
