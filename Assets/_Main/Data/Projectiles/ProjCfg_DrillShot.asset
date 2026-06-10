@@ -15,9 +15,9 @@ MonoBehaviour:
   _id: ProjCfg_DrillShot
   _sprite: {fileID: 21300000, guid: f50673b214fb52044a54ee81afd79131, type: 3}
   _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
-  _scale: {x: 1.0, y: 1.0, z: 1.0}
+  _scale: {x: 1, y: 1, z: 1}
   _visualPrefab: {fileID: 4795172057830980364, guid: 52c1aff59f884ede80fc141a044156f1, type: 3}
-  _lifeTime: 3.0
+  _lifeTime: 3
   animationConfig: {fileID: 0}
   statDefinitions:
   - {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
@@ -28,3 +28,4 @@ MonoBehaviour:
   _knockbackOnHit: 0
   _knockbackForce: 1.5
   _damageCooldown: 0.3
+  _rotateTowardsDirection: 1

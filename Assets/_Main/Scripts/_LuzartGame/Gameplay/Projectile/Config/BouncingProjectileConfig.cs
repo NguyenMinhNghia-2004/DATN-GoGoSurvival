@@ -26,11 +26,15 @@ namespace Luzart
                  "same enemy every frame. Seconds.")]
         [SerializeField] private float _damageCooldown = 0.3f;
 
+        [Tooltip("Rotate the projectile to face its movement direction.")]
+        [SerializeField] private bool _rotateTowardsDirection = false;
+
         public int MaxBounces => _maxBounces;
         public bool PierceEnemies => _pierceEnemies;
         public bool KnockbackOnHit => _knockbackOnHit;
         public float KnockbackForce => _knockbackForce;
         public float DamageCooldown => _damageCooldown;
+        public bool RotateTowardsDirection => _rotateTowardsDirection;
 
         public override ProjectileEntity CreateProjectile(IEntity owner)
             => new BouncingProjectile(this, owner);
