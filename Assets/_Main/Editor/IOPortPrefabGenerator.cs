@@ -397,37 +397,82 @@ public static class IOPortPrefabGenerator
 
     static GameObject BuildPopupItemInventory(GameObject slotPf, GameObject gridCellPf)
     {
-        var (root, close) = BuildPopupShell("Equipment");
+        // Full-screen overlay with dim backdrop; clone the old HalfPlayerShow body.
+        var root = NewGO("Equipment", null, new Vector2(1080, 1920));
+        Stretch((RectTransform)root.transform);
+        AddImage(root, new Color(0, 0, 0, 0.55f));
         var popup = root.AddComponent<PopupItemInventory>();
         var view = root.AddComponent<PopupItemInventoryView>();
 
-        // slots row
-        var slotsContainer = NewGO("Slots", root.transform, new Vector2(900, 150));
-        ((RectTransform)slotsContainer.transform).anchoredPosition = new Vector2(0, 480);
-        var hlg = slotsContainer.AddComponent<HorizontalLayoutGroup>();
-        hlg.childAlignment = TextAnchor.MiddleCenter; hlg.spacing = 10; hlg.childControlWidth = false; hlg.childControlHeight = false;
-        var slotsSpawnerGo = NewGO("SlotsSpawner", slotsContainer.transform, new Vector2(10,10));
-        var slotsSpawner = slotsSpawnerGo.AddComponent<UIItemSpawnerGeneric>();
-        Set(slotsSpawner, "parent", slotsContainer.transform);
-        Set(slotsSpawner, "viewPrefab", slotPf.GetComponent<View>());
-        Set(slotsSpawner, "children", new ViewChilding[0]);
+        Transform leftCol = null, rightCol = null, gridContent = null;
+        var hp = CloneSubtree(SV_EQUIP, "Background/Scrolling/Viewport/Content/HalfPlayerShow");
+        if (hp != null)
+        {
+            hp.transform.SetParent(root.transform, false);
+            Stretch((RectTransform)hp.transform);
+            leftCol = hp.transform.Find("Left");
+            rightCol = hp.transform.Find("Right");
+            foreach (var col in new[] { leftCol, rightCol })
+            {
+                if (col == null) continue;
+                for (int i = col.childCount - 1; i >= 0; i--)
+                    UnityEngine.Object.DestroyImmediate(col.GetChild(i).gameObject);
+                var vlg = col.gameObject.AddComponent<VerticalLayoutGroup>();
+                vlg.childControlWidth = false; vlg.childControlHeight = false;
+                vlg.childForceExpandWidth = false; vlg.childForceExpandHeight = false;
+                vlg.childAlignment = TextAnchor.MiddleCenter; vlg.spacing = 30;
+            }
+            // Turn WeaponIcons into a scroll viewport hosting a responsive grid content.
+            var weaponIcons = hp.transform.Find("DownFill/Bg/WeaponIcons");
+            if (weaponIcons != null)
+            {
+                for (int i = weaponIcons.childCount - 1; i >= 0; i--)
+                    UnityEngine.Object.DestroyImmediate(weaponIcons.GetChild(i).gameObject);
+                if (weaponIcons.GetComponent<Mask>() == null) weaponIcons.gameObject.AddComponent<Mask>();
+                var sr = weaponIcons.gameObject.AddComponent<ScrollRect>();
+                var contentGo = new GameObject("GridContent", typeof(RectTransform));
+                contentGo.transform.SetParent(weaponIcons, false);
+                var crt = (RectTransform)contentGo.transform;
+                crt.anchorMin = new Vector2(0, 1); crt.anchorMax = new Vector2(1, 1);
+                crt.pivot = new Vector2(0.5f, 1); crt.anchoredPosition = Vector2.zero; crt.sizeDelta = Vector2.zero;
+                var g = contentGo.AddComponent<GridLayoutGroup>();
+                g.cellSize = new Vector2(150, 150); g.spacing = new Vector2(12, 12);
+                g.constraint = GridLayoutGroup.Constraint.FixedColumnCount; g.constraintCount = 4;
+                g.childAlignment = TextAnchor.UpperCenter; g.padding = new RectOffset(12, 12, 12, 12);
+                var csf = contentGo.AddComponent<ContentSizeFitter>();
+                csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+                sr.content = crt; sr.viewport = (RectTransform)weaponIcons;
+                sr.horizontal = false; sr.vertical = true;
+                gridContent = contentGo.transform;
+            }
+        }
+        // Fallbacks if the clone failed.
+        if (leftCol == null) { var g = NewGO("LeftCol", root.transform, new Vector2(200, 700)); ((RectTransform)g.transform).anchoredPosition = new Vector2(-380, 200); g.AddComponent<VerticalLayoutGroup>(); leftCol = g.transform; }
+        if (rightCol == null) { var g = NewGO("RightCol", root.transform, new Vector2(200, 700)); ((RectTransform)g.transform).anchoredPosition = new Vector2(380, 200); g.AddComponent<VerticalLayoutGroup>(); rightCol = g.transform; }
+        if (gridContent == null) { var g = NewGO("OwnedGridContent", root.transform, new Vector2(960, 700)); ((RectTransform)g.transform).anchoredPosition = new Vector2(0, -300); var gl = g.AddComponent<GridLayoutGroup>(); gl.cellSize = new Vector2(150, 150); gl.spacing = new Vector2(12, 12); gl.constraint = GridLayoutGroup.Constraint.FixedColumnCount; gl.constraintCount = 6; gridContent = g.transform; }
 
-        // owned grid
-        var gridScroll = NewGO("Grid", root.transform, new Vector2(960, 700));
-        ((RectTransform)gridScroll.transform).anchoredPosition = new Vector2(0, -200);
-        var grid = gridScroll.AddComponent<GridLayoutGroup>();
-        grid.cellSize = new Vector2(130,130); grid.spacing = new Vector2(12,12);
-        grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 6;
-        grid.childAlignment = TextAnchor.UpperCenter;
-        var scrollData = gridScroll.AddComponent<ScrollViewItemInventoryData>();
-        Set(scrollData, "parentSpawn", gridScroll.transform);
-        Set(scrollData, "itemPrefabs", gridCellPf.GetComponent<ItemViewInventory>());
-        Set(scrollData, "children", new ViewChilding[0]);
+        // Generated close X.
+        var closeGo = NewGO("CloseButton", root.transform, new Vector2(90, 90));
+        AddImage(closeGo, new Color(0.8f, 0.25f, 0.25f, 1f));
+        var close = closeGo.AddComponent<Button>();
+        AddText(NewGO("X", closeGo.transform, new Vector2(90, 90)), "X", 44, TextAlignmentOptions.Center);
+        var ccrt = (RectTransform)closeGo.transform; ccrt.anchorMin = new Vector2(1, 1); ccrt.anchorMax = new Vector2(1, 1); ccrt.anchoredPosition = new Vector2(-60, -60);
 
-        // wire ViewChilding children of the main view
+        // Two slot spawners (dual column) + the owned-grid scroll data.
+        var leftSpawnerGo = NewGO("SlotsLeftSpawner", root.transform, new Vector2(10, 10));
+        var leftSpawner = leftSpawnerGo.AddComponent<UIItemSpawnerGeneric>();
+        Set(leftSpawner, "parent", leftCol); Set(leftSpawner, "viewPrefab", slotPf.GetComponent<View>()); Set(leftSpawner, "children", new ViewChilding[0]);
+        var rightSpawnerGo = NewGO("SlotsRightSpawner", root.transform, new Vector2(10, 10));
+        var rightSpawner = rightSpawnerGo.AddComponent<UIItemSpawnerGeneric>();
+        Set(rightSpawner, "parent", rightCol); Set(rightSpawner, "viewPrefab", slotPf.GetComponent<View>()); Set(rightSpawner, "children", new ViewChilding[0]);
+        var gridGo = NewGO("OwnedGrid", root.transform, new Vector2(10, 10));
+        var scrollData = gridGo.AddComponent<ScrollViewItemInventoryData>();
+        Set(scrollData, "parentSpawn", gridContent); Set(scrollData, "itemPrefabs", gridCellPf.GetComponent<ItemViewInventory>()); Set(scrollData, "children", new ViewChilding[0]);
+
         Set(view, "children", new ViewChilding[]
         {
-            MakeChilding("AllSlotsObj", slotsSpawner),
+            MakeChilding("SlotsLeftObj", leftSpawner),
+            MakeChilding("SlotsRightObj", rightSpawner),
             MakeChilding("Inventory", scrollData),
         });
 
