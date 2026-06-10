@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 5745268324465167533}
   - component: {fileID: 1459641339073754956}
   - component: {fileID: 3002765174596963103}
-  - component: {fileID: 7717225274654798848}
+  - component: {fileID: 215798526398508260}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.SlotItemEquipmentView
   children: []
   itemView: {fileID: 3002765174596963103}
-  bsState: {fileID: 7717225274654798848}
+  bsState: {fileID: 215798526398508260}
   bsWeapon: {fileID: 0}
 --- !u!114 &3002765174596963103
 MonoBehaviour:
@@ -558,7 +558,7 @@ MonoBehaviour:
   imIcon: {fileID: 3086552117621166262}
   imBg: {fileID: 1184139476485686617}
   txtLevel: {fileID: 5154567555325162324}
---- !u!114 &7717225274654798848
+--- !u!114 &215798526398508260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,16 +567,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5303471096980606274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c50198c3338ca4191f8df9c0286edb, type: 3}
+  m_Script: {fileID: 11500000, guid: d018de82ef242a9439f4e762d936fc5b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Luzart.NewBase.SelectSwitchGameObject
-  obSelects:
-  - obGroups:
-    - {fileID: 6089292432940241067}
-  - obGroups:
-    - {fileID: 2131026971490615779}
-  - obGroups:
-    - {fileID: 2131026971490615779}
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.IOSwitchGameObject
+  groups:
+  - {fileID: 6089292432940241067}
+  - {fileID: 2131026971490615779}
 --- !u!1 &6089292432940241067
 GameObject:
   m_ObjectHideFlags: 0

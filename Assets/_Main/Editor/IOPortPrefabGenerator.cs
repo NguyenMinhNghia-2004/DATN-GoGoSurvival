@@ -322,13 +322,16 @@ public static class IOPortPrefabGenerator
         Set(iv, "imBg", frameImg);
         Set(iv, "txtLevel", legacyLvl != null ? AddTmpAtLegacy(legacyLvl) : null);
 
-        // bsState: 0=equipped(show Icon), 1=empty(show LogoNot), 2=locked(reuse LogoNot)
-        var bsState = root.AddComponent<Luzart.NewBase.SelectSwitchGameObject>();
-        bsState.obSelects = new[]
+        // bsState: 0=equipped(show Icon), 1=empty(show LogoNot). Locked (index 2) shows nothing
+        // (no lock art; all slots are unlocked in practice). Do NOT repeat LogoNot for index 2 —
+        // the switch would re-hide it on the later iteration.
+        // IOSwitchGameObject overrides BaseSelect.Select(int) directly so the base-typed
+        // call from SlotItemEquipmentView actually fires (stock SelectSwitch is a no-op there).
+        var bsState = root.AddComponent<IOSwitchGameObject>();
+        bsState.groups = new[]
         {
-            Grp(icon != null ? icon.gameObject : null),
-            Grp(logoNot != null ? logoNot.gameObject : null),
-            Grp(logoNot != null ? logoNot.gameObject : null),
+            icon != null ? icon.gameObject : null,
+            logoNot != null ? logoNot.gameObject : null,
         };
         DisableByPrefix(root.transform, "Reward");
 
@@ -381,9 +384,17 @@ public static class IOPortPrefabGenerator
         var unequipBtn = MakeButton(root.transform, "Unequip", new Color(0.5f,0.5f,0.55f,1f), new Vector2(-200, -380));
         var upBtn = MakeButton(root.transform, "Upgrade", GOOD, new Vector2(200, -380));
 
+        // Equip & Unequip share a position; a toggle shows exactly one (fixes overlap bug).
+        // IOToggleGameObject overrides BaseSelect.Select(bool) directly so PopupItemEquipView's
+        // base-typed call actually fires (stock SelectToggle is a no-op through a BaseSelect field).
+        var bsEquip = root.AddComponent<IOToggleGameObject>();
+        bsEquip.obSelect = new[] { equipBtn.gameObject };     // shown when item is NOT equipped
+        bsEquip.obUnSelect = new[] { unequipBtn.gameObject }; // shown when item IS equipped
+
         Set(view, "txtName", nameT); Set(view, "txtDescription", descT);
         Set(view, "objectView", ov.GetComponent<ObjectView>());
         Set(view, "btnEquip", equipBtn); Set(view, "btnUnEquip", unequipBtn); Set(view, "btnUpgrade", upBtn);
+        Set(view, "bsEquipButton", bsEquip);
         Set(view, "parentSpawn", costParent.transform);
         Set(view, "children", new ViewChilding[0]);
         AddClick(equipBtn, view.OnClickEquip);
@@ -666,13 +677,6 @@ public static class IOPortPrefabGenerator
             if (r != null) return r;
         }
         return null;
-    }
-
-    // Build a single-object SelectSwitchGameObject group (or empty group when go is null).
-    static Luzart.NewBase.SelectSwitchGameObject.GroupGameObject Grp(GameObject go)
-    {
-        return new Luzart.NewBase.SelectSwitchGameObject.GroupGameObject
-        { obGroups = go != null ? new[] { go } : new GameObject[0] };
     }
 
     // ItemViewWithLevelInventory.txtLevel is TMP, but old level nodes are legacy Text.
