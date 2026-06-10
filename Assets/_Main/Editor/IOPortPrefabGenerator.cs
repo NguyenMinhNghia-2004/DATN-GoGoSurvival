@@ -228,15 +228,30 @@ public static class IOPortPrefabGenerator
         return SavePrefab(root, PF + "/ItemViewWithLevel.prefab");
     }
 
+    const string WEAPONICONS_PATH = "Background/Scrolling/Viewport/Content/HalfPlayerShow/DownFill/Bg/WeaponIcons";
+
     static GameObject BuildItemViewInventory(GameObject lvlViewPf)
     {
-        var root = NewGO("ItemViewInventory", null, new Vector2(120, 120));
-        AddImage(root, new Color(1,1,1,0.02f));
-        var btn = root.AddComponent<Button>();
+        // Clone an old owned-grid cell ("Cnte": Image + Button + Icon/LogoNot/Text).
+        var root = CloneChildByIndex(SV_EQUIP, WEAPONICONS_PATH, 0);
+        if (root == null) { root = NewGO("ItemViewInventory", null, new Vector2(120, 120)); AddImage(root, new Color(1, 1, 1, 0.02f)); }
+        root.name = "ItemViewInventory";
+        var btn = root.GetComponent<Button>() ?? root.AddComponent<Button>();
         var v = root.AddComponent<ItemViewInventory>();
-        var child = (GameObject)PrefabUtility.InstantiatePrefab(lvlViewPf);
-        child.transform.SetParent(root.transform, false);
-        Set(v, "_itemView", child.GetComponent<ItemViewWithLevelInventory>());
+        var iv = root.AddComponent<ItemViewWithLevelInventory>();
+
+        var icon = FindDeep(root.transform, "Icon");
+        var logoNot = FindDeep(root.transform, "LogoNot");
+        var legacyLvl = FindDeep(root.transform, "Text (Legacy)");
+        var frameImg = root.GetComponent<Image>();
+        Set(iv, "imIcon", icon != null ? icon.GetComponent<Image>() : null);
+        Set(iv, "imBg", frameImg);
+        Set(iv, "txtLevel", legacyLvl != null ? AddTmpAtLegacy(legacyLvl) : null);
+        // a cell always renders an owned item — hide the empty placeholder + ad badge
+        if (logoNot != null) logoNot.gameObject.SetActive(false);
+        DisableByPrefix(root.transform, "Reward");
+
+        Set(v, "_itemView", iv);
         AddClick(btn, v.OnClickItemView);
         return SavePrefab(root, PF + "/ItemViewInventory.prefab");
     }
@@ -546,6 +561,31 @@ public static class IOPortPrefabGenerator
             }
             var clone = UnityEngine.Object.Instantiate(node.gameObject);
             clone.name = node.gameObject.name;
+            StripForeignBehaviours(clone);
+            return clone;
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(contents);
+        }
+    }
+
+    // Like CloneSubtree but copies the child at `index` of a parent (robust for nodes whose
+    // names carry trailing spaces, e.g. the "Cnte " grid cells).
+    static GameObject CloneChildByIndex(string sourcePrefabPath, string parentPath, int index)
+    {
+        var contents = PrefabUtility.LoadPrefabContents(sourcePrefabPath);
+        try
+        {
+            var parent = contents.transform.Find(parentPath);
+            if (parent == null || index < 0 || index >= parent.childCount)
+            {
+                Debug.LogError($"[IOPortPF] child {index} of '{parentPath}' not found in {sourcePrefabPath}");
+                return null;
+            }
+            var node = parent.GetChild(index);
+            var clone = UnityEngine.Object.Instantiate(node.gameObject);
+            clone.name = node.gameObject.name.Trim();
             StripForeignBehaviours(clone);
             return clone;
         }
