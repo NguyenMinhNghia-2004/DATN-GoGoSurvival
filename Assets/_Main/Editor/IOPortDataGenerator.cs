@@ -206,11 +206,9 @@ public static class IOPortDataGenerator
             Set(shop, "shardOffers", new List<ShopShardOffer>());
         EditorUtility.SetDirty(shop);
 
-        // 8b) win reward content: on win, grant a random card (default 15%) or random shards.
+        // 8b) win reward content: on win, grant weighted random item cards (per-item card economy).
         _winReward = LoadOrCreate<Data_WinReward>(ROOT + "/System/Data_WinReward.asset");
         SetId(_winReward, "io_winreward");
-        Set(_winReward, "shardPools", new List<ResourcePool> { _shards[0], _shards[1], _shards[2] });
-        Set(_winReward, "inventoryItemData", inv);
         EditorUtility.SetDirty(_winReward);
 
         // 9) PopupService + PopupVisualResolver
