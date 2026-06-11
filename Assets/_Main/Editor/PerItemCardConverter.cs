@@ -355,6 +355,28 @@ public static class PerItemCardConverter
         }
     }
 
+    // Play-mode: dump the open shop popup tree so we can see static mockup cards vs spawned offers.
+    [MenuItem("Tools/IOShop/DEBUG Dump Shop Tree (Play)")]
+    public static void DebugDumpShopTree()
+    {
+        var shops = UnityEngine.Object.FindObjectsByType<PopupShop>(
+            FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Debug.Log($"[Cards] PopupShop instances = {shops.Length}");
+        foreach (var s in shops)
+            DumpTree(s.transform, 0, new System.Text.StringBuilder()).ToString();
+    }
+
+    static System.Text.StringBuilder DumpTree(Transform t, int depth, System.Text.StringBuilder sb)
+    {
+        string pad = new string('-', depth);
+        bool hasOffer = t.GetComponent<ShopBuyShardView>() != null;
+        bool hasBtn = t.GetComponent<UnityEngine.UI.Button>() != null;
+        Debug.Log($"[Tree] {pad}{t.name}{(t.gameObject.activeSelf ? "" : " [OFF]")}{(hasOffer ? " <OFFER>" : "")}{(hasBtn ? " <btn>" : "")}");
+        if (depth < 3)
+            for (int i = 0; i < t.childCount; i++) DumpTree(t.GetChild(i), depth + 1, sb);
+        return sb;
+    }
+
     [MenuItem("Tools/IOShop/Verify No Shard Refs")]
     public static void VerifyNoShardRefs()
     {

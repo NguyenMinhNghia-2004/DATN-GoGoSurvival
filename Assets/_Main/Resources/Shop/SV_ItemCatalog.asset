@@ -11,11 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b263f480e524acd44a3902fe52412ad3, type: 3}
   m_Name: SV_ItemCatalog
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   entries:
   - id: Eq_Kunai
     displayName: Kunai
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 073ffd7b799696d43a65201971c57286, type: 3}
     slot: 0
     rarity: 0
     priceCoins: 100
@@ -25,7 +25,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_ArmyUniform
     displayName: Army Uniform
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 8240071abe29cdb40846b813b33a66bd, type: 3}
     slot: 1
     rarity: 0
     priceCoins: 100
@@ -35,7 +35,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_Carapace
     displayName: Carapace
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: a197702f1b8353844a2c42e8b3db217f, type: 3}
     slot: 1
     rarity: 0
     priceCoins: 120
@@ -45,7 +45,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_FullMetalSuit
     displayName: Full Metal Suit
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 4fe456908ce21eb4aa80ba62e8e85a63, type: 3}
     slot: 1
     rarity: 1
     priceCoins: 300
@@ -55,7 +55,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_ProtectiveSuit
     displayName: Protective Suit
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 5ba9b9b09f67a6042b6f44ea64a6d6f0, type: 3}
     slot: 1
     rarity: 1
     priceCoins: 260
@@ -65,7 +65,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_TravelersJacket
     displayName: Traveler's Jacket
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: de06bcd3dd199994db0b1f92ec9c27b0, type: 3}
     slot: 1
     rarity: 2
     priceCoins: 500
@@ -75,7 +75,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_BonePendant
     displayName: Bone Pendant
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 22328af574c6e0a46a217cc65c36ddea, type: 3}
     slot: 2
     rarity: 0
     priceCoins: 100
@@ -85,7 +85,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_MetalNeckguard
     displayName: Metal Neckguard
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: f9d00328bffc0ba45b0f6db97632c16b, type: 3}
     slot: 2
     rarity: 0
     priceCoins: 110
@@ -95,7 +95,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_TrendyCharm
     displayName: Trendy Charm
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b81f2242147df12409cf80fd57f2ce35, type: 3}
     slot: 2
     rarity: 1
     priceCoins: 240
@@ -105,7 +105,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_EmeraldPendant
     displayName: Emerald Pendant
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 480b3b57842e42d4cb4cf13f91b6e3a2, type: 3}
     slot: 2
     rarity: 1
     priceCoins: 250
@@ -115,7 +115,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_ArmyNameplate
     displayName: Army Nameplate
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b2f841d4b38368e409cb71e9c4d2d657, type: 3}
     slot: 2
     rarity: 2
     priceCoins: 500
@@ -125,7 +125,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_ArmyBelt
     displayName: Army Belt
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: fac6cd575301f5847a6bf8979ed1235f, type: 3}
     slot: 3
     rarity: 0
     priceCoins: 80
@@ -135,7 +135,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_LeatherBelt
     displayName: Leather Belt
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 2eb76dd65e9d1d643bd4ef946526f1c8, type: 3}
     slot: 3
     rarity: 0
     priceCoins: 90
@@ -145,7 +145,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_StylishBelt
     displayName: Stylish Belt
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 81f3ce3ca70691b43ac6a983b9386e1c, type: 3}
     slot: 3
     rarity: 1
     priceCoins: 230
@@ -155,7 +155,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_BroadWaistguard
     displayName: Broad Waistguard
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 1944e32782a564d4c920266b7cedd794, type: 3}
     slot: 3
     rarity: 1
     priceCoins: 220
@@ -165,7 +165,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_WaistSensor
     displayName: Waist Sensor
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: a4c5100296556db4ca4d72ce9ffb40da, type: 3}
     slot: 3
     rarity: 2
     priceCoins: 500
@@ -175,7 +175,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_ArmyGloves
     displayName: Army Gloves
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 324b973da7a400945b354e9fc9a74a00, type: 3}
     slot: 4
     rarity: 0
     priceCoins: 100
@@ -185,7 +185,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_FingerlessGloves
     displayName: Fingerless Gloves
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 608750c72bc396f408923a2b26bdb474, type: 3}
     slot: 4
     rarity: 0
     priceCoins: 110
@@ -195,7 +195,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_LeatherGloves
     displayName: Leather Gloves
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 76e4b4ea04dbb5741a238f92e06e13ab, type: 3}
     slot: 4
     rarity: 1
     priceCoins: 240
@@ -205,7 +205,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_ProtectiveGloves
     displayName: Protective Gloves
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: b53cda7b46552734caefb2c9a58a6ba4, type: 3}
     slot: 4
     rarity: 1
     priceCoins: 250
@@ -215,7 +215,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_ShinyWristguard
     displayName: Shiny Wristguard
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 761d051b639163d4f970c7319d8ffb37, type: 3}
     slot: 4
     rarity: 2
     priceCoins: 500
@@ -225,7 +225,7 @@ MonoBehaviour:
     mode: 1
   - id: Eq_ArmyBoots
     displayName: Army Boots
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 10244dcef9c2b2e4fafd0822aaf2031f, type: 3}
     slot: 5
     rarity: 0
     priceCoins: 100
@@ -235,7 +235,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_LayeredSnowshoes
     displayName: Layered Snowshoes
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 47164b6254736c546a7fa83591c74909, type: 3}
     slot: 5
     rarity: 0
     priceCoins: 110
@@ -245,7 +245,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_StylishBoots
     displayName: Stylish Boots
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: 10244dcef9c2b2e4fafd0822aaf2031f, type: 3}
     slot: 5
     rarity: 1
     priceCoins: 230
@@ -255,7 +255,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_LightRunners
     displayName: Light Runners
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: e90e77d5634e29f4ebfbd9cfa9ec98d6, type: 3}
     slot: 5
     rarity: 1
     priceCoins: 240
@@ -265,7 +265,7 @@ MonoBehaviour:
     mode: 0
   - id: Eq_ProstheticLegs
     displayName: Prosthetic Legs
-    icon: {fileID: 0}
+    icon: {fileID: 21300000, guid: ee700cccc2c6fee4eb5bc4142ac53a7e, type: 3}
     slot: 5
     rarity: 2
     priceCoins: 500
