@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Luzart
 {
@@ -7,6 +8,7 @@ namespace Luzart
     {
         [SerializeField] private TMP_Text txt;
         [SerializeField] private ObjectView objectView;
+        [SerializeField] private Image icon; // resource icon (gold coin / item card sprite)
 
         protected override void OnSetup()
         {
@@ -29,6 +31,12 @@ namespace Luzart
                 txt.text = $"{Data.ResourcePool.Value.Value}/{Data.Amount.Value}";
             if (objectView != null)
                 objectView.Setup(new ObjectViewData(Data.ResourcePool));
+            if (icon != null)
+            {
+                var sp = Data.ResourcePool.Definition != null ? Data.ResourcePool.Definition.GetMainImage() : null;
+                icon.sprite = sp;
+                icon.enabled = sp != null;
+            }
         }
     }
 }
