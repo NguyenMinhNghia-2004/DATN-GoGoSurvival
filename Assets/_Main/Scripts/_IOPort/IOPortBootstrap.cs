@@ -28,9 +28,7 @@ namespace Luzart
         private void SeedCurrency()
         {
             SeedPool("io_gold", seedGold);
-            SeedPool("io_shard_0", seedShard);
-            SeedPool("io_shard_1", seedShard);
-            SeedPool("io_shard_2", seedShard);
+            SeedItemCards(seedShard);
         }
 
         private void SeedPool(string id, double amount)
@@ -39,6 +37,22 @@ namespace Luzart
             if (pool == null) return;
             IResourcePool ip = pool;
             if (ip.Value.Value <= 0) ip.Set(amount);
+        }
+
+        // Per-item card economy: seed each item's own card pool (only when empty) so the
+        // unlock/upgrade loop is testable. Set seedShard to 0 to ship a fully-earned economy.
+        private void SeedItemCards(double amount)
+        {
+            if (amount <= 0) return;
+            var all = _domain.GetAll<ItemConfig>();
+            if (all == null) return;
+            for (int i = 0; i < all.Count; i++)
+            {
+                var item = all[i];
+                if (item == null || item.CardPool == null) continue;
+                IResourcePool ip = item.CardPool;
+                if (ip.Value.Value <= 0) ip.Set(amount);
+            }
         }
 
         private void SetupCanvas()
