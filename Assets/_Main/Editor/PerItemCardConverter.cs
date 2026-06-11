@@ -236,6 +236,59 @@ public static class PerItemCardConverter
         Debug.Log($"[Cards] registeredInScene={n}");
     }
 
+    // Unregisters the 3 retired rarity shard pools + their definitions from the scene's
+    // DomainContentLoader and deletes the 6 assets. Run AFTER conversion (zero cost refs).
+    [MenuItem("Tools/IOShop/Retire Shard Pools")]
+    public static void RetireShardPools()
+    {
+        var shardObjs = new HashSet<UnityEngine.Object>();
+        foreach (var g in ShardPoolGuids)
+        {
+            var pool = AssetDatabase.LoadAssetAtPath<ResourcePool>(AssetDatabase.GUIDToAssetPath(g));
+            if (pool == null) continue;
+            shardObjs.Add(pool);
+            var def = Get(pool, "_resourceDefinition") as ResourceDefinition;
+            if (def != null) shardObjs.Add(def);
+        }
+        if (shardObjs.Count == 0) { Debug.Log("[Cards] No shard pools found (already retired)."); return; }
+
+        int removed = 0;
+        var loader = UnityEngine.Object.FindObjectOfType<DomainContentLoader>(true);
+        if (loader != null)
+        {
+            var so = new SerializedObject(loader);
+            var contents = so.FindProperty("contents");
+            for (int i = contents.arraySize - 1; i >= 0; i--)
+            {
+                var o = contents.GetArrayElementAtIndex(i).objectReferenceValue;
+                if (o != null && shardObjs.Contains(o))
+                {
+                    contents.GetArrayElementAtIndex(i).objectReferenceValue = null;
+                    contents.DeleteArrayElementAtIndex(i);
+                    removed++;
+                }
+            }
+            so.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(loader);
+            EditorSceneManager.MarkSceneDirty(loader.gameObject.scene);
+            EditorSceneManager.SaveOpenScenes();
+        }
+
+        int deleted = 0;
+        var paths = new List<string>();
+        foreach (var o in shardObjs)
+        {
+            var p = AssetDatabase.GetAssetPath(o);
+            if (!string.IsNullOrEmpty(p)) paths.Add(p);
+        }
+        foreach (var p in paths)
+            if (AssetDatabase.DeleteAsset(p)) deleted++;
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log($"[Cards] Retire shards: removedFromContents={removed} assetsDeleted={deleted}");
+    }
+
     static int RegisterCardPoolsInScene()
     {
         var loader = UnityEngine.Object.FindObjectOfType<DomainContentLoader>(true);
