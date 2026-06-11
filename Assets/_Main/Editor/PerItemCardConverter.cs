@@ -377,6 +377,30 @@ public static class PerItemCardConverter
         return sb;
     }
 
+    // Play-mode: dump every text label under the open PopupShop (content + font size) so we
+    // can see what the tiny per-card text shows.
+    [MenuItem("Tools/IOShop/DEBUG Report Card Texts (Play)")]
+    public static void DebugReportCardTexts()
+    {
+        var shops = UnityEngine.Object.FindObjectsByType<PopupShop>(
+            FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Debug.Log($"[Txt] PopupShop instances = {shops.Length}");
+        foreach (var s in shops)
+        {
+            int n = 0;
+            foreach (var tmp in s.GetComponentsInChildren<TMPro.TMP_Text>(true))
+            {
+                if (n++ > 40) break;
+                Debug.Log($"[Txt] TMP '{tmp.transform.parent?.name}/{tmp.name}' size={tmp.fontSize} text=\"{tmp.text}\"");
+            }
+            foreach (var t in s.GetComponentsInChildren<UnityEngine.UI.Text>(true))
+            {
+                if (n++ > 80) break;
+                Debug.Log($"[Txt] Text '{t.transform.parent?.name}/{t.name}' size={t.fontSize} text=\"{t.text}\"");
+            }
+        }
+    }
+
     [MenuItem("Tools/IOShop/Verify No Shard Refs")]
     public static void VerifyNoShardRefs()
     {
