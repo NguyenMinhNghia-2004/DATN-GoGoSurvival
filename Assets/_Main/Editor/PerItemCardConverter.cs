@@ -192,6 +192,43 @@ public static class PerItemCardConverter
         return true;
     }
 
+    const string GOLD_GUID = "0c7143df3f325a34d91ccca22b5687de";
+    const string DATA_SHOP = "Assets/_Main/Data/IOShop/System/Data_Shop.asset";
+
+    // Authors a fixed shop offer list: one item per rarity (Rare/Epic/Legend), paid in Gold.
+    // Surgical — only edits Data_Shop.shardOffers, never rebuilds any screen prefab.
+    [MenuItem("Tools/IOShop/Author Item Card Offers")]
+    public static void AuthorItemCardOffers()
+    {
+        var shop = AssetDatabase.LoadAssetAtPath<Data_Shop>(DATA_SHOP);
+        if (shop == null) { Debug.LogError("[Cards] Data_Shop not found."); return; }
+        var gold = AssetDatabase.LoadAssetAtPath<ResourcePool>(AssetDatabase.GUIDToAssetPath(GOLD_GUID));
+        if (gold == null) { Debug.LogError("[Cards] Gold pool not found."); return; }
+
+        // pick first item of each rarity (by ItemConfig.Rarity), ensuring it has a card pool
+        ItemConfig rare = null, epic = null, legend = null;
+        foreach (var g in AssetDatabase.FindAssets("t:ItemConfig", new[] { ITEMS_DIR }))
+        {
+            var item = AssetDatabase.LoadAssetAtPath<ItemConfig>(AssetDatabase.GUIDToAssetPath(g));
+            if (item == null || item.CardPool == null) continue;
+            if (rare == null && item.Rarity == ERarity.Rare) rare = item;
+            else if (epic == null && item.Rarity == ERarity.Epic) epic = item;
+            else if (legend == null && item.Rarity == ERarity.Legend) legend = item;
+            if (rare != null && epic != null && legend != null) break;
+        }
+
+        var offers = new List<ShopShardOffer>();
+        if (rare != null) offers.Add(new ShopShardOffer(rare, gold, 100, 5));
+        if (epic != null) offers.Add(new ShopShardOffer(epic, gold, 250, 3));
+        if (legend != null) offers.Add(new ShopShardOffer(legend, gold, 500, 2));
+
+        Set(shop, "shardOffers", offers);
+        EditorUtility.SetDirty(shop);
+        AssetDatabase.SaveAssets();
+        Debug.Log($"[Cards] Authored {offers.Count} item-card offers: " +
+                  $"Rare={(rare ? rare.name : "-")} Epic={(epic ? epic.name : "-")} Legend={(legend ? legend.name : "-")}");
+    }
+
     [MenuItem("Tools/IOShop/Register Card Pools In Scene")]
     public static void RegisterCardPoolsMenu()
     {
