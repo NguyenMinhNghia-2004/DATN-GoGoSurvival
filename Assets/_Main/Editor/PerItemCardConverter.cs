@@ -327,6 +327,34 @@ public static class PerItemCardConverter
         return added;
     }
 
+    // Play-mode verification helper: opens the shop popup so its visuals can be inspected.
+    [MenuItem("Tools/IOShop/DEBUG Open Shop (Play)")]
+    public static void DebugOpenShop()
+    {
+        var bs = UnityEngine.Object.FindObjectOfType<IOPortBootstrap>();
+        if (bs == null) { Debug.LogError("[Cards] No IOPortBootstrap in scene (enter Play mode first)."); return; }
+        bs.OpenShop();
+    }
+
+    // Play-mode verification: report the live shop offer views (finds DontDestroyOnLoad too).
+    [MenuItem("Tools/IOShop/DEBUG Report Shop Cards (Play)")]
+    public static void DebugReportShopCards()
+    {
+        var views = UnityEngine.Object.FindObjectsByType<ShopBuyShardView>(
+            FindObjectsInactive.Include, FindObjectsSortMode.None);
+        Debug.Log($"[Cards] Live shop offer views = {views.Length}");
+        foreach (var v in views)
+        {
+            var icon = Get(v, "imIcon") as UnityEngine.UI.Image;
+            var gold = Get(v, "imGoldIcon") as UnityEngine.UI.Image;
+            var price = Get(v, "txtPrice") as TMPro.TMP_Text;
+            var count = Get(v, "txtCount") as TMPro.TMP_Text;
+            Debug.Log($"[Cards]  '{v.name}': icon={(icon != null && icon.sprite ? icon.sprite.name : "NULL")} " +
+                      $"gold={(gold != null && gold.sprite ? gold.sprite.name : "NULL")} " +
+                      $"count={(count ? count.text : "?")} price={(price ? price.text : "?")}");
+        }
+    }
+
     [MenuItem("Tools/IOShop/Verify No Shard Refs")]
     public static void VerifyNoShardRefs()
     {
