@@ -9,6 +9,7 @@ namespace Luzart
         [SerializeField] private Image imIcon;
         [SerializeField] private Image imBg;
         [SerializeField] private TMP_Text txtLevel;
+        [SerializeField] private TMP_Text txtStat;
 
         private RaritySpriteResolver _itemIconResolver;
         private ItemConfig _itemConfig;
@@ -21,6 +22,14 @@ namespace Luzart
             SetBackground();
             SetIcon();
             SetLevel();
+            SetStat();
+        }
+
+        private void SetStat()
+        {
+            if (txtStat == null) return;
+            ItemStatUtil.GetAtkHp(_itemConfig, out double atk, out double hp);
+            txtStat.text = $"ATK +{ItemStatUtil.Fmt(atk)}\nHP +{ItemStatUtil.Fmt(hp)}";
         }
 
         private void SetBackground()

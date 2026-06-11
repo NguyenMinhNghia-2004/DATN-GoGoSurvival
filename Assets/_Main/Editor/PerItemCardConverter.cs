@@ -455,6 +455,60 @@ public static class PerItemCardConverter
         }
     }
 
+    // Adds (idempotent) a dark bottom strip + white "ATK/HP" stat text to the equipment grid cell,
+    // wired to ItemViewWithLevelInventory.txtStat so each item shows its stat at a glance.
+    [MenuItem("Tools/IOShop/Add Stat Label To ItemCell")]
+    public static void AddStatLabel()
+    {
+        const string path = "Assets/_Main/Data/IOShop/Prefabs/ItemViewInventory.prefab";
+        var root = PrefabUtility.LoadPrefabContents(path);
+        try
+        {
+            var view = root.GetComponent<ItemViewWithLevelInventory>();
+            if (view == null) { Debug.LogError("[Cards] no ItemViewWithLevelInventory on ItemViewInventory."); return; }
+            foreach (var n in new[] { "StatBg", "Stat" })
+            {
+                var o = root.transform.Find(n);
+                if (o != null) UnityEngine.Object.DestroyImmediate(o.gameObject);
+            }
+
+            var bgGo = new GameObject("StatBg", typeof(RectTransform), typeof(CanvasRenderer), typeof(UnityEngine.UI.Image));
+            bgGo.transform.SetParent(root.transform, false);
+            SetBottomStrip((RectTransform)bgGo.transform);
+            var bgImg = bgGo.GetComponent<UnityEngine.UI.Image>();
+            bgImg.color = new Color(0f, 0f, 0f, 0.6f);
+            bgImg.raycastTarget = false;
+
+            var go = new GameObject("Stat", typeof(RectTransform), typeof(CanvasRenderer));
+            go.transform.SetParent(root.transform, false);
+            SetBottomStrip((RectTransform)go.transform);
+            var tmp = go.AddComponent<TMPro.TextMeshProUGUI>();
+            tmp.text = "ATK +0\nHP +0";
+            tmp.alignment = TMPro.TextAlignmentOptions.Center;
+            tmp.fontStyle = TMPro.FontStyles.Bold;
+            tmp.color = Color.white;
+            tmp.enableAutoSizing = true; tmp.fontSizeMin = 12; tmp.fontSizeMax = 22;
+            tmp.raycastTarget = false;
+
+            var so = new SerializedObject(view);
+            so.FindProperty("txtStat").objectReferenceValue = tmp;
+            so.ApplyModifiedPropertiesWithoutUndo();
+
+            PrefabUtility.SaveAsPrefabAsset(root, path);
+            Debug.Log("[Cards] Added Stat label to ItemViewInventory grid cell.");
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+    }
+
+    static void SetBottomStrip(RectTransform rt)
+    {
+        rt.anchorMin = new Vector2(0f, 0f);
+        rt.anchorMax = new Vector2(1f, 0f);
+        rt.pivot = new Vector2(0.5f, 0f);
+        rt.sizeDelta = new Vector2(-10f, 50f);
+        rt.anchoredPosition = new Vector2(0f, 4f);
+    }
+
     // Verify the ATK/HP stat derivation used by the equip popup (edit-mode, no play needed).
     [MenuItem("Tools/IOShop/DEBUG Report Item Stats")]
     public static void DebugReportItemStats()
