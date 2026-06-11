@@ -4,32 +4,32 @@ using UnityEngine;
 namespace Luzart
 {
     /// <summary>
-    /// A single "buy shards with coin (Gold)" offer shown in the shop: spend
-    /// <see cref="price"/> from <see cref="goldPool"/> to gain <see cref="amount"/> shards
-    /// of <see cref="shardPool"/>.
+    /// A single "buy item cards with Gold" offer shown in the shop: spend <see cref="price"/>
+    /// Gold from <see cref="goldPool"/> to gain <see cref="amount"/> cards of <see cref="item"/>
+    /// (added to <c>item.CardPool</c>). Rarity and icon are read from the item.
     /// </summary>
     [Serializable]
     public class ShopShardOffer
     {
-        [SerializeField] private ResourcePool shardPool;
+        [SerializeField] private ItemConfig item;
         [SerializeField] private ResourcePool goldPool;
-        [SerializeField] private ERarity rarity;
         [SerializeField] private int price = 100;
-        [SerializeField] private int amount = 1;
+        [SerializeField] private int amount = 5;
 
-        public ResourcePool ShardPool => shardPool;
+        public ItemConfig Item => item;
         public ResourcePool GoldPool => goldPool;
-        public ERarity Rarity => rarity;
+        public ResourcePool CardPool => item != null ? item.CardPool : null;
+        public ERarity Rarity => item != null ? item.Rarity : ERarity.Rare;
+        public Sprite Icon => item != null ? item.Sprite : null;
         public int Price => price;
         public int Amount => amount;
 
         public ShopShardOffer() { }
 
-        public ShopShardOffer(ResourcePool shardPool, ResourcePool goldPool, ERarity rarity, int price, int amount)
+        public ShopShardOffer(ItemConfig item, ResourcePool goldPool, int price, int amount)
         {
-            this.shardPool = shardPool;
+            this.item = item;
             this.goldPool = goldPool;
-            this.rarity = rarity;
             this.price = price;
             this.amount = amount;
         }

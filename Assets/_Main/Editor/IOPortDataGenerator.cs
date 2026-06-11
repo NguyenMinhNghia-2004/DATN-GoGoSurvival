@@ -199,13 +199,11 @@ public static class IOPortDataGenerator
         SetId(shop, "io_shop");
         Set(shop, "inventoryItemData", inv);
         Set(shop, "chests", new List<Chest>());
-        // 8a) "buy shards with gold" offers — one per rarity (Rare/Epic/Legend).
-        int[] shardPrices = { 100, 250, 500 };
-        int[] shardAmounts = { 5, 3, 2 };
-        var offers = new List<ShopShardOffer>();
-        for (int r = 0; r < 3; r++)
-            offers.Add(new ShopShardOffer(_shards[r], _gold, (ERarity)r, shardPrices[r], shardAmounts[r]));
-        Set(shop, "shardOffers", offers);
+        // 8a) Shop card offers are authored separately by per-item-card tooling
+        // ("Tools/IOShop/Author Item Card Offers"). Only initialise to empty when missing
+        // so re-running this generator never clobbers configured offers.
+        if (Get(shop, "shardOffers") == null)
+            Set(shop, "shardOffers", new List<ShopShardOffer>());
         EditorUtility.SetDirty(shop);
 
         // 8b) win reward content: on win, grant a random card (default 15%) or random shards.
