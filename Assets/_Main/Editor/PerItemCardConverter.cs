@@ -455,6 +455,21 @@ public static class PerItemCardConverter
         }
     }
 
+    // Verify the ATK/HP stat derivation used by the equip popup (edit-mode, no play needed).
+    [MenuItem("Tools/IOShop/DEBUG Report Item Stats")]
+    public static void DebugReportItemStats()
+    {
+        int n = 0;
+        foreach (var g in AssetDatabase.FindAssets("t:ItemConfig", new[] { ITEMS_DIR }))
+        {
+            if (n++ >= 10) break;
+            var item = AssetDatabase.LoadAssetAtPath<ItemConfig>(AssetDatabase.GUIDToAssetPath(g));
+            if (item == null) continue;
+            var vm = new PopupItemEquipVM { ItemConfig = item };
+            Debug.Log($"[Stats] {item.name}: {vm.GetAtkText()} | {vm.GetHpText()}");
+        }
+    }
+
     [MenuItem("Tools/IOShop/Verify No Shard Refs")]
     public static void VerifyNoShardRefs()
     {

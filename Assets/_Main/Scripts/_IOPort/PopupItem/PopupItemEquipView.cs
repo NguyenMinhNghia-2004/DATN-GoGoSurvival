@@ -10,6 +10,8 @@ namespace Luzart
     {
         [SerializeField] private TMP_Text txtName;
         [SerializeField] private TMP_Text txtDescription;
+        [SerializeField] private TMP_Text txtAtk;
+        [SerializeField] private TMP_Text txtHp;
         [SerializeField] private ObjectView objectView;
         [SerializeField] private Button btnUnEquip, btnUpgrade, btnEquip;
         [SerializeField] private BaseSelect bsEquipButton;
@@ -34,7 +36,14 @@ namespace Luzart
         private void RefreshData(ILevelable iLevelable)
         {
             if (txtName != null) txtName.text = Data.ItemConfig.NameItem;
-            if (txtDescription != null) txtDescription.text = Data.GetUpgradeDetail();
+            // Show ATK + HP so the player sees which stat the item boosts. Dedicated txtAtk/txtHp
+            // fields are used when wired; otherwise the description field carries both stats.
+            if (txtAtk != null) txtAtk.text = Data.GetAtkText();
+            if (txtHp != null) txtHp.text = Data.GetHpText();
+            if (txtDescription != null)
+                txtDescription.text = (txtAtk == null && txtHp == null)
+                    ? Data.GetAtkText() + "    " + Data.GetHpText()
+                    : Data.GetUpgradeDetail();
             if (objectView != null) objectView.Setup(new ObjectViewData(Data.ItemConfig));
             if (bsEquipButton != null) bsEquipButton.Select(!Data.IsButtonInList());
             var levelUpCosts = Data.ItemConfig.Level.GetLevelUpCost();
