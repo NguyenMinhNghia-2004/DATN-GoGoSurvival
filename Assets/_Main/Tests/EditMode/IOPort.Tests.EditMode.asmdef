@@ -1,0 +1,13 @@
+{
+  "name": "IOPort.Tests.EditMode",
+  "references": [
+    "UnityEngine.TestRunner",
+    "UnityEditor.TestRunner",
+    "IOPort.Logic"
+  ],
+  "includePlatforms": ["Editor"],
+  "precompiledReferences": ["nunit.framework.dll"],
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "overrideReferences": true,
+  "autoReferenced": false
+}
