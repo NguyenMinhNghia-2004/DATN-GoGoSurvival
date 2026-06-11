@@ -205,28 +205,82 @@ public static class PerItemCardConverter
         var gold = AssetDatabase.LoadAssetAtPath<ResourcePool>(AssetDatabase.GUIDToAssetPath(GOLD_GUID));
         if (gold == null) { Debug.LogError("[Cards] Gold pool not found."); return; }
 
-        // pick first item of each rarity (by ItemConfig.Rarity), ensuring it has a card pool
-        ItemConfig rare = null, epic = null, legend = null;
-        foreach (var g in AssetDatabase.FindAssets("t:ItemConfig", new[] { ITEMS_DIR }))
+        // author one offer per item (ALL items), price/amount by rarity, sorted by path for stable order
+        var offers = new List<ShopShardOffer>();
+        var guids = AssetDatabase.FindAssets("t:ItemConfig", new[] { ITEMS_DIR });
+        System.Array.Sort(guids, (a, b) => string.Compare(
+            AssetDatabase.GUIDToAssetPath(a), AssetDatabase.GUIDToAssetPath(b), System.StringComparison.Ordinal));
+        foreach (var g in guids)
         {
             var item = AssetDatabase.LoadAssetAtPath<ItemConfig>(AssetDatabase.GUIDToAssetPath(g));
             if (item == null || item.CardPool == null) continue;
-            if (rare == null && item.Rarity == ERarity.Rare) rare = item;
-            else if (epic == null && item.Rarity == ERarity.Epic) epic = item;
-            else if (legend == null && item.Rarity == ERarity.Legend) legend = item;
-            if (rare != null && epic != null && legend != null) break;
+            int price, amount;
+            switch (item.Rarity)
+            {
+                case ERarity.Legend: price = 500; amount = 2; break;
+                case ERarity.Epic: price = 250; amount = 3; break;
+                default: price = 100; amount = 5; break;
+            }
+            offers.Add(new ShopShardOffer(item, gold, price, amount));
         }
-
-        var offers = new List<ShopShardOffer>();
-        if (rare != null) offers.Add(new ShopShardOffer(rare, gold, 100, 5));
-        if (epic != null) offers.Add(new ShopShardOffer(epic, gold, 250, 3));
-        if (legend != null) offers.Add(new ShopShardOffer(legend, gold, 500, 2));
 
         Set(shop, "shardOffers", offers);
         EditorUtility.SetDirty(shop);
         AssetDatabase.SaveAssets();
-        Debug.Log($"[Cards] Authored {offers.Count} item-card offers: " +
-                  $"Rare={(rare ? rare.name : "-")} Epic={(epic ? epic.name : "-")} Legend={(legend ? legend.name : "-")}");
+        Debug.Log($"[Cards] Authored {offers.Count} item-card offers (all items).");
+    }
+
+    // Adds (idempotent) a yellow "UNLOCK" button bar to the bottom of ShopCard, wired to
+    // ItemShopUnlockView.OnClickUnlock + its unlockButton/unlockButtonBg (yellow=affordable, gray=not).
+    [MenuItem("Tools/IOShop/Add Unlock Button To ShopCard")]
+    public static void AddUnlockButton()
+    {
+        const string path = "Assets/_Main/Data/IOShop/Prefabs/ShopCard.prefab";
+        var root = PrefabUtility.LoadPrefabContents(path);
+        try
+        {
+            var view = root.GetComponent<ItemShopUnlockView>();
+            if (view == null) { Debug.LogError("[Cards] ShopCard has no ItemShopUnlockView."); return; }
+
+            var old = root.transform.Find("UnlockBtn");
+            if (old != null) UnityEngine.Object.DestroyImmediate(old.gameObject);
+
+            var btnGo = new GameObject("UnlockBtn",
+                typeof(RectTransform), typeof(CanvasRenderer), typeof(UnityEngine.UI.Image), typeof(UnityEngine.UI.Button));
+            btnGo.transform.SetParent(root.transform, false);
+            var rt = (RectTransform)btnGo.transform;
+            rt.anchorMin = new Vector2(0.5f, 0f);
+            rt.anchorMax = new Vector2(0.5f, 0f);
+            rt.pivot = new Vector2(0.5f, 0f);
+            rt.anchoredPosition = new Vector2(0f, 12f);
+            rt.sizeDelta = new Vector2(280f, 74f);
+            var img = btnGo.GetComponent<UnityEngine.UI.Image>();
+            img.color = new Color(1f, 0.78f, 0.15f, 1f);
+            var btn = btnGo.GetComponent<UnityEngine.UI.Button>();
+
+            var txtGo = new GameObject("Label", typeof(RectTransform), typeof(CanvasRenderer));
+            txtGo.transform.SetParent(btnGo.transform, false);
+            var trt = (RectTransform)txtGo.transform;
+            trt.anchorMin = Vector2.zero; trt.anchorMax = Vector2.one;
+            trt.offsetMin = Vector2.zero; trt.offsetMax = Vector2.zero;
+            var tmp = txtGo.AddComponent<TMPro.TextMeshProUGUI>();
+            tmp.text = "UNLOCK";
+            tmp.alignment = TMPro.TextAlignmentOptions.Center;
+            tmp.fontStyle = TMPro.FontStyles.Bold;
+            tmp.color = new Color(0.18f, 0.12f, 0f, 1f);
+            tmp.enableAutoSizing = true; tmp.fontSizeMin = 22; tmp.fontSizeMax = 40;
+
+            UnityEditor.Events.UnityEventTools.AddPersistentListener(btn.onClick, view.OnClickUnlock);
+
+            var so = new SerializedObject(view);
+            so.FindProperty("unlockButton").objectReferenceValue = btn;
+            so.FindProperty("unlockButtonBg").objectReferenceValue = img;
+            so.ApplyModifiedPropertiesWithoutUndo();
+
+            PrefabUtility.SaveAsPrefabAsset(root, path);
+            Debug.Log("[Cards] Added UNLOCK button to ShopCard.");
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
     }
 
     [MenuItem("Tools/IOShop/Register Card Pools In Scene")]

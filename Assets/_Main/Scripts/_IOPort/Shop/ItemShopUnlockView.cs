@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Luzart.NewBase;
 
 namespace Luzart
@@ -10,6 +11,11 @@ namespace Luzart
         [SerializeField] private BaseSelect bsItem;
         [SerializeField] private Transform parentSpawnCost;
         [SerializeField] private ObjectView objectView;
+        [Header("Unlock button")]
+        [SerializeField] private Button unlockButton;
+        [SerializeField] private Image unlockButtonBg;
+        [SerializeField] private Color canUnlockColor = new Color(1f, 0.78f, 0.15f, 1f);   // yellow
+        [SerializeField] private Color cantUnlockColor = new Color(0.55f, 0.55f, 0.6f, 1f); // gray
         private List<View> _spawnerCostView = new List<View>();
 
         protected override void OnSetup()
@@ -37,19 +43,20 @@ namespace Luzart
             DestroyItem();
         }
 
-        private void GetOnCostChanged(IBool ibool)
+        private bool CanUnlock()
         {
             var data = Data.Unlockable.UnlockCosts;
-            bool isCanUnlock = true;
             for (int i = 0; i < data.Count; i++)
-            {
-                var costItem = data[i];
-                if (!costItem.IsSpendable.Value)
-                {
-                    isCanUnlock = false;
-                }
-            }
+                if (!data[i].IsSpendable.Value) return false;
+            return true;
+        }
+
+        private void GetOnCostChanged(IBool ibool)
+        {
+            bool isCanUnlock = CanUnlock();
             if (bsUnlocked != null) bsUnlocked.Select(isCanUnlock);
+            if (unlockButtonBg != null) unlockButtonBg.color = isCanUnlock ? canUnlockColor : cantUnlockColor;
+            if (unlockButton != null) unlockButton.interactable = isCanUnlock;
         }
 
         private void SetUpAndSpawnItem()
@@ -87,6 +94,7 @@ namespace Luzart
 
         public void OnClickUnlock()
         {
+            if (!CanUnlock()) return;
             var data = Data.Unlockable.UnlockCosts;
             for (int i = 0; i < data.Count; i++)
             {
