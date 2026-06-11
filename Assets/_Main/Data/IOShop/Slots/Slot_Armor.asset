@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: io_slot_1
   eTypeItem: 1
   isUnlocked: {fileID: 0}
-  _equippedItem: {fileID: 11400000, guid: 896dd86e94ab4894a68947f6e9d97237, type: 2}
+  _equippedItem: {fileID: 11400000, guid: 688691bff8ad4cf2ba7fad7b5b122622, type: 2}

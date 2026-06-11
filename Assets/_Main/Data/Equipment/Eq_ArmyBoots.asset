@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_ArmyBoots
   equipName: Army Boots
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 10244dcef9c2b2e4fafd0822aaf2031f, type: 3}
   description: "Army set \u2014 Shoes"
   slot: 3
   atkByQuality:

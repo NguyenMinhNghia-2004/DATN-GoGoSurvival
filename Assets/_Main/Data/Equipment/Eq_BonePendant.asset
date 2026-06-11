@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_BonePendant
   equipName: Bone Pendant
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 22328af574c6e0a46a217cc65c36ddea, type: 3}
   description: "Monster set \u2014 Necklace"
   slot: 4
   atkByQuality:

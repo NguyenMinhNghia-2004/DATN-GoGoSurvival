@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_BroadWaistguard
   equipName: Broad Waistguard
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1944e32782a564d4c920266b7cedd794, type: 3}
   description: "Protective Set \u2014 Belt"
   slot: 2
   atkByQuality:

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_ArmyBelt
   equipName: Army Belt
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fac6cd575301f5847a6bf8979ed1235f, type: 3}
   description: "Army set \u2014 Belt"
   slot: 2
   atkByQuality:

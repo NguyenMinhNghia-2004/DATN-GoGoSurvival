@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Waist_Sensor_Normal
   _name: Waist Sensor (Normal)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: a4c5100296556db4ca4d72ce9ffb40da, type: 3}
   _eRarity: 0
   _eTypeItem: 3
   unlockable: {fileID: 6571683667507535650}

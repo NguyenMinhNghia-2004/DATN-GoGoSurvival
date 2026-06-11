@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Layered_Snowshoes_Epic
   _name: Layered Snowshoes (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 47164b6254736c546a7fa83591c74909, type: 3}
   _eRarity: 2
   _eTypeItem: 5
   unlockable: {fileID: 7078669184010511126}

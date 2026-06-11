@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_Kunai
   equipName: Kunai
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 073ffd7b799696d43a65201971c57286, type: 3}
   description: "Army set \u2014 Weapon"
   slot: 0
   atkByQuality:

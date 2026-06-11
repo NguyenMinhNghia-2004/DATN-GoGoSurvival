@@ -86,6 +86,7 @@ public static class IOPortDataGenerator
     static ResourcePool[] _shards; // index by ERarity 0..2
     static AssetCostVisualResolver_ResourcePool _costResolver;
     static ResourceDefinition[] _shardDefs;
+    static Data_WinReward _winReward;
 
     // Register the modifier-pipeline infra SOs so equipped items can AddFactor without NRE.
     [MenuItem("Tools/IOPort/Register Modifier Infra")]
@@ -198,7 +199,21 @@ public static class IOPortDataGenerator
         SetId(shop, "io_shop");
         Set(shop, "inventoryItemData", inv);
         Set(shop, "chests", new List<Chest>());
+        // 8a) "buy shards with gold" offers — one per rarity (Rare/Epic/Legend).
+        int[] shardPrices = { 100, 250, 500 };
+        int[] shardAmounts = { 5, 3, 2 };
+        var offers = new List<ShopShardOffer>();
+        for (int r = 0; r < 3; r++)
+            offers.Add(new ShopShardOffer(_shards[r], _gold, (ERarity)r, shardPrices[r], shardAmounts[r]));
+        Set(shop, "shardOffers", offers);
         EditorUtility.SetDirty(shop);
+
+        // 8b) win reward content: on win, grant a random card (default 15%) or random shards.
+        _winReward = LoadOrCreate<Data_WinReward>(ROOT + "/System/Data_WinReward.asset");
+        SetId(_winReward, "io_winreward");
+        Set(_winReward, "shardPools", new List<ResourcePool> { _shards[0], _shards[1], _shards[2] });
+        Set(_winReward, "inventoryItemData", inv);
+        EditorUtility.SetDirty(_winReward);
 
         // 9) PopupService + PopupVisualResolver
         var popupService = LoadOrCreate<PopupService>(ROOT + "/System/PopupService.asset");
@@ -362,6 +377,7 @@ public static class IOPortDataGenerator
         AddContent(owned);
         AddContent(inv);
         AddContent(shop);
+        AddContent(_winReward);
         AddContent(popupResolver);
 
         // services

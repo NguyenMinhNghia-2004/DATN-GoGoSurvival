@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Carapace_Excellent
   _name: Carapace (Excellent)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: a197702f1b8353844a2c42e8b3db217f, type: 3}
   _eRarity: 1
   _eTypeItem: 1
   unlockable: {fileID: 3380380419953702576}

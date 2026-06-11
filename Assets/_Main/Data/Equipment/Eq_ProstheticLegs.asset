@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_ProstheticLegs
   equipName: Prosthetic Legs
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ee700cccc2c6fee4eb5bc4142ac53a7e, type: 3}
   description: "Monster set \u2014 Shoes"
   slot: 3
   atkByQuality:

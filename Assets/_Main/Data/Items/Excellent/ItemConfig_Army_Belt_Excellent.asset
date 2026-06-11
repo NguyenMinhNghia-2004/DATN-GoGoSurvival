@@ -930,7 +930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Belt_Excellent
   _name: Army Belt (Excellent)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: fac6cd575301f5847a6bf8979ed1235f, type: 3}
   _eRarity: 1
   _eTypeItem: 3
   unlockable: {fileID: 2986633755707627384}

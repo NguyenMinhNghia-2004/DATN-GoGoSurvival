@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Light_Runners_Epic
   _name: Light Runners (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: e90e77d5634e29f4ebfbd9cfa9ec98d6, type: 3}
   _eRarity: 2
   _eTypeItem: 5
   unlockable: {fileID: -7405007707657326083}

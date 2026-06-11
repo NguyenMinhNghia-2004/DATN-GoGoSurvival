@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_LeatherGloves
   equipName: Leather Gloves
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 76e4b4ea04dbb5741a238f92e06e13ab, type: 3}
   description: "Monster set \u2014 Gloves"
   slot: 5
   atkByQuality:

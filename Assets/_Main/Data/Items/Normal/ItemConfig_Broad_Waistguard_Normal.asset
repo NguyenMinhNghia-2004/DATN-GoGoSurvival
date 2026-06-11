@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Broad_Waistguard_Normal
   _name: Broad Waistguard (Normal)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 1944e32782a564d4c920266b7cedd794, type: 3}
   _eRarity: 0
   _eTypeItem: 3
   unlockable: {fileID: -2173988990569198224}

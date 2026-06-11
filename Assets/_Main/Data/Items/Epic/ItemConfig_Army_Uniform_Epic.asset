@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Uniform_Epic
   _name: Army Uniform (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 8240071abe29cdb40846b813b33a66bd, type: 3}
   _eRarity: 2
   _eTypeItem: 1
   unlockable: {fileID: 5917972780746789708}

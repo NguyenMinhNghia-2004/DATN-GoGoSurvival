@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_LayeredSnowshoes
   equipName: Layered Snowshoes
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 47164b6254736c546a7fa83591c74909, type: 3}
   description: "Protective Set \u2014 Shoes"
   slot: 3
   atkByQuality:

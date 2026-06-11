@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Trendy_Charm_Good
   _name: Trendy Charm (Good)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: b81f2242147df12409cf80fd57f2ce35, type: 3}
   _eRarity: 0
   _eTypeItem: 2
   unlockable: {fileID: -4382285310075327765}

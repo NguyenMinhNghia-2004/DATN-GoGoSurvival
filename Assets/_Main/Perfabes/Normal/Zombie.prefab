@@ -112,7 +112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3537171100188795311}
   - component: {fileID: 3537171100188795308}
-  - component: {fileID: 3537171100188795309}
   - component: {fileID: 3537171100188795298}
   - component: {fileID: 3537171100188795299}
   - component: {fileID: 3537171100188795296}
@@ -201,28 +200,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3537171100188795309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537171100188795310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b905c2d056df7444ba090a3722493036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
-  Manager: {fileID: 0}
-  HitEffect: {fileID: 9029106860511387991, guid: 65a5c65d102daec4c9a8b03a518dcbb7, type: 3}
-  BloodLocalisation: {fileID: 0}
-  UImanager: {fileID: 0}
-  Bolt: {fileID: 4927636615585834507}
-  BlueDiamond: {fileID: 8183285587281381113, guid: 48a6780bb0811b14cb098f7671cb1371, type: 3}
-  RedDiamond: {fileID: 8183285587281381113, guid: fc6dec5d55df07d42810cc7f5d84c623, type: 3}
-  GreenDiamond: {fileID: 8183285587281381113, guid: 4a5dab04b7c633643a0c2429c34864bc, type: 3}
-  defaultHP: 100
 --- !u!61 &3537171100188795298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,9 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3832e391ddc27d848b301bd1e0dc6b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.LuzartEnemyEntityRoot
-  _legacyData: {fileID: 0}
   _defaultHP: 100
   _defaultMoveSpeed: 2
+  _stopFollowDistance: 0.6
   _bloodLocalisationParent: {fileID: 0}
   _blueDiamond: {fileID: 8183285587281381113, guid: 48a6780bb0811b14cb098f7671cb1371, type: 3}
   _redDiamond: {fileID: 8183285587281381113, guid: fc6dec5d55df07d42810cc7f5d84c623, type: 3}

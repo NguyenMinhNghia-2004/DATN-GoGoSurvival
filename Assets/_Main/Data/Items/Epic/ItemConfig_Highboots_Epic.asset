@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Highboots_Epic
   _name: Highboots (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: a3433c330c1f3a749a6b4d3b2027ae82, type: 3}
   _eRarity: 2
   _eTypeItem: 5
   unlockable: {fileID: -2527097080385493235}

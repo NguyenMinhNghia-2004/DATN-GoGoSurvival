@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Uniform_Better
   _name: Army Uniform (Better)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 8240071abe29cdb40846b813b33a66bd, type: 3}
   _eRarity: 1
   _eTypeItem: 1
   unlockable: {fileID: -3237692034130621726}

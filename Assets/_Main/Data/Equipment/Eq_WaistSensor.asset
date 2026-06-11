@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_WaistSensor
   equipName: Waist Sensor
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a4c5100296556db4ca4d72ce9ffb40da, type: 3}
   description: "Metal Set \u2014 Belt"
   slot: 2
   atkByQuality:

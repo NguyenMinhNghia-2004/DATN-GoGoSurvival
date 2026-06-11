@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Full_Metal_Suit_Good
   _name: Full Metal Suit (Good)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 4fe456908ce21eb4aa80ba62e8e85a63, type: 3}
   _eRarity: 0
   _eTypeItem: 1
   unlockable: {fileID: -5387706770850171766}

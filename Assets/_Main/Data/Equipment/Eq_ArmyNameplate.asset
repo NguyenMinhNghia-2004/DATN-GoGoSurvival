@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_ArmyNameplate
   equipName: Army Nameplate
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b2f841d4b38368e409cb71e9c4d2d657, type: 3}
   description: "Army set \u2014 Necklace"
   slot: 4
   atkByQuality:

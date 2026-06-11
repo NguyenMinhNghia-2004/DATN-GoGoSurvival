@@ -1152,7 +1152,6 @@ GameObject:
   - component: {fileID: 763794077280215486}
   - component: {fileID: 5314183892232985792}
   - component: {fileID: 6425591326199827342}
-  - component: {fileID: 7115766781430286571}
   m_Layer: 5
   m_Name: Firs
   m_TagString: Untagged
@@ -1289,20 +1288,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7115766781430286571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217768754766908698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &247847467465233662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8330365172349184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
         m_MethodName: CheckFirst
         m_Mode: 1
@@ -3981,7 +3966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ShoesDesign
         m_Mode: 1
@@ -5734,7 +5719,6 @@ GameObject:
   - component: {fileID: 1017932107988487055}
   - component: {fileID: 5835731689689271736}
   - component: {fileID: 979692198248243410}
-  - component: {fileID: 3206457527443336859}
   m_Layer: 5
   m_Name: Faces
   m_TagString: Untagged
@@ -5796,20 +5780,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &3206457527443336859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934290685001701269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &952530480458139290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,7 +6367,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8330365172349184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
         m_MethodName: CheckCenter
         m_Mode: 1
@@ -7384,7 +7354,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2545073176921386878}
-  - component: {fileID: 6944661265487820058}
   - component: {fileID: 5402523172414748109}
   m_Layer: 5
   m_Name: Content
@@ -7413,18 +7382,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &6944661265487820058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153947466273047453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6877739ad1f048043b1efa113c59bb77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5402523172414748109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8172,7 +8129,6 @@ GameObject:
   - component: {fileID: 7964120705828724615}
   - component: {fileID: 5860208044141711844}
   - component: {fileID: 234729656885409705}
-  - component: {fileID: 6114184511193264677}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -8296,20 +8252,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6114184511193264677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345208991584888260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &1352697395891948516
 GameObject:
   m_ObjectHideFlags: 0
@@ -8990,7 +8932,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BonePendant
         m_Mode: 1
@@ -9946,7 +9888,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: SoundActive
         m_Mode: 1
@@ -10043,7 +9985,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7002842315305352681}
-  - component: {fileID: 6289870453268604655}
   - component: {fileID: 4271028260102842662}
   m_Layer: 5
   m_Name: SV_Shop
@@ -10073,24 +10014,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6289870453268604655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602589406367138904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb038d2d54ad214eb612c5e36853d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn0: {fileID: 5111159933384907875}
-  btn1: {fileID: 8511155017141000255}
-  btn2: {fileID: 2710438108223564045}
-  btn3: {fileID: 6679814605155595115}
-  btn4: {fileID: 2688162951755406248}
-  btn5: {fileID: 1285791197323553634}
 --- !u!114 &4271028260102842662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12244,7 +12167,6 @@ GameObject:
   - component: {fileID: 8645643270572346207}
   - component: {fileID: 2988466133321549876}
   - component: {fileID: 8631161264647281189}
-  - component: {fileID: 6530332397278654207}
   m_Layer: 5
   m_Name: Cnte
   m_TagString: Untagged
@@ -12368,20 +12290,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6530332397278654207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900707023803561011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &1918023029972074492
 GameObject:
   m_ObjectHideFlags: 0
@@ -15487,7 +15395,6 @@ GameObject:
   - component: {fileID: 1027523394446208834}
   - component: {fileID: 7661467699249528772}
   - component: {fileID: 2468753223752567375}
-  - component: {fileID: 7637014578826946863}
   m_Layer: 5
   m_Name: Second
   m_TagString: Untagged
@@ -15624,20 +15531,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7637014578826946863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2405025372340358928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &2406902828004608289
 GameObject:
   m_ObjectHideFlags: 0
@@ -16258,7 +16151,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: WeaponDesign
         m_Mode: 1
@@ -17153,7 +17046,6 @@ GameObject:
   - component: {fileID: 960614636640783943}
   - component: {fileID: 2756647015902164276}
   - component: {fileID: 2507808237542507942}
-  - component: {fileID: 3598536932977821145}
   m_Layer: 5
   m_Name: Faces
   m_TagString: Untagged
@@ -17215,20 +17107,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &3598536932977821145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635919588140749190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &2653305765594606521
 GameObject:
   m_ObjectHideFlags: 0
@@ -17748,7 +17626,6 @@ GameObject:
   - component: {fileID: 2953299001635385231}
   - component: {fileID: 1677017329043365371}
   - component: {fileID: 7653456522914448054}
-  - component: {fileID: 5798471547502424791}
   m_Layer: 5
   m_Name: Second
   m_TagString: Untagged
@@ -17885,20 +17762,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5798471547502424791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2697804920459477521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &2698522953211831600
 GameObject:
   m_ObjectHideFlags: 0
@@ -21592,7 +21455,6 @@ GameObject:
   - component: {fileID: 2337594402305443724}
   - component: {fileID: 7762948764354701504}
   - component: {fileID: 5931380215231145152}
-  - component: {fileID: 8352964761598126820}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -21716,20 +21578,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8352964761598126820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3281833888757362484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &3284012245553802256
 GameObject:
   m_ObjectHideFlags: 0
@@ -23134,7 +22982,6 @@ GameObject:
   - component: {fileID: 8292607547089847020}
   - component: {fileID: 5488405111689596070}
   - component: {fileID: 1183065108975313777}
-  - component: {fileID: 6289349106154664067}
   m_Layer: 5
   m_Name: 'Faces '
   m_TagString: Untagged
@@ -23196,20 +23043,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6289349106154664067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3428407498367898526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &3443889018780151796
 GameObject:
   m_ObjectHideFlags: 0
@@ -23541,7 +23374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BonePendant
         m_Mode: 1
@@ -24264,7 +24097,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ShoesDesign
         m_Mode: 1
@@ -26960,7 +26793,6 @@ GameObject:
   - component: {fileID: 3342423287626920358}
   - component: {fileID: 2364336123244437726}
   - component: {fileID: 6350190288812622095}
-  - component: {fileID: 1920741381513823878}
   m_Layer: 5
   m_Name: Third
   m_TagString: Untagged
@@ -27097,20 +26929,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1920741381513823878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3967349141688869182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &3970660665038538926
 GameObject:
   m_ObjectHideFlags: 0
@@ -27123,7 +26941,6 @@ GameObject:
   - component: {fileID: 1920995714560146671}
   - component: {fileID: 5202371133512536511}
   - component: {fileID: 6182963263259415238}
-  - component: {fileID: 1871034360785033854}
   m_Layer: 5
   m_Name: Third
   m_TagString: Untagged
@@ -27260,20 +27077,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1871034360785033854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3970660665038538926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &3976798192545691737
 GameObject:
   m_ObjectHideFlags: 0
@@ -27361,7 +27164,6 @@ GameObject:
   - component: {fileID: 6993946379306320268}
   - component: {fileID: 1122236449443459397}
   - component: {fileID: 4750832649203237391}
-  - component: {fileID: 251092566192824040}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -27429,23 +27231,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &251092566192824040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4008915760949076005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c8adc2693e7b8148a3edb168d941dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  legacyText: {fileID: 9053820959428230158}
-  tmpText: {fileID: 0}
-  legacyTimerText: {fileID: 0}
-  tmpTimerText: {fileID: 0}
 --- !u!1 &4081777779977369334
 GameObject:
   m_ObjectHideFlags: 0
@@ -28408,7 +28193,6 @@ GameObject:
   - component: {fileID: 3622286409647730358}
   - component: {fileID: 6944599184844883846}
   - component: {fileID: 3847982133036252632}
-  - component: {fileID: 3192094715123675779}
   m_Layer: 5
   m_Name: Diamond
   m_TagString: Untagged
@@ -28476,23 +28260,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3192094715123675779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4279348356671709842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c8adc2693e7b8148a3edb168d941dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  legacyText: {fileID: 2361874886672694492}
-  tmpText: {fileID: 0}
-  legacyTimerText: {fileID: 0}
-  tmpTimerText: {fileID: 0}
 --- !u!1 &4281859334147281561
 GameObject:
   m_ObjectHideFlags: 0
@@ -29295,7 +29062,6 @@ GameObject:
   - component: {fileID: 3775652736023074785}
   - component: {fileID: 7627847021356712448}
   - component: {fileID: 3928092321626334729}
-  - component: {fileID: 2767332243189686733}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -29419,20 +29185,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2767332243189686733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4380744132100851227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &4397903709823318683
 GameObject:
   m_ObjectHideFlags: 0
@@ -31225,7 +30977,6 @@ GameObject:
   - component: {fileID: 6168846944410088964}
   - component: {fileID: 3055110909470244819}
   - component: {fileID: 5215314633247910680}
-  - component: {fileID: 8014997712161934759}
   - component: {fileID: 8682929683613202743}
   m_Layer: 5
   m_Name: BackgroundUp
@@ -31293,19 +31044,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.1
---- !u!114 &8014997712161934759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681555279127822946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ff1fabc5bcf0549a3409189a4e658b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FollowPoint: {fileID: 5148132992778717152}
 --- !u!114 &8682929683613202743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32685,7 +32423,6 @@ GameObject:
   - component: {fileID: 6944266822731723224}
   - component: {fileID: 452878940774869032}
   - component: {fileID: 5765307651983486378}
-  - component: {fileID: 4057733874896923964}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -32809,20 +32546,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4057733874896923964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817383484023064817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &4822977880950415853
 GameObject:
   m_ObjectHideFlags: 0
@@ -34948,7 +34671,6 @@ GameObject:
   - component: {fileID: 3970487099508036798}
   - component: {fileID: 5994860709020291700}
   - component: {fileID: 1793295484641587323}
-  - component: {fileID: 3503451361492941926}
   m_Layer: 5
   m_Name: SettingContainer
   m_TagString: Untagged
@@ -35044,31 +34766,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &3503451361492941926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5103241071609289365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 333d616054c04214f9abc46f151f2742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoolM: {fileID: 0}
-  SActiveBtn: {fileID: 8792343894545407344}
-  SInactiveBtn: {fileID: 1582174593584503266}
-  SIconActive: {fileID: 7298126813753591324}
-  SIconInactive: {fileID: 3890178496179708610}
-  MActiveBtn: {fileID: 8848396542145101452}
-  MInactiveBtn: {fileID: 7551213231260300424}
-  MIconActive: {fileID: 2938570470800497307}
-  MIconInactive: {fileID: 4945063951880895254}
-  VActiveBtn: {fileID: 6945066245500730613}
-  VInactiveBtn: {fileID: 7511114405899904465}
-  VIconActive: {fileID: 974499552832117856}
-  VIconInactive: {fileID: 1475841440710337034}
 --- !u!1 &5115885990858279755
 GameObject:
   m_ObjectHideFlags: 0
@@ -35379,7 +35076,6 @@ GameObject:
   - component: {fileID: 2071087016630847134}
   - component: {fileID: 6313532881618833847}
   - component: {fileID: 9059072471666860853}
-  - component: {fileID: 6513431610570327896}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -35503,20 +35199,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6513431610570327896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5154651556742674429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &5182675355622651530
 GameObject:
   m_ObjectHideFlags: 0
@@ -36101,7 +35783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: WeaponDesign
         m_Mode: 1
@@ -36632,7 +36314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BoneM
         m_Mode: 1
@@ -37364,7 +37046,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1342802073067327017}
   - component: {fileID: 5995161054051821461}
-  - component: {fileID: 8330365172349184}
   m_Layer: 5
   m_Name: DOWN
   m_TagString: Untagged
@@ -37422,45 +37103,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &8330365172349184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5335683968352077659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f48e7183efed664ba08a18e89a6f8cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
-  FirstBtn: {fileID: 266650839552439594}
-  FirstMinseBtn: {fileID: 9073269735522409149}
-  CenterBtn: {fileID: 989556057797254352}
-  SecondBtn: {fileID: 8876004420647830065}
-  ThirdBtn: {fileID: 8025207365129547725}
-  LogFirst: {fileID: 6602962204542896069}
-  LogFirstMinse: {fileID: 2438639616208611532}
-  LogCenter: {fileID: 4928022338778690003}
-  LogSecond: {fileID: 3412284486759715045}
-  LogThird: {fileID: 264518027652028333}
-  LockEvolve: {fileID: 1800496787886293929}
-  LockShope: {fileID: 1575892404575699226}
-  LockEquipement: {fileID: 6552770220042283317}
-  LockDeath: {fileID: 2189468599472530319}
-  TextFirst: {fileID: 8301932107785490911}
-  TextFirstMinse: {fileID: 8256549969709161187}
-  TextCenter: {fileID: 7166503020156483447}
-  TextSecond: {fileID: 4811277321808720666}
-  TextThird: {fileID: 3787081525533653794}
-  BtnCenter: {fileID: 8782615813273864729}
-  Evolvebtn: {fileID: 3307125464396313738}
-  shopbtn: {fileID: 7203478063716949396}
-  equipementbtn: {fileID: 8547873440337126051}
-  deathbtn: {fileID: 1224143661207433327}
-  Inactive: {fileID: 21300000, guid: d4c8a7d2cc916d94f9ade54c5392718d, type: 3}
-  Active: {fileID: 21300030, guid: c185d1dc7b63a814c98b46c1673791e8, type: 3}
 --- !u!1 &5339751587412995756
 GameObject:
   m_ObjectHideFlags: 0
@@ -39023,12 +38665,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SV_MainMenuUI
   btnPlay: {fileID: 4978289048007234495}
-  btnShop: {fileID: 0}
-  btnEquipment: {fileID: 0}
+  btnShop: {fileID: 7203478063716949396}
+  btnEquipment: {fileID: 8547873440337126051}
   btnSettings: {fileID: 0}
   btnMessages: {fileID: 0}
-  panelSettings: {fileID: 0}
-  panelMessages: {fileID: 0}
+  panelSettings: {fileID: 1251453546665303976}
+  panelMessages: {fileID: 5222259252587240464}
 --- !u!1 &5640080218320285382
 GameObject:
   m_ObjectHideFlags: 0
@@ -39189,7 +38831,6 @@ GameObject:
   - component: {fileID: 1815003118445890147}
   - component: {fileID: 1271845185938436096}
   - component: {fileID: 6733755501459333548}
-  - component: {fileID: 4129940959218007793}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -39313,20 +38954,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4129940959218007793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643485818594628510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &5643948178483012139
 GameObject:
   m_ObjectHideFlags: 0
@@ -40011,8 +39638,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6570764614020774376}
-  - component: {fileID: 8301075715037354407}
-  - component: {fileID: 2007469548827977985}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -40047,39 +39672,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8301075715037354407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727371473592708051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace5871cb38609941bde62ae66779155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MSettings: {fileID: 1251453546665303976}
-  MMessages: {fileID: 5222259252587240464}
---- !u!114 &2007469548827977985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727371473592708051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79aeb12c96224e038540b2b4c20428f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SV_MainMenuUI
-  btnPlay: {fileID: 4978289048007234495}
-  btnShop: {fileID: 0}
-  btnEquipment: {fileID: 0}
-  btnSettings: {fileID: 0}
-  btnMessages: {fileID: 0}
-  panelSettings: {fileID: 0}
-  panelMessages: {fileID: 0}
 --- !u!1 &5732404027866563464
 GameObject:
   m_ObjectHideFlags: 0
@@ -41198,6 +40790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7580737636621854035}
+  - component: {fileID: 2106414265457519948}
   m_Layer: 5
   m_Name: DownContainer
   m_TagString: Untagged
@@ -41226,6 +40819,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 195.8128}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!223 &2106414265457519948
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912848489868474758}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 500
+  m_TargetDisplay: 0
 --- !u!1 &5926559831350330534
 GameObject:
   m_ObjectHideFlags: 0
@@ -41394,7 +41010,6 @@ GameObject:
   - component: {fileID: 5148873369827213550}
   - component: {fileID: 6085575621489760451}
   - component: {fileID: 1221640173655446467}
-  - component: {fileID: 351352546618157976}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -41518,20 +41133,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &351352546618157976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5980524192117851521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &5989900122086764298
 GameObject:
   m_ObjectHideFlags: 0
@@ -42327,7 +41928,6 @@ GameObject:
   - component: {fileID: 6194270198459613454}
   - component: {fileID: 8666466047592281993}
   - component: {fileID: 8509520075972754833}
-  - component: {fileID: 3042296518119360161}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -42451,20 +42051,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3042296518119360161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6090386892204069758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &6105638099640369717
 GameObject:
   m_ObjectHideFlags: 0
@@ -43075,7 +42661,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8301075715037354407}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: OpenMessages
         m_Mode: 1
@@ -47863,7 +47449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8301075715037354407}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ExitSetting
         m_Mode: 1
@@ -48315,7 +47901,6 @@ GameObject:
   - component: {fileID: 5008311813031248083}
   - component: {fileID: 6760842563637917529}
   - component: {fileID: 8574440583582242332}
-  - component: {fileID: 5420936867834314525}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -48439,20 +48024,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5420936867834314525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6744462930196914027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &6753513686270655538
 GameObject:
   m_ObjectHideFlags: 0
@@ -49166,7 +48737,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8301075715037354407}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: OpenSetting
         m_Mode: 1
@@ -49998,7 +49569,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: VibrationInactiveActive
         m_Mode: 1
@@ -50567,7 +50138,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ClothingDesign
         m_Mode: 1
@@ -50904,7 +50475,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8301075715037354407}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ExitMessages
         m_Mode: 1
@@ -53442,7 +53013,6 @@ GameObject:
   - component: {fileID: 6455863357255218168}
   - component: {fileID: 1190953687324895291}
   - component: {fileID: 8299558883971989242}
-  - component: {fileID: 6325728506682858173}
   m_Layer: 5
   m_Name: 'Cnte '
   m_TagString: Untagged
@@ -53566,20 +53136,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6325728506682858173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7395544460019061834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &7403472494068463766
 GameObject:
   m_ObjectHideFlags: 0
@@ -53592,7 +53148,6 @@ GameObject:
   - component: {fileID: 8337386088925043025}
   - component: {fileID: 8030339416983630488}
   - component: {fileID: 7351725711353474453}
-  - component: {fileID: 3726913542867691586}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -53716,20 +53271,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3726913542867691586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7403472494068463766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &7413037030319177600
 GameObject:
   m_ObjectHideFlags: 0
@@ -54045,7 +53586,6 @@ GameObject:
   - component: {fileID: 6512000823850182046}
   - component: {fileID: 4223214520018702693}
   - component: {fileID: 6571418826918922422}
-  - component: {fileID: 6113464529230735327}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -54169,20 +53709,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6113464529230735327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7485662686994287465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &7488375576440565267
 GameObject:
   m_ObjectHideFlags: 0
@@ -54558,7 +54084,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: VibrationActive
         m_Mode: 1
@@ -55243,7 +54769,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: MusicActive
         m_Mode: 1
@@ -56209,7 +55735,6 @@ GameObject:
   - component: {fileID: 2831260874465691402}
   - component: {fileID: 3506410479803629946}
   - component: {fileID: 2240998923176403291}
-  - component: {fileID: 5731874377267544378}
   m_Layer: 5
   m_Name: 'Faces '
   m_TagString: Untagged
@@ -56271,20 +55796,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5731874377267544378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7715623748670894446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40531deb9f5280545b5a1c528968189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ValueX: -0.015
-  ValueY: -0.015
 --- !u!1 &7742431130146918816
 GameObject:
   m_ObjectHideFlags: 0
@@ -57803,7 +57314,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8330365172349184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
         m_MethodName: CheckThird
         m_Mode: 1
@@ -58999,7 +58510,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ClothingDesign
         m_Mode: 1
@@ -59473,7 +58984,6 @@ GameObject:
   - component: {fileID: 3265570032044498370}
   - component: {fileID: 3976293396726988717}
   - component: {fileID: 5386416066984800776}
-  - component: {fileID: 2267378782411277673}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -59597,20 +59107,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2267378782411277673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8280181812909135747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &8292479924938990056
 GameObject:
   m_ObjectHideFlags: 0
@@ -59623,7 +59119,6 @@ GameObject:
   - component: {fileID: 6977977706640341139}
   - component: {fileID: 5037530786340552471}
   - component: {fileID: 4495202707731639476}
-  - component: {fileID: 5323746044771312766}
   m_Layer: 5
   m_Name: Firs
   m_TagString: Untagged
@@ -59760,20 +59255,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5323746044771312766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8292479924938990056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &8292653619862575622
 GameObject:
   m_ObjectHideFlags: 0
@@ -61599,7 +61080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BoneM
         m_Mode: 1
@@ -62671,7 +62152,6 @@ GameObject:
   - component: {fileID: 249527860840184141}
   - component: {fileID: 4073753657854637049}
   - component: {fileID: 692534850294123497}
-  - component: {fileID: 946185752656657611}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -62795,20 +62275,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &946185752656657611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8637582184637210552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &8653457426821044664
 GameObject:
   m_ObjectHideFlags: 0
@@ -63193,7 +62659,6 @@ GameObject:
   - component: {fileID: 4732918203616752352}
   - component: {fileID: 5583444071244545362}
   - component: {fileID: 6768948585861960396}
-  - component: {fileID: 3853721621250908341}
   m_Layer: 5
   m_Name: 'Cnte  '
   m_TagString: Untagged
@@ -63317,20 +62782,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3853721621250908341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742311935212673736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &8743161773940920974
 GameObject:
   m_ObjectHideFlags: 0
@@ -63494,7 +62945,6 @@ GameObject:
   - component: {fileID: 488972105566994316}
   - component: {fileID: 3018718663548095719}
   - component: {fileID: 4524598257311763246}
-  - component: {fileID: 767361186522108969}
   m_Layer: 5
   m_Name: Power
   m_TagString: Untagged
@@ -63562,23 +63012,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &767361186522108969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8788818798725605771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c8adc2693e7b8148a3edb168d941dff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  legacyText: {fileID: 7742403678767741448}
-  tmpText: {fileID: 0}
-  legacyTimerText: {fileID: 8860254435560606803}
-  tmpTimerText: {fileID: 0}
 --- !u!1 &8792343894545407344
 GameObject:
   m_ObjectHideFlags: 0
@@ -63711,7 +63144,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: SoundInActive
         m_Mode: 1
@@ -64005,7 +63438,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3503451361492941926}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: MusicInactiveActive
         m_Mode: 1
@@ -64251,7 +63684,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8330365172349184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
         m_MethodName: CheckSecond
         m_Mode: 1
@@ -65513,7 +64946,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6289870453268604655}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Geems
         m_Mode: 1
@@ -65582,7 +65015,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283815758356397994}
-  - component: {fileID: 1942246842469882805}
   - component: {fileID: 8573968107601902347}
   m_Layer: 5
   m_Name: Shop
@@ -65612,24 +65044,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1942246842469882805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8978655266810690665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb038d2d54ad214eb612c5e36853d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn0: {fileID: 7016505538063864978}
-  btn1: {fileID: 5497464209792712344}
-  btn2: {fileID: 1202259602469223792}
-  btn3: {fileID: 3411749362461386236}
-  btn4: {fileID: 3362234939402907741}
-  btn5: {fileID: 3731124910916080617}
 --- !u!114 &8573968107601902347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66674,7 +66088,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8330365172349184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerFloatingBtn, Assembly-CSharp
         m_MethodName: CheckFirstMinse
         m_Mode: 1
@@ -66710,7 +66124,6 @@ GameObject:
   - component: {fileID: 4234892454406427335}
   - component: {fileID: 63665335886391602}
   - component: {fileID: 3654440102462220242}
-  - component: {fileID: 5889038130527300038}
   m_Layer: 5
   m_Name: 'Cnte   '
   m_TagString: Untagged
@@ -66834,20 +66247,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5889038130527300038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9076708670551175184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215d60cd4608f7744bf5c1f35b1872e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IconPlayer: {fileID: 244225137291469031}
-  Weapon: {fileID: 0}
 --- !u!1 &9094514653778589349
 GameObject:
   m_ObjectHideFlags: 0
@@ -67369,7 +66768,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1942246842469882805}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Geems
         m_Mode: 1

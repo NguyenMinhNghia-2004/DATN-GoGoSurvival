@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Protective_Suit_Normal
   _name: Protective Suit (Normal)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 5ba9b9b09f67a6042b6f44ea64a6d6f0, type: 3}
   _eRarity: 0
   _eTypeItem: 1
   unlockable: {fileID: 3028107936829293006}

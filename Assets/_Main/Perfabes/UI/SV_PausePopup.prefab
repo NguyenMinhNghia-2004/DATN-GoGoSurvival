@@ -1228,7 +1228,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: MusicActive
         m_Mode: 1
@@ -6438,7 +6438,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: SoundInActive
         m_Mode: 1
@@ -12263,7 +12263,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: MusicInactiveActive
         m_Mode: 1
@@ -16559,7 +16559,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: VibrationActive
         m_Mode: 1
@@ -17872,7 +17872,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: VibrationInactiveActive
         m_Mode: 1
@@ -19232,7 +19232,6 @@ GameObject:
   - component: {fileID: 1967082230550224050}
   - component: {fileID: 1856498116612320394}
   - component: {fileID: 1637596255171690295}
-  - component: {fileID: 2745966963612558738}
   m_Layer: 5
   m_Name: SettingContainer
   m_TagString: Untagged
@@ -19328,31 +19327,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &2745966963612558738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7999415210735813714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 333d616054c04214f9abc46f151f2742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoolM: {fileID: 0}
-  SActiveBtn: {fileID: 2688175690138460049}
-  SInactiveBtn: {fileID: 8484059163206881934}
-  SIconActive: {fileID: 7499012424779184816}
-  SIconInactive: {fileID: 4129505205932632776}
-  MActiveBtn: {fileID: 5526514453315706466}
-  MInactiveBtn: {fileID: 530143942091490990}
-  MIconActive: {fileID: 8022770544783461953}
-  MIconInactive: {fileID: 1706057317749200667}
-  VActiveBtn: {fileID: 7486216094216132232}
-  VInactiveBtn: {fileID: 6630168728064515820}
-  VIconActive: {fileID: 7071991305830119428}
-  VIconInactive: {fileID: 7637377022006750521}
 --- !u!1 &8004204724204928263
 GameObject:
   m_ObjectHideFlags: 0
@@ -21112,7 +21086,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2745966963612558738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
         m_MethodName: SoundActive
         m_Mode: 1

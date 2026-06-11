@@ -358,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Light_Runners_Good
   _name: Light Runners (Good)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: e90e77d5634e29f4ebfbd9cfa9ec98d6, type: 3}
   _eRarity: 0
   _eTypeItem: 5
   unlockable: {fileID: -3545597056996557370}

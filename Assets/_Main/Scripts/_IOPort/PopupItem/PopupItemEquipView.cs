@@ -88,11 +88,18 @@ namespace Luzart
         public void OnClickUnEquip()
         {
             Data.RefreshEquippedItem(false);
+            ClosePopup();
         }
 
         public void OnClickEquip()
         {
             Data.RefreshEquippedItem(true);
+            ClosePopup();
+        }
+
+        private void ClosePopup()
+        {
+            GetComponentInParent<Popup>()?.HideSelf();
         }
 
         public void OnClickUpgrade()

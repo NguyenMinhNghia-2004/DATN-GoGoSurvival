@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Gloves_Epic
   _name: Army Gloves (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 324b973da7a400945b354e9fc9a74a00, type: 3}
   _eRarity: 2
   _eTypeItem: 4
   unlockable: {fileID: -7753343636463705043}

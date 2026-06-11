@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Metal_Neckguard_Epic
   _name: Metal Neckguard (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f9d00328bffc0ba45b0f6db97632c16b, type: 3}
   _eRarity: 2
   _eTypeItem: 2
   unlockable: {fileID: 4248665189397617132}

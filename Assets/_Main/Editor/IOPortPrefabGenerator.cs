@@ -116,10 +116,11 @@ public static class IOPortPrefabGenerator
         var lvlViewPf = BuildItemViewWithLevel();
         var gridCellPf = BuildItemViewInventory(lvlViewPf);
         var shopCardPf = BuildItemShopUnlockView(objectViewPf);
+        var shardCardPf = BuildShopShardCard();
         var slotPf = BuildSlotItemEquipmentView(lvlViewPf);
         var equipPopupPf = BuildPopupItemEquip(objectViewPf, costRowPf);
         var invPopupPf = BuildPopupItemInventory(slotPf, gridCellPf);
-        var shopPopupPf = BuildPopupShop(shopCardPf);
+        var shopPopupPf = BuildPopupShop(shopCardPf, shardCardPf);
 
         // assign cost row to the cost visual resolver
         var costResolver = AssetDatabase.LoadAssetAtPath<AssetCostVisualResolver_ResourcePool>(ROOT + "/Resources/CostVisual_ResourcePool.asset");
@@ -183,7 +184,7 @@ public static class IOPortPrefabGenerator
         var bgIm = AddImage(bg, CARD);
         Stretch((RectTransform)bg.transform);
         var icon = NewGO("Icon", root.transform, new Vector2(96, 96));
-        var iconIm = AddImage(icon, new Color(1,1,1,0.15f));
+        var iconIm = AddImage(icon, Color.white); iconIm.preserveAspect = true;
         var amt = NewGO("Amount", root.transform, new Vector2(120, 28));
         var amtT = AddText(amt, "", 20, TextAlignmentOptions.BottomRight);
         ((RectTransform)amt.transform).anchoredPosition = new Vector2(0, -46);
@@ -220,7 +221,7 @@ public static class IOPortPrefabGenerator
         var bg = NewGO("Bg", root.transform, new Vector2(110, 110));
         var bgIm = AddImage(bg, SLOT); Stretch((RectTransform)bg.transform);
         var icon = NewGO("Icon", root.transform, new Vector2(84, 84));
-        var iconIm = AddImage(icon, new Color(1,1,1,0.18f));
+        var iconIm = AddImage(icon, Color.white); iconIm.preserveAspect = true;
         var lvl = NewGO("Level", root.transform, new Vector2(110, 26));
         var lvlT = AddText(lvl, "Lv.0", 18, TextAlignmentOptions.BottomRight);
         ((RectTransform)lvl.transform).anchoredPosition = new Vector2(-4, 6);
@@ -492,7 +493,38 @@ public static class IOPortPrefabGenerator
         return SavePrefab(root, PF + "/PopupItemInventory.prefab");
     }
 
-    static GameObject BuildPopupShop(GameObject shopCardPf)
+    // A "buy shards with gold" card: rarity frame + current count + Buy button with gold price.
+    static GameObject BuildShopShardCard()
+    {
+        var root = NewGO("ShopShardCard", null, new Vector2(240, 320));
+        AddImage(root, CARD);
+        var v = root.AddComponent<ShopBuyShardView>();
+
+        var frame = NewGO("Frame", root.transform, new Vector2(160, 160));
+        var frameIm = AddImage(frame, Color.white); frameIm.preserveAspect = true;
+        ((RectTransform)frame.transform).anchoredPosition = new Vector2(0, 40);
+
+        var countGo = NewGO("Count", root.transform, new Vector2(240, 40));
+        var countT = AddText(countGo, "x0", 26, TextAlignmentOptions.Center);
+        ((RectTransform)countGo.transform).anchoredPosition = new Vector2(0, 130);
+
+        var buyGo = NewGO("BuyButton", root.transform, new Vector2(200, 64));
+        AddImage(buyGo, new Color(0.2f, 0.6f, 0.25f, 1f));
+        var buyBtn = buyGo.AddComponent<Button>();
+        ((RectTransform)buyGo.transform).anchoredPosition = new Vector2(0, -116);
+        var priceGo = NewGO("Price", buyGo.transform, new Vector2(200, 64));
+        var priceT = AddText(priceGo, "0", 26, TextAlignmentOptions.Center);
+        Stretch((RectTransform)priceGo.transform);
+
+        Set(v, "imFrame", frameIm);
+        Set(v, "txtCount", countT);
+        Set(v, "txtPrice", priceT);
+        Set(v, "children", new ViewChilding[0]);
+        AddClick(buyBtn, v.OnClickBuy);
+        return SavePrefab(root, PF + "/ShopShardCard.prefab");
+    }
+
+    static GameObject BuildPopupShop(GameObject shopCardPf, GameObject shardCardPf)
     {
         // Full-screen overlay root with dim backdrop.
         var root = NewGO("Shop", null, new Vector2(1080, 1920));
@@ -504,24 +536,67 @@ public static class IOPortPrefabGenerator
         // Clone the old shop scroll frame (Items/Viewport(Mask)/Content + Scrollbar) for the look.
         var container = CloneSubtree(SV_SHOP, "Container");
         Transform gridParent;
+        Transform shardParent = null;
         if (container != null)
         {
             container.transform.SetParent(root.transform, false);
             Stretch((RectTransform)container.transform);
             var content = FindDeep(container.transform, "Content");
-            var host = content != null ? content : container.transform;
-            // drop the hand-placed static sections; spawn into a fresh responsive grid
-            for (int i = host.childCount - 1; i >= 0; i--)
-                UnityEngine.Object.DestroyImmediate(host.GetChild(i).gameObject);
-            var gridGo = new GameObject("Grid", typeof(RectTransform));
-            gridGo.transform.SetParent(host, false);
-            var grid = gridGo.AddComponent<GridLayoutGroup>();
-            grid.cellSize = new Vector2(325, 443); grid.spacing = new Vector2(16, 16);
-            grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 3;
-            grid.childAlignment = TextAnchor.UpperCenter; grid.padding = new RectOffset(10, 10, 10, 10);
-            var csf = gridGo.AddComponent<ContentSizeFitter>();
-            csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
-            gridParent = gridGo.transform;
+            // Keep ONLY the "All Card Unlocked" section (its "Card Shop" header banner +
+            // GridLayoutGroup with padTop=150). Drop "Daily Shop" (hand-placed static cards)
+            // and "Supply Carte". Cards spawn into All Card Unlocked's own grid — this is the
+            // authentic SV_Shop look the user asked for ("Sinh nó trong AllCardUnlocked").
+            Transform allCard = content != null ? content.Find("All Card Unlocked") : null;
+            if (content != null)
+            {
+                for (int i = content.childCount - 1; i >= 0; i--)
+                {
+                    var ch = content.GetChild(i);
+                    if (ch != allCard) UnityEngine.Object.DestroyImmediate(ch.gameObject);
+                }
+                // let the section's height drive Content so the scroll frame grows with the grid
+                var vlg = content.GetComponent<VerticalLayoutGroup>();
+                if (vlg != null) { vlg.childControlHeight = true; vlg.childForceExpandHeight = false; }
+
+                // "Buy shards with gold" section, placed ABOVE the card grid in the scroll Content.
+                var shardSection = new GameObject("ShardShop", typeof(RectTransform));
+                shardSection.transform.SetParent(content, false);
+                shardSection.transform.SetAsFirstSibling();
+                var sle = shardSection.AddComponent<LayoutElement>();
+                sle.minHeight = 360; sle.preferredHeight = 360;
+                var shlg = shardSection.AddComponent<HorizontalLayoutGroup>();
+                shlg.spacing = 16; shlg.childAlignment = TextAnchor.MiddleCenter;
+                shlg.childControlWidth = false; shlg.childControlHeight = false;
+                shlg.childForceExpandWidth = false; shlg.childForceExpandHeight = false;
+                shardParent = shardSection.transform;
+            }
+            if (allCard != null)
+            {
+                allCard.gameObject.SetActive(true);
+                var grid = allCard.GetComponent<GridLayoutGroup>();
+                if (grid != null)
+                {
+                    grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+                    grid.constraintCount = 3;
+                }
+                // grow with the spawned cards (the native rect is a fixed 1160 tall)
+                var csf = allCard.GetComponent<ContentSizeFitter>() ?? allCard.gameObject.AddComponent<ContentSizeFitter>();
+                csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+                gridParent = allCard;
+            }
+            else
+            {
+                // fallback: fresh responsive grid under Content
+                var host = content != null ? content : container.transform;
+                var gridGo = new GameObject("Grid", typeof(RectTransform));
+                gridGo.transform.SetParent(host, false);
+                var grid = gridGo.AddComponent<GridLayoutGroup>();
+                grid.cellSize = new Vector2(325, 443); grid.spacing = new Vector2(16, 16);
+                grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount = 3;
+                grid.childAlignment = TextAnchor.UpperCenter; grid.padding = new RectOffset(10, 10, 10, 10);
+                gridGo.AddComponent<ContentSizeFitter>().verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+                gridParent = gridGo.transform;
+            }
         }
         else
         {
@@ -549,7 +624,18 @@ public static class IOPortPrefabGenerator
         Set(unlockedView, "uIItemSpawnerGeneric", spawner);
         Set(unlockedView, "children", new ViewChilding[0]);
 
-        Set(view, "children", new ViewChilding[] { MakeChilding("InventoryItemData", unlockedView) });
+        // shard-shop spawner: spawns one ShopShardCard per Data_Shop.ShardOffers entry.
+        var shardSpawnerGo = NewGO("ShardSpawner", root.transform, new Vector2(10, 10));
+        var shardSpawner = shardSpawnerGo.AddComponent<UIItemSpawnerGeneric>();
+        Set(shardSpawner, "parent", shardParent != null ? shardParent : gridParent);
+        Set(shardSpawner, "viewPrefab", shardCardPf.GetComponent<View>());
+        Set(shardSpawner, "children", new ViewChilding[0]);
+
+        Set(view, "children", new ViewChilding[]
+        {
+            MakeChilding("InventoryItemData", unlockedView),
+            MakeChilding("ShardOffersObj", shardSpawner),
+        });
         Set(popup, "mainView", view);
         Set(popup, "closeButton", close);
         return SavePrefab(root, PF + "/PopupShop.prefab");

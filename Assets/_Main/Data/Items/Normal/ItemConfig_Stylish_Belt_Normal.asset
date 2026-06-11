@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Stylish_Belt_Normal
   _name: Stylish Belt (Normal)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 81f3ce3ca70691b43ac6a983b9386e1c, type: 3}
   _eRarity: 0
   _eTypeItem: 3
   unlockable: {fileID: -5929682756787956364}

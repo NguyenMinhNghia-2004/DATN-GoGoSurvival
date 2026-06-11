@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Kunai_Better
   _name: Kunai (Better)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 073ffd7b799696d43a65201971c57286, type: 3}
   _eRarity: 1
   _eTypeItem: 0
   unlockable: {fileID: -969592453446051650}

@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Nameplate_Epic
   _name: Army Nameplate (Epic)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: b2f841d4b38368e409cb71e9c4d2d657, type: 3}
   _eRarity: 2
   _eTypeItem: 2
   unlockable: {fileID: -1409117912468223023}

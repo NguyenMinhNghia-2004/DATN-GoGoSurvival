@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.ItemConfig
   _id: ItemConfig_Army_Gloves_Excellent
   _name: Army Gloves (Excellent)
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 324b973da7a400945b354e9fc9a74a00, type: 3}
   _eRarity: 1
   _eTypeItem: 4
   unlockable: {fileID: 7331355945883918383}
