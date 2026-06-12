@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6532e7bf15b799441925602f097c513b, type: 3}
+  m_Name: StatsConfig_PreGame
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.StatsConfig
+  _id: StatsConfig_PreGame
+  assetStats:
+  - {fileID: 11400000, guid: d28ad1c619344e8b94618d981d32699d, type: 2}
+  - {fileID: 11400000, guid: 82b75b44a4b44f40820133ce196dfe38, type: 2}
+  - {fileID: 11400000, guid: 88acc5439fa046278c28bd9666f0599f, type: 2}
+  - {fileID: 11400000, guid: 3128859f880743328c599bfcbd0df7cc, type: 2}
+  - {fileID: 11400000, guid: 7f13d44094fb4fc48ee9e180f768e386, type: 2}
+  - {fileID: 11400000, guid: cbdb78447a214c37a0cf15ff361e9c83, type: 2}
+  - {fileID: 11400000, guid: aec452c245d344258491dd8e5fc99334, type: 2}
+  - {fileID: 11400000, guid: 78d5203d0275449a9c45c9f94ad4b27c, type: 2}

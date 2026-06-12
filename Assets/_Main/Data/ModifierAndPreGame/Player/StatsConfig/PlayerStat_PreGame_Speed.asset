@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81f815e768953f46a87d795774ccae8, type: 3}
+  m_Name: PlayerStat_PreGame_Speed
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetStat
+  _id: PlayerStat_PreGame_Speed
+  definition: {fileID: 11400000, guid: 1546ad6be185440d1aa7b52b80a091ed, type: 2}
+  value:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 1536bf3b782449efb3da08a9fc15649a, type: 2}
