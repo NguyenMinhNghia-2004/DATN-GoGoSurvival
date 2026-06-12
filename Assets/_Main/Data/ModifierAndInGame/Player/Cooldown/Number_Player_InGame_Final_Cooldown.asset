@@ -16,7 +16,7 @@ MonoBehaviour:
   baseNumber:
     mode: 1
     constant: 0
-    asset: {fileID: 11400000, guid: 866ef25f4b12428d8489929de35b4f3b, type: 2}
+    asset: {fileID: 11400000, guid: 81544c3edcc24a74baba9875cf193466, type: 2}
   addNumber:
     mode: 1
     constant: 0
