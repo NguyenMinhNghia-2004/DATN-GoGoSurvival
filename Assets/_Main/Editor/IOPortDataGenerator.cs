@@ -95,7 +95,10 @@ public static class IOPortDataGenerator
         var loader = UnityEngine.Object.FindObjectOfType<DomainContentLoader>(true);
         if (loader == null) { Debug.LogError("[IOPort] No DomainContentLoader in open scene."); return; }
 
-        var guids = AssetDatabase.FindAssets("t:ScriptableObject", new[] { "Assets/_Main/Data/ModifierAndInGame" });
+        var guids = AssetDatabase.FindAssets("t:ScriptableObject", new[] {
+            "Assets/_Main/Data/ModifierAndInGame",
+            "Assets/_Main/Data/ModifierAndPreGame",
+        });
         var so = new SerializedObject(loader);
         var contentsProp = so.FindProperty("contents");
         var existing = new HashSet<UnityEngine.Object>();
