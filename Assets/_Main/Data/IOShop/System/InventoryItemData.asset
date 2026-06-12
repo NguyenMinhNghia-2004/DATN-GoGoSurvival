@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: InventoryItemData
   m_EditorClassIdentifier: Assembly-CSharp::Luzart.InventoryItemData
   _id: io_inventory
-  _frameStatInventoryVM: []
+  _frameStatInventoryVM:
+  - statType: 0
+    numberPicker:
+      mode: 1
+      constant: 0
+      asset: {fileID: 11400000, guid: 5862bfb26b5a4ea0b8355e6147e67185, type: 2}
+  - statType: 1
+    numberPicker:
+      mode: 1
+      constant: 0
+      asset: {fileID: 11400000, guid: fda7833e12eb4a86939f85c2379ab0d3, type: 2}
   _assetEquipmentSlots:
   - {fileID: 11400000, guid: 0659df8279d8c354b84d7fcd1340e6d2, type: 2}
   - {fileID: 11400000, guid: d037e31e8153424459dc7756a8658418, type: 2}

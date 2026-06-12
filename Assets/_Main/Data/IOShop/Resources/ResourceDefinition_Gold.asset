@@ -16,5 +16,5 @@ MonoBehaviour:
   _eType: 0
   _displayName: Gold
   _description: 
-  _mainImage: {fileID: 21300000, guid: 78cec63b3bf738b48896dba0e3138f23, type: 3}
+  _mainImage: {fileID: 971364379, guid: d2177343b5c704b409723c6923f141c5, type: 3}
   _assetCostVisualResolver: {fileID: 11400000, guid: fec067ea8b485d040acd32b3a68be7e6, type: 2}

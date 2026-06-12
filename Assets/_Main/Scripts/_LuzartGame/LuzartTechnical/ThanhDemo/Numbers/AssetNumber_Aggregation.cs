@@ -15,6 +15,15 @@ namespace Luzart
         protected override void DoInitialize()
         {
             base.DoInitialize();
+            EnsureInit();
+        }
+        // Lazy/repair init. Mirrors AssetNumber_SimpleBoosted.EnsureInit: this number's Value can be
+        // read (via a SimpleBoosted boost/base traversal) during the player's StatsBehavior.RestoreHP,
+        // which runs BEFORE DomainContentLoader has called Initialize() on these AssetNumber assets.
+        // Building _numbers on first read makes the node self-healing regardless of Domain init order.
+        private void EnsureInit()
+        {
+            if (_numbers != null) return;
             _numbers = new();
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -24,6 +33,7 @@ namespace Luzart
         protected override void DoStartContent()
         {
             base.DoStartContent();
+            EnsureInit();
             for (int i = 0; i < _numbers.Count; i++)
             {
                 INumber n = _numbers[i];
@@ -48,6 +58,7 @@ namespace Luzart
         }
         protected override double DoGetValue()
         {
+            EnsureInit();
             if (!_calculated)
             {
                 Refresh();
@@ -158,6 +169,7 @@ namespace Luzart
         }
         void INumberWithContribution.Contribute(INumber subNumber)
         {
+            EnsureInit();
             _numbers.Add(subNumber);
             subNumber.Changed -= delegate_Number_OnChanged;
             subNumber.Changed += delegate_Number_OnChanged;
