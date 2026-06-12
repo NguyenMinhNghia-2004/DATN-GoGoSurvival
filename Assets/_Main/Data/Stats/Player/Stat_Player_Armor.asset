@@ -15,6 +15,6 @@ MonoBehaviour:
   _id: Stat_Player_Armor
   definition: {fileID: 11400000, guid: 33ab417a8a2f141f2b5643f267df250d, type: 2}
   value:
-    mode: 0
-    constant: 0.0
-    asset: {fileID: 0}
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 023d1e3d3ceb45629eedd4deabd5d282, type: 2}

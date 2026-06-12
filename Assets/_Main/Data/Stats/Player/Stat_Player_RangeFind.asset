@@ -15,6 +15,6 @@ MonoBehaviour:
   _id: Stat_Player_RangeFind
   definition: {fileID: 11400000, guid: 202dc84ee937243c6a9b56374e56765d, type: 2}
   value:
-    mode: 0
-    constant: 8.0
-    asset: {fileID: 0}
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 46442c3bcca04279a13be0dfc98bdfed, type: 2}

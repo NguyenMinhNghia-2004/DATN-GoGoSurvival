@@ -57,10 +57,14 @@ namespace Luzart
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
 
-            // Apply the player's equipped-item stat bonuses for this run (idempotent — undoes
-            // the previous run's bonuses first, so equipment changes between runs don't stack).
-            var pc = _domain?.Get<PlayerCharacter>();
-            if (pc != null) SV_EquipmentStatApplier.ApplyTo(pc.Stats);
+            // [PreGame→InGame migration 2026-06-12] Legacy SV_EquipmentStatApplier applied bonuses
+            // from the OLD SV_PlayerInventory (PlayerPrefs) via StatsBehavior.ApplyStatBonus, which
+            // REPLACES a stat's live INumber with a frozen constant — clobbering the new
+            // Stat_Player → InGame_Final modifier link. Equipment now flows through the
+            // PreGame→InGame AssetNumber pipeline (AssetEquipmentSlot.EquipItem → AddFactor), so the
+            // legacy applier is disabled.
+            // var pc = _domain?.Get<PlayerCharacter>();
+            // if (pc != null) SV_EquipmentStatApplier.ApplyTo(pc.Stats);
 
             // (1) Spawn the level prefab once per run. Idempotent guard via static flag —
             // SpawnDefaultLevel itself does not check for an existing instance, and we
