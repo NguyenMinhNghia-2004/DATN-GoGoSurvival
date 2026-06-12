@@ -2376,25 +2376,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &3214080987192748098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2947911241827041808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de743c94d0db9e4baf7aa896ac99296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 3402872916154425686}
-  lockObj: {fileID: 6069958527546157212}
-  inputPassword: {fileID: 3095978532732661292}
-  cheatOptsDropdown: {fileID: 196569393179007069}
-  cheatDropdowns: []
-  inputValues: []
-  fpsLog: {fileID: 9012898879335719297}
 --- !u!1 &2974801445554516191
 GameObject:
   m_ObjectHideFlags: 0
