@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b691dab8d6c2f16449978ce0d28b190c, type: 3}
+  m_Name: Number_Player_PreGame_TotalAddSubRatio_Cooldown
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetNumber_Aggregation
+  _id: Number_Player_PreGame_TotalAddSubRatio_Cooldown
+  aggregationMode: 0
+  numbers:
+  - mode: 0
+    constant: 1
+    asset: {fileID: 0}
+  - mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 763aa74f7aed4baea79855f3e5a2fcf8, type: 2}

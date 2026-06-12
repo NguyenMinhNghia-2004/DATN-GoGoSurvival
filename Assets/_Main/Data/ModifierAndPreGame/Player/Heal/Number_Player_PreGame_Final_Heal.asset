@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8657fc305e8686c429dcfb1d5b10d381, type: 3}
+  m_Name: Number_Player_PreGame_Final_Heal
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetNumber_SimpleBoosted
+  _id: Number_Player_PreGame_Final_Heal
+  baseNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 70b1085c414d49589c7e24c1812e4e63, type: 2}
+  addNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: f2abba5c5b4f4a1d86999f8afcfc2633, type: 2}
+  multiplyNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 111e602966dd4d198a433db0cfc71cde, type: 2}
+  powNumber:
+    mode: 0
+    constant: 1
+    asset: {fileID: 0}

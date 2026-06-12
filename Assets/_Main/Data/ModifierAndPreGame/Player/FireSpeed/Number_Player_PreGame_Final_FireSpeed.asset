@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8657fc305e8686c429dcfb1d5b10d381, type: 3}
+  m_Name: Number_Player_PreGame_Final_FireSpeed
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.AssetNumber_SimpleBoosted
+  _id: Number_Player_PreGame_Final_FireSpeed
+  baseNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 66bc1cf3980a49f8a59615c018d1468d, type: 2}
+  addNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 187f0b7910c04798b87611bd913b92cb, type: 2}
+  multiplyNumber:
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 19e1674003164840bf9b828de0fb5542, type: 2}
+  powNumber:
+    mode: 0
+    constant: 1
+    asset: {fileID: 0}
