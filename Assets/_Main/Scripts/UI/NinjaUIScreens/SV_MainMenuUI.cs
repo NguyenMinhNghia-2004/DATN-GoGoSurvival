@@ -27,6 +27,18 @@ public class SV_MainMenuUI : UIBase
     [SerializeField] private GameObject panelSettings;
     [SerializeField] private GameObject panelMessages;
 
+    [System.Serializable]
+    public struct NavTabSprites
+    {
+        public Transform iconObj;
+        public GameObject textObj;
+        public Sprite fillSprite;
+        public Sprite outlineSprite;
+    }
+
+    [Header("Nav Sprites Configuration")]
+    [SerializeField] private NavTabSprites[] navSprites;
+
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
         // Defensive: disable every Inspector-wired onClick listener whose target is null.
@@ -70,6 +82,25 @@ public class SV_MainMenuUI : UIBase
         // Keep the bottom nav (DownContainer) rendering ON TOP of the Shop/Equipment screens so
         // it stays tappable while a screen is open (those screens otherwise cover the menu).
         RaiseNavOnTop();
+
+        // Auto-wire Nav Tabs visual updates
+        if (navSprites != null)
+        {
+            for (int i = 0; i < navSprites.Length; i++)
+            {
+                int index = i;
+                if (navSprites[i].iconObj != null)
+                {
+                    var btn = navSprites[i].iconObj.GetComponentInParent<Button>();
+                    if (btn != null)
+                    {
+                        btn.transition = Selectable.Transition.None;
+                        btn.onClick.AddListener(() => UpdateNavTabVisuals(index));
+                    }
+                }
+            }
+        }
+
         return UniTask.CompletedTask;
     }
 
@@ -240,5 +271,36 @@ public class SV_MainMenuUI : UIBase
     {
         // Don't dismiss MainMenu via ESC — instead show settings/quit confirm.
         return false;
+    }
+
+    public void UpdateNavTabVisuals(int selectedIndex)
+    {
+        if (navSprites == null) return;
+
+        for (int i = 0; i < navSprites.Length; i++)
+        {
+            bool isSelected = (i == selectedIndex);
+            var tab = navSprites[i];
+
+            if (tab.textObj != null)
+            {
+                tab.textObj.SetActive(isSelected);
+            }
+
+            if (tab.iconObj != null)
+            {
+                var btn = tab.iconObj.GetComponentInParent<Button>();
+                if (btn != null)
+                {
+                    var img = btn.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        img.sprite = isSelected ? tab.fillSprite : tab.outlineSprite;
+                    }
+                }
+
+                tab.iconObj.localScale = isSelected ? new Vector3(1.3f, 1.3f, 1.3f) : Vector3.one;
+            }
+        }
     }
 }

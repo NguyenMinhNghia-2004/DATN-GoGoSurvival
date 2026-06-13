@@ -72,23 +72,23 @@ namespace Luzart
             }
         }
 
-        /// <summary>Toggle the Shop popup (tap again / nav-switch closes it).</summary>
+        /// <summary>Open the Shop popup (does not toggle off if already open).</summary>
         public void OpenShop()
         {
             bool wasOpen = FindObjectOfType<PopupShop>() != null;
-            CloseAllPopups();
             if (wasOpen) return;
+            CloseAllPopups();
             var ps = _domain.GetService<PopupService>();
             var data = _domain.Get<Data_Shop>();
             if (ps != null && data != null) ps.ShowPopup<PopupShop, Data_Shop>(PopupLayer.Overlay, data);
         }
 
-        /// <summary>Toggle the Equipment popup.</summary>
+        /// <summary>Open the Equipment popup (does not toggle off if already open).</summary>
         public void OpenEquipment()
         {
             bool wasOpen = FindObjectOfType<PopupItemInventory>() != null;
-            CloseAllPopups();
             if (wasOpen) return;
+            CloseAllPopups();
             var ps = _domain.GetService<PopupService>();
             var data = _domain.Get<InventoryItemData>();
             if (ps != null && data != null) ps.ShowPopup<PopupItemInventory, InventoryItemData>(PopupLayer.Overlay, data);

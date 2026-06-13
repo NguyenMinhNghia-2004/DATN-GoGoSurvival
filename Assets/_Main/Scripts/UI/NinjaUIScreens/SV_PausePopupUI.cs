@@ -104,6 +104,7 @@ public class SV_PausePopupUI : UIBase
     [Header("Current Owned Skills Display")]
     [SerializeField] private RectTransform weaponContainer;
     [SerializeField] private RectTransform supplyContainer;
+    [SerializeField] private RectTransform damageMeterContainer;
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -134,6 +135,11 @@ public class SV_PausePopupUI : UIBase
                 }
             }
         }
+        if (damageMeterContainer == null)
+        {
+            var viewFile = transform.Find("Static/Background/Container/ViewFile");
+            if (viewFile != null) damageMeterContainer = viewFile.GetComponent<RectTransform>();
+        }
     }
 #endif
 
@@ -155,6 +161,89 @@ public class SV_PausePopupUI : UIBase
         var catalog = SV_LevelUpSlot.LookupCatalog();
         PopulateSkillIcons(weaponContainer, activeSkills, catalog);
         PopulateSkillIcons(supplyContainer, passiveSkills, catalog);
+        PopulateDamageMeter(damageMeterContainer, activeSkills, catalog);
+    }
+
+    private void PopulateDamageMeter(RectTransform container, List<ZSkill> skills, SV_SkillCatalog catalog)
+    {
+        if (container == null) return;
+        int childCount = container.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var slotTr = container.GetChild(i);
+            
+            if (i < skills.Count)
+            {
+                slotTr.gameObject.SetActive(true);
+                var skill = skills[i];
+                string id = skill.Config != null ? skill.Config.name : "Unknown";
+
+                var iconTr = slotTr.Find("Icon");
+                if (iconTr != null)
+                {
+                    var img = iconTr.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        Sprite iconSprite = null;
+                        if (catalog != null)
+                        {
+                            var entry = catalog.FindById(id);
+                            if (entry == null && id != null && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+                            {
+                                entry = catalog.FindById(id.Substring(1));
+                            }
+                            if (entry != null) iconSprite = entry.icon;
+                        }
+                        if (iconSprite != null)
+                        {
+                            img.sprite = iconSprite;
+                            img.enabled = true;
+                        }
+                        else
+                        {
+                            img.enabled = false;
+                        }
+                    }
+                }
+
+                var nameTr = slotTr.Find("Name");
+                if (nameTr != null)
+                {
+                    string displayName = id.Replace("ZSk_", "").Replace("Sk_", "");
+                    var tmp = nameTr.GetComponent<TMPro.TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = displayName;
+                    else
+                    {
+                        var txt = nameTr.GetComponent<UnityEngine.UI.Text>();
+                        if (txt != null) txt.text = displayName;
+                    }
+                }
+
+                // Tạm thời hiển thị 0% do chưa có hệ thống tracking sát thương
+                var valueTr = slotTr.Find("Value");
+                if (valueTr != null)
+                {
+                    var tmp = valueTr.GetComponent<TMPro.TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = "0%";
+                    else
+                    {
+                        var txt = valueTr.GetComponent<UnityEngine.UI.Text>();
+                        if (txt != null) txt.text = "0%";
+                    }
+                }
+
+                var fillingTr = slotTr.Find("Filling");
+                if (fillingTr != null)
+                {
+                    var fillImg = fillingTr.GetComponent<Image>();
+                    if (fillImg != null) fillImg.fillAmount = 0f;
+                }
+            }
+            else
+            {
+                slotTr.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void PopulateSkillIcons(RectTransform container, List<ZSkill> skills, SV_SkillCatalog catalog)
