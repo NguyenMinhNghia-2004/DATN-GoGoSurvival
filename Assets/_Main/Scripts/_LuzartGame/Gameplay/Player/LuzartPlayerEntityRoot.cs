@@ -142,6 +142,12 @@ namespace Luzart
             UnsubscribeDeath();
             DespawnAllSkills();
             _character?.Terminate();
+            // Remove our PlayerCharacter from the Domain so a despawned player doesn't leave a
+            // dead entity that Domain.Get<PlayerCharacter>() (GetFirst) would keep returning.
+            // Critical for the runtime spawn/despawn model: without this, the next spawn's
+            // consumers (camera, AI, UpgradeSkillManager) could resolve the destroyed instance.
+            if (_domain != null && _character != null)
+                _domain.Remove<PlayerCharacter>(_character, _character.Id);
         }
 
         // ─────────────────────────────────────────────────────────────

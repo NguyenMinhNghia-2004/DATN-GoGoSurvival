@@ -129,5 +129,19 @@ namespace Luzart
             ic.Initialize();
             if (_started) ic.Start();
         }
+
+        /// <summary>Tear down + unregister a runtime-spawned content (the inverse of
+        /// <see cref="RegisterContent"/>). Drives Stop → Terminate, removes it from the Domain
+        /// (so <c>Domain.Get&lt;T&gt;()</c> stops returning the now-destroyed instance) and from
+        /// the runtime list. Call this BEFORE destroying the GameObject that hosts the content.</summary>
+        public void UnregisterContent(AbstractMonoBehaviorContent c)
+        {
+            if (c == null) return;
+            IContent ic = c;
+            if (_started) ic.Stop();
+            ic.Terminate();
+            if (_domain != null) _domain.Remove<AbstractMonoBehaviorContent>(c, ic.Id);
+            _runtimeContents.Remove(c);
+        }
     }
 }

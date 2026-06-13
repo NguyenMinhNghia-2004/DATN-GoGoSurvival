@@ -54,6 +54,13 @@ namespace Luzart
             State = ClassicModeState.Playing;
             Time.timeScale = 1f;
             EnsureRefs();
+
+            // (0) Spawn a FRESH Player for this run BEFORE StartGameplay/BeginRun, so the new
+            // PlayerCharacter is in the Domain when GameController subscribes to its HP/XP and when
+            // BeginRun fans OnRunBegin to it. No-op (keeps in-scene Player) until a prefab is wired
+            // on GameCoordinator.
+            _coordinator?.SpawnPlayer();
+
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
 
@@ -107,6 +114,10 @@ namespace Luzart
             _gameController?.StopGameplay(); // stop wave timer + unsubscribe (no more re-fire)
             _coordinator?.EndRun();          // stop spawner + despawn all enemies + player skills
             _gameController?.DespawnLevel();  // destroy the run's map + remaining pickups
+            _coordinator?.DespawnPlayer();    // destroy the run's player (prefab model; no-op in scene mode)
+
+            // Both real death and quit-from-pause show the end-game (defeat) screen, whose
+            // Retry/Home buttons own the next navigation. Only WavesCleared is a win.
             bool isWin = reason == EndReason.WavesCleared;
             Broadcaster.Broadcast(new Data_ClassicEndGame { IsWin = isWin });
         }

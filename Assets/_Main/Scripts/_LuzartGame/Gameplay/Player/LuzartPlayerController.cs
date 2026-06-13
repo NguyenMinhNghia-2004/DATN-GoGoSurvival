@@ -79,6 +79,36 @@ namespace Luzart
                     | System.Reflection.BindingFlags.NonPublic);
         }
 
+        /// <summary>Connect this controller to the live joystick UI in the scene.
+        ///
+        /// <para>For a runtime-spawned Player prefab, the serialized <c>_joystick</c> cross-ref to
+        /// the scene joystick UI is null (a prefab can't reference scene objects). The joystick UI
+        /// ("Joystick Table") is turned on by the run-start flow AFTER the player spawns; this
+        /// method re-binds the two by duck-typing: it finds the active MonoBehaviour exposing a
+        /// <c>joystickVec</c> field (the legacy movementJoystick — kept as MonoBehaviour to avoid
+        /// an asmdef hard dependency). Cheap: only scans while <c>_joystick</c> is null and stops
+        /// once found. Called lazily from Update during active play.</para></summary>
+        private void EnsureJoystick()
+        {
+            if (_joystick != null) return;
+            var all = FindObjectsOfType<MonoBehaviour>(includeInactive: false);
+            for (int i = 0; i < all.Length; i++)
+            {
+                var mb = all[i];
+                if (mb == null) continue;
+                var f = mb.GetType().GetField("joystickVec",
+                    System.Reflection.BindingFlags.Instance
+                    | System.Reflection.BindingFlags.Public
+                    | System.Reflection.BindingFlags.NonPublic);
+                if (f != null)
+                {
+                    _joystick = mb;
+                    _joystickVecField = f;
+                    return;
+                }
+            }
+        }
+
         private bool TryGetFlags(out Migration.MigrationFlags flags)
         {
             if (_flags != null) { flags = _flags; return true; }
@@ -145,6 +175,10 @@ namespace Luzart
                 if (_rb != null) _rb.linearVelocity = Vector2.zero;
                 return;
             }
+
+            // Re-bind the joystick UI for a runtime-spawned player (serialized ref is null in a
+            // prefab). No-op once connected.
+            EnsureJoystick();
 
             var v = ReadJoystick();
             if (_rb != null)
