@@ -16,17 +16,27 @@ namespace Luzart
         protected override void DoInitialize()
         {
             base.DoInitialize();
-            _isInit = false;
+            EnsureInit();
+        }
+        private bool _isInit = false;
+        // Lazy/repair init. The player's StatsBehavior.RestoreHP reads this number's Value during
+        // its own Initialize, which can run BEFORE DomainContentLoader has called Initialize() on
+        // the AssetNumber assets (they are registered, then iterated later by Domain.InitializeAll).
+        // Resolving the picker references on first read makes the number self-healing regardless of
+        // init order. Same pattern as AssetStat.EnsureValue.
+        private void EnsureInit()
+        {
+            if (_baseNumber != null) return;
             _baseNumber = baseNumber.PickNumber();
             _addNumber = addNumber.PickNumber();
             _multiplyNumber = multiplyNumber.PickNumber();
             _powNumber = powNumber.PickNumber();
             _isInit = true;
         }
-        private bool _isInit = false;
         protected override void DoStartContent()
         {
             base.DoStartContent();
+            EnsureInit();
             _baseNumber.Changed += OnAnyNumberChanged;
             _addNumber.Changed += OnAnyNumberChanged;
             _multiplyNumber.Changed += OnAnyNumberChanged;
@@ -38,10 +48,7 @@ namespace Luzart
         }
         void Recalculate()
         {
-            if(_baseNumber == null)
-            {
-                Debug.LogError($"{this} + isInit {_isInit} with {baseNumber}");
-            }
+            EnsureInit();
             double _baseValue = _baseNumber.Value;
             double _addValue = _addNumber.Value;
             double _multiplyValue = _multiplyNumber.Value;

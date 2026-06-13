@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_StylishBelt
   equipName: Stylish Belt
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 81f3ce3ca70691b43ac6a983b9386e1c, type: 3}
   description: "Stylish Set \u2014 Belt"
   slot: 2
   atkByQuality:

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_Carapace
   equipName: Carapace
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a197702f1b8353844a2c42e8b3db217f, type: 3}
   description: "Monster set \u2014 Armor"
   slot: 1
   atkByQuality:

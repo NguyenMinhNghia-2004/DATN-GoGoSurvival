@@ -6,50 +6,10 @@ using UnityEngine;
 
 namespace Luzart
 {
-    // ============================================================
-    // View / UI primitives that lived in old `LuzartTechnical/View`
-    // and `LuzartTechnical/UIItem` folders. Stubbed to keep referencing
-    // code compiling. Real visual is delegated to NinjaUI's UIBase.
-    // ============================================================
-
-    /// <summary>Marker for anything that can be "rendered" as UI. Replaced by NinjaUI UIBase later.</summary>
-    public interface IView { }
-
-    /// <summary>Strongly-typed View placeholder, originally referenced via .asset assignment.</summary>
-    public class ViewT<T> : ScriptableObject, IView { }
-
-    /// <summary>Generic UI representation of a domain object — originally a MonoBehaviour pool.</summary>
-    public class ObjectView : MonoBehaviour, IView { }
-
-    // ============================================================
-    // Cost system visual adapters
-    // ============================================================
-
-    /// <summary>
-    /// Original: UI adapter that rendered a cost into an `IView`.
-    /// Now: just an interface marker — Cost data still flows through gameplay code,
-    /// but visual rendering is delegated to NinjaUI screens that consume the cost data.
-    /// </summary>
-    public interface ICostVisualResolver
-    {
-        IView GetCostView(ICost data, object displayContext);
-    }
-
-    /// <summary>Stub keep existing ResourceDefinition.asset field shape valid.</summary>
-    public class AssetCostVisualResolver_ResourcePool : AbstractScriptableContent, ICostVisualResolver
-    {
-        [SerializeField] private ViewT<IResourceCost> resourceCostView_singleLine;
-        IView ICostVisualResolver.GetCostView(ICost data, object displayContext)
-        {
-            return resourceCostView_singleLine;
-        }
-    }
-
-    /// <summary>Display-context enum kept for compatibility with cost-display code.</summary>
-    public static class EResourceCostView
-    {
-        public class SingleLine { }
-    }
+    // NOTE: IView, ViewT<T>, ObjectView, ICostVisualResolver,
+    // AssetCostVisualResolver_ResourcePool and EResourceCostView were moved to a
+    // faithful IO_Training MVVM port under Assets/_Main/Scripts/_IOPort/.
+    // They are no longer stubbed here.
 
     // ============================================================
     // Broadcaster payloads from old UI joystick.
@@ -120,10 +80,22 @@ public class CurrencyManager : UnityEngine.MonoBehaviour
     public event System.Action<long> OnCoinChanged;
     public long Coins { get; private set; }
 
+    private const string CoinSaveKey = "sv_coins_v1";
+
     private void Awake()
     {
         if (_instance != null && _instance != this) { Destroy(gameObject); return; }
         _instance = this;
+        // Persist coins across sessions so the Shop is spendable from the menu (pickups
+        // accumulate too). Seed a small starting balance on first ever run.
+        if (UnityEngine.PlayerPrefs.HasKey(CoinSaveKey))
+            Coins = (long)UnityEngine.PlayerPrefs.GetInt(CoinSaveKey);
+        else
+        {
+            Coins = 500;
+            UnityEngine.PlayerPrefs.SetInt(CoinSaveKey, (int)Coins);
+            UnityEngine.PlayerPrefs.Save();
+        }
     }
 
     /// <summary>Add <paramref name="amount"/> coins and broadcast <see cref="OnCoinChanged"/>.
@@ -132,6 +104,9 @@ public class CurrencyManager : UnityEngine.MonoBehaviour
     {
         if (amount == 0) return;
         Coins += amount;
+        if (Coins < 0) Coins = 0;
+        UnityEngine.PlayerPrefs.SetInt(CoinSaveKey, (int)Coins);
+        UnityEngine.PlayerPrefs.Save();
         OnCoinChanged?.Invoke(Coins);
     }
 

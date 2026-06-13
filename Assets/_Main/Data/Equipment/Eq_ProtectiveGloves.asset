@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_ProtectiveGloves
   equipName: Protective Gloves
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b53cda7b46552734caefb2c9a58a6ba4, type: 3}
   description: "Protective Set \u2014 Gloves"
   slot: 5
   atkByQuality:

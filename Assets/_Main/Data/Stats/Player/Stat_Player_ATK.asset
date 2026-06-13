@@ -15,6 +15,6 @@ MonoBehaviour:
   _id: Stat_Player_ATK
   definition: {fileID: 11400000, guid: d23f4e56a2b9f4891b81b18fe885bd9b, type: 2}
   value:
-    mode: 0
-    constant: 10.0
-    asset: {fileID: 0}
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: 69cee5a43887487c88872a045a64ced9, type: 2}

@@ -1,0 +1,11 @@
+{
+ "PlayerStat_PreGame_HPMax": "d28ad1c619344e8b94618d981d32699d",
+ "PlayerStat_PreGame_ATK": "82b75b44a4b44f40820133ce196dfe38",
+ "PlayerStat_PreGame_Speed": "88acc5439fa046278c28bd9666f0599f",
+ "PlayerStat_PreGame_Cooldown": "3128859f880743328c599bfcbd0df7cc",
+ "PlayerStat_PreGame_FireSpeed": "7f13d44094fb4fc48ee9e180f768e386",
+ "PlayerStat_PreGame_Heal": "cbdb78447a214c37a0cf15ff361e9c83",
+ "PlayerStat_PreGame_Armor": "aec452c245d344258491dd8e5fc99334",
+ "PlayerStat_PreGame_RangeFind": "78d5203d0275449a9c45c9f94ad4b27c",
+ "StatsConfig_PreGame": "a919097d255d4cb989ea2303b7160802"
+}

@@ -18,8 +18,10 @@ public class SV_LegacyUIBase : UIBase
     }
 }
 
-public class SV_ShopUI : SV_LegacyUIBase { }
-public class SV_EquipementUI : SV_LegacyUIBase { }
+// SV_ShopUI and SV_EquipementUI live in their OWN files (SV_ShopUI.cs / SV_EquipementUI.cs)
+// so that the prefab m_Script {fileID:11500000} resolves to the correct class. In a multi-class
+// file, fileID 11500000 binds to the class matching the filename (here: none → it fell through
+// to SV_LegacyUIBase, which is why subclass logic never ran).
 public class SV_ProcessUI : SV_LegacyUIBase { }
 public class SV_EvolveUI : SV_LegacyUIBase { }
 public class SV_MailsUI : SV_LegacyUIBase { }

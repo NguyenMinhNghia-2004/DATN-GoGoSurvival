@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_MetalNeckguard
   equipName: Metal Neckguard
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f9d00328bffc0ba45b0f6db97632c16b, type: 3}
   description: "Metal Set \u2014 Necklace"
   slot: 4
   atkByQuality:

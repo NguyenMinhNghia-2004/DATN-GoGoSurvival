@@ -15,6 +15,6 @@ MonoBehaviour:
   _id: Stat_Player_Heal
   definition: {fileID: 11400000, guid: ee22559ac3e17478a90b836734970b7b, type: 2}
   value:
-    mode: 0
-    constant: 0.0
-    asset: {fileID: 0}
+    mode: 1
+    constant: 0
+    asset: {fileID: 11400000, guid: b7535de2594a4a8faf216ffae8ae3d10, type: 2}

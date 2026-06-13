@@ -34,6 +34,7 @@ namespace Luzart
         [SerializeField] private ETypeItem _eTypeItem;
         [SerializeField] private AssetUnlockable unlockable;
         [SerializeField] private AssetLevel assetLevel;
+        [SerializeField] private ResourcePool _cardPool;
         [SerializeField] private List<UpgradeItemConfig> upgradeItemConfigs;
         [SerializeField] private List<UpgradeItemConfig> artifactModifierFactor;
         public string NameItem => _name;
@@ -42,6 +43,8 @@ namespace Luzart
         public ETypeItem TypeItem => _eTypeItem;
         public ILevelable Level => assetLevel;
         public IUnlockable Unlockable => unlockable;
+        public ResourcePool CardPool => _cardPool;
+        public void SetCardPoolEditor(ResourcePool pool) { _cardPool = pool; }
         public IReadOnlyList<IModifierFactorGroup> ArtifactModifierFactorGroups => _artifactModifierFactorGroups;
         public IReadOnlyList<IModifierFactorGroup> EquippedModifierFactorGroups => _equippedModifierFactorGroups;
         List<IModifierFactorGroup> _artifactModifierFactorGroups = new List<IModifierFactorGroup>();

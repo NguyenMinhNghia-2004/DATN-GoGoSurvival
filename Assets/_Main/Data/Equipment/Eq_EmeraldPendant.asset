@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentData
   equipId: Eq_EmeraldPendant
   equipName: Emerald Pendant
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 480b3b57842e42d4cb4cf13f91b6e3a2, type: 3}
   description: "Protective set \u2014 Necklace"
   slot: 4
   atkByQuality:
