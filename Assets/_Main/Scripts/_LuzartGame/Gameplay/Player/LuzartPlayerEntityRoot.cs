@@ -41,6 +41,12 @@ namespace Luzart
         private LuzartPlayerCharacter _character;
         private readonly List<ZSkill> _skillRuntimes = new List<ZSkill>();
 
+        // Designed spawn point (the player's scene-authored position at boot). Captured once
+        // and restored at the start of every run so a new run begins at spawn instead of
+        // wherever the player died/ended the previous run.
+        private Vector3 _spawnPosition;
+        private bool _spawnCaptured;
+
         public LuzartPlayerCharacter Character => _character;
         public IReadOnlyList<ZSkill> SkillRuntimes => _skillRuntimes;
 
@@ -85,6 +91,9 @@ namespace Luzart
 
             _character.Inject(_domain);
             _character.Initialize();
+            // Capture the scene-authored spawn point for per-run respawn.
+            _spawnPosition = transform.position;
+            _spawnCaptured = true;
             if (_character.Transform != null)
                 _character.Transform.SetPosition(transform.position);
 
@@ -94,7 +103,10 @@ namespace Luzart
             if (refComp == null) refComp = gameObject.AddComponent<EntityRef>();
             refComp.Entity = _character;
 
-            SpawnStartingSkills();
+            // Starting skills are NOT spawned here anymore — they are spawned per-run in
+            // OnRunBegin and destroyed in OnRunEnd (symmetric run lifecycle). Spawning at
+            // init would (a) leave skills alive at the MainMenu and (b) double-apply their
+            // passive stat bonuses when OnRunBegin respawns them on the first run.
 
             // F.G.2: Hook framework death state — when Runtime_HP drops to 0,
             // freeze the player's Rigidbody2D so legacy logic doesn't keep applying
@@ -139,29 +151,61 @@ namespace Luzart
         // ─────────────────────────────────────────────────────────────
         void IRunParticipant.OnRunBegin()
         {
-            // Re-arm skill ticks for the new run (paired with OnRunEnd's SetActive(false)).
-            for (int i = 0; i < _skillRuntimes.Count; i++)
+            // Full run-scoped RESPAWN, not a SetActive re-arm. Destroy every skill from a
+            // prior run (level-up acquisitions included), then spawn the starting skills
+            // fresh. This is what makes a new run start clean:
+            //   • acquired-during-run skills are gone (only starting skills remain)
+            //   • each skill re-Binds at _levelIndex = 0 (skill levels reset)
+            //   • passive stat bonuses are undone — DespawnAllSkills destroys the skill
+            //     GameObjects, whose child behaviors' DoDispose calls RemoveStatBonus,
+            //     so StatsBehavior._statDefaultDict returns to its config base (equipment
+            //     modifiers flow through a separate AssetNumber pipeline and are untouched).
+            DespawnAllSkills();
+
+            // Re-initialise stats from the live config BEFORE spawning skills. StatsBehavior
+            // .Add rebuilds _statDefaultDict from the AssetStat values, which re-links the live
+            // AssetNumber pipeline (so equipment changed at the menu between runs is reflected)
+            // and clears any frozen drift left by prior-run ApplyStatBonus calls. Safe to call:
+            // _skillRuntimes is empty here (skills were destroyed at the previous OnRunEnd), so
+            // there are no pending RemoveStatBonus disposes to corrupt the freshly-built dict.
+            if (_character != null && _statsConfig != null && _statsConfig.AssetStats != null)
+                _character.InitStats(_statsConfig.AssetStats);
+
+            SpawnStartingSkills();
+
+            // Teleport the player back to its spawn point so a new run starts at the map
+            // centre, not wherever the previous run ended. Sync the framework Transform too.
+            if (_spawnCaptured)
             {
-                var rt = _skillRuntimes[i];
-                if (rt != null && rt.gameObject != null) rt.gameObject.SetActive(true);
+                transform.position = _spawnPosition;
+                if (_character.Transform != null) _character.Transform.SetPosition(_spawnPosition);
             }
+
             // Death from a prior run freezes the Rigidbody2D via OnHpChangedForDeath;
             // re-enable physics + clear the latch so the next run starts clean.
             var rb = GetComponent<Rigidbody2D>();
-            if (rb != null) rb.simulated = true;
+            if (rb != null)
+            {
+                rb.simulated = true;
+                rb.linearVelocity = Vector2.zero;
+            }
             _deathHandled = false;
+
+            // Reset run-scoped player progression: full HP (to current HPMax incl. equipment
+            // + freshly-applied starting-skill bonuses) and zero XP/level progress.
+            if (_character != null && _character.Stats != null)
+            {
+                _character.Stats.RestoreHP();
+                _character.Stats.GetRuntime(StatType.Runtime_XP).Set(0);
+            }
         }
 
         void IRunParticipant.OnRunEnd()
         {
-            // Freeze each skill's Update — Unity skips Update on inactive GameObjects,
-            // so ZSkill.Update no longer ticks IZSkillBehavior. No more projectile
-            // spawns under the Win/Lose screen.
-            for (int i = 0; i < _skillRuntimes.Count; i++)
-            {
-                var rt = _skillRuntimes[i];
-                if (rt != null && rt.gameObject != null) rt.gameObject.SetActive(false);
-            }
+            // Destroy all skills (and their behaviors) when the run ends — symmetric with
+            // OnRunBegin's spawn. Disposing the behaviors here also undoes their passive
+            // stat bonuses, so the player isn't left inflated on the Win/Lose screen.
+            DespawnAllSkills();
             // Zero velocity so the player doesn't keep coasting after EndGame. The
             // controller's per-frame gate (ClassicMode.IsPlaying) also writes zero,
             // but doing it here as well covers the one-frame gap before the next Update.

@@ -81,7 +81,12 @@ namespace Luzart
             var player = _domain.Get<PlayerCharacter>();
             if (player?.Stats != null)
             {
-                player.Stats.GetRuntime(StatType.Runtime_HP).Set(100);
+                // RestoreHP fills to the actual HPMax (config base + equipment), not a
+                // hardcoded 100 — the prior magic number ignored HPMax/equipment entirely.
+                // (The authoritative per-run player reset lives in
+                // LuzartPlayerEntityRoot.OnRunBegin, which also respawns skills; this is the
+                // pre-StartGame reset for the Retry/MainMenu flow.)
+                player.Stats.RestoreHP();
                 player.Stats.GetRuntime(StatType.Runtime_XP).Set(0);
             }
         }

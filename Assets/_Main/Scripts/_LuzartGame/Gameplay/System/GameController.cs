@@ -186,9 +186,19 @@ namespace Luzart
             _countEnemyDead.Set(_countEnemyDead.Value + add);
         }
 
-        /// <summary>Instantiate the default level prefab from LevelCatalog (Phase D).</summary>
+        // The runtime level/map instance for the CURRENT run. Spawned on BeginRun,
+        // destroyed on EndRun — so every run gets a fresh map + full pickup set
+        // (coins/diamonds in the prefab). Replaces the old session-static
+        // ClassicModeController._levelSpawned guard which never let the map respawn.
+        private GameObject _spawnedLevel;
+        public bool HasSpawnedLevel => _spawnedLevel != null;
+
+        /// <summary>Instantiate the default level prefab from LevelCatalog (Phase D).
+        /// Idempotent: returns the existing instance if a level is already spawned, so a
+        /// second StartGame within the same run won't stack two maps.</summary>
         public GameObject SpawnDefaultLevel(Transform parent = null)
         {
+            if (_spawnedLevel != null) return _spawnedLevel;
             var catalog = _domain != null ? _domain.Get<LevelCatalog>() : null;
             if (catalog == null || catalog.DefaultLevelPrefab == null)
             {
@@ -198,7 +208,19 @@ namespace Luzart
             var prefab = catalog.DefaultLevelPrefab;
             var inst = Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
             if (parent != null) inst.transform.SetParent(parent);
+            _spawnedLevel = inst;
             return inst;
+        }
+
+        /// <summary>Destroy the current run's level/map instance (and all its child pickups).
+        /// Called on EndRun so the next run respawns a fresh map with all coins/diamonds back.</summary>
+        public void DespawnLevel()
+        {
+            if (_spawnedLevel != null)
+            {
+                Object.Destroy(_spawnedLevel);
+                _spawnedLevel = null;
+            }
         }
 
     }
