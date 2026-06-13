@@ -13,6 +13,57 @@ namespace Luzart
     /// </summary>
     public class GameCoordinator : AbstractMonoBehaviorContent
     {
+        [Header("Player runtime spawn (optional)")]
+        [Tooltip("Player prefab spawned on run begin and destroyed on run end. Leave NULL to keep " +
+                 "using the in-scene Player (no runtime spawn — backward compatible).")]
+        [SerializeField] private GameObject _playerPrefab;
+        [Tooltip("Where the player spawns each run. If null, the prefab's authored position is used.")]
+        [SerializeField] private Transform _playerSpawnPoint;
+
+        // The player instance spawned for the CURRENT run (null between runs / in scene-player mode).
+        private GameObject _spawnedPlayer;
+
+        /// <summary>Spawn + register a fresh Player for this run (prefab model). MUST be called
+        /// BEFORE <see cref="BeginRun"/> and before GameController.StartGameplay so the new
+        /// PlayerCharacter is in the Domain when those subscribe to its HP/XP and fan OnRunBegin.
+        ///
+        /// <para>No-op when <see cref="_playerPrefab"/> is unassigned — in that case the in-scene
+        /// Player (auto-discovered at boot) keeps being used, so this change is backward compatible
+        /// until the prefab + scene flip is wired.</para>
+        ///
+        /// Idempotent: returns the existing instance if a player is already spawned this run.</summary>
+        public GameObject SpawnPlayer()
+        {
+            if (_playerPrefab == null) return null;   // scene-player mode
+            if (_spawnedPlayer != null) return _spawnedPlayer;
+
+            Vector3 pos = _playerSpawnPoint != null ? _playerSpawnPoint.position : _playerPrefab.transform.position;
+            Quaternion rot = _playerSpawnPoint != null ? _playerSpawnPoint.rotation : _playerPrefab.transform.rotation;
+            var go = Object.Instantiate(_playerPrefab, pos, rot);
+            go.name = _playerPrefab.name; // keep "Player" (tag + name lookups rely on it)
+
+            // Drive the Content lifecycle (Inject → Initialize → Start). LuzartPlayerEntityRoot
+            // .DoInitialize creates the LuzartPlayerCharacter + registers it in the Domain.
+            var root = go.GetComponent<LuzartPlayerEntityRoot>();
+            var srm = SceneRootManager.Instance;
+            if (root != null && srm != null) srm.RegisterContent(root);
+
+            _spawnedPlayer = go;
+            return go;
+        }
+
+        /// <summary>Tear down + destroy the current run's Player (prefab model). Called on EndRun
+        /// AFTER participants' OnRunEnd. No-op in scene-player mode.</summary>
+        public void DespawnPlayer()
+        {
+            if (_spawnedPlayer == null) return;
+            var root = _spawnedPlayer.GetComponent<LuzartPlayerEntityRoot>();
+            var srm = SceneRootManager.Instance;
+            if (root != null && srm != null) srm.UnregisterContent(root);
+            Object.Destroy(_spawnedPlayer);
+            _spawnedPlayer = null;
+        }
+
         public void BeginRun()
         {
             var participants = _domain?.GetAll<IRunParticipant>();
@@ -81,7 +132,12 @@ namespace Luzart
             var player = _domain.Get<PlayerCharacter>();
             if (player?.Stats != null)
             {
-                player.Stats.GetRuntime(StatType.Runtime_HP).Set(100);
+                // RestoreHP fills to the actual HPMax (config base + equipment), not a
+                // hardcoded 100 — the prior magic number ignored HPMax/equipment entirely.
+                // (The authoritative per-run player reset lives in
+                // LuzartPlayerEntityRoot.OnRunBegin, which also respawns skills; this is the
+                // pre-StartGame reset for the Retry/MainMenu flow.)
+                player.Stats.RestoreHP();
                 player.Stats.GetRuntime(StatType.Runtime_XP).Set(0);
             }
         }

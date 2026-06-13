@@ -54,6 +54,13 @@ namespace Luzart
             State = ClassicModeState.Playing;
             Time.timeScale = 1f;
             EnsureRefs();
+
+            // (0) Spawn a FRESH Player for this run BEFORE StartGameplay/BeginRun, so the new
+            // PlayerCharacter is in the Domain when GameController subscribes to its HP/XP and when
+            // BeginRun fans OnRunBegin to it. No-op (keeps in-scene Player) until a prefab is wired
+            // on GameCoordinator.
+            _coordinator?.SpawnPlayer();
+
             _gameController?.StartGameplay();
             _coordinator?.BeginRun();
 
@@ -66,14 +73,12 @@ namespace Luzart
             // var pc = _domain?.Get<PlayerCharacter>();
             // if (pc != null) SV_EquipmentStatApplier.ApplyTo(pc.Stats);
 
-            // (1) Spawn the level prefab once per run. Idempotent guard via static flag —
-            // SpawnDefaultLevel itself does not check for an existing instance, and we
-            // don't want a second map stacked on top after Retry.
-            if (_gameController != null && !_levelSpawned)
-            {
-                var lvl = _gameController.SpawnDefaultLevel();
-                if (lvl != null) _levelSpawned = true;
-            }
+            // (1) Spawn a FRESH level/map for this run. SpawnDefaultLevel is now idempotent
+            // (returns the existing instance if already spawned) and the map is destroyed on
+            // EndGame, so every run starts with a brand-new map + full pickup set. (Previously
+            // a session-static _levelSpawned flag blocked respawn → stale map / consumed
+            // pickups carried across runs.)
+            if (_gameController != null) _gameController.SpawnDefaultLevel();
 
             // (2) Flip MapReady — gates LuzartPlayerController.Update + camera spawn + pickups.
             if (_gameController != null) _gameController.MapReady = true;
@@ -83,8 +88,6 @@ namespace Luzart
             // find inactive GameObjects too. Skip prefab assets via hideFlags + scene check.
             ActivateLegacyJoystickTable();
         }
-
-        private static bool _levelSpawned;
 
         private static void ActivateLegacyJoystickTable()
         {
@@ -109,7 +112,12 @@ namespace Luzart
             State = ClassicModeState.Ended;
             EnsureRefs();
             _gameController?.StopGameplay(); // stop wave timer + unsubscribe (no more re-fire)
-            _coordinator?.EndRun();          // stop spawner + despawn all enemies
+            _coordinator?.EndRun();          // stop spawner + despawn all enemies + player skills
+            _gameController?.DespawnLevel();  // destroy the run's map + remaining pickups
+            _coordinator?.DespawnPlayer();    // destroy the run's player (prefab model; no-op in scene mode)
+
+            // Both real death and quit-from-pause show the end-game (defeat) screen, whose
+            // Retry/Home buttons own the next navigation. Only WavesCleared is a win.
             bool isWin = reason == EndReason.WavesCleared;
             Broadcaster.Broadcast(new Data_ClassicEndGame { IsWin = isWin });
         }

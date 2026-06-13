@@ -31,7 +31,12 @@ public class SV_LoseScreenUI : UIBase<SV_LoseData>
     public override UniTask OnCreateAsync(UIContext ctx, CancellationToken ct)
     {
         UIButtonSanitizer.SanitizeChildButtons(transform);
-        if (btnRetry != null) btnRetry.onClick.AddListener(OnRetry);
+        // This defeat screen has a single "confirm" button that returns to the main menu — no
+        // retry. The prefab wires the visible confirm button into the btnRetry slot (GO "Continue"),
+        // which previously ran OnRetry → RetryAsync → restarted the run ("home" resumed the game").
+        // Route EVERY result button to Home so the confirm button reliably goes back to the menu,
+        // whichever serialized slot it sits in.
+        if (btnRetry != null) btnRetry.onClick.AddListener(OnMainMenu);
         if (btnMainMenu != null) btnMainMenu.onClick.AddListener(OnMainMenu);
         return UniTask.CompletedTask;
     }
@@ -50,11 +55,6 @@ public class SV_LoseScreenUI : UIBase<SV_LoseData>
         if (canvasGroup == null || instant) { if (canvasGroup != null) canvasGroup.alpha = 1; return; }
         canvasGroup.alpha = 0f;
         await canvasGroup.DOFade(1f, 0.3f).SetEase(Ease.OutCubic).AsyncWaitForCompletion().AsUniTask().AttachExternalCancellation(ct);
-    }
-
-    private async void OnRetry()
-    {
-        await GameplayResetCoordinator.RetryAsync();
     }
 
     private async void OnMainMenu()
