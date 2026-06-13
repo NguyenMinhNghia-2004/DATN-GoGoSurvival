@@ -65,8 +65,93 @@ public class SV_LevelUpPopupUI : UIBase<SV_LevelUpData>
             BindSlot(slotTr.gameObject, data.Options[i]);
         }
 
+        // Fill the "current skills" loadout strip (CurrentSkill/ShotYollow = active row,
+        // CurrentSkill/PackGreen = passive row) with the icons of skills the player already owns.
+        FillCurrentSkills();
+
         Time.timeScale = 0f;
         return UniTask.CompletedTask;
+    }
+
+    /// <summary>Populate the CurrentSkill loadout strip with the player's owned skills.
+    /// Active skills (<see cref="ETypeSkill.Active"/>) go to the <c>ShotYollow</c> row, passive
+    /// skills (<see cref="ETypeSkill.Stat"/>) to the <c>PackGreen</c> row. Each row has 6 fixed
+    /// item slots (named "1".."6"); each item's child <c>ICON</c> Image gets the skill sprite
+    /// and is enabled (the ICON Images ship disabled with no sprite). Owned skills come from
+    /// <see cref="LuzartPlayerEntityRoot.SkillRuntimes"/>; the icon is sourced the same way the
+    /// 3-choice cards do (SV_SkillCatalog), with a fallback to the config's per-level sprite.</summary>
+    private void FillCurrentSkills()
+    {
+        var currentSkill = FindChildLoose(transform, "CurrentSkill");
+        if (currentSkill == null) return;
+        currentSkill.gameObject.SetActive(true);
+
+        var active = new List<ZSkillConfig>();
+        var passive = new List<ZSkillConfig>();
+        var srm = SceneRootManager.Instance;
+        var root = srm != null ? srm.Domain?.Get<LuzartPlayerEntityRoot>() : null;
+        if (root != null && root.SkillRuntimes != null)
+        {
+            foreach (var rt in root.SkillRuntimes)
+            {
+                if (rt == null || rt.Config == null) continue;
+                if (rt.Config.ETypeSkill == ETypeSkill.Active) active.Add(rt.Config);
+                else passive.Add(rt.Config); // Stat (+ anything non-Active) → passive row
+            }
+        }
+
+        FillSkillRow(currentSkill, "ShotYollow", active);
+        FillSkillRow(currentSkill, "PackGreen", passive);
+    }
+
+    private void FillSkillRow(Transform currentSkill, string rowName, List<ZSkillConfig> skills)
+    {
+        var row = currentSkill.Find(rowName);
+        if (row == null) return;
+        row.gameObject.SetActive(true);
+        int slots = row.childCount;
+        for (int i = 0; i < slots; i++)
+        {
+            var item = row.GetChild(i);
+            var iconTr = item.Find("ICON");
+            if (iconTr == null) continue;
+            var img = iconTr.GetComponent<Image>();
+            if (img == null) continue;
+
+            Sprite sprite = i < skills.Count ? ResolveSkillIcon(skills[i]) : null;
+            if (sprite != null)
+            {
+                img.sprite = sprite;
+                img.color = Color.white;
+                img.preserveAspect = true;
+                img.enabled = true;
+            }
+            else
+            {
+                img.enabled = false; // empty slot
+            }
+        }
+    }
+
+    /// <summary>Skill icon: prefer the SV_SkillCatalog entry (same source as the level-up cards),
+    /// fall back to the config's first-level <see cref="ZSkillInformation.Sprite"/>.</summary>
+    private static Sprite ResolveSkillIcon(ZSkillConfig cfg)
+    {
+        if (cfg == null) return null;
+        var catalog = SV_LevelUpSlot.LookupCatalog();
+        if (catalog != null)
+        {
+            var entry = catalog.FindById(cfg.name);
+            if (entry == null && cfg.name != null && (cfg.name.StartsWith("ZSk_") || cfg.name.StartsWith("ZPs_")))
+                entry = catalog.FindById(cfg.name.Substring(1));
+            if (entry != null && entry.icon != null) return entry.icon;
+        }
+        if (cfg.UpgradeConfigs != null && cfg.UpgradeConfigs.Count > 0)
+        {
+            var info = cfg.UpgradeConfigs[0]?.SkillInfor;
+            if (info != null && info.Sprite != null) return info.Sprite;
+        }
+        return null;
     }
 
     private void BindSlot(GameObject slotGO, Data_UpgradeSkill opt)

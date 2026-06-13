@@ -1246,7 +1246,7 @@ MonoBehaviour:
   scoringLevelBar: {fileID: 3174939279875652438}
   scoringValueText: {fileID: 6316021380340104030}
   scoringValueTextDeux: {fileID: 0}
-  valueKilledText: {fileID: 0}
+  valueKilledText: {fileID: 6961518435761588141}
   currentCoinsText: {fileID: 8431698263282559488}
   reloadWeaponBar: {fileID: 0}
   fillingFlashBar: {fileID: 9003718240806925850}
