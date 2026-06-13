@@ -62,6 +62,8 @@ public class SV_GameplayHudUI : UIBase
                 }
             }
         }
+        // HP is shown by a world-space bar above the player's head (PlayerHealthBar), not on the
+        // HUD — so nothing to build here. healthBar/healthText stay unwired (SetHealth no-ops).
         return UniTask.CompletedTask;
     }
 

@@ -31,6 +31,8 @@ public class SV_PausePopupUI : UIBase
         if (btnResume != null) btnResume.onClick.AddListener(OnResume);
         if (btnSettings != null) btnSettings.onClick.AddListener(OnSettings);
         if (btnMainMenu != null) btnMainMenu.onClick.AddListener(OnMainMenu);
+        // Show the shop gold balance on the pause screen.
+        if (GetComponent<SV_GoldDisplay>() == null) gameObject.AddComponent<SV_GoldDisplay>();
         return UniTask.CompletedTask;
     }
 

@@ -49,6 +49,20 @@ namespace Luzart
             float survival = _gameController != null ? _gameController.CountTime.Value : 0f;
             int coins = CurrencyManager.Instance != null ? (int)CurrencyManager.Instance.Coins : 0;
 
+            // Economy bridge: bank THIS run's coins into the shop gold (io_gold), then zero the
+            // in-run counter. Playing thus earns spendable shop currency, and the menu/pause/end
+            // screens (which display io_gold) reflect the new total.
+            if (coins > 0)
+            {
+                var pool = SceneRootManager.Instance?.Domain?.Get<ResourcePool>("io_gold");
+                if (pool != null)
+                {
+                    var _ = ((IResourcePool)pool).Value; // ensure inner Number is initialized
+                    pool.Add(coins);
+                }
+                CurrencyManager.Instance.AddCoin(-coins); // zero the in-run counter
+            }
+
             if (isWin)
             {
                 var data = new SV_WinData

@@ -150,6 +150,9 @@ namespace Luzart
         {
             if (_isDead) return;
             _currentHP -= damage;
+            // Floating damage number at the enemy's position (white = damage dealt to enemies).
+            // This is the single chokepoint every player skill/projectile/aura funnels through.
+            DamageNumber.Spawn(transform.position, damage, Color.white);
             if (_currentHP <= 0f) Die();
         }
 

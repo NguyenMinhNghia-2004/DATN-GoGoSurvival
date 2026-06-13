@@ -236,6 +236,8 @@ namespace Luzart
             if (character == null || character.Stats == null) return;
             var hp = character.Stats.GetRuntime(StatType.Runtime_HP);
             hp.Set(hp.Value - EnemyTouchDamage);
+            // Floating damage number on the player (red = damage taken).
+            DamageNumber.Spawn(transform.position, EnemyTouchDamage, Color.red);
         }
     }
 }

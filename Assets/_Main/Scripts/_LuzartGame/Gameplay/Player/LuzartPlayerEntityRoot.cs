@@ -103,6 +103,9 @@ namespace Luzart
             if (refComp == null) refComp = gameObject.AddComponent<EntityRef>();
             refComp.Entity = _character;
 
+            // World-space HP bar floating above the player's head (it resolves HP from the Domain).
+            if (GetComponent<PlayerHealthBar>() == null) gameObject.AddComponent<PlayerHealthBar>();
+
             // Starting skills are NOT spawned here anymore — they are spawned per-run in
             // OnRunBegin and destroyed in OnRunEnd (symmetric run lifecycle). Spawning at
             // init would (a) leave skills alive at the MainMenu and (b) double-apply their

@@ -70,6 +70,9 @@ public class SV_MainMenuUI : UIBase
         // Keep the bottom nav (DownContainer) rendering ON TOP of the Shop/Equipment screens so
         // it stays tappable while a screen is open (those screens otherwise cover the menu).
         RaiseNavOnTop();
+
+        // Show + live-update the shop gold balance (the menu's authored currency art is static).
+        if (GetComponent<SV_GoldDisplay>() == null) gameObject.AddComponent<SV_GoldDisplay>();
         return UniTask.CompletedTask;
     }
 

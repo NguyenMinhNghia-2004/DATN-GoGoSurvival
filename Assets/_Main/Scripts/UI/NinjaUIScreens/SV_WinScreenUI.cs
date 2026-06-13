@@ -40,6 +40,8 @@ public class SV_WinScreenUI : UIBase<SV_WinData>
         UIButtonSanitizer.SanitizeChildButtons(transform);
         if (btnContinue != null) btnContinue.onClick.AddListener(OnContinue);
         if (btnRetry != null) btnRetry.onClick.AddListener(OnRetry);
+        // Show the (now updated) shop gold balance on the win screen.
+        if (GetComponent<SV_GoldDisplay>() == null) gameObject.AddComponent<SV_GoldDisplay>();
         return UniTask.CompletedTask;
     }
 

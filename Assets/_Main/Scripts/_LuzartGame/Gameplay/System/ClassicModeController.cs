@@ -55,6 +55,11 @@ namespace Luzart
             Time.timeScale = 1f;
             EnsureRefs();
 
+            // (0a) Zero the in-run coin counter so the HUD shows THIS run's earnings. At run end
+            // those coins are converted into the shop gold (io_gold) by SV_EndGameBridge.
+            if (CurrencyManager.Instance != null)
+                CurrencyManager.Instance.AddCoin(-CurrencyManager.Instance.Coins);
+
             // (0) Spawn a FRESH Player for this run BEFORE StartGameplay/BeginRun, so the new
             // PlayerCharacter is in the Domain when GameController subscribes to its HP/XP and when
             // BeginRun fans OnRunBegin to it. No-op (keeps in-scene Player) until a prefab is wired

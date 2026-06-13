@@ -38,6 +38,8 @@ public class SV_LoseScreenUI : UIBase<SV_LoseData>
         // whichever serialized slot it sits in.
         if (btnRetry != null) btnRetry.onClick.AddListener(OnMainMenu);
         if (btnMainMenu != null) btnMainMenu.onClick.AddListener(OnMainMenu);
+        // Show the (now updated) shop gold balance on the defeat screen.
+        if (GetComponent<SV_GoldDisplay>() == null) gameObject.AddComponent<SV_GoldDisplay>();
         return UniTask.CompletedTask;
     }
 
