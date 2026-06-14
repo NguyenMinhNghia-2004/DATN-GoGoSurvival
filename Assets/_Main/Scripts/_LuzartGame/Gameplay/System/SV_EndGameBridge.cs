@@ -63,6 +63,9 @@ namespace Luzart
                 CurrencyManager.Instance.AddCoin(-coins); // zero the in-run counter
             }
 
+            // Push updated meta-progression (gold/unlocks/levels/equipment) to the backend at run end.
+            SceneRootManager.Instance?.Domain?.Get<CloudSyncService>()?.PushNow().Forget();
+
             if (isWin)
             {
                 var data = new SV_WinData

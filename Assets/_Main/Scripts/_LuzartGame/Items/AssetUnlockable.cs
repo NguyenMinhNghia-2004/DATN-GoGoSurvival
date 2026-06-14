@@ -29,9 +29,14 @@ namespace Luzart
         {
             foreach (var item in saveItems)
             {
-                if (item.Equals(IS_UNLOCKED))
+                // Was `item.Equals(IS_UNLOCKED)` — compared the SaveItem struct to a string, so it
+                // NEVER matched and unlock state never restored (breaks cloud/local sync of owned
+                // items). Match on the key, and SET the existing IBool when present so subscribed
+                // views (shop/inventory) refresh via .Changed instead of dangling on a new ref.
+                if (item.key == IS_UNLOCKED)
                 {
-                    _isUnlocked = new BoolSet(item.boolValue);
+                    if (_isUnlocked == null) _isUnlocked = new BoolSet(item.boolValue);
+                    else _isUnlocked.Set(item.boolValue);
                 }
             }
             _isUnlocked ??= new BoolSet(false);
