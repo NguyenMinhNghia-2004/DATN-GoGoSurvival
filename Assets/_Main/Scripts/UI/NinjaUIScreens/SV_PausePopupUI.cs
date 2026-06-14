@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -50,6 +51,7 @@ public class SV_PausePopupUI : UIBase
     public override UniTask OnBeforeShowAsync(UIContext ctx, CancellationToken ct)
     {
         Time.timeScale = 0f;
+        UpdateCurrentSkills();
         return UniTask.CompletedTask;
     }
 
@@ -99,5 +101,231 @@ public class SV_PausePopupUI : UIBase
         // Fallback (ClassicMode not wired / not playing): direct-to-menu.
         await UIManager.Instance.HideAllExceptSystemAsync();
         await UIManager.Instance.ShowAsync(UIId.SV_MainMenu, ct: this.GetCancellationTokenOnDestroy());
+    }
+
+    [Header("Current Owned Skills Display")]
+    [SerializeField] private RectTransform weaponContainer;
+    [SerializeField] private RectTransform supplyContainer;
+    [SerializeField] private RectTransform damageMeterContainer;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (weaponContainer == null)
+        {
+            var panel = transform.Find("Container");
+            if (panel != null)
+            {
+                var ws = panel.Find("Weapon skil");
+                if (ws != null)
+                {
+                    var c = ws.Find("Container");
+                    if (c != null) weaponContainer = c.GetComponent<RectTransform>();
+                }
+            }
+        }
+        if (supplyContainer == null)
+        {
+            var panel = transform.Find("Container");
+            if (panel != null)
+            {
+                var sup = panel.Find("Supplies");
+                if (sup != null)
+                {
+                    var c = sup.Find("Container");
+                    if (c != null) supplyContainer = c.GetComponent<RectTransform>();
+                }
+            }
+        }
+        if (damageMeterContainer == null)
+        {
+            var viewFile = transform.Find("Static/Background/Container/ViewFile");
+            if (viewFile != null) damageMeterContainer = viewFile.GetComponent<RectTransform>();
+        }
+    }
+#endif
+
+    private void UpdateCurrentSkills()
+    {
+        if (weaponContainer == null || supplyContainer == null) return;
+        var playerRoot = Object.FindObjectOfType<LuzartPlayerEntityRoot>();
+        if (playerRoot == null) return;
+        var runtimes = playerRoot.SkillRuntimes;
+        if (runtimes == null) return;
+        var activeSkills = new List<ZSkill>();
+        var passiveSkills = new List<ZSkill>();
+        foreach (var rt in runtimes)
+        {
+            if (rt == null || rt.Config == null) continue;
+            if (rt.Config.ETypeSkill == ETypeSkill.Active) activeSkills.Add(rt);
+            else if (rt.Config.ETypeSkill == ETypeSkill.Stat) passiveSkills.Add(rt);
+        }
+        var catalog = SV_LevelUpSlot.LookupCatalog();
+        PopulateSkillIcons(weaponContainer, activeSkills, catalog);
+        PopulateSkillIcons(supplyContainer, passiveSkills, catalog);
+        PopulateDamageMeter(damageMeterContainer, activeSkills, catalog);
+    }
+
+    private void PopulateDamageMeter(RectTransform container, List<ZSkill> skills, SV_SkillCatalog catalog)
+    {
+        if (container == null) return;
+        int childCount = container.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var slotTr = container.GetChild(i);
+            
+            if (i < skills.Count)
+            {
+                slotTr.gameObject.SetActive(true);
+                var skill = skills[i];
+                string id = skill.Config != null ? skill.Config.name : "Unknown";
+
+                var iconTr = slotTr.Find("Icon");
+                if (iconTr != null)
+                {
+                    var img = iconTr.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        Sprite iconSprite = null;
+                        if (catalog != null)
+                        {
+                            var entry = catalog.FindById(id);
+                            if (entry == null && id != null && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+                            {
+                                entry = catalog.FindById(id.Substring(1));
+                            }
+                            if (entry != null) iconSprite = entry.icon;
+                        }
+                        if (iconSprite != null)
+                        {
+                            img.sprite = iconSprite;
+                            img.enabled = true;
+                        }
+                        else
+                        {
+                            img.enabled = false;
+                        }
+                    }
+                }
+
+                var nameTr = slotTr.Find("Name");
+                if (nameTr != null)
+                {
+                    string displayName = id.Replace("ZSk_", "").Replace("Sk_", "");
+                    var tmp = nameTr.GetComponent<TMPro.TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = displayName;
+                    else
+                    {
+                        var txt = nameTr.GetComponent<UnityEngine.UI.Text>();
+                        if (txt != null) txt.text = displayName;
+                    }
+                }
+
+                // Tạm thời hiển thị 0% do chưa có hệ thống tracking sát thương
+                var valueTr = slotTr.Find("Value");
+                if (valueTr != null)
+                {
+                    var tmp = valueTr.GetComponent<TMPro.TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = "0%";
+                    else
+                    {
+                        var txt = valueTr.GetComponent<UnityEngine.UI.Text>();
+                        if (txt != null) txt.text = "0%";
+                    }
+                }
+
+                var fillingTr = slotTr.Find("Filling");
+                if (fillingTr != null)
+                {
+                    var fillImg = fillingTr.GetComponent<Image>();
+                    if (fillImg != null) fillImg.fillAmount = 0f;
+                }
+            }
+            else
+            {
+                slotTr.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void PopulateSkillIcons(RectTransform container, List<ZSkill> skills, SV_SkillCatalog catalog)
+    {
+        if (container == null) return;
+        int childCount = container.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            var slotTr = container.GetChild(i);
+            var contentTr = slotTr.Find("Content");
+            if (contentTr == null) continue;
+
+            if (i < skills.Count)
+            {
+                contentTr.gameObject.SetActive(true);
+                var skill = skills[i];
+                var iconTr = contentTr.Find("Icon");
+                if (iconTr != null)
+                {
+                    var img = iconTr.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        Sprite iconSprite = null;
+                        if (catalog != null)
+                        {
+                            string id = skill.Config.name;
+                            var entry = catalog.FindById(id);
+                            if (entry == null && id != null && (id.StartsWith("ZSk_") || id.StartsWith("ZPs_")))
+                            {
+                                entry = catalog.FindById(id.Substring(1));
+                            }
+                            if (entry != null)
+                            {
+                                iconSprite = entry.icon;
+                            }
+                        }
+                        if (iconSprite != null)
+                        {
+                            img.sprite = iconSprite;
+                            img.enabled = true;
+                        }
+                        else
+                        {
+                            img.enabled = false;
+                        }
+                    }
+                }
+
+                var starsManagerTr = contentTr.Find("StarsManager");
+                if (starsManagerTr != null)
+                {
+                    int maxLevel = skill.Config != null && skill.Config.UpgradeConfigs != null ? skill.Config.UpgradeConfigs.Count : 5;
+                    int currentLevelIndex = (int)((IZSkill)skill).LevelIndex.Value;
+                    UpdateStars(starsManagerTr, currentLevelIndex, maxLevel);
+                }
+            }
+            else
+            {
+                contentTr.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void UpdateStars(Transform starsManagerTr, int levelIndex, int maxLevel)
+    {
+        if (starsManagerTr == null) return;
+        int starsLit = Mathf.Clamp(levelIndex + 1, 1, maxLevel);
+        for (int s = 1; s <= 5; s++)
+        {
+            var starTr = starsManagerTr.Find("Star" + s);
+            if (starTr == null) continue;
+            bool isVisible = s <= maxLevel;
+            starTr.gameObject.SetActive(isVisible);
+            if (isVisible)
+            {
+                var active = starTr.Find("Active");
+                if (active != null) active.gameObject.SetActive(s <= starsLit);
+                var inactive = starTr.Find("Inactive");
+                if (inactive != null) inactive.gameObject.SetActive(s > starsLit);
+            }
+        }
     }
 }

@@ -13,9 +13,11 @@ namespace Luzart
     public class ZSkillBehavior_Aura : ZSkillBehavior<ZSkillBehaviorConfig_Aura>
     {
         private float _tickTimer;
-        private GameObject _visual;       // Vòng aura visual follow player
-        private Transform _visualTr;
-        private SpriteRenderer _visualSr; // Có thể null nếu prefab không có
+        private float _visualTimer;
+        private const int VISUAL_COUNT = 6;
+        private GameObject[] _visuals = new GameObject[VISUAL_COUNT];
+        private Transform[] _visualTrs = new Transform[VISUAL_COUNT];
+        private SpriteRenderer[] _visualSrs = new SpriteRenderer[VISUAL_COUNT];
 
         // Static buffer — multiple aura skills (if ever) share but each ticks
         // serially; safe because we don't hold the reference past one ApplyTick call.
@@ -30,50 +32,90 @@ namespace Luzart
         protected override void DoOnDestroy()
         {
             base.DoOnDestroy();
-            if (_visual != null) Object.Destroy(_visual);
-            _visual = null; _visualTr = null; _visualSr = null;
+            if (_visuals != null)
+            {
+                for (int i = 0; i < _visuals.Length; i++)
+                {
+                    if (_visuals[i] != null) Object.Destroy(_visuals[i]);
+                }
+            }
+            _visuals = null; _visualTrs = null; _visualSrs = null;
         }
 
         private void SpawnVisual()
         {
             var prefab = _behaviorConfig != null ? _behaviorConfig.VisualPrefab : null;
             if (prefab == null) return;
-            _visual = Object.Instantiate(prefab);
-            _visual.name = $"AuraVisual_{_skill?.Config?.name}";
-            // Bỏ collider trên visual — aura damage logic dùng Physics2D.OverlapCircle riêng,
-            // không cần trigger trên visual (tránh false-positive cho ProjectileVisualBinder/EntityRef).
-            var col = _visual.GetComponent<Collider2D>();
-            if (col != null) Object.Destroy(col);
-            var binder = _visual.GetComponent<ProjectileVisualBinder>();
-            if (binder != null) Object.Destroy(binder);
-            _visualTr = _visual.transform;
-            _visualSr = _visual.GetComponent<SpriteRenderer>();
+            for (int i = 0; i < VISUAL_COUNT; i++)
+            {
+                _visuals[i] = Object.Instantiate(prefab);
+                _visuals[i].name = $"AuraVisual_{_skill?.Config?.name}_{i}";
+                // Bỏ collider trên visual — aura damage logic dùng Physics2D.OverlapCircle riêng,
+                // không cần trigger trên visual (tránh false-positive cho ProjectileVisualBinder/EntityRef).
+                var col = _visuals[i].GetComponent<Collider2D>();
+                if (col != null) Object.Destroy(col);
+                var binder = _visuals[i].GetComponent<ProjectileVisualBinder>();
+                if (binder != null) Object.Destroy(binder);
+                _visualTrs[i] = _visuals[i].transform;
+                _visualSrs[i] = _visuals[i].GetComponent<SpriteRenderer>();
+            }
         }
 
         protected override void DoUpdate(float dt)
         {
             if (_zSkillUpgradeConfig == null || _owner?.Transform == null) return;
 
-            // Sync visual mỗi frame: follow player position + scale theo RangeFind.
-            UpdateVisual();
-
+            _visualTimer += dt;
             _tickTimer += dt;
             if (_tickTimer < _behaviorConfig.TickInterval) return;
             _tickTimer = 0f;
             ApplyTick();
         }
 
+        private void LateUpdate()
+        {
+            if (!_bound || _zSkillUpgradeConfig == null || _owner?.Transform == null) return;
+            UpdateVisual();
+        }
+
         private void UpdateVisual()
         {
-            if (_visualTr == null) return;
+            if (_visualTrs == null || _visualTrs.Length == 0) return;
             Vector2 origin = _owner.Transform.Position.Value;
-            _visualTr.position = new Vector3(origin.x, origin.y, _visualTr.position.z);
-            // Scale sao cho sprite có đường kính = 2 * RangeFind. Sprite world-size mặc định
-            // (Config.VisualUnitSize, mặc định 2.56 với PPU 256) → scale = diameter / unitSize.
+            
+            // Tính toán kích thước tối đa dựa trên RangeFind
             float range = (float)_zSkillUpgradeConfig.GetStat(StatType.RangeFind).Value;
             float unitSize = Mathf.Max(0.01f, _behaviorConfig.VisualUnitSize);
-            float scale = (range * 2f) / unitSize;
-            _visualTr.localScale = new Vector3(scale, scale, 1f);
+            float maxScale = (range * 2f) / unitSize;
+
+            // Dùng _visualTimer để mượt mà hơn. Đặt chu kỳ hiển thị là 2.5 giây để hiệu ứng chậm lại,
+            // không bị phụ thuộc vào TickInterval (vốn gây sát thương rất nhanh).
+            float visualDuration = 4f; 
+            float baseT = (_visualTimer / visualDuration) % 1f;
+            
+            for (int i = 0; i < _visualTrs.Length; i++)
+            {
+                if (_visualTrs[i] == null) continue;
+                _visualTrs[i].position = new Vector3(origin.x, origin.y, _visualTrs[i].position.z);
+
+                // Offset từng vòng để nó mọc ra lần lượt
+                float phaseOffset = i * (1f / VISUAL_COUNT);
+                float t = (baseT + phaseOffset) % 1f;
+
+                // Dùng hàm easing out (nhanh dần rồi chậm lại) để hiệu ứng nhìn tự nhiên hơn
+                float easeOutQuart = 1f - Mathf.Pow(1f - t, 4f);
+                float currentScale = Mathf.Lerp(0f, maxScale, easeOutQuart);
+                
+                _visualTrs[i].localScale = new Vector3(currentScale, currentScale, 1f);
+
+                // Hiệu ứng mờ dần (fade out) khi vòng năng lượng tan biến
+                if (_visualSrs[i] != null)
+                {
+                    Color c = _visualSrs[i].color;
+                    c.a = Mathf.Lerp(1f, 0f, easeOutQuart);
+                    _visualSrs[i].color = c;
+                }
+            }
         }
 
         private void ApplyTick()

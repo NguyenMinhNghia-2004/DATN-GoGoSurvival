@@ -15,7 +15,7 @@ MonoBehaviour:
   activeSkills:
   - skillId: Sk_Kunai
     displayName: Kunai
-    icon: {fileID: 21300000, guid: 53e8566a4b3ee7747ba0b7521ed17b9d, type: 3}
+    icon: {fileID: 21300000, guid: 8d7beeda7c9d1ab4d98f6f51dfebc931, type: 3}
     description: Default weapon, auto-targets nearest enemy.
     atkMultiplier:
     - 1.5
@@ -339,7 +339,7 @@ MonoBehaviour:
     zSkillConfigRef: {fileID: 11400000, guid: f740878e5d77a4a83ab8d39c3a0e1433, type: 2}
   - skillId: Sk_SoccerBall
     displayName: Soccer Ball
-    icon: {fileID: 21300000, guid: a7d6faacbb6e24b46983ded4d0124d5c, type: 3}
+    icon: {fileID: 21300000, guid: d2f6fca0f5d745540a25a45b5c6b3a5d, type: 3}
     description: Bouncing football.
     atkMultiplier:
     - 1
@@ -397,11 +397,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +100%
-    - +200%
-    - +300%
-    - +400%
-    - +500%
+    - Item loot range +100%
+    - Item loot range +200%
+    - Item loot range +300%
+    - Item loot range +400%
+    - Item loot range +500%
     passiveValue:
     - 1
     - 2
@@ -433,11 +433,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +20%
-    - +40%
-    - +60%
-    - +80%
-    - +100%
+    - Max HP +20%
+    - Max HP +40%
+    - Max HP +60%
+    - Max HP +80%
+    - Max HP +100%
     passiveValue:
     - 0.2
     - 0.4
@@ -469,11 +469,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +10%
-    - +20%
-    - +30%
-    - +40%
-    - +50%
+    - Bullet flight speed +10%
+    - Bullet flight speed +20%
+    - Bullet flight speed +30%
+    - Bullet flight speed +40%
+    - Bullet flight speed +50%
     passiveValue:
     - 0.1
     - 0.2
@@ -505,11 +505,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +10%
-    - +20%
-    - +30%
-    - +40%
-    - +50%
+    - All weapon range +10%
+    - All weapon range +20%
+    - All weapon range +30%
+    - All weapon range +40%
+    - All weapon range +50%
     passiveValue:
     - 0.1
     - 0.2
@@ -541,11 +541,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - 1% HP/5s
-    - 2% HP/5s
-    - 3% HP/5s
-    - 4% HP/5s
-    - 5% HP/5s
+    - Restores 1% HP/5s
+    - Restores 2% HP/5s
+    - Restores 3% HP/5s
+    - Restores 4% HP/5s
+    - Restores 5% HP/5s
     passiveValue:
     - 0.01
     - 0.02
@@ -577,11 +577,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +10%
-    - +20%
-    - +30%
-    - +40%
-    - +50%
+    - Over-time effect duration +10%
+    - Over-time effect duration +20%
+    - Over-time effect duration +30%
+    - Over-time effect duration +40%
+    - Over-time effect duration +50%
     passiveValue:
     - 0.1
     - 0.2
@@ -613,11 +613,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - -8%
-    - -16%
-    - -24%
-    - -32%
-    - -40%
+    - All attack CD -8%
+    - All attack CD -16%
+    - All attack CD -24%
+    - All attack CD -32%
+    - All attack CD -40%
     passiveValue:
     - 0.08
     - 0.16
@@ -649,11 +649,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +8%
-    - +16%
-    - +24%
-    - +32%
-    - +40%
+    - Gold gain +8%
+    - Gold gain +16%
+    - Gold gain +24%
+    - Gold gain +32%
+    - Gold gain +40%
     passiveValue:
     - 0.08
     - 0.16
@@ -685,11 +685,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - -10%
-    - -20%
-    - -30%
-    - -40%
-    - -50%
+    - Received damage -10%
+    - Received damage -20%
+    - Received damage -30%
+    - Received damage -40%
+    - Received damage -50%
     passiveValue:
     - 0.1
     - 0.2
@@ -721,11 +721,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +10%
-    - +20%
-    - +30%
-    - +40%
-    - +50%
+    - Movement Speed +10%
+    - Movement Speed +20%
+    - Movement Speed +30%
+    - Movement Speed +40%
+    - Movement Speed +50%
     passiveValue:
     - 0.1
     - 0.2
@@ -757,11 +757,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +10%
-    - +20%
-    - +30%
-    - +40%
-    - +50%
+    - ATK +10%
+    - ATK +20%
+    - ATK +30%
+    - ATK +40%
+    - ATK +50%
     passiveValue:
     - 0.1
     - 0.2
@@ -793,11 +793,11 @@ MonoBehaviour:
     - 1
     - 1
     perStarDescription:
-    - +8%
-    - +16%
-    - +24%
-    - +32%
-    - +40%
+    - EXP gain +8%
+    - EXP gain +16%
+    - EXP gain +24%
+    - EXP gain +32%
+    - EXP gain +40%
     passiveValue:
     - 0.08
     - 0.16

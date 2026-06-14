@@ -27,6 +27,14 @@ namespace Luzart
             _moveRigidbodyBehavior.SetDirectAndSpeedProjectile(speed, dir, _bombProjectileConfig.Gravity);
             _moveRigidbodyBehavior.SetMaxDistance(_bombProjectileConfig.MaxDistance);
             _moveRigidbodyBehavior.OnHitGround = OnHitGround;
+
+            if (_bombProjectileConfig.RotateTowardsDirection)
+            {
+                // In MoveRigidbodyBehavior, the projectile moves in -dir
+                Vector3 actualDir = -dir;
+                float angle = Mathf.Atan2(actualDir.y, actualDir.x) * Mathf.Rad2Deg;
+                Transform.SetRotation(Quaternion.Euler(0f, 0f, angle - 90f));
+            }
         }
         public void OnHitGround()
         {

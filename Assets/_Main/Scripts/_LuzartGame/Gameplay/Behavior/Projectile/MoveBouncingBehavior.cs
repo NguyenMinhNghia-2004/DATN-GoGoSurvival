@@ -56,6 +56,12 @@ namespace Luzart
                 next = cur + Direction * (float)Speed * dt;
             }
             Owner.Transform.SetPosition(next);
+
+            if (_config.RotateTowardsDirection)
+            {
+                float angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
+                Owner.Transform.SetRotation(Quaternion.Euler(0f, 0f, angle - 90f));
+            }
         }
 
         /// <summary>Called by BouncingProjectile.OnCollision when pierce=false. Reflects

@@ -67,8 +67,6 @@ namespace Luzart
             var projectile = SpawnProjectileEntity(_behaviorConfig.ProjectileConfig);
             if (projectile == null) return;
             projectile.Transform.Position.Set(_owner.Transform.Position.Value);
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            projectile.Transform.SetRotation(Quaternion.Euler(0f, 0f, angle - 90f));
             if (projectile is BombProjectile bomb)
             {
                 // Hook the landing event: instead of standard Explode (instant AoE), spawn
@@ -102,6 +100,7 @@ namespace Luzart
             var prefab = _behaviorConfig.PatchPrefab;
             FirePatch patch;
             GameObject go;
+
             if (prefab != null)
             {
                 go = UnityEngine.Object.Instantiate(prefab, pos, Quaternion.identity);

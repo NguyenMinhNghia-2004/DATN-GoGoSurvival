@@ -15,10 +15,15 @@ namespace Luzart
         [Tooltip("When true, projectile explodes on contacting an enemy (rocket-style). " +
                  "When false (default), only ground-landing triggers explosion (bomb-style).")]
         [SerializeField] private bool _explodeOnImpact = false;
+        
+        [Tooltip("Rotate the projectile to face its movement direction.")]
+        [SerializeField] private bool _rotateTowardsDirection = false;
+
         public float Gravity => _gravity;
         public RenderConfig ExplosionEffect => _explosionEffect;
         public float MaxDistance => _maxDistance;
         public bool ExplodeOnImpact => _explodeOnImpact;
+        public bool RotateTowardsDirection => _rotateTowardsDirection;
         public override ProjectileEntity CreateProjectile(IEntity owner)
         {
             return new BombProjectile(this, owner);
