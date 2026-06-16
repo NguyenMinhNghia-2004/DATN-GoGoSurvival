@@ -37,7 +37,22 @@ namespace Luzart
         public override void DoInitialize()
         {
             base.DoInitialize();
-            _levelConfig = _domain.Get<LevelConfig>();
+            // Get selected map index from PlayerPrefs
+            int selectedMapIndex = PlayerPrefs.GetInt("SelectedMapIndex", 0);
+            
+            var allLevelConfigs = _domain.GetAll<LevelConfig>();
+            if (allLevelConfigs != null && allLevelConfigs.Count > 0)
+            {
+                if (selectedMapIndex >= 0 && selectedMapIndex < allLevelConfigs.Count)
+                    _levelConfig = allLevelConfigs[selectedMapIndex];
+                else
+                    _levelConfig = allLevelConfigs[0];
+            }
+            else
+            {
+                _levelConfig = _domain.Get<LevelConfig>();
+            }
+
             _enemyManager = _domain.Get<EnemySpawnerManager>();
             _playerCharacter = _domain.Get<PlayerCharacter>();
             _upgradeSkillManager = _domain.Get<UpgradeSkillManager>();
@@ -205,7 +220,15 @@ namespace Luzart
                 Debug.LogWarning("[GameController] SpawnDefaultLevel: LevelCatalog or DefaultLevelPrefab missing.");
                 return null;
             }
-            var prefab = catalog.DefaultLevelPrefab;
+
+            int selectedMapIndex = PlayerPrefs.GetInt("SelectedMapIndex", 0);
+            GameObject prefab = catalog.DefaultLevelPrefab;
+            
+            if (selectedMapIndex > 0 && catalog.AdditionalLevels != null && selectedMapIndex - 1 < catalog.AdditionalLevels.Count)
+            {
+                prefab = catalog.AdditionalLevels[selectedMapIndex - 1];
+            }
+
             var inst = Object.Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
             if (parent != null) inst.transform.SetParent(parent);
             _spawnedLevel = inst;

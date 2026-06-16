@@ -231,6 +231,9 @@ namespace Luzart
             if (!TryGetFlags(out var flags) || !flags.UseLuzartPlayerController) return;
             if (!other.CompareTag("Enemy")) return;
 
+            var mainCollider = _rb != null ? _rb.GetComponent<Collider2D>() : GetComponent<Collider2D>();
+            if (mainCollider != null && !other.IsTouching(mainCollider)) return;
+
             // F.G cleanup: framework HP only — legacy GameManager.Health fallback removed.
             var character = ResolveCharacter();
             if (character == null || character.Stats == null) return;

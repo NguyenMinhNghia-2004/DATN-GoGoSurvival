@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9550175bc4d334fa85314b5ce70366, type: 3}
+  m_Name: Level_2_Classic
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.LevelConfig
+  _id: Level_2_Classic
+  level: 2
+  mapConfigId: Map_ClassicGrass
+  enemyWaves:
+  - timeWave: 60
+    waves:
+    - enemyDefinition: {fileID: 11400000, guid: 754b06e264e831249a7e7342235fa53b, type: 2}
+      statsConfig: {fileID: 11400000, guid: 3ddc6d169fd9a4687981d531b3f2d17d, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: d4e56ff993f524c6da7a2a2336c5dcdb, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 0
+      timeIntervalSpawn: 1
+      totalTimeSpawn: 50
+      timeDelayBeforeSpawn: 2
+  - timeWave: 90
+    waves:
+    - enemyDefinition: {fileID: 11400000, guid: 754b06e264e831249a7e7342235fa53b, type: 2}
+      statsConfig: {fileID: 11400000, guid: 3ddc6d169fd9a4687981d531b3f2d17d, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: d4e56ff993f524c6da7a2a2336c5dcdb, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 1
+      timeIntervalSpawn: 0.8
+      totalTimeSpawn: 80
+      timeDelayBeforeSpawn: 0
+    - enemyDefinition: {fileID: 11400000, guid: 403044445c6ea4a85b7aee18d9f1e836, type: 2}
+      statsConfig: {fileID: 11400000, guid: 8757cf00cc3244c6591b6b6474d69efe, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: 7b0de60bf237d420eb68dc6cd6ef93b5, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 1
+      timeIntervalSpawn: 2
+      totalTimeSpawn: 70
+      timeDelayBeforeSpawn: 10
+  - timeWave: 120
+    waves:
+    - enemyDefinition: {fileID: 11400000, guid: 403044445c6ea4a85b7aee18d9f1e836, type: 2}
+      statsConfig: {fileID: 11400000, guid: 8757cf00cc3244c6591b6b6474d69efe, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: 7b0de60bf237d420eb68dc6cd6ef93b5, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 2
+      timeIntervalSpawn: 1.2
+      totalTimeSpawn: 90
+      timeDelayBeforeSpawn: 0
+    - enemyDefinition: {fileID: 11400000, guid: e4edf3b5626d743c6927287fefa42094, type: 2}
+      statsConfig: {fileID: 11400000, guid: dfa3bed8e36c54cb09ab6bf99dfba3dc, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: d4278f839aed34491839c86ac1a8f058, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 2
+      timeIntervalSpawn: 8
+      totalTimeSpawn: 80
+      timeDelayBeforeSpawn: 15
+    - enemyDefinition: {fileID: 11400000, guid: a1233105bbdd3486e92217728b6fc276, type: 2}
+      statsConfig: {fileID: 11400000, guid: 21978320bbd5945548eedb1d32f4ea78, type: 2}
+      dropConfigRequire: {fileID: 11400000, guid: de17d00257bf844b29479ef502cc6254, type: 2}
+      statsFactor: {fileID: 0}
+      indexWave: 2
+      timeIntervalSpawn: 60
+      totalTimeSpawn: 60
+      timeDelayBeforeSpawn: 90
+  playerSkillCanReceives:
+  - {fileID: 11400000, guid: 3e7dc562c2565463fac2e845644befad, type: 2}
+  - {fileID: 11400000, guid: 464e653bbcfbc447a91909dc83218334, type: 2}
+  - {fileID: 11400000, guid: 019cab7d7cb124980b39e460de2e72b0, type: 2}
+  - {fileID: 11400000, guid: 35ac501edbf324ee09453028e066e818, type: 2}
+  - {fileID: 11400000, guid: 4cdca3636f0dd41d1865cd12d9851396, type: 2}
+  - {fileID: 11400000, guid: fbe1195b5ae9c41ca9409084fc84dc4e, type: 2}
+  - {fileID: 11400000, guid: e1963f26b5a8a4189b9eee1f747512c2, type: 2}
+  - {fileID: 11400000, guid: 28011642d278641879422345f94da01e, type: 2}
+  - {fileID: 11400000, guid: f740878e5d77a4a83ab8d39c3a0e1433, type: 2}
+  - {fileID: 11400000, guid: 83e9467188fac4723abcfeaee1a00a1d, type: 2}
+  playerSkilStatConfigs:
+  - {fileID: 11400000, guid: e63c207b900934416a00537b3e71aeb1, type: 2}
+  - {fileID: 11400000, guid: adbd64a504b6d4f02a924a0e83b89f9a, type: 2}
+  - {fileID: 11400000, guid: 027cdb3486ca2403d91012fd19754bfe, type: 2}
+  - {fileID: 11400000, guid: d9e2a47c24cbc4f05aa1fcc683e0a2bf, type: 2}
+  - {fileID: 11400000, guid: 044649d3527ec457c849c88f7d1a96ea, type: 2}
+  - {fileID: 11400000, guid: ca733a2a5c3654254bfbb7fd8774db7a, type: 2}
+  - {fileID: 11400000, guid: f40eaa3f6dca24f719acb511d807e5ce, type: 2}
+  - {fileID: 11400000, guid: c16a3dfc72b5542328802a50ae9d68ee, type: 2}
+  - {fileID: 11400000, guid: 033cbcc3f34714e08a4960ff878da20e, type: 2}
+  - {fileID: 11400000, guid: 7c3fc923bccd64539bb81c8d1d0abe44, type: 2}
+  - {fileID: 11400000, guid: 577d70d6d6df34110be25ba8cbe39e81, type: 2}
+  - {fileID: 11400000, guid: 7ad3062029c97411b97b809c9217972d, type: 2}
+  _listXPRequirePerLevel: 14000000280000003c0000005000000064000000780000008c000000a0000000b4000000c8000000fa0000002c0100005e01000090010000c2010000f401000026020000580200008a020000bc0200002003000084030000e80300004c040000b00400001405000078050000dc05000040060000a40600006c07000034080000fc080000c40900008c0a0000540b00001c0c0000e40c0000ac0d0000740e0000041000009411000024130000b414000044160000d417000064190000f41a0000841c0000141e000008200000fc210000f0230000e4250000d8270000cc290000c02b0000b42d0000a82f00009c310000

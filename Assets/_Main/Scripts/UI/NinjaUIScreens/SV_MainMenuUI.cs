@@ -22,10 +22,16 @@ public class SV_MainMenuUI : UIBase
     [SerializeField] private Button btnEquipment;
     [SerializeField] private Button btnSettings;
     [SerializeField] private Button btnMessages;
+    [SerializeField] private Button btnSelectMap;
 
     [Header("Sub-panels (legacy compat, nếu cần)")]
     [SerializeField] private GameObject panelSettings;
     [SerializeField] private GameObject panelMessages;
+
+    [Header("Map Info Update")]
+    [SerializeField] private Text txtMapName;
+    [SerializeField] private Image imgMapIcon;
+    [SerializeField] private Sprite[] mapSprites;
 
     [System.Serializable]
     public struct NavTabSprites
@@ -56,12 +62,14 @@ public class SV_MainMenuUI : UIBase
         if (btnEquipment == null) btnEquipment = FindChildButton("Equipement") ?? FindChildButton("Equipment");
         if (btnSettings == null) btnSettings = FindChildButton("Setting") ?? FindChildButton("Settings");
         if (btnMessages == null) btnMessages = FindChildButton("Messaging") ?? FindChildButton("Messages") ?? FindChildButton("Mails");
+        if (btnSelectMap == null) btnSelectMap = FindChildButton("LevelIcon");
 
         if (btnPlay != null) btnPlay.onClick.AddListener(OnPlay);
         if (btnShop != null) btnShop.onClick.AddListener(OnShop);
         if (btnEquipment != null) btnEquipment.onClick.AddListener(OnEquipment);
         if (btnSettings != null) btnSettings.onClick.AddListener(OnSettings);
         if (btnMessages != null) btnMessages.onClick.AddListener(OnMessages);
+        if (btnSelectMap != null) btnSelectMap.onClick.AddListener(OnSelectMap);
 
         // The middle DownContainer button is "Battle" (a separate GO from the big "BtnPlay"
         // Start button, which btnPlay resolved to). Wire it as the HOME/close button: tapping it
@@ -102,7 +110,52 @@ public class SV_MainMenuUI : UIBase
             }
         }
 
+        // --- Map Update Logic ---
+        if (txtMapName == null)
+        {
+            foreach (var t in GetComponentsInChildren<Transform>(true))
+                if (t.name == "NameLevel") {
+                    txtMapName = t.GetComponent<Text>();
+                    if (txtMapName == null) txtMapName = t.GetComponentInChildren<Text>();
+                    break;
+                }
+        }
+        if (imgMapIcon == null)
+        {
+            foreach (var t in GetComponentsInChildren<Transform>(true))
+                if (t.name == "LevelIcon") { imgMapIcon = t.GetComponent<Image>(); break; }
+        }
+
+        Broadcaster.Register<Data_MapSelected>(OnMapSelected);
+        LoadInitialMapInfo();
+
         return UniTask.CompletedTask;
+    }
+
+    private void OnDestroy()
+    {
+        Broadcaster.Unregister<Data_MapSelected>(OnMapSelected);
+    }
+
+    private void OnMapSelected(Data_MapSelected data)
+    {
+        if (txtMapName != null) txtMapName.text = data.MapName;
+        if (imgMapIcon != null && data.MapIcon != null) imgMapIcon.sprite = data.MapIcon;
+    }
+
+    private void LoadInitialMapInfo()
+    {
+        int index = PlayerPrefs.GetInt("SelectedMapIndex", 0);
+        string[] mapNames = { "1. Wild Streets", "2. Desert Sand", "3. Toxic Plant", "4. Ruined City", "5. Dark Forest", "6. Lava Core" };
+        if (txtMapName != null && index >= 0 && index < mapNames.Length) {
+            txtMapName.text = mapNames[index];
+        }
+
+        if (imgMapIcon != null && mapSprites != null && index >= 0 && index < mapSprites.Length) {
+            if (mapSprites[index] != null) {
+                imgMapIcon.sprite = mapSprites[index];
+            }
+        }
     }
 
     /// <summary>Hide the menu's embedded Shop/Equipement sections so the home (MainMenu) shows on
@@ -253,6 +306,8 @@ public class SV_MainMenuUI : UIBase
         // Messages panel — keep legacy SetActive pattern for now.
         if (panelMessages != null) panelMessages.SetActive(true);
     }
+
+    private async void OnSelectMap() => await SafeShowAsync(UIId.SV_SelectMap);
 
     /// <summary>Show a UIId, swallowing the "no config" exception when the UIRegistry doesn't
     /// have a matching entry yet. Lets MainMenu buttons stay clickable without throwing while

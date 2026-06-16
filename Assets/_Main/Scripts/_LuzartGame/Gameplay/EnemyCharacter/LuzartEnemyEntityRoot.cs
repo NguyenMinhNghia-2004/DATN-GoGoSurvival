@@ -162,6 +162,12 @@ namespace Luzart
             _isDead = true;
             if (_animator != null) _animator.Play("ZombieDeath");
 
+            var colliders = GetComponentsInChildren<Collider2D>();
+            foreach (var col in colliders)
+            {
+                col.enabled = false;
+            }
+
             // Route kill count to framework GameController.AddEnemyDead.
             var gc = SceneRootManager.Instance?.Domain?.Get<GameController>();
             if (gc != null) gc.AddEnemyDead(1);

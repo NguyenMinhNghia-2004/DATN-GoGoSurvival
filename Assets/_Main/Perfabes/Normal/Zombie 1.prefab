@@ -115,11 +115,11 @@ GameObject:
   - component: {fileID: 3537171100188795298}
   - component: {fileID: 3537171100188795299}
   - component: {fileID: 3537171100188795296}
-  - component: {fileID: 467694698723115531}
-  - component: {fileID: 1863873213674398443}
-  - component: {fileID: 2227805526506980446}
+  - component: {fileID: 3537171100188795297}
+  - component: {fileID: 4235804376522667059}
+  - component: {fileID: 585912881181113180}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Zombie 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.38, y: 6.05, z: 0}
-  m_LocalScale: {x: 0.68694997, y: 0.68694997, z: 0.68694997}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8672863140539376602}
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -617557245, guid: 7a78817b52491b1408a58913779fc32b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: beeb349bf8a94f04f93f5b39c24af763, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,7 +230,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -238,7 +238,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -284,7 +284,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -319,7 +319,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &467694698723115531
+--- !u!95 &3537171100188795297
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ Animator:
   m_GameObject: {fileID: 3537171100188795310}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4184b50a9c0e8dd4e8f195711190dea4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 45b7be77288a39d40814934ba951392b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -341,7 +341,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &1863873213674398443
+--- !u!82 &4235804376522667059
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +354,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b3d43c7e86b9e164e80921ec4d2e45d1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.148
+  m_Volume: 0.187
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -438,7 +438,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2227805526506980446
+--- !u!114 &585912881181113180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

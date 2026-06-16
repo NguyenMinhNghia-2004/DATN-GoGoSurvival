@@ -25,4 +25,4 @@ public class SV_LegacyUIBase : UIBase
 public class SV_ProcessUI : SV_LegacyUIBase { }
 public class SV_EvolveUI : SV_LegacyUIBase { }
 public class SV_MailsUI : SV_LegacyUIBase { }
-public class SV_SelectMapUI : SV_LegacyUIBase { }
+// Removed SV_SelectMapUI (now a standalone script)

@@ -2463,6 +2463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5733265707624121549}
   - component: {fileID: 6028773688265563182}
+  - component: {fileID: 65886015392710129}
   m_Layer: 5
   m_Name: SV_SelectMap
   m_TagString: Untagged
@@ -2513,6 +2514,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &65886015392710129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095741588725437223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4136f78120e1a4f8fc151ac6022b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SV_SelectMapUI
+  btnBack: {fileID: 7066364625560280233}
+  btnSelect: {fileID: 2059402154422966861}
+  btnSelected: {fileID: 1895575414451480543}
+  btnWatchAds: {fileID: 7267749898242256348}
+  txtHeaderTitle: {fileID: 1769574560389581444}
+  txtCommentDescription: {fileID: 6254072462691231279}
+  iconsContainer: {fileID: 8347216107940279010}
 --- !u!1 &4222397974854649539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,7 +2819,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 9023331426657985299}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.28893763
+  m_Size: 0.33272424
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3500,8 +3520,8 @@ RectTransform:
   m_GameObject: {fileID: 6776798736914010600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.047925, y: 0.3195, z: 0.3195}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9128741369549238490}
   m_Father: {fileID: 6761166792538280915}
