@@ -46,7 +46,10 @@ namespace Luzart
                 if (_orbits[i].go == null) continue;
                 float a = (_baseAngle + i * (360f / n)) * Mathf.Deg2Rad;
                 Vector2 pos = origin + new Vector2(Mathf.Cos(a), Mathf.Sin(a)) * radius;
-                _orbits[i].go.transform.position = new Vector3(pos.x, pos.y, _orbits[i].go.transform.position.z);
+                var t = _orbits[i].go.transform;
+                t.position = new Vector3(pos.x, pos.y, t.position.z);
+                // Xoay liên tục quanh trục Z để tạo hiệu ứng con quay
+                t.Rotate(0, 0, -1080f * dt);
             }
         }
 
@@ -81,11 +84,16 @@ namespace Luzart
                 var binder = go.GetComponent<ProjectileVisualBinder>();
                 if (binder != null) Object.Destroy(binder);
 
+                // Animator modifying LocalPosition will override the world position updates 
+                // since this GameObject has no parent. Destroy it to allow Orbit to control movement.
+                var animator = go.GetComponent<Animator>();
+                if (animator != null) Object.Destroy(animator);
+
                 // Damage component on the orbit GO (per-orbit per-enemy cooldown so a slow
                 // orbit doesn't tick damage every frame on a stuck enemy).
                 var dmg = go.GetComponent<OrbitDamager>();
                 if (dmg == null) dmg = go.AddComponent<OrbitDamager>();
-                dmg.Configure(damage, _owner is PlayerCharacter);
+                dmg.Configure(damage, _owner is PlayerCharacter, _skill);
 
                 _orbits.Add(new OrbitInstance { go = go });
             }
@@ -113,13 +121,15 @@ namespace Luzart
     {
         private double _damage;
         private bool _ownerIsPlayer;
+        private IZSkill _sourceSkill;
         private readonly Dictionary<int, float> _lastHit = new Dictionary<int, float>();
         private const float HIT_COOLDOWN = 0.5f;
 
-        public void Configure(double damage, bool ownerIsPlayer)
+        public void Configure(double damage, bool ownerIsPlayer, IZSkill sourceSkill)
         {
             _damage = damage;
             _ownerIsPlayer = ownerIsPlayer;
+            _sourceSkill = sourceSkill;
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -137,7 +147,11 @@ namespace Luzart
                 if (_ownerIsPlayer && isEnemy)
                 {
                     _lastHit[id] = Time.time;
-                    if (er.Entity is CharacterBase ch && !ch.IsDead) ch.TakeDamage(_damage);
+                    if (er.Entity is CharacterBase ch && !ch.IsDead)
+                    {
+                        ch.TakeDamage(_damage);
+                        _sourceSkill?.RecordDamage((float)_damage);
+                    }
                     var root = other.GetComponentInParent<LuzartEnemyEntityRoot>();
                     if (root != null) root.TakeDamage((float)_damage);
                     return;

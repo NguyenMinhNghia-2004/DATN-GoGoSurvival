@@ -8,6 +8,8 @@ namespace Luzart
         ZSkillConfig Config { get; }
         INumberWithSet LevelIndex { get; }
         IReadOnlyList<IZSkillBehavior> Behaviors { get; }
+        float TotalDamageDealt { get; }
+        void RecordDamage(float damage);
         void UpgradeSkill();
         bool IsUpgradeSkill();
     }

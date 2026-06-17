@@ -22,7 +22,6 @@ namespace Luzart
         public override void DoInitialize()
         {
             base.DoInitialize();
-            _levelConfig = _domain.Get<LevelConfig>();
             _playerCharacter = _domain.Get<PlayerCharacter>();
             _gameController = _domain.Get<GameController>();
             _playerEntityRoot = _domain.Get<LuzartPlayerEntityRoot>();
@@ -40,6 +39,14 @@ namespace Luzart
             Broadcaster.Register<SkillUpgradeSuccessBroadcastData>(OnSkillUpgradeSuccessBroadcast);
             _isUpgrading = false;
         }
+
+        private LevelConfig GetCurrentLevelConfig()
+        {
+            if (_gameController != null && _gameController.CurrentLevelConfig != null)
+                return _gameController.CurrentLevelConfig;
+            return _domain.Get<LevelConfig>();
+        }
+
         public override void DoTerminate()
         {
             base.DoTerminate();
@@ -64,7 +71,8 @@ namespace Luzart
             if (levelCurrent <= 0) { _isUpgrading = false; return; }
 
             EnsurePlayerEntityRootResolved();
-            if (_playerEntityRoot == null || _levelConfig == null)
+            var levelConfig = GetCurrentLevelConfig();
+            if (_playerEntityRoot == null || levelConfig == null)
             {
                 Debug.LogWarning("[UpgradeSkillManager] Missing deps (player entity root / level config) — skipping UpgradeLevel.");
                 _isUpgrading = false;
@@ -181,9 +189,10 @@ namespace Luzart
         private List<ZSkillConfig> FindAvailableUpgrades()
         {
             EnsurePlayerEntityRootResolved();
-            if (_levelConfig == null || _playerEntityRoot == null)
+            var levelConfig = GetCurrentLevelConfig();
+            if (levelConfig == null || _playerEntityRoot == null)
                 return new List<ZSkillConfig>();
-            var pool = _levelConfig.GetAllSkillInLevel() ?? new List<ZSkillConfig>();
+            var pool = levelConfig.GetAllSkillInLevel() ?? new List<ZSkillConfig>();
             var ownedMaxed = new List<ZSkillConfig>();
             var runtimes = _playerEntityRoot.SkillRuntimes;
             if (runtimes != null)

@@ -142,7 +142,11 @@ namespace Luzart
                 // Belt-and-suspenders damage (same shape as ProjectileVisualBinder):
                 //  - Luzart character (no-op if StatsBehavior was skipped at Init)
                 //  - Legacy LuzartEnemyEntityRoot (owns visual HP for now)
-                if (er.Entity is CharacterBase ch && !ch.IsDead) ch.TakeDamage(damage);
+                if (er.Entity is CharacterBase ch && !ch.IsDead)
+                {
+                    ch.TakeDamage(damage);
+                    _skill?.RecordDamage((float)damage);
+                }
                 if (ownerIsPlayer)
                 {
                     var root = col.GetComponentInParent<LuzartEnemyEntityRoot>();

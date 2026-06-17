@@ -11,15 +11,38 @@ namespace Luzart
 
         public void Setup(ItemConfig itemConfig)
         {
-            if (itemConfig == null)
+            if (_itemConfig != null)
             {
-                return;
+                _itemConfig.Level.Changed -= OnLevelChanged;
             }
+
+            if (itemConfig == null) return;
+
             this._itemConfig = itemConfig;
-            int typeItem = (int)itemConfig.TypeItem;
-            int level = itemConfig.Level.LevelIndex;
+            this._itemConfig.Level.Changed += OnLevelChanged;
+            RefreshView();
+        }
+
+        private void OnLevelChanged(ILevelable lvl)
+        {
+            RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            if (_itemConfig == null) return;
+            int typeItem = (int)_itemConfig.TypeItem;
+            int level = _itemConfig.Level.LevelIndex;
             if (_bsTypeItem != null) _bsTypeItem.Select(typeItem);
-            if (_itemView != null) _itemView.Setup(itemConfig, level);
+            if (_itemView != null) _itemView.Setup(_itemConfig, level);
+        }
+
+        private void OnDestroy()
+        {
+            if (_itemConfig != null)
+            {
+                _itemConfig.Level.Changed -= OnLevelChanged;
+            }
         }
 
         public void OnClickItemView()

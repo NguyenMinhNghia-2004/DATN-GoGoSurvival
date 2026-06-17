@@ -13,6 +13,8 @@ public class SV_WinData
     public float SurvivalTime;
     public int CoinsEarned;
     public int XpEarned;
+    public string ChapterName;
+    public float BestTime;
 }
 
 /// <summary>
@@ -22,11 +24,13 @@ public class SV_WinData
 public class SV_WinScreenUI : UIBase<SV_WinData>
 {
     [Header("Stats")]
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI killsText;
-    [SerializeField] private TextMeshProUGUI timeText;
-    [SerializeField] private TextMeshProUGUI coinsText;
-    [SerializeField] private TextMeshProUGUI xpText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text killsText;
+    [SerializeField] private Text timeText;
+    [SerializeField] private Text coinsText;
+    [SerializeField] private Text xpText;
+    [SerializeField] private Text bestTimeText;
+    [SerializeField] private Text chapterText;
 
     [Header("Buttons")]
     [SerializeField] private Button btnContinue;
@@ -42,8 +46,84 @@ public class SV_WinScreenUI : UIBase<SV_WinData>
         if (btnRetry != null) btnRetry.onClick.AddListener(OnRetry);
         // Show the (now updated) shop gold balance on the win screen.
         if (GetComponent<SV_GoldDisplay>() == null) gameObject.AddComponent<SV_GoldDisplay>();
+
+        var container = transform.Find("Background/Container");
+        if (container != null)
+        {
+            if (timeText == null)
+            {
+                var t = container.Find("Time/Time");
+                if (t != null) timeText = t.GetComponent<Text>();
+            }
+            if (chapterText == null)
+            {
+                var t = container.Find("Time/ChapitersPart");
+                if (t != null) chapterText = t.GetComponent<Text>();
+            }
+            if (bestTimeText == null)
+            {
+                var t = container.Find("BestTime/Time");
+                if (t != null) bestTimeText = t.GetComponent<Text>();
+            }
+            if (killsText == null)
+            {
+                var t = container.Find("Killed/Icon/Text (Legacy)");
+                if (t != null) killsText = t.GetComponent<Text>();
+            }
+            if (coinsText == null)
+            {
+                var t = container.Find("Down/xCoins/Text (Legacy)");
+                if (t != null) coinsText = t.GetComponent<Text>();
+            }
+            if (xpText == null)
+            {
+                var t = container.Find("Down/xExp/Text (Legacy)");
+                if (t != null) xpText = t.GetComponent<Text>();
+            }
+        }
+
         return UniTask.CompletedTask;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        var container = transform.Find("Background/Container");
+        if (container != null)
+        {
+            if (timeText == null)
+            {
+                var t = container.Find("Time/Time");
+                if (t != null) timeText = t.GetComponent<Text>();
+            }
+            if (chapterText == null)
+            {
+                var t = container.Find("Time/ChapitersPart");
+                if (t != null) chapterText = t.GetComponent<Text>();
+            }
+            if (bestTimeText == null)
+            {
+                var t = container.Find("BestTime/Time");
+                if (t != null) bestTimeText = t.GetComponent<Text>();
+            }
+            if (killsText == null)
+            {
+                var t = container.Find("Killed/Icon/Text (Legacy)");
+                if (t != null) killsText = t.GetComponent<Text>();
+            }
+            if (coinsText == null)
+            {
+                var t = container.Find("Down/xCoins/Text (Legacy)");
+                if (t != null) coinsText = t.GetComponent<Text>();
+            }
+            if (xpText == null)
+            {
+                var t = container.Find("Down/xExp/Text (Legacy)");
+                if (t != null) xpText = t.GetComponent<Text>();
+            }
+        }
+    }
+#endif
 
     protected override UniTask OnBeforeShowAsync(SV_WinData data, CancellationToken ct)
     {
@@ -51,8 +131,10 @@ public class SV_WinScreenUI : UIBase<SV_WinData>
         if (scoreText != null) scoreText.text = data.FinalScore.ToString("N0");
         if (killsText != null) killsText.text = data.EnemiesKilled.ToString();
         if (timeText != null) timeText.text = $"{(int)data.SurvivalTime / 60:00}:{(int)data.SurvivalTime % 60:00}";
+        if (bestTimeText != null) bestTimeText.text = $"{(int)data.BestTime / 60:00}:{(int)data.BestTime % 60:00}";
+        if (chapterText != null) chapterText.text = !string.IsNullOrEmpty(data.ChapterName) ? data.ChapterName : "Chapter 1";
         if (coinsText != null) coinsText.text = $"+{data.CoinsEarned}";
-        if (xpText != null) xpText.text = $"+{data.XpEarned} XP";
+        if (xpText != null) xpText.text = $"+{data.XpEarned}";
         return UniTask.CompletedTask;
     }
 

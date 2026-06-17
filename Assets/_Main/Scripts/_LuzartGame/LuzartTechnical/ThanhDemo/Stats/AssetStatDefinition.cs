@@ -11,11 +11,13 @@ namespace Luzart
         StatType IStatDefinition.StatType => statType;
         IString IStatDefinition.DisplayName => TryGetString();
         Sprite IStatDefinition.Icon => statIcon;
+#if UNITY_EDITOR
         protected override void Editor_DoOnValidateScriptableObject()
         {
             base.Editor_DoOnValidateScriptableObject();
             //displayName = name.Replace("StatDefinition_","");
         }
+#endif
         private IString _displayName;
         private IString TryGetString()
         {

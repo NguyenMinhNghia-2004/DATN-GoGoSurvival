@@ -25,7 +25,7 @@ namespace Luzart
                 {
                     // Check for cancellation before each projectile spawn
                     _cancellationTokenSource.Token.ThrowIfCancellationRequested();
-                    var direct = VectorExtensions.GetCircularDirection(Vector2.left, length, i);
+                    var direct = VectorExtensions.GetCircularDirection(Vector2.right, length, i);
                     Vector2 pos = direct * (float)_zSkillUpgradeConfig.GetStat(StatType.RangeFind).Value;
                     // Additional null check for safety
                     if (_owner?.Transform?.Position == null)

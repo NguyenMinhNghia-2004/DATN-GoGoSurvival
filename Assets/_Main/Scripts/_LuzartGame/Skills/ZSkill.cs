@@ -44,6 +44,11 @@ namespace Luzart
         ZSkillConfig IZSkill.Config => _skillConfig;
         INumberWithSet IZSkill.LevelIndex => _levelIndex;
         IReadOnlyList<IZSkillBehavior> IZSkill.Behaviors => _behaviors;
+        
+        private float _totalDamageDealt;
+        float IZSkill.TotalDamageDealt => _totalDamageDealt;
+        void IZSkill.RecordDamage(float damage) => _totalDamageDealt += damage;
+        
         IEntity IBehavior.Owner => _entity;
         public ZSkillConfig Config => _skillConfig;
         public bool IsBound => _bound;

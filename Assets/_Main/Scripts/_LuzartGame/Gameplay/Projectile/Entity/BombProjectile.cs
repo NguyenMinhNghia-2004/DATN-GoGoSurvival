@@ -30,11 +30,20 @@ namespace Luzart
 
             if (_bombProjectileConfig.RotateTowardsDirection)
             {
-                // In MoveRigidbodyBehavior, the projectile moves in -dir
-                Vector3 actualDir = -dir;
+                // MoveRigidbodyBehavior now moves in +dir
+                Vector3 actualDir = dir;
                 float angle = Mathf.Atan2(actualDir.y, actualDir.x) * Mathf.Rad2Deg;
                 Transform.SetRotation(Quaternion.Euler(0f, 0f, angle - 90f));
             }
+        }
+        public void SetParabolaProjectile(Vector2 startPos, Vector2 targetPos, float time)
+        {
+            float T = time;
+            float g = _bombProjectileConfig.Gravity;
+            float vx = (targetPos.x - startPos.x) / T;
+            float vy = (targetPos.y - startPos.y) / T + 0.5f * g * T;
+            _moveRigidbodyBehavior.SetParabola(startPos, targetPos, vx, vy, time, g);
+            _moveRigidbodyBehavior.OnHitGround = OnHitGround;
         }
         public void OnHitGround()
         {

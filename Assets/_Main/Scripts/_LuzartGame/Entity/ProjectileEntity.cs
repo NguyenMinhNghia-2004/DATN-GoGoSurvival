@@ -1,7 +1,6 @@
 using Luzart;
 using System.Collections.Generic;
 using System.Threading;
-using UnityEditor.SearchService;
 using UnityEngine;
 namespace Luzart
 {
@@ -12,6 +11,7 @@ namespace Luzart
     {
         protected ProjectileConfig _projectileConfig;
         protected IEntity _owner;
+        public IZSkill SourceSkill { get; set; }
 
         // Public accessors for the prefab-side ProjectileVisualBinder (Unity Physics2D path).
         public IEntity Owner => _owner;
@@ -102,6 +102,7 @@ namespace Luzart
                 if (atk > 0)
                 {
                     character.TakeDamage(atk);
+                    SourceSkill?.RecordDamage((float)atk);
                 }
             }
         }

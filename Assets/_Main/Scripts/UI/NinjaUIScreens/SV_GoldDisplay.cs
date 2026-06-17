@@ -18,6 +18,7 @@ public sealed class SV_GoldDisplay : MonoBehaviour
     private IResourcePool _pool;
     private INumber _number;
     private TextMeshProUGUI _label;
+    private UnityEngine.UI.Text _legacyLabel;
     private bool _subscribed;
 
     private void OnEnable()
@@ -68,29 +69,47 @@ public sealed class SV_GoldDisplay : MonoBehaviour
 
     private void Refresh()
     {
-        if (_label == null || _number == null) return;
-        _label.text = CurrencyManager.FormatNumber((long)_number.Value);
+        if (_number == null) return;
+        string valStr = CurrencyManager.FormatNumber((long)_number.Value);
+        if (_label != null) _label.text = valStr;
+        if (_legacyLabel != null) _legacyLabel.text = valStr;
     }
 
     private void EnsureLabel()
     {
-        if (_label != null) return;
+        if (_label != null || _legacyLabel != null) return;
 
-        var go = new GameObject("GoldDisplay_Runtime", typeof(RectTransform));
-        var rt = (RectTransform)go.transform;
-        rt.SetParent(transform, false);
-        rt.anchorMin = new Vector2(1f, 1f);
-        rt.anchorMax = new Vector2(1f, 1f);
-        rt.pivot = new Vector2(1f, 1f);
-        rt.anchoredPosition = new Vector2(-40f, -40f);
-        rt.sizeDelta = new Vector2(360f, 60f);
+        // Try finding existing UI elements in known prefabs
+        string[] paths = {
+            "TOP/Coins/Value",          // SV_MainMenu
+            "Currency/Value"            // SV_PausePopup
+        };
 
-        _label = go.AddComponent<TextMeshProUGUI>();
-        if (TMP_Settings.defaultFontAsset != null) _label.font = TMP_Settings.defaultFontAsset;
-        _label.alignment = TextAlignmentOptions.Right;
-        _label.fontSize = 40;
-        _label.fontStyle = FontStyles.Bold;
-        _label.color = new Color(1f, 0.85f, 0.2f, 1f); // gold
-        _label.text = "0";
+        foreach (var path in paths)
+        {
+            var tr = transform.Find(path);
+            if (tr != null)
+            {
+                _label = tr.GetComponent<TextMeshProUGUI>();
+                _legacyLabel = tr.GetComponent<UnityEngine.UI.Text>();
+                if (_label != null || _legacyLabel != null) return;
+            }
+        }
+
+        // Search the whole hierarchy for a Text component under a "Coins" or "Currency" object as a fallback
+        foreach (var tr in GetComponentsInChildren<Transform>(true))
+        {
+            if (tr.name == "Coins" || tr.name == "Currency")
+            {
+                var valTr = tr.Find("Value");
+                if (valTr != null)
+                {
+                    _label = valTr.GetComponent<TextMeshProUGUI>();
+                    _legacyLabel = valTr.GetComponent<UnityEngine.UI.Text>();
+                    if (_label != null || _legacyLabel != null) return;
+                }
+            }
+        }
+
     }
 }

@@ -221,16 +221,28 @@ public class SV_PausePopupUI : UIBase
                     }
                 }
 
-                // Tạm thời hiển thị 0% do chưa có hệ thống tracking sát thương
+                float totalDamageAll = 0f;
+                foreach (var s in skills) 
+                {
+                    if (s is IZSkill zs) totalDamageAll += zs.TotalDamageDealt;
+                }
+                
+                float percent = 0f;
+                if (totalDamageAll > 0 && skill is IZSkill zs2) 
+                {
+                    percent = zs2.TotalDamageDealt / totalDamageAll;
+                }
+
                 var valueTr = slotTr.Find("Value");
                 if (valueTr != null)
                 {
+                    string percentStr = $"{(percent * 100f):0.#}%";
                     var tmp = valueTr.GetComponent<TMPro.TextMeshProUGUI>();
-                    if (tmp != null) tmp.text = "0%";
+                    if (tmp != null) tmp.text = percentStr;
                     else
                     {
                         var txt = valueTr.GetComponent<UnityEngine.UI.Text>();
-                        if (txt != null) txt.text = "0%";
+                        if (txt != null) txt.text = percentStr;
                     }
                 }
 
@@ -238,7 +250,7 @@ public class SV_PausePopupUI : UIBase
                 if (fillingTr != null)
                 {
                     var fillImg = fillingTr.GetComponent<Image>();
-                    if (fillImg != null) fillImg.fillAmount = 0f;
+                    if (fillImg != null) fillImg.fillAmount = percent;
                 }
             }
             else

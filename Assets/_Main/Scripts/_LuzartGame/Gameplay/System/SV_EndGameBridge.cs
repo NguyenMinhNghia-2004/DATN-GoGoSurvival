@@ -66,6 +66,22 @@ namespace Luzart
             // Push updated meta-progression (gold/unlocks/levels/equipment) to the backend at run end.
             SceneRootManager.Instance?.Domain?.Get<CloudSyncService>()?.PushNow().Forget();
 
+            string chapterName = "Chapter 1";
+            float bestTime = 0f;
+            if (_gameController != null && _gameController.CurrentLevelConfig != null)
+            {
+                var cfg = _gameController.CurrentLevelConfig;
+                chapterName = $"Chapter {cfg.Level}";
+                string prefKey = $"BestTime_{cfg.Id}";
+                bestTime = PlayerPrefs.GetFloat(prefKey, 0f);
+                if (survival > bestTime)
+                {
+                    bestTime = survival;
+                    PlayerPrefs.SetFloat(prefKey, bestTime);
+                    PlayerPrefs.Save();
+                }
+            }
+
             if (isWin)
             {
                 var data = new SV_WinData
@@ -75,6 +91,8 @@ namespace Luzart
                     SurvivalTime = survival,
                     CoinsEarned = coins,
                     XpEarned = 0,
+                    ChapterName = chapterName,
+                    BestTime = bestTime
                 };
                 await UIManager.Instance.ShowAsync(UIId.SV_WinScreen, new UIContext(data));
             }
@@ -85,6 +103,8 @@ namespace Luzart
                     EnemiesKilled = kills,
                     SurvivalTime = survival,
                     CoinsEarned = coins,
+                    ChapterName = chapterName,
+                    BestTime = bestTime
                 };
                 await UIManager.Instance.ShowAsync(UIId.SV_LoseScreen, new UIContext(data));
             }

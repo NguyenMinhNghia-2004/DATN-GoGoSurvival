@@ -23,6 +23,7 @@ namespace Luzart
         {
             return $"{((IModifierDefinition)this).DisplayName}: {value}";
         }
+#if UNITY_EDITOR
         protected override void Editor_DoOnValidateScriptableObject()
         {
             base.Editor_DoOnValidateScriptableObject();
@@ -42,5 +43,6 @@ namespace Luzart
             str = str.Replace("Runtime_XP", "XP");
             displayName = str;
         }
+#endif
     }
 }

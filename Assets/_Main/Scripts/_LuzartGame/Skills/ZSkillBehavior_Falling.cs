@@ -50,14 +50,30 @@ namespace Luzart
 
                 var projectile = SpawnProjectileEntity(_behaviorConfig.ProjectileConfig);
                 if (projectile == null) continue;
-                Vector3 spawnPos = dropPos + Vector3.up * _behaviorConfig.DropHeight;
-                projectile.Transform.Position.Set(spawnPos);
+                projectile.Transform.Position.Set(_owner.Transform.Position.Value);
                 projectile.Transform.SetRotation(Quaternion.identity);
-                if (projectile is INormalProjectile np)
+                if (projectile is BombProjectile bp)
+                {
+                    float g = 9.8f; // Standard gravity for parabola
+                    float dropHeight = _behaviorConfig.DropHeight;
+                    if (dropHeight <= 0) dropHeight = 5f;
+                    
+                    Vector2 startPos = _owner.Transform.Position.Value;
+                    float dy = dropPos.y - startPos.y;
+                    
+                    // Peak is DropHeight above the higher of the two points
+                    float peakHeight = Mathf.Max(0, dy) + dropHeight;
+                    
+                    float vy = Mathf.Sqrt(2f * g * peakHeight);
+                    float discriminant = vy * vy - 2f * g * dy;
+                    if (discriminant < 0) discriminant = 0;
+                    float travelTime = (vy + Mathf.Sqrt(discriminant)) / g;
+                    
+                    bp.SetParabolaProjectile(startPos, dropPos, travelTime);
+                }
+                else if (projectile is INormalProjectile np)
                 {
                     double speed = _zSkillUpgradeConfig.GetStat(StatType.FireSpeed).Value;
-                    // Direction = straight down. Bomb gravity adds downward accel; speed gives
-                    // initial drop velocity (so it doesn't hang briefly).
                     np.SetDirectAndSpeedProjectile(speed, Vector3.down);
                 }
                 EntityManager?.Add(projectile);

@@ -5261,6 +5261,51 @@ Transform:
   - {fileID: 1924596210}
   m_Father: {fileID: 1852245299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &953249531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953249533}
+  - component: {fileID: 953249532}
+  m_Layer: 0
+  m_Name: SetFPS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &953249532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953249531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa55fdc6156810428f4a7d1cf69d41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FPSLimiter
+  targetFPS: 60
+--- !u!4 &953249533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953249531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.82842, y: -10.46699, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957329717
 GameObject:
   m_ObjectHideFlags: 0
@@ -8626,6 +8671,10 @@ MonoBehaviour:
   contents:
   - {fileID: 11400000, guid: 9dc5d922a6afb4093a5b3b222f3785fa, type: 2}
   - {fileID: 11400000, guid: ca87e9133e9feb043b2de31f5d6beaed, type: 2}
+  - {fileID: 11400000, guid: 1363c5c71046e8a4aad8f8f381d5eeb2, type: 2}
+  - {fileID: 11400000, guid: f236e5d2dc945364d82d3fa6087dc41e, type: 2}
+  - {fileID: 11400000, guid: 2b5de006028742f40a11d623ddcf4e12, type: 2}
+  - {fileID: 11400000, guid: 2861e40cf809441489215c1e8fe7bb1a, type: 2}
   - {fileID: 11400000, guid: f0a221c51d9f74b45bae64b1e2d419ab, type: 2}
   - {fileID: 11400000, guid: 9b8baf91f0f7998468f4a228f9ecde0c, type: 2}
   - {fileID: 11400000, guid: 06678fa2628fdb94daf26e4396827fd8, type: 2}
@@ -12522,3 +12571,4 @@ SceneRoots:
   - {fileID: 1515392206}
   - {fileID: 345803198}
   - {fileID: 1111954792}
+  - {fileID: 953249533}

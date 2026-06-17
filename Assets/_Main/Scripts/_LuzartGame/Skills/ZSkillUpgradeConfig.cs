@@ -102,6 +102,7 @@ namespace Luzart
                 return string.Format(template, value);
             return $"{template} : {value}";
         }
+#if UNITY_EDITOR
         protected override void Editor_DoOnValidateScriptableObject()
         {
             base.Editor_DoOnValidateScriptableObject();
@@ -131,6 +132,7 @@ namespace Luzart
                 //skillInfor.Editor_SkillDetail = detail.Replace("|ZSkillUpgradeConfig_", "");
             }
         }
+#endif
     }
     public interface IZSkillStat : IStat
     {

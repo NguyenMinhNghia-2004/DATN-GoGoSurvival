@@ -23,6 +23,8 @@ namespace Luzart
     
         // Inject
         private LevelConfig _levelConfig;
+        public LevelConfig CurrentLevelConfig => _levelConfig;
+
         private EnemySpawnerManager _enemyManager;
         private PlayerCharacter _playerCharacter;
         private UpgradeSkillManager _upgradeSkillManager;
@@ -80,6 +82,22 @@ namespace Luzart
             // between that and GameController.DoInitialize is non-deterministic. Re-reading
             // here ensures HP/XP subscriptions target the canonical (Luzart) character.
             _playerCharacter = _domain.Get<PlayerCharacter>();
+
+            // Re-evaluate level config here because the user might have selected a different map in the main menu
+            int selectedMapIndex = PlayerPrefs.GetInt("SelectedMapIndex", 0);
+            var allLevelConfigs = _domain.GetAll<LevelConfig>();
+            if (allLevelConfigs != null && allLevelConfigs.Count > 0)
+            {
+                if (selectedMapIndex >= 0 && selectedMapIndex < allLevelConfigs.Count)
+                    _levelConfig = allLevelConfigs[selectedMapIndex];
+                else
+                    _levelConfig = allLevelConfigs[0];
+            }
+            else
+            {
+                _levelConfig = _domain.Get<LevelConfig>();
+            }
+
             SpawnNewWave(IndexWave);
             IndexWave.Changed += SpawnNewWave;
             XP.Changed += OnXPChange;
@@ -115,7 +133,8 @@ namespace Luzart
             if (_levelConfig == null || _levelConfig.EnemyWaves == null) return;
             if (indexWave.Value >= _levelConfig.EnemyWaves.Count) return;
             _dataWaveCurrent = _levelConfig.EnemyWaves[indexWave.Value];
-            List<EnemyWaveConfig> listEnemyWaveConfig = _dataWaveCurrent.GetListWaveEnemy(indexWave.Value);
+            List<EnemyWaveConfig> listEnemyWaveConfig = _dataWaveCurrent.Waves;
+
             if (_enemyManager == null) return;
             StartCoroutine(_enemyManager.StartSpawning(listEnemyWaveConfig));
         }

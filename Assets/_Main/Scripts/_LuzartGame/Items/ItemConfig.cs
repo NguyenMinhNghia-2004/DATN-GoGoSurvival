@@ -93,6 +93,7 @@ namespace Luzart
                 set => modifierFactors = value;
             }
         }
+#if UNITY_EDITOR
         private void CreateAndAutoAssetUnlockable()
         {
             // Tạo tên sub-asset
@@ -189,6 +190,7 @@ namespace Luzart
                     upgradeItemConfigs.Add(upgradeConfig);
                 }
         }
+#endif
     }
 }
 //public void RefreshEquippedModifiers(bool isEquipped)

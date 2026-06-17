@@ -68,6 +68,7 @@ namespace Luzart
                 _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 var projectile = SpawnProjectileEntity(_behaviorConfig.ProjectileConfig);
                 if (projectile == null) continue;
+                if (projectile is ProjectileEntity pe) pe.SourceSkill = _skill;
                 projectile.Transform.Position.Set(_owner.Transform.Position.Value);
                 if (Direction != Vector3.zero)
                 {

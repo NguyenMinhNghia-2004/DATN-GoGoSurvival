@@ -431,7 +431,7 @@ public class SV_LevelUpSlot : MonoBehaviour
     {
         if (_catalog != null) return _catalog;
 #if UNITY_EDITOR
-        _catalog = UnityEditor.AssetDatabase.LoadAssetAtPath<SV_SkillCatalog>("Assets/_Main/Data/Skills/SV_SkillCatalog.asset");
+        _catalog = UnityEditor.AssetDatabase.LoadAssetAtPath<SV_SkillCatalog>("Assets/_Main/Data/Skills/Resources/SV_SkillCatalog.asset");
 #endif
         if (_catalog == null)
             _catalog = Resources.Load<SV_SkillCatalog>("SV_SkillCatalog");

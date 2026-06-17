@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e24682b84fe0bb47b30c44f10fbf848, type: 3}
+  m_Name: EnDef_Regular_Butter
+  m_EditorClassIdentifier: Assembly-CSharp::Luzart.EnemyDefinition
+  _id: EnDef_RegularMonster
+  _sprite: {fileID: 0}
+  _material: {fileID: 2100000, guid: b4ba7620e1f2b4ceba9446458489890b, type: 2}
+  _scale: {x: 1, y: 1, z: 1}
+  _visualPrefab: {fileID: 3537171100188795310, guid: bfdab0a44d6514744bfb4935f7a74a8a, type: 3}
+  _lifeTime: 1000
+  prefab: {fileID: 3537171100188795310, guid: bfdab0a44d6514744bfb4935f7a74a8a, type: 3}
+  animationConfig: {fileID: 0}
+  skillConfig: []

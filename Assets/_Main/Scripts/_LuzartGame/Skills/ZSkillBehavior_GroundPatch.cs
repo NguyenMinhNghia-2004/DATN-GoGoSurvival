@@ -33,35 +33,41 @@ namespace Luzart
         private async UniTask SpawnAll()
         {
             int amount = (int)_zSkillUpgradeConfig.GetStat(StatType.AmountProjectile).Value;
-            double timeBreak = _zSkillUpgradeConfig.GetStat(StatType.TimeBreak).Value;
             if (amount <= 0) amount = 1;
 
             for (int i = 0; i < amount; i++)
             {
                 _cancellationTokenSource.Token.ThrowIfCancellationRequested();
-                ThrowOne();
-                if (timeBreak > 0)
-                    await UniTask.WaitForSeconds((float)timeBreak, cancellationToken: _cancellationTokenSource.Token);
+                ThrowOne(i, amount);
             }
+            await UniTask.Yield(); // Just to satisfy async signature if needed
         }
 
-        private void ThrowOne()
+        private void ThrowOne(int index, int totalAmount)
         {
             float range = (float)_zSkillUpgradeConfig.GetStat(StatType.RangeFind).Value;
             double speed = _zSkillUpgradeConfig.GetStat(StatType.FireSpeed).Value;
 
-            // Target: nearest enemy if available; else random offset around owner.
-            var partner = _tp.GetTarget(_owner, range, _behaviorConfig.SearchTargetType);
             Vector3 dir;
-            if (partner != null)
+            if (totalAmount == 1)
             {
-                dir = ((Vector2)(partner.Transform.Position.Value - _owner.Transform.Position.Value)).normalized;
+                // Target: nearest enemy if available; else random offset around owner.
+                var partner = _tp.GetTarget(_owner, range, _behaviorConfig.SearchTargetType);
+                if (partner != null)
+                {
+                    dir = ((Vector2)(partner.Transform.Position.Value - _owner.Transform.Position.Value)).normalized;
+                }
+                else
+                {
+                    Vector2 rand = Random.insideUnitCircle;
+                    if (rand.sqrMagnitude < 0.001f) rand = Vector2.right;
+                    dir = rand.normalized;
+                }
             }
             else
             {
-                Vector2 rand = Random.insideUnitCircle;
-                if (rand.sqrMagnitude < 0.001f) rand = Vector2.right;
-                dir = rand.normalized;
+                float angle = (360f / totalAmount) * index;
+                dir = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad), 0).normalized;
             }
 
             var projectile = SpawnProjectileEntity(_behaviorConfig.ProjectileConfig);

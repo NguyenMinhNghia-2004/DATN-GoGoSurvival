@@ -11,6 +11,7 @@ namespace Luzart
 
         private IEquipmentSlot iEquipmentSlot => Data;
         private IBool IsUnlocked => iEquipmentSlot.IsUnlocked;
+        private ItemConfig _currentEquippedItem;
 
         protected override void OnSetup()
         {
@@ -24,14 +25,30 @@ namespace Luzart
 
         private void IEquipmentSlot_Changed(IEquipmentSlot obj)
         {
-            if (obj.EquippedItem == null)
+            if (_currentEquippedItem != null)
+            {
+                _currentEquippedItem.Level.Changed -= OnEquippedItemLevelChanged;
+            }
+
+            _currentEquippedItem = obj.EquippedItem;
+
+            if (_currentEquippedItem == null)
             {
                 if (bsState != null) bsState.Select(1);
             }
             else
             {
                 if (bsState != null) bsState.Select(0);
-                if (itemView != null) itemView.Setup(obj.EquippedItem, obj.EquippedItem.Level.LevelIndex);
+                _currentEquippedItem.Level.Changed += OnEquippedItemLevelChanged;
+                if (itemView != null) itemView.Setup(_currentEquippedItem, _currentEquippedItem.Level.LevelIndex);
+            }
+        }
+
+        private void OnEquippedItemLevelChanged(ILevelable lvl)
+        {
+            if (_currentEquippedItem != null && itemView != null)
+            {
+                itemView.Setup(_currentEquippedItem, _currentEquippedItem.Level.LevelIndex);
             }
         }
 
@@ -40,6 +57,10 @@ namespace Luzart
             base.OnTeardown();
             IsUnlocked.Changed -= SetUnlock;
             iEquipmentSlot.Changed -= IEquipmentSlot_Changed;
+            if (_currentEquippedItem != null)
+            {
+                _currentEquippedItem.Level.Changed -= OnEquippedItemLevelChanged;
+            }
         }
 
         private void SetUnlock(IBool iBool)

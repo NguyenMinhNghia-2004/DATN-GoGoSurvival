@@ -18,7 +18,7 @@ MonoBehaviour:
   enemyWaves:
   - timeWave: 60
     waves:
-    - enemyDefinition: {fileID: 11400000, guid: 754b06e264e831249a7e7342235fa53b, type: 2}
+    - enemyDefinition: {fileID: 11400000, guid: 396a019ab378f8b41bc22978fc9bdfdd, type: 2}
       statsConfig: {fileID: 11400000, guid: 3ddc6d169fd9a4687981d531b3f2d17d, type: 2}
       dropConfigRequire: {fileID: 11400000, guid: d4e56ff993f524c6da7a2a2336c5dcdb, type: 2}
       statsFactor: {fileID: 0}
@@ -28,7 +28,7 @@ MonoBehaviour:
       timeDelayBeforeSpawn: 2
   - timeWave: 90
     waves:
-    - enemyDefinition: {fileID: 11400000, guid: 754b06e264e831249a7e7342235fa53b, type: 2}
+    - enemyDefinition: {fileID: 11400000, guid: 396a019ab378f8b41bc22978fc9bdfdd, type: 2}
       statsConfig: {fileID: 11400000, guid: 3ddc6d169fd9a4687981d531b3f2d17d, type: 2}
       dropConfigRequire: {fileID: 11400000, guid: d4e56ff993f524c6da7a2a2336c5dcdb, type: 2}
       statsFactor: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
       timeDelayBeforeSpawn: 10
   - timeWave: 120
     waves:
-    - enemyDefinition: {fileID: 11400000, guid: 403044445c6ea4a85b7aee18d9f1e836, type: 2}
+    - enemyDefinition: {fileID: 11400000, guid: 396a019ab378f8b41bc22978fc9bdfdd, type: 2}
       statsConfig: {fileID: 11400000, guid: 8757cf00cc3244c6591b6b6474d69efe, type: 2}
       dropConfigRequire: {fileID: 11400000, guid: 7b0de60bf237d420eb68dc6cd6ef93b5, type: 2}
       statsFactor: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
       timeIntervalSpawn: 1.2
       totalTimeSpawn: 90
       timeDelayBeforeSpawn: 0
-    - enemyDefinition: {fileID: 11400000, guid: e4edf3b5626d743c6927287fefa42094, type: 2}
+    - enemyDefinition: {fileID: 11400000, guid: 396a019ab378f8b41bc22978fc9bdfdd, type: 2}
       statsConfig: {fileID: 11400000, guid: dfa3bed8e36c54cb09ab6bf99dfba3dc, type: 2}
       dropConfigRequire: {fileID: 11400000, guid: d4278f839aed34491839c86ac1a8f058, type: 2}
       statsFactor: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
       timeIntervalSpawn: 8
       totalTimeSpawn: 80
       timeDelayBeforeSpawn: 15
-    - enemyDefinition: {fileID: 11400000, guid: a1233105bbdd3486e92217728b6fc276, type: 2}
+    - enemyDefinition: {fileID: 11400000, guid: 396a019ab378f8b41bc22978fc9bdfdd, type: 2}
       statsConfig: {fileID: 11400000, guid: 21978320bbd5945548eedb1d32f4ea78, type: 2}
       dropConfigRequire: {fileID: 11400000, guid: de17d00257bf844b29479ef502cc6254, type: 2}
       statsFactor: {fileID: 0}

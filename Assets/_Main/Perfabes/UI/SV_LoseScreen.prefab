@@ -150,18 +150,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dc13d98b72de3d54786a166cb40ad2af, type: 3}
-    m_FontSize: 16
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '               X2000'
+  m_Text: X2000
 --- !u!114 &2838764782873147753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8534405043109428568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4150608813272854852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1743,7 +1743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -80.3, y: -14}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 134.9173, y: 134.9976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6755622281620903057
@@ -2634,9 +2634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae417e40eedc42958d298ffea98bbba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SV_LoseScreenUI
-  killsText: {fileID: 0}
-  timeText: {fileID: 0}
-  coinsText: {fileID: 0}
+  killsText: {fileID: 9142283549666972160}
+  timeText: {fileID: 1536566080777215668}
+  bestTimeText: {fileID: 4057261717201475405}
+  chapterText: {fileID: 8566375968008503807}
+  coinsText: {fileID: 7745874652273015916}
   btnRetry: {fileID: 1091020918942552686}
   btnMainMenu: {fileID: 1881227793734879949}
   canvasGroup: {fileID: 75434371455368176}

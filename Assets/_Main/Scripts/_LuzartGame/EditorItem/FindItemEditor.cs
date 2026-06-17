@@ -5,7 +5,8 @@ using UnityEditor;
 using UnityEngine;
 namespace Luzart
 {
-	public class FindItemEditor 
+#if UNITY_EDITOR
+    public class FindItemEditor 
 	{
         private static Dictionary<string, AssetStatDefinition> _dictAssetStatDefinition = new();
         private static Dictionary<string, AssetModifier> _dictAssetModifier = new Dictionary<string, AssetModifier>();
@@ -243,4 +244,5 @@ namespace Luzart
             return contentList;
         }
     }
+#endif
 }
