@@ -62,12 +62,19 @@ namespace Luzart
 
         private static string ResolvePlayerId()
         {
-            var id = PlayerPrefs.GetString(PlayerIdKey, string.Empty);
-            if (string.IsNullOrEmpty(id))
+            // Sử dụng deviceUniqueIdentifier để cố định ID trên cùng một máy
+            // Giúp khôi phục dữ liệu khi gỡ game và cài lại
+            var id = SystemInfo.deviceUniqueIdentifier;
+            
+            if (string.IsNullOrEmpty(id) || id == SystemInfo.unsupportedIdentifier)
             {
-                id = System.Guid.NewGuid().ToString("N");
-                PlayerPrefs.SetString(PlayerIdKey, id);
-                PlayerPrefs.Save();
+                id = PlayerPrefs.GetString(PlayerIdKey, string.Empty);
+                if (string.IsNullOrEmpty(id))
+                {
+                    id = System.Guid.NewGuid().ToString("N");
+                    PlayerPrefs.SetString(PlayerIdKey, id);
+                    PlayerPrefs.Save();
+                }
             }
             return id;
         }
